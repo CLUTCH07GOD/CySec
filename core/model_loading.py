@@ -39,16 +39,31 @@ def ensure_adapters_present():
     ]
     if not domain_dirs:
         hf_repo = os.getenv("HF_ADAPTERS_REPO")
+        if not hf_repo:
+            try:
+                hf_repo = st.secrets.get("HF_ADAPTERS_REPO", "ClutchGod07/compliance-qwen-adapters")
+            except Exception:
+                hf_repo = "ClutchGod07/compliance-qwen-adapters"
+
+        hf_token = os.getenv("HF_TOKEN")
+        if not hf_token:
+            try:
+                hf_token = st.secrets.get("HF_TOKEN")
+            except Exception:
+                pass
+
         if hf_repo:
             try:
                 from huggingface_hub import snapshot_download
+                print(f"Downloading adapters from Hugging Face Hub: {hf_repo} ...")
                 snapshot_download(
                     repo_id=hf_repo,
                     local_dir=ADAPTERS_DIR,
+                    token=hf_token,
                     ignore_patterns=["*.git*", "*.pt", "*.bin"]
                 )
             except Exception as e:
-                pass
+                print(f"Warning: Failed downloading adapters from HF: {e}")
 
 @st.cache_resource(show_spinner="Loading base model & PEFT adapters...")
 def load_model_and_tokenizer():
@@ -62,6 +77,7 @@ def load_model_and_tokenizer():
     domains = [os.path.basename(d) for d in domain_dirs]
     if not domains:
         raise FileNotFoundError(f"No trained adapters found under '{ADAPTERS_DIR}'. Set HF_ADAPTERS_REPO to download from Hugging Face.")
+
     
     tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_NAME)
 
@@ -163,6 +179,15 @@ def load_router(_domains, _domain_dirs):
                 "embeddings": all_embeddings,
                 "examples": examples,
             }
+        else:
+            domain_kws = get_domain_keywords().get(domain, [domain.replace("-", " "), domain.replace("qwen3-", "").replace("-lora", "")])
+            all_embeddings = embedder.encode(domain_kws, show_progress_bar=False)
+            centroids[domain] = np.mean(all_embeddings, axis=0)
+            rag_index[domain] = {
+                "embeddings": all_embeddings,
+                "examples": [{"instruction": f"Explain compliance requirements for {k}", "output": f"Compliance analysis for {k}"} for k in domain_kws],
+            }
+
 
     for d in sorted(glob.glob(f"{ADAPTERS_DIR}/*")):
         if not os.path.isdir(d):
