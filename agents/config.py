@@ -17,15 +17,24 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 import tempfile
 
-LOCAL_TMP_DIR = "/media/hp/New Volume1/Harinandan/jupyter_projects-20260803T060807Z-1-001/jupyter_projects/tmp_sandboxes"
-os.makedirs(LOCAL_TMP_DIR, exist_ok=True)
-os.environ["TMPDIR"] = LOCAL_TMP_DIR
-os.environ["TEMP"] = LOCAL_TMP_DIR
-os.environ["TMP"] = LOCAL_TMP_DIR
-tempfile.tempdir = LOCAL_TMP_DIR
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LOCAL_TMP_DIR = os.getenv("LOCAL_TMP_DIR", os.path.join(PROJECT_ROOT, "tmp_sandboxes"))
+try:
+    os.makedirs(LOCAL_TMP_DIR, exist_ok=True)
+    os.environ["TMPDIR"] = LOCAL_TMP_DIR
+    os.environ["TEMP"] = LOCAL_TMP_DIR
+    os.environ["TMP"] = LOCAL_TMP_DIR
+    tempfile.tempdir = LOCAL_TMP_DIR
+except Exception:
+    pass
 
-os.environ["HF_HOME"] = "/media/hp/New Volume1/Harinandan/hf_cache"
-os.makedirs(os.environ["HF_HOME"], exist_ok=True)
+hf_cache = os.getenv("HF_HOME", os.path.join(PROJECT_ROOT, "hf_cache"))
+try:
+    os.makedirs(hf_cache, exist_ok=True)
+    os.environ["HF_HOME"] = hf_cache
+except Exception:
+    pass
+
 
 BASE_MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"          # HuggingFace Instruct model
 EMBED_MODEL_NAME = "all-MiniLM-L6-v2"                     # Ultra-lightweight 384-dim MiniLM embedding model
@@ -69,11 +78,10 @@ def get_llm():
     """Returns (model, tokenizer, device). Cached across calls within a process."""
     global _model, _tokenizer
     device = get_device()
-    hf_cache = "/media/hp/New Volume1/Harinandan/hf_cache"
-    os.environ["HF_HOME"] = hf_cache
-    os.makedirs(hf_cache, exist_ok=True)
+    hf_cache = os.getenv("HF_HOME")
     if _model is None:
         _tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_NAME, cache_dir=hf_cache)
+
         _model = AutoModelForCausalLM.from_pretrained(
             BASE_MODEL_NAME, cache_dir=hf_cache, torch_dtype=torch.float32 if device == "mps" else "auto"
         ).to(device)

@@ -40,12 +40,18 @@ for sub in ["database", "governance", "utils", "ingestion", "evaluation", "agent
     if p not in sys.path:
         sys.path.insert(0, p)
 
-# Configure HuggingFace cache directory to use New Volume1 (root disk is full)
-os.environ["HF_HOME"] = "/media/hp/New Volume1/Harinandan/hf_cache"
-os.makedirs(os.environ["HF_HOME"], exist_ok=True)
+# Configure HuggingFace cache directory (environment-aware with fallback)
+hf_cache = os.getenv("HF_HOME", os.path.join(PROJECT_ROOT, "hf_cache"))
+try:
+    os.makedirs(hf_cache, exist_ok=True)
+    os.environ["HF_HOME"] = hf_cache
+except Exception:
+    pass
+
 os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "0"
 os.environ["HF_XET_HIGH_PERFORMANCE"] = "1"
 warnings.filterwarnings("ignore")
+
 
 # Suppress Windows asyncio connection reset log noise
 if sys.platform == "win32":
