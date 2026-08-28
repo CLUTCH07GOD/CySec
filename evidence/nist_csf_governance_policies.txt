@@ -1,0 +1,96 @@
+===============================================================================
+COMPLIANCE EVIDENCE TEMPLATE: NIST CSF 2.0 & GENERAL GOVERNANCE CONTROLS
+ORGANIZATION: [INSERT ORGANIZATION NAME]
+VERSION: [INSERT VERSION & DATE]
+STATUS: TEMPLATE — REQUIRES ACTUAL ORGANIZATIONAL EVIDENCE
+===============================================================================
+
+INSTRUCTIONS:
+  - Replace every [INSERT ...] placeholder with real, verifiable evidence.
+  - Attach supporting artifacts (logs, screenshots, signed policies, contracts).
+  - Controls with placeholder text will be classified as "No Evidence Found".
+  - Delete this INSTRUCTIONS block after populating with real evidence.
+
+-------------------------------------------------------------------------------
+1. GOVERNANCE & ROLES RESPONSIBILITIES (GV.RR-01, GV.RR-02, GV.RR-03)
+-------------------------------------------------------------------------------
+Control GV.RR-01 (Leadership Accountability):
+[INSERT ACTUAL EVIDENCE: Board resolution or executive memo establishing CISO accountability, dated and signed. Include names, titles, and review schedule.]
+
+Control GV.RR-02 (Roles & Responsibilities):
+[INSERT ACTUAL EVIDENCE: Corporate Security Charter document reference, role assignment matrix with named individuals, RACI chart, or HR policy excerpt defining cybersecurity responsibilities per role.]
+
+Control GV.RR-03 (Resource Allocation):
+[INSERT ACTUAL EVIDENCE: IT budget allocation document showing line items for cybersecurity spending, headcount approvals, or procurement records for security tools/services.]
+
+-------------------------------------------------------------------------------
+2. SUPPLY CHAIN & THIRD-PARTY RISK MANAGEMENT (GV.SC-02, GV.SC-05, GV.SC-10)
+-------------------------------------------------------------------------------
+Control GV.SC-02 (Supplier Roles & Responsibilities):
+[INSERT ACTUAL EVIDENCE: Vendor onboarding SLA template, supplier security questionnaire, or third-party risk assessment documentation showing defined cybersecurity obligations.]
+
+Control GV.SC-05 (Supply Chain Contractual Clauses):
+[INSERT ACTUAL EVIDENCE: Excerpt from vendor agreement containing mandatory encryption, incident notification, and data handling clauses. Include contract reference number and date.]
+
+Control GV.SC-10 (Post-Contract Termination & Decommissioning):
+[INSERT ACTUAL EVIDENCE: Off-boarding procedure document showing token revocation timeline, account disablement SLA, and data sanitization certification process per NIST SP 800-88.]
+
+-------------------------------------------------------------------------------
+3. SECURITY POLICIES & COMPLIANCE MANAGEMENT (GV.PO-01, GV.OC-03, GV.OC-04)
+-------------------------------------------------------------------------------
+Control GV.PO-01 (Policy Establishment & Enforcement):
+[INSERT ACTUAL EVIDENCE: Cybersecurity policy document reference (e.g. CP-2026-01), publication date, internal portal URL, and annual review schedule with last review date.]
+
+Control GV.OC-03 (Legal & Regulatory Compliance Management):
+[INSERT ACTUAL EVIDENCE: Regulatory compliance register showing tracked laws (GDPR, CCPA, DPDP Act, etc.), assigned owners, and last assessment dates.]
+
+Control GV.OC-04 (External Stakeholder Dependencies):
+[INSERT ACTUAL EVIDENCE: Service dependency catalog, external API inventory, uptime SLA documentation, and contingency/failover plan references.]
+
+-------------------------------------------------------------------------------
+4. PROTECTIVE & DETECTIVE CONTROLS (PR.PS-04, PR.PS-05, DE.CM-03, DE.AE-06)
+-------------------------------------------------------------------------------
+Control PR.PS-04 (Log Generation & Continuous Monitoring Engine):
+[INSERT ACTUAL EVIDENCE: SIEM configuration export, log retention policy, sample log entries, or monitoring dashboard screenshot showing active alerting.]
+
+Control PR.PS-05 (Software Whitelisting & Execution Safeguards):
+[INSERT ACTUAL EVIDENCE: Application whitelist policy, container image registry policy, dependency pinning configuration (e.g. requirements.txt with hashes), or AppLocker/SELinux policy export.]
+
+Control DE.CM-03 (Personnel Activity & Usage Monitoring):
+[INSERT ACTUAL EVIDENCE: User activity monitoring tool configuration, access log samples with timestamps and user context, or DLP policy documentation.]
+
+Control DE.AE-06 (Adverse Event Provisioning & Incident Communication):
+[INSERT ACTUAL EVIDENCE: Incident response communication plan, escalation matrix, PagerDuty/Opsgenie webhook configuration, or sample incident notification email template.]
+
+-------------------------------------------------------------------------------
+5. ASSET PROTECTION, BACKUPS & INTEGRITY (PR.IR-02, PR.IR-04, PR.DS-11, ID.RA-09)
+-------------------------------------------------------------------------------
+Control PR.IR-02 (Technology Asset Protection from Environmental Threats):
+[INSERT ACTUAL EVIDENCE: Data center certification documents (ISO 27001, SOC 2), environmental controls specification, UPS/fire suppression system records.]
+
+Control PR.IR-04 (Resource Capacity Planning & High Availability):
+[INSERT ACTUAL EVIDENCE: Infrastructure monitoring dashboard export, auto-scaling configuration, load balancer setup, or capacity planning document.]
+
+Control PR.DS-11 (Data Backup Creation, Protection, Testing & Maintenance):
+[INSERT ACTUAL EVIDENCE: Backup job logs, retention policy document, most recent backup restoration test report with date and result.]
+
+Control ID.RA-09 (Hardware & Software Authenticity Integrity):
+[INSERT ACTUAL EVIDENCE: Software supply chain verification process (e.g. GPG signature checks, SHA-256 hash verification logs), SBOM documentation, or package signing configuration.]
+
+-------------------------------------------------------------------------------
+6. TRAINING, IMPROVEMENTS & VULNERABILITY MANAGEMENT (PR.AT-02, ID.IM-02, ID.RA-08)
+-------------------------------------------------------------------------------
+Control PR.AT-02 (Specialized Role-Based Training):
+[INSERT ACTUAL EVIDENCE: Training completion records, course certificates, LMS enrollment reports, or annual security awareness training schedule with attendance.]
+
+Control ID.IM-02 (Improvements from Security Audits):
+[INSERT ACTUAL EVIDENCE: Audit finding remediation tracker, JIRA/ServiceNow tickets showing fixes from prior audits, or post-audit improvement report.]
+
+Control ID.RA-08 (Vulnerability Disclosure Process & Intake):
+[INSERT ACTUAL EVIDENCE: Vulnerability disclosure policy (e.g. security.txt, bug bounty program), intake workflow documentation, SLA for triage and patch timelines.]
+
+-------------------------------------------------------------------------------
+7. RISK MANAGEMENT COMMUNICATION (GV.RM-05)
+-------------------------------------------------------------------------------
+Control GV.RM-05 (Lines of Communication for Cybersecurity & Third-Party Risks):
+[INSERT ACTUAL EVIDENCE: Communication protocol document, escalation chain diagram, regular risk review meeting minutes, or third-party risk notification procedure.]

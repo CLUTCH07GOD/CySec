@@ -1,0 +1,4 @@
+Perimeter firewall with stateful inspection deployed at all network boundaries.
+Network segmentation implemented separating production, development and corporate environments.
+Intrusion detection system monitors all inbound and outbound traffic.
+VPN with MFA required for all remote connections.

@@ -1,0 +1,15 @@
+{
+  "report_id": "REP_TEST_1001",
+  "client_id": "acme_corp",
+  "frameworks": [
+    "eu/gdpr",
+    "nist/csf"
+  ],
+  "submitted_at": "2026-08-26T11:06:22.654810+00:00",
+  "auto_verdict": "PASS",
+  "human_review_status": "APPROVED_BY_EXPERT",
+  "expert_auditor": "Auditor_CISA_101",
+  "expert_notes": "All control evidence validated.",
+  "signed_off_at": "2026-08-26T11:06:22.654902+00:00",
+  "report_markdown": "# Test Report"
+}

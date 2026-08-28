@@ -1,0 +1,1434 @@
+[
+  {
+    "control_id": "164.308",
+    "title": "Control 164.308",
+    "description": "Administrative Safeguards:\nDefined in the Security Rule as the \u201cadministrative actions and policies, and procedures to manage the selection, development, implementation, and maintenance of security measures to protect electronic protected health information and to manage the conduct of the covered entity's workforce in relation to the protection of that information.\u201d",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(1)",
+    "title": "Control 164.308(a)(1)",
+    "description": "Security Management Process:\nHIPAA Standard: Implement policies and procedures to prevent, detect, contain, and correct security violations.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(1).3",
+    "title": "1. Identify all ePHI and Relevant Information Systems",
+    "description": "Identify where ePHI is generated within the organization, where it enters the organization, where it moves within the organization, where it is stored, and where it leaves the organization.\n\nIdentify all systems  that house ePHI. Be sure to identify mobile devices, medical equipment, and medical IoT devices that store, process, or transmit ePHI.\n\nInclude all hardware and software that are used to collect, store, process, or transmit ePHI.\n\nAnalyze business functions and verify the ownership and control of information system elements as necessary.\n\nConsider the impact of a merger or acquisition on risks to ePHI. During a merger or acquisition, new data pathways may be introduced that lead to ePHI being stored, processed, or transmitted in previously unanticipated places.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(1).4",
+    "title": "2. Conduct Risk Assessment",
+    "description": "Conduct an accurate and thorough assessment of the potential risks and vulnerabilities to the confidentiality, integrity, and availability of ePHI held by the covered entity or business associate.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(1).5",
+    "title": "Implementation Specification (Required)",
+    "description": "Conduct an accurate and thorough assessment of the potential risks and vulnerabilities to the confidentiality, integrity, and availability of ePHI held by the covered entity or business associate.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(1).6",
+    "title": "3. Implement a Risk Management Program",
+    "description": "Implement security measures sufficient to reduce risks and vulnerabilities to a reasonable and appropriate level to comply with \u00a7164.306(a).\n\nRisk management should be performed with regular frequency to examine past decisions, reevaluate risk likelihood and impact levels, and assess the effectiveness of past remediation efforts\n\nCreate a Risk Management policy and program that outlines organizational risk appetite and risk tolerance, personnel duties, responsible parties, the frequency of risk management, and required documentation.\n\nA risk management methodology is included in Section 4.\n\nRisk management resources are also included in Appendix F.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(1).7",
+    "title": "Implementation Specification (Required)",
+    "description": "Implement security measures sufficient to reduce risks and vulnerabilities to a reasonable and appropriate level to comply with \u00a7164.306(a)",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(1).8",
+    "title": "4. Acquire IT Systems and Services",
+    "description": "Regulated entities should consider how cloud services and other third-party IT system and service offerings can both assist regulated entities in protecting ePHI while also potentially introducing new risks to ePHI.\n\nAlthough the HIPAA Security Rule does not require purchasing any particular technology, adequately protecting information may require additional hardware, software, or services. Considerations for their selection should include the following:",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(1).9",
+    "title": "5. Create and Deploy Policies and Procedures",
+    "description": "Implement the decisions concerning the management, operational, and technical controls selected to mitigate identified risks.\n\nCreate policies that clearly establish roles and responsibilities, and assign ultimate responsibility for the implementation of each control to particular individuals or offices.\n\nCreate procedures to be followed to accomplish particular security-related tasks.\n\nEstablish a frequency for reviewing policy and procedures",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(1).10",
+    "title": "6. Develop and Implement a Sanction Policy",
+    "description": "Apply appropriate sanctions against workforce members who fail to comply with the security policies and procedures of the covered entity or business associate\n\nDevelop policies and procedures for imposing appropriate sanctions (e.g., reprimand, termination) for noncompliance with the organization\u2019s security policies.\n\nImplement sanction policy as cases arise.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(1).11",
+    "title": "Implementation Specification (Required)",
+    "description": "Apply appropriate sanctions against workforce members who fail to comply with the security policies and procedures of the covered entity or business associate",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(1).12",
+    "title": "7. Develop and Deploy the Information System Activity Review Process",
+    "description": "Implement procedures to regularly review records of information system activity, such as audit logs, access reports, and security incident tracking reports.\n\nImplement regular reviews of information system activity, and consider ways to automate the review for the protection of ePHI.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(1).13",
+    "title": "Implementation Specification (Required)",
+    "description": "Implement procedures to regularly review records of information system activity, such as audit logs, access reports, and security incident tracking reports.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(1).14",
+    "title": "8. Develop Appropriate Standard Operating Procedures",
+    "description": "Determine the types of audit trail data and monitoring procedures that will be needed to derive exception reports.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(1).15",
+    "title": "9. Implement the Information System Activity Review and Audit Process",
+    "description": "Activate the necessary review process.\n\nBegin auditing and logging activity.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(2)",
+    "title": "Control 164.308(a)(2)",
+    "description": "Assigned Security Responsibility:\nHIPAA Standard: Identify the security official who is responsible for the development and implementation of the policies and procedures required by this subpart for the covered entity or business associate.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(2).17",
+    "title": "1. Select a Security Official to be Assigned Responsibility for HIPAA Security",
+    "description": "Identify the individual who has final responsibility for security.\n\nSelect an individual who is able to assess effective security to serve as the point of contact for security policy, implementation, and monitoring.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(2).18",
+    "title": "2. Assign and Document the Individual\u2019s Responsibility",
+    "description": "Document the assignment to one individual\u2019s responsibilities in a job description.\n\nCommunicate this assigned role to the entire organization.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(3)",
+    "title": "Control 164.308(a)(3)",
+    "description": "Workforce Security:\nHIPAA Standard: Implement policies and procedures to ensure that all members of its workforce have appropriate access to electronic protected health information, as provided under paragraph (a)(4) of this section, and to prevent those workforce members who do not have access under paragraph (a)(4) of this section from obtaining access to electronic protected health information.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(3).20",
+    "title": "1. Implement Policies and Procedures for Authorization and/or Supervision",
+    "description": "Implement procedures for the authorization and/or supervision of workforce members who work with ePHI or in locations where it might be accessed.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(3).21",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Implement procedures for the authorization and/or supervision of workforce members who work with ePHI or in locations where it might be accessed.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(3).22",
+    "title": "2. Establish Clear Job Descriptions and Responsibilities",
+    "description": "Define roles and responsibilities for all job functions.\n\nAssign appropriate levels of security oversight, training, and access.\n\nIdentify in writing who has the business need and who has been granted permission to view, alter, retrieve, and store ePHI and at what times, under what circumstances, and for what purposes.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(3).23",
+    "title": "3. Establish Criteria and Procedures for Hiring and Assigning Tasks",
+    "description": "Ensure that staff members have the necessary knowledge, skills, and abilities to fulfill particular roles (e.g., positions involving access to and use of sensitive information).\n\nEnsure that these requirements are included as part of the personnel hiring process.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(3).24",
+    "title": "4. Establish a Workforce Clearance Procedure",
+    "description": "Implement procedures to determine that the access of a workforce member to ePHI is appropriate.\n\nImplement appropriate screening of persons who will have access to ePHI.\n\nImplement a procedure for obtaining clearance from appropriate offices or individuals where access is provided or terminated.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(3).25",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Implement procedures to determine that the access of a workforce member to ePHI is appropriate.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(3).26",
+    "title": "5. Establish Termination Procedures",
+    "description": "Implement procedures for terminating access to ePHI when the employment of or other arrangement with a workforce member ends or as required by determinations made as specified in \u00a7164.308(a)(3)(ii)(B).\n\nDevelop a standard set of procedures that should be followed to recover access control devices (e.g., identification badges, keys, access cards) when employment ends.\n\nDeactivate computer access accounts (e.g., disable user IDs and passwords) and facility access (e.g., change facility security codes/PINs).",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(3).27",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Implement procedures for terminating access to ePHI when the employment of or other arrangement with a workforce member ends or as required by determinations made as specified in \u00a7164.308(a)(3)(ii)(B).",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(4)",
+    "title": "Control 164.308(a)(4)",
+    "description": "Information Access Management:\nHIPAA Standard: Implement policies and procedures for authorizing access to electronic protected health information that are consistent with the applicable requirements of subpart E of this part.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(4).29",
+    "title": "1. Isolate Healthcare Clearinghouse Functions",
+    "description": "If a healthcare clearinghouse is part of a larger organization, the clearinghouse must implement policies and procedures that protect the ePHI of the clearinghouse from unauthorized access by the larger organization.\n\nDetermine whether a component of the regulated entity constitutes a healthcare clearinghouse under the HIPAA Security Rule.\n\nIf no clearinghouse functions exist, document this finding. If a clearinghouse exists within the organization, implement procedures for access that are consistent with the HIPAA Privacy Rule.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(4).30",
+    "title": "Implementation Specification (Required)",
+    "description": "If a healthcare clearinghouse is part of a larger organization, the clearinghouse must implement policies and procedures that protect the ePHI of the clearinghouse from unauthorized access by the larger organization.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(4).31",
+    "title": "2. Implement Policies and Procedures for Authorizing Access",
+    "description": "Implement policies and procedures for granting access to ePHI, such as through access to a workstation, transaction, program, process, or other mechanism.\n\nDecide and document procedures for how access to ePHI will be granted to workforce members within the organization.\n\nSelect the basis for restricting access to ePHI.\n\nSelect an access control method (e.g., identity-based, role-based, or other reasonable and appropriate means of access.)\n\nDecide and document how access to ePHI will be granted for privileged functions.\n\nEnsure that there is a list of personnel with authority to approve user requests to access ePHI and systems with ePHI.\n\nIdentify authorized users with access to ePHI, including data owners and data custodians.\n\nConsider whether multiple access control methods are needed to protect ePHI according to the results of the risk assessment.\n\nDetermine whether direct access to ePHI will ever be appropriate for individuals external to the organization (e.g., business partners or patients seeking access to their own ePHI).",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(4).32",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Implement policies and procedures for granting access to ePHI, such as through access to a workstation, transaction, program, process, or other mechanism.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(4).33",
+    "title": "3. Implement Policies and Procedures for Access Establishment and Modification",
+    "description": "Implement policies and procedures that \u2013 based on the covered entity or business associate\u2019s access authorization policies \u2013 establish, document, review, and modify a user's right of access to a workstation, transaction, program, or process.\n\nEstablish standards for granting access to ePHI.\n\nProvide formal authorization from the appropriate authority before granting access to ePHI.\n\nRegularly review personnel access to ePHI to ensure that access is still authorized and needed.\n\nModify personnel access to ePHI, as needed, based on review activities.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(4).34",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Implement policies and procedures that \u2013 based on the covered entity or business associate\u2019s access authorization policies \u2013 establish, document, review, and modify a user's right of access to a workstation, transaction, program, or process.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(4).35",
+    "title": "4. Evaluate Existing Security Measures Related to Access Controls",
+    "description": "Evaluate the security features of access controls that are already in place or those of any planned for implementation, as appropriate.\n\nDetermine whether these security features involve alignment with other existing management, operational, and technical controls, such as policy standards, personnel procedures, the maintenance and review of audit trails, the identification and authentication of users, and physical access controls.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(5)",
+    "title": "Control 164.308(a)(5)",
+    "description": "Security Awareness and Training:\nHIPAA Standard: Implement a security awareness and training program for all members of its workforce (including management).",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(5).37",
+    "title": "1. Conduct a Training Needs Assessment",
+    "description": "Determine the training needs of the organization.\n\nInterview and involve key personnel in assessing security training needs.\n\nUse feedback and analysis of past events to help determine training needs\n\nReview organizational behavior issues, past incidents, and/or breaches to determine what training is missing or needs reinforcement, improvement, or periodic reminders.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(5).38",
+    "title": "2. Develop and Approve a Training Strategy and a Plan",
+    "description": "Address the specific HIPAA policies that require security awareness and training in the security awareness and training program.\n\nSet organizational expectations for protecting ePHI.\n\nIn the security awareness and training program, outline the program\u2019s scope, goals, target audiences, learning objectives, deployment methods, and evaluation and measurement techniques, as well as the frequency of training",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(5).39",
+    "title": "3. Protection from Malicious Software, Login Monitoring, and Password Management",
+    "description": "As reasonable and appropriate, train workforce members regarding procedures for:\n\nIncorporate information concerning workforce members\u2019 roles and responsibilities in implementing these implementation specifications into training and awareness efforts.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(5).40",
+    "title": "Implementation Specification (Protection from Malicious Software)",
+    "description": "As reasonable and appropriate, train workforce members regarding procedures for:",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(5).41",
+    "title": "Implementation Specification (Log-in Monitoring)",
+    "description": "As reasonable and appropriate, train workforce members regarding procedures for:",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(5).42",
+    "title": "Implementation Specification (Password Management)",
+    "description": "As reasonable and appropriate, train workforce members regarding procedures for:",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(5).43",
+    "title": "4. Develop Appropriate Awareness and Training Content, Materials, and Methods",
+    "description": "Select topics to be included in the training materials, and consider current and relevant topics (e.g., phishing, email security) for the protection of ePHI.\n\nIncorporate new information from email advisories, online IT security daily news websites, and periodicals, as reasonable and appropriate.\n\nConsider using a variety of media and avenues according to what is appropriate for the organization based on workforce size, location, level of education, and other factors.\n\nTraining should be an ongoing, evolving process in response to environmental and operational changes that affect the security of ePHI.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(5).44",
+    "title": "5. Implement the Training",
+    "description": "Schedule and conduct the training outlined in the strategy and plan.\n\nImplement any reasonable technique to disseminate the security messages in an organization, including newsletters, screensavers, video recordings, email messages, teleconferencing sessions, staff meetings, and computer-based training.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(5).45",
+    "title": "6. Implement Security Reminders",
+    "description": "Implement periodic security updates.\n\nProvide periodic security updates to staff, business associates, and contractors.\n\nConsider the benefits of ongoing communication with staff (e.g., emails, newsletters) on training topics to achieve HIPAA compliance and protect ePHI.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(5).46",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Implement periodic security updates.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(5).47",
+    "title": "7. Monitor and Evaluate the Training Plan",
+    "description": "Keep the security awareness and training program current.\n\nSolicit trainee feedback to determine whether the training and awareness are successfully reaching the intended audience.\n\nConduct training whenever changes occur in the technology and practices as appropriate.\n\nMonitor the training program implementation to ensure that all workforce members participate.\n\nImplement corrective actions when problems arise.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(6)",
+    "title": "Control 164.308(a)(6)",
+    "description": "Security Incident Procedures:\nHIPAA Standard: Implement policies and procedures to address security incidents.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(6).49",
+    "title": "1. Determine the Goals of Incident Response",
+    "description": "Gain an understanding as to what constitutes a true security incident. Under the HIPAA Security Rule, a security incident is the attempted or successful unauthorized access, use, disclosure, modification, or destruction of information or interference with system operations in an information system (45 CFR \u00a7 164.304).\n\nEnsure that the incident response program covers all parts of the organization in which ePHI is created, stored, processed, or transmitted.\n\nDetermine how the organization will respond to a security incident.\n\nEstablish a reporting mechanism and a process to coordinate responses to the security incident.\n\nProvide direct technical assistance, advise vendors to address product-related problems, and provide liaisons to legal and criminal investigative groups as needed.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(6).50",
+    "title": "2. Develop and Deploy an Incident Response Team or Other Reasonable and Appropriate Response Mechanism",
+    "description": "Determine whether the size, scope, mission, and other aspects of the organization justify the reasonableness and appropriateness of maintaining a standing incident response team.\n\nIdentify appropriate individuals to be part of a formal incident response team if the organization has determined that implementing an incident response team is reasonable and appropriate.\n\nConsider assigning secondary personnel to be part of the incident response team in the event that primary personnel are unavailable.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(6).51",
+    "title": "3. Develop and Implement Policy and Procedures to Respond to and Report Security Incidents",
+    "description": "Identify and respond to suspected or known security incidents; mitigate, to the extent practicable, harmful effects of security incidents that are known to the covered entity or business associate; and document security incidents and their outcomes.\n\nEnsure that an organizational incident response policy is in place that addresses all parts of the organization in which ePHI is created, stored, processed, or transmitted.\n\nDocument incident response procedures that can provide a single point of reference to guide the day-to-day operations of the incident response team.\n\nReview incident response procedures with staff who have roles and responsibilities related to incident response; solicit suggestions for improvements; and make changes to reflect input if reasonable and appropriate.\n\nConsider conducting tests of the incident response plan.\n\nUpdate the procedures as required based on changing organizational needs.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(6).52",
+    "title": "Implementation Specification (Required)",
+    "description": "Identify and respond to suspected or known security incidents; mitigate, to the extent practicable, harmful effects of security incidents that are known to the covered entity or business associate; and document security incidents and their outcomes.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(6).53",
+    "title": "4. Incorporate Post-Incident Analysis into Updates and Revisions",
+    "description": "Measure effectiveness and update security incident response procedures to reflect lessons learned, and identify actions to take that will improve security controls after a security incident.\n\nIncidents caused by or influenced by known risks should feed back into the risk assessment process for a reevaluation of impact and/or likelihood.\n\nRemediation and corrective action plans that arise from incidents should serve as input to the risk assessment/management process.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(7)",
+    "title": "Control 164.308(a)(7)",
+    "description": "Contingency Plan:\nHIPAA Standard: Establish (and implement as needed) policies and procedures for responding to an emergency or other occurrence (for example, fire, vandalism, system failure, and natural disaster) that damages systems that contain electronic protected health information",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(7).55",
+    "title": "1. Develop a Contingency Planning Policy",
+    "description": "Define the organization\u2019s overall contingency objectives.\n\nEstablish the organizational framework, roles, and responsibilities for this area.\n\nAddress scope, resource requirements, training, testing, plan maintenance, and backup requirements.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(7).56",
+    "title": "2. Conduct an Applications and Data Criticality Analysis",
+    "description": "Assess the relative criticality of specific applications and data in support of other Contingency Plan components.\n\nIdentify the activities and material involving ePHI that are critical to business operations.\n\nIdentify the critical services or operations and the manual and automated processes that support them involving ePHI.\n\nDetermine the amount of time that the organization can tolerate disruptions to these operations, materials, or services (e.g., due to power outages).\n\nEvaluate the current and available levels of redundancy and geographic distribution of any storage service providers to identify risks to service availability and determine restoration times.\n\nConsider whether any vendor/service provider arrangements are critical to operations and address them as appropriate to ensure availability and reliability.\n\nEstablish cost-effective strategies for recovering these critical services or processes.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(7).57",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Assess the relative criticality of specific applications and data in support of other Contingency Plan components.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(7).58",
+    "title": "3. Identify Preventive Measures",
+    "description": "Identify preventive measures for each defined scenario that could result in the loss of a critical service operation involving the use of ePHI.\n\nEnsure that identified preventive measures are practical and feasible in terms of their applicability in a given environment.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(7).59",
+    "title": "4. Develop Recovery Strategy",
+    "description": "Finalize the set of contingency procedures that should be invoked for all identified impacts, including emergency mode operation. The strategy must be adaptable to the existing operating environment and address allowable outage times and the associated priorities identified in Key Activity 2.\n\nIf part of the strategy depends on external organizations for support, ensure that formal agreements are in place with specific requirements stated.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(7).60",
+    "title": "5. Data Backup Plan and Disaster Recovery Plan",
+    "description": "Establish and implement procedures to create and maintain retrievable exact copies of ePHI.\n\nEstablish (and implement as needed) procedures to restore any loss of data.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(7).61",
+    "title": "Implementation Specification (Required)",
+    "description": "Establish and implement procedures to create and maintain retrievable exact copies of ePHI.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(7).62",
+    "title": "Implementation Specification (Required)",
+    "description": "Establish (and implement as needed) procedures to restore any loss of data.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(7).63",
+    "title": "6. Develop and Implement an Emergency Mode Operation Plan",
+    "description": "Establish (and implement as needed) procedures to enable the continuation of critical business processes to protect the security of ePHI while operating in emergency mode.\n\n\u201cEmergency mode\u201d operation involves only those critical business processes that must occur to protect the security of ePHI during and immediately after a crisis situation.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(7).64",
+    "title": "Implementation Specification (Required)",
+    "description": "Establish (and implement as needed) procedures to enable the continuation of critical business processes to protect the security of ePHI while operating in emergency mode.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(7).65",
+    "title": "7. Testing and Revision Procedure",
+    "description": "Implement procedures for the periodic testing and revision of contingency plans.\n\nTest the contingency plan on a predefined cycle (stated in the policy developed under Key Activity 1), if reasonable and appropriate.\n\nTrain those with defined plan responsibilities in their roles.\n\nIf possible, involve external entities (e.g., vendors, alternative site or service providers) in testing exercises.\n\nMake key decisions regarding how the testing is to occur (e.g., tabletop exercise versus staging a real operational scenario, including actual loss of capability).\n\nDecide how to segment the type of testing based on the assessment of business impact and the acceptability of a sustained loss of service.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(7).66",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Implement procedures for the periodic testing and revision of contingency plans.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(8)",
+    "title": "Control 164.308(a)(8)",
+    "description": "Evaluation:\nHIPAA Standard: Perform a periodic technical and nontechnical evaluation, based initially upon the standards implemented under this rule and subsequently, in response to environmental or operational changes affecting the security of electronic protected health information, that establishes the extent to which a covered entity\u2019s or business associate\u2019s security policies and procedures meet the requirements of this subpart.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(8).68",
+    "title": "1. Determine Whether Internal or External Evaluation is Most Appropriate",
+    "description": "Decide whether the evaluation will be conducted with internal staff resources or external consultants.\n\nEngage external expertise to assist the internal evaluation team where additional skills and expertise are determined to be reasonable and appropriate.\n\nUse internal resources to supplement an external source of help because these internal resources can provide the best institutional knowledge and history of internal policies and practices.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(8).69",
+    "title": "2. Develop Standards and Measurements for Reviewing All Standards and Implementation Specifications of the Security Rule",
+    "description": "Develop and document organizational policies and procedures for conducting evaluation.\n\nOnce security controls have been implemented in response to the organization\u2019s risk assessment and management processes, periodically review these implemented security measures to ensure their continued effectiveness in protecting ePHI.\n\nConsider determining any specific evaluation metrics and/or measurements to be captured during evaluation. Metrics and/or measurements can assist in tracking progress over time.\n\nUse an evaluation strategy and tool that considers all elements of the HIPAA Security Rule and can be tracked, such as a questionnaire or checklist.\n\nImplement tools that can provide reports on the level of compliance, integration, or maturity of a particular security safeguard deployed to protect ePHI.\n\nIf available, consider engaging corporate, legal, or regulatory compliance staff when conducting the analysis.\n\nLeverage any existing reports or documentation that may already be prepared by the organization addressing the compliance, integration, or maturity of a particular security safeguard deployed to protect ePHI.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(8).70",
+    "title": "3. Conduct Evaluation",
+    "description": "Determine in advance what departments and/or staff will participate in the evaluation.\n\nDetermine what constitutes an environmental or operational change that affects the security of ePHI.\n\nDetermine when evaluations are conducted in response to an environmental or operational change that affects the security of ePHI (e.g., prior to the change, contemporaneous with the change, after the change).\n\nSecure management support for the evaluation process to ensure participation.\n\nCollect and document all needed information. Collection methods may include the use of interviews, surveys, and the outputs of automated tools, such as access control auditing tools, system logs, and the results of penetration testing.\n\nConduct penetration testing (where testers attempt to compromise system security for the sole purpose of testing the effectiveness of security controls), if reasonable and appropriate.\n\nEvaluation may include reviewing organizational policies and procedures, assessing the implementation of security controls, collecting evidence of security control implementation, and performing physical walk- throughs.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(8).71",
+    "title": "4. Document Results",
+    "description": "Document each evaluation finding, as well as remediation options, recommendations, and decisions.\n\nDocument known gaps between identified risks, mitigating security controls, and any acceptance of risk, including justification.\n\nDevelop security program priorities, and establish targets for continuous improvement.\n\nUtilize the results of evaluations to inform impactful security changes to protect ePHI.\n\nCommunicate evaluation results, metrics, and/or measurements to relevant organizational personnel.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(a)(8).72",
+    "title": "5. Repeat Evaluations Periodically",
+    "description": "Establish the frequency of evaluations, and consider the sensitivity of the ePHI controlled by the organization as well as the organization's size, complexity, and environmental and/or operational changes (e.g., other relevant laws or accreditation requirements).\n\nIn addition to periodic reevaluations, consider repeating evaluations when environmental and operational changes that affect the security of ePHI are made to the organization (e.g., if new technology is adopted or if there are newly recognized risks to the security of ePHI).",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(b)(1)",
+    "title": "Control 164.308(b)(1)",
+    "description": "Business Associate Contracts and Other Arrangements:\nHIPAA Standard: A covered entity may permit a business associate to create, receive, maintain, or transmit electronic protected health information on the covered entity\u2019s behalf only if the covered entity obtains satisfactory assurances, in accordance with \u00a7 164.314(a), that the business associate will appropriately safeguard the information. A covered entity is not required to obtain such satisfactory assurances from a business associate that is a subcontractor.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(b)(1).74",
+    "title": "1. Identify Entities that are Business Associates Under the HIPAA Security Rule",
+    "description": "Identify the individual or department who will be responsible for coordinating the execution of business associate agreements or other arrangements.\n\nReevaluate the list of business associates to determine who has access to ePHI in order to assess whether the list is complete and current.\n\nIdentify systems covered by the contract/agreement.\n\nBusiness associates must have a BAA in place with each of their subcontractor business associates. Subcontractor business associates are also directly liable for their own Security Rule violations.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(b)(1).75",
+    "title": "2. Establish a Process for Measuring Contract Performance and Terminating the Contract if Security Requirements Are Not Being Met",
+    "description": "Maintain clear lines of communication between covered entities and business associates regarding the protection of ePHI as per the BAA or contract.\n\nEstablish criteria for measuring contract performance.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(b)(1).76",
+    "title": "3. Written Contract or Other Arrangement",
+    "description": "Document the satisfactory assurances required by this standard through a written contract or other arrangement with the business associate that meets the applicable requirements of \u00a7164.314(a). Readers may find useful resources in Appendix F, including OCR BAA guidance and/or templates that include applicable language.\n\nExecute new or update existing agreements or arrangements as appropriate.\n\nIdentify roles and responsibilities.\n\nInclude security requirements in business associate contracts and agreements to address the confidentiality, integrity, and availability of ePHI.\n\nSpecify any training requirements associated with the contract/agreement or arrangement, if reasonable and appropriate.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.308(b)(1).77",
+    "title": "Implementation Specification (Required)",
+    "description": "Document the satisfactory assurances required by this standard through a written contract or other arrangement with the business associate that meets the applicable requirements of \u00a7164.314(a). Readers may find useful resources in Appendix F, including OCR BAA guidance and/or templates that include applicable language.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310",
+    "title": "Control 164.310",
+    "description": "Physical Safeguards:\nDefined as the \u201cphysical measures, policies, and procedures to protect a covered entity\u2019s electronic information systems and related buildings and equipment, from natural and environmental hazards, and unauthorized intrusion.\u201d",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(a)",
+    "title": "Control 164.310(a)",
+    "description": "Facility Access Controls:\nHIPAA Standard: Implement policies and procedures to limit physical access to its electronic information systems and the facility or facilities in which they are housed, while ensuring that properly authorized access is allowed.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(a).80",
+    "title": "1. Conduct an Analysis of Existing Physical Security Vulnerabilities",
+    "description": "Inventory facilities and identify shortfalls and/or vulnerabilities in current physical security capabilities.\n\nAssign degrees of significance to each vulnerability identified and ensure that proper access is allowed.\n\nDetermine which types of facilities require access controls to safeguard ePHI, such as:",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(a).81",
+    "title": "2. Identify Corrective Measures",
+    "description": "Identify and assign responsibility for the measures and activities necessary to correct deficiencies, and ensure that proper physical access is allowed.\n\nDevelop and deploy policies and procedures to ensure that repairs, upgrades, and/or modifications are made to the appropriate physical areas of the facility while ensuring that proper access is allowed.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(a).82",
+    "title": "3. Develop a Facility Security Plan",
+    "description": "Implement policies and procedures to safeguard the facility and the equipment therein from unauthorized physical access, tampering, and theft.\n\nImplement appropriate measures to provide physical security protection for ePHI in a regulated entity\u2019s possession.\n\nInclude documentation of the facility inventory, physical maintenance records, and a history of changes, upgrades, and other modifications.\n\nIdentify points of access to the facility and existing security controls.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(a).83",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Implement policies and procedures to safeguard the facility and the equipment therein from unauthorized physical access, tampering, and theft.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(a).84",
+    "title": "4. Develop Access Control and Validation Procedures",
+    "description": "Implement procedures to control and validate a person's access to facilities based on their role or function, including visitor control and control of access to software programs for testing and revision.\n\nImplement procedures to provide facility access to authorized personnel and visitors and exclude unauthorized persons.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(a).85",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Implement procedures to control and validate a person's access to facilities based on their role or function, including visitor control and control of access to software programs for testing and revision.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(a).86",
+    "title": "5. Establish Contingency Operations Procedures",
+    "description": "Establish (and implement as needed) procedures that allow facility access in support of the restoration of lost data under the Disaster Recovery Plan and Emergency Mode Operations Plan in the event of an emergency.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(a).87",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Establish (and implement as needed) procedures that allow facility access in support of the restoration of lost data under the Disaster Recovery Plan and Emergency Mode Operations Plan in the event of an emergency.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(a).88",
+    "title": "6. Maintain Maintenance Records",
+    "description": "Implement policies and procedures to document repairs and modifications to the physical components of a facility that are related to security (e.g., hardware, walls, doors, and locks).",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(a).89",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Implement policies and procedures to document repairs and modifications to the physical components of a facility that are related to security (e.g., hardware, walls, doors, and locks).",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(b)",
+    "title": "Control 164.310(b)",
+    "description": "Workstation Use:\nHIPAA Standard: Implement policies and procedures that specify the proper functions to be performed, the manner in which those functions are to be performed, and the physical attributes of the surroundings of a specific workstation or class of workstation that can access electronic protected health information.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(b).91",
+    "title": "1. Identify Workstation and Device Types and Functions or Uses",
+    "description": "Inventory workstations and devices that create, store, process or transmit ePHI. Be sure to consider the multitude of computing devices (e.g., medical equipment, medical IoT devices, tablets, smart phones, etc.).\n\nDevelop policies and procedures for each type of device and identify and accommodate their unique issues.\n\nClassify devices based on the capabilities, connections, and allowable activities for each device used.\n\nDetermine the proper function and manner by which specific workstations or classes of workstations are permitted to access ePHI (e.g., applications permitting access to ePHI that are allowed on workstations used by a hospital\u2019s customer service call center or its radiology department).",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(b).92",
+    "title": "2. Identify the Expected Performance of Each Type of Workstation and Device",
+    "description": "Develop and document policies and procedures related to the proper use and performance of devices that create, store, process, or transmit ePHI.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(b).93",
+    "title": "3. Analyze Physical Surroundings for Physical Attributes",
+    "description": "Ensure that any risks associated with a device\u2019s surroundings are known and analyzed for possible negative impacts.\n\nDevelop policies and procedures that will prevent or preclude the unauthorized access of unattended devices, limit the ability of unauthorized persons to view sensitive information, and dispose of sensitive information as needed.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(c)",
+    "title": "Control 164.310(c)",
+    "description": "Workstation Security:\nHIPAA Standard: Implement physical safeguards for all workstations that access electronic protected health information, to restrict access to authorized users.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(c).95",
+    "title": "1. Identify All Methods of Physical Access to Workstations and Devices",
+    "description": "Document the different ways that users access workstations and other devices that create, store, process, or transmit ePHI. Be sure to consider the multitude of computing devices (e.g., medical equipment, medical IoT devices, tablets, smart phones, etc.).\n\nConsider any mobile devices that leave the physical facility as well as remote workers who access devices that create, store, process, or transmit ePHI.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(c).96",
+    "title": "2. Analyze the Risks Associated with Each Type of Access",
+    "description": "Determine which type of access identified in Key Activity 1 poses the greatest threat to the security of ePHI.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(c).97",
+    "title": "3. Identify and Implement Physical Safeguards for Workstations and Devices",
+    "description": "Implement physical safeguards and other security measures to minimize the possibility of inappropriate access to ePHI through computing devices.\n\nIf there are impediments to physically securing devices and/or the facilities where devices are located, additional safeguards should be considered, such as:",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(d)",
+    "title": "Control 164.310(d)",
+    "description": "Device and Media Controls:\nHIPAA Standard: Implement policies and procedures that govern the receipt and removal of hardware and electronic media that contain electronic protected health information into and out of a facility, and the movement of these items within the facility.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(d).99",
+    "title": "1. Implement Methods for the Final Disposal of ePHI",
+    "description": "Implement policies and procedures to address the final disposition of ePHI and/or the hardware or electronic media on which it is stored.\n\nDetermine and document the appropriate methods to dispose of hardware, software, and the data itself.\n\nEnsure that ePHI is properly destroyed and cannot be recreated.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(d).100",
+    "title": "Implementation Specification (Required)",
+    "description": "Implement policies and procedures to address the final disposition of ePHI and/or the hardware or electronic media on which it is stored.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(d).101",
+    "title": "2. Develop and Implement Procedures for the Reuse of Electronic Media",
+    "description": "Implement procedures for the removal of ePHI from electronic media before the media become available for reuse.\n\nEnsure that ePHI previously stored on any electronic media cannot be accessed and reused.\n\nIdentify removable media and their uses.\n\nEnsure that ePHI is removed from reusable media before they are used to record new information.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(d).102",
+    "title": "Implementation Specification (Required)",
+    "description": "Implement procedures for the removal of ePHI from electronic media before the media become available for reuse.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(d).103",
+    "title": "3. Maintain Accountability for Hardware and Electronic Media",
+    "description": "Maintain a record of the movements of hardware and electronic media and any person responsible for them.\n\nEnsure that ePHI is not inadvertently released or shared with any unauthorized party.\n\nEnsure that an individual is responsible for and records the receipt and removal of hardware and software with ePHI.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(d).104",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Maintain a record of the movements of hardware and electronic media and any person responsible for them.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(d).105",
+    "title": "4. Develop Data Backup and Storage Procedures",
+    "description": "Create a retrievable exact copy of ePHI, when needed, before movement of equipment.\n\nEnsure that an exact retrievable copy of the data is retained and protected to maintain the integrity of ePHI during equipment relocation.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.310(d).106",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Create a retrievable exact copy of ePHI, when needed, before movement of equipment.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312",
+    "title": "Control 164.312",
+    "description": "Technical Safeguards:\nDefined as the \u201cthe technology and the policy and procedures for its use that protect electronic protected health information and control access to it.\u201d",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(a)",
+    "title": "Control 164.312(a)",
+    "description": "Access Control:\nHIPAA Standard: Implement technical policies and procedures for electronic information systems that maintain electronic protected health information to allow access only to those persons or software programs that have been granted access rights as specified in \u00a7 164.308(a)(4).",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(a).109",
+    "title": "1. Analyze Workloads and Operations to Identify the Access Needs of All Users",
+    "description": "Identify an approach for access control.\n\nConsider all applications and systems containing ePHI that should only be available to authorized users, processes, and services.\n\nIntegrate these activities into the access granting and management process.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(a).110",
+    "title": "2. Identify Technical Access Control Capabilities",
+    "description": "Determine the access control capabilities of all systems with ePHI.\n\nDetermine whether network infrastructure can limit access to systems with ePHI (e.g., network segmentation).\n\nImplement technical access controls to limit access to ePHI to only that which has been granted in accordance with the regulated entity\u2019s information access management policies and procedures (see 45 CFR 164.308(a)(4)).",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(a).111",
+    "title": "3. Ensure that All System Users Have Been Assigned a Unique Identifier",
+    "description": "Assign a unique name and/or number for identifying and tracking user identity.\n\nEnsure that system activity can be traced to a specific user.\n\nEnsure that the necessary data is available in the system logs to support audit and other related business functions.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(a).112",
+    "title": "Implementation Specification (Required)",
+    "description": "Assign a unique name and/or number for identifying and tracking user identity.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(a).113",
+    "title": "4. Develop Access Control Policy  and Procedures",
+    "description": "Establish a formal policy for access control that will guide the development of procedures.\n\nSpecify requirements for access control that are both feasible and cost-effective.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(a).114",
+    "title": "5. Implement Access Control Procedures Using Selected Hardware and Software",
+    "description": "Implement the policy and procedures using existing or additional hardware or software solutions.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(a).115",
+    "title": "6. Review and Update Access for Users and Processes",
+    "description": "Enforce the policy and procedures as a matter of ongoing operations.\n\nDetermine whether any changes are needed for access control mechanisms.\n\nEnsure that the modification of technical controls that affect a user\u2019s access to ePHI continue to limit access to ePHI to that which has been granted in accordance with the regulated entity\u2019s information access management policies and procedures (see 45 CFR 164.308(a)(4)).\n\nEstablish procedures for updating access when users require the following:",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(a).116",
+    "title": "7. Establish an Emergency Access Procedure",
+    "description": "Establish (and implement as needed) procedures for obtaining necessary electronic protected health information during an emergency.\n\nIdentify a method for supporting continuity of operations should the normal access procedures be disabled or unavailable due to system problems.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(a).117",
+    "title": "Implementation Specification (Required)",
+    "description": "Establish (and implement as needed) procedures for obtaining necessary electronic protected health information during an emergency.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(a).118",
+    "title": "8. Automatic Logoff and Encryption and Decryption",
+    "description": "Consider whether the addressable implementation specifications of this standard are reasonable and appropriate:",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(a).119",
+    "title": "Implementation Specification (Automatic Logoff)",
+    "description": "Consider whether the addressable implementation specifications of this standard are reasonable and appropriate:",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(a).120",
+    "title": "Implementation Specification (Encryption and Decryption)",
+    "description": "Consider whether the addressable implementation specifications of this standard are reasonable and appropriate:",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(a).121",
+    "title": "9. Terminate Access if it is No Longer Required",
+    "description": "Ensure that access to ePHI is terminated if the access is no longer authorized.\n\nConsider implementing a user recertification process to ensure that least privilege is enforced.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(b)",
+    "title": "Control 164.312(b)",
+    "description": "Audit Controls:\nHIPAA Standard: Implement hardware, software, and/or procedural mechanisms that record and examine activity in information systems that contain or use electronic protected health information.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(b).123",
+    "title": "1. Determine the Activities that Will Be Tracked or Audited",
+    "description": "Determine the appropriate scope of audit controls that will be necessary in information systems that contain or use ePHI based on the regulated entity\u2019s risk assessment and other organizational factors.\n\nDetermine what activities need to be captured using the results of the risk assessment and risk management processes.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(b).124",
+    "title": "2. Select the Tools that Will Be Deployed for Auditing and System Activity Reviews",
+    "description": "Evaluate existing system capabilities and determine whether any changes or upgrades are necessary.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(b).125",
+    "title": "3. Develop and Deploy the Information System Activity Review/Audit Policy",
+    "description": "Document and communicate to the workforce the organization\u2019s decisions on audits and reviews.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(b).126",
+    "title": "4. Develop Appropriate Standard Operating Procedures",
+    "description": "Determine the types of audit trail data and monitoring procedures that will be needed to derive exception reports.\n\nDetermine the frequency of audit log reviews based on the risk assessment and risk management processes.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(b).127",
+    "title": "5. Implement the Audit/System Activity Review Process",
+    "description": "Activate the necessary audit system.\nBegin logging and auditing procedures.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(c)",
+    "title": "Control 164.312(c)",
+    "description": "Integrity:\nHIPAA Standard: Implement policies and procedures to protect electronic protected health information from improper alteration or destruction.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(c).129",
+    "title": "1. Identify All Users Who Have Been Authorized to Access ePHI",
+    "description": "Identify all approved users with the ability to alter or destroy ePHI, if reasonable and appropriate.\n\nAddress this Key Activity in conjunction with the identification of unauthorized sources in Key Activity 2.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(c).130",
+    "title": "2. Identify Any Possible Unauthorized Sources that May Be Able to Intercept the Information and Modify It",
+    "description": "Identify scenarios that may result in modification to the ePHI by unauthorized sources (e.g., hackers, ransomware, insider threats, business competitors, user errors).\n\nConduct this activity as part of a risk analysis.\n\nConsider how the organization will detect unauthorized modification to ePHI",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(c).131",
+    "title": "3. Develop the Integrity Policy and Requirements",
+    "description": "Establish a formal written set of integrity requirements based on the results of the analysis completed in Key Activities 1 and 2.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(c).132",
+    "title": "4. Implement Procedures to Address These Requirements",
+    "description": "Identify and implement methods that will be used to protect ePHI from unauthorized modification.\n\nIdentify and implement tools and techniques to be developed or procured that support the assurance of integrity.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(c).133",
+    "title": "5. Implement a Mechanism to Authenticate ePHI",
+    "description": "Implement electronic mechanisms to corroborate that ePHI has not been altered or destroyed in an unauthorized manner.\n\nConsider possible mechanisms for integrity verification, such as:",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(c).134",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Implement electronic mechanisms to corroborate that ePHI has not been altered or destroyed in an unauthorized manner.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(c).135",
+    "title": "6. Establish a Monitoring Process to Assess How the Implemented Process is Working",
+    "description": "Review existing processes to determine whether objectives are being addressed.\n\nContinually reassess integrity processes as technology and operational environments change to determine whether they need to be revised.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(d)",
+    "title": "Control 164.312(d)",
+    "description": "Person or Entity Authentication:\nHIPAA Standard: Implement procedures to verify that a person or entity seeking access to electronic protected health information is the one claimed.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(d).137",
+    "title": "1. Determine Authentication Applicability to Current Systems/Applications",
+    "description": "Identify the methods available for authentication. Under the HIPAA Security Rule, authentication is the corroboration that a person is the one claimed (45 CFR \u00a7 164.304).\n\nIdentify points of electronic access that require or should require authentication. Ensure that the regulated entity\u2019s risk analysis properly assesses risks for such access points (e.g., risks of unauthorized access from within the enterprise could be different than those of remote unauthorized access).\n\nAuthentication requires establishing the validity of a transmission source and/or verifying an individual\u2019s claim that they have been authorized for specific access privileges to information and information systems.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(d).138",
+    "title": "2. Evaluate Available Authentication Options",
+    "description": "Weigh the relative advantages and disadvantages of commonly used authentication approaches.\n\nThere are three commonly used authentication approaches available:\n\nMFA utilizes two or more authentication approaches to enforce stronger authentication.\n\nConsider implementing MFA solutions when the risk to ePHI is sufficiently high.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(d).139",
+    "title": "3. Select and Implement   Authentication Options",
+    "description": "Consider the results of the analysis conducted under Key Activity 2, and select appropriate authentication methods based on the results of the risk assessment and risk management processes.\n\nImplement the methods selected in organizational operations and activities.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(e)(1)",
+    "title": "Control 164.312(e)(1)",
+    "description": "Transmission Security:\nHIPAA Standard: Implement technical security measures to guard against unauthorized access to electronic protected health information that is being transmitted over an electronic communications network.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(e)(1).141",
+    "title": "1. Identify Any Possible Unauthorized Sources that May Be Able to Intercept and/or Modify the Information",
+    "description": "Identify all pathways by which ePHI will be transmitted into, within, and outside of the organization.\n\nIdentify scenarios (e.g., telehealth, claims processing) that may result in access to or modification of the ePHI by unauthorized sources during transmission (e.g., hackers, disgruntled workforce members, business competitors).\n\nIdentify scenarios and pathways that may put ePHI at a high level of risk.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(e)(1).142",
+    "title": "2. Develop and Implement Transmission Security Policy and Procedures",
+    "description": "Establish a formal written set of requirements for transmitting ePHI.\n\nIdentify methods of transmission that will be used to safeguard ePHI.\n\nIdentify tools and techniques that will be used to support the transmission security policy.\n\nImplement procedures for transmitting ePHI using hardware and/or software, if needed.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(e)(1).143",
+    "title": "3. Implement Integrity Controls",
+    "description": "Implement security measures to ensure that electronically transmitted ePHI is not improperly modified without detection until disposed of.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(e)(1).144",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Implement security measures to ensure that electronically transmitted ePHI is not improperly modified without detection until disposed of.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(e)(1).145",
+    "title": "4. Implement Encryption",
+    "description": "Implement a mechanism to encrypt ePHI whenever appropriate.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.312(e)(1).146",
+    "title": "Implementation Specification (Addressable)",
+    "description": "Implement a mechanism to encrypt ePHI whenever appropriate.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314",
+    "title": "Control 164.314",
+    "description": "Organizational Requirements:\nIncludes standards for business associate contracts and other arrangements between a covered entity and a business associate and between a business associate and a subcontractor, as well as requirements for group health plans.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(a)",
+    "title": "Control 164.314(a)",
+    "description": "Business Associate Contracts or Other Arrangements:\nHIPAA Standard: (i) The contract or other arrangement between the covered entity and its business associate required by \u00a7 164.308(b)(3) must meet the requirements of paragraph (a)(2)(i), (a)(2)(ii), or (a)(2)(iii) of this section, as applicable. (ii) A covered entity is in compliance with paragraph (a)(1) of this section if it has another arrangement in place that meets the requirements of \u00a7 164.504(e)(3). (iii) The requirements of paragraphs (a)(2)(i) and (a)(2)(ii) of this section apply to the contract or other arrangement between a business associate and a subcontractor required by \u00a7 164.308(b)(4) in the same manner as such requirements apply to contracts or other arrangements between a covered entity and business associate.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(a).149",
+    "title": "1. Contract Must Provide that Business Associates Will Comply with the Applicable Requirements of the Security Rule",
+    "description": "Contracts between covered entities and business associates must provide that business associates will implement administrative, physical, and technical safeguards that reasonably and appropriately protect the confidentiality, integrity, and availability of the ePHI that the business associate creates, receives, maintains, or transmits on behalf of the covered entity.\n\nReaders may find useful resources in Appendix F, including OCR BAA guidance and templates that include applicable language.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(a).150",
+    "title": "Implementation Specification (Required)",
+    "description": "Contracts between covered entities and business associates must provide that business associates will implement administrative, physical, and technical safeguards that reasonably and appropriately protect the confidentiality, integrity, and availability of the ePHI that the business associate creates, receives, maintains, or transmits on behalf of the covered entity.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(a).151",
+    "title": "2. Contract Must Provide that the Business Associates Enter into Contracts with Subcontractors to Ensure the Protection of ePHI",
+    "description": "In accordance with \u00a7 164.308(b)(2), ensure that any subcontractors that create, receive, maintain, or transmit ePHI on behalf of the business associate agree to comply with the applicable requirements of this subpart by entering into a contract or other arrangement that complies with this section.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(a).152",
+    "title": "Implementation Specification (Required)",
+    "description": "In accordance with \u00a7 164.308(b)(2), ensure that any subcontractors that create, receive, maintain, or transmit ePHI on behalf of the business associate agree to comply with the applicable requirements of this subpart by entering into a contract or other arrangement that complies with this section.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(a).153",
+    "title": "3. Contract Must Provide that Business Associates will Report Security Incidents",
+    "description": "Report to the covered entity any security incident of which it becomes aware, including breaches of unsecured PHI as required by \u00a7 164.410.\n\nMaintain clear lines of communication between covered entities and business associates regarding the protection of ePHI as per the BAA or contract.\n\nEstablish a reporting mechanism and a process for the business associate to use in the event of a security incident or breach.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(a).154",
+    "title": "Implementation Specification (Required)",
+    "description": "Report to the covered entity any security incident of which it becomes aware, including breaches of unsecured PHI as required by \u00a7 164.410.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(a).155",
+    "title": "4. Other Arrangements",
+    "description": "The covered entity complies with paragraph (a)(1) of this section if it has another arrangement in place that meets the requirements of \u00a7 164.504(e)(3).",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(a).156",
+    "title": "Implementation Specification (Required)",
+    "description": "The covered entity complies with paragraph (a)(1) of this section if it has another arrangement in place that meets the requirements of \u00a7 164.504(e)(3).",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(a).157",
+    "title": "5. Business Associate Contracts with Subcontractors",
+    "description": "The requirements of paragraphs (a)(2)(i) and (a)(2)(ii) of this section apply to the contract or other arrangement between a business associate and a subcontractor in the same manner as such requirements apply to contracts or other arrangements between a covered entity and business associate.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(a).158",
+    "title": "Implementation Specification (Required)",
+    "description": "The requirements of paragraphs (a)(2)(i) and (a)(2)(ii) of this section apply to the contract or other arrangement between a business associate and a subcontractor in the same manner as such requirements apply to contracts or other arrangements between a covered entity and business associate.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(b)",
+    "title": "Control 164.314(b)",
+    "description": "Requirements for Group Health Plans:\nHIPAA Standard: Except when the only electronic protected health information disclosed to a plan sponsor is disclosed pursuant to \u00a7 164.504(f)(1)(ii) or (iii), or as authorized under \u00a7 164.508, a group health plan must ensure that its plan documents provide that the plan sponsor will reasonably and appropriately safeguard electronic protected health information created, received, maintained, or transmitted to or by the plan sponsor on behalf of the group health plan.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(b).160",
+    "title": "1. Amend Plan Documents of the Group Health Plan to Address the Plan Sponsor\u2019s Security of ePHI",
+    "description": "Amend the plan documents to incorporate provisions to require the plan sponsor to implement administrative, technical, and physical safeguards that will reasonably and appropriately protect the confidentiality, integrity, and availability of ePHI that it creates, receives, maintains, or transmits on behalf of the group health plan.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(b).161",
+    "title": "Implementation Specification (Required)",
+    "description": "Amend the plan documents to incorporate provisions to require the plan sponsor to implement administrative, technical, and physical safeguards that will reasonably and appropriately protect the confidentiality, integrity, and availability of ePHI that it creates, receives, maintains, or transmits on behalf of the group health plan.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(b).162",
+    "title": "2. Amend Plan Documents of the Group Health Plan to Address Adequate Separation",
+    "description": "Amend the plan documents to incorporate provisions to require the plan sponsor to ensure that the adequate separation between the group health plan and plan sponsor required by \u00a7164.504(f)(2)(iii) is supported by reasonable and appropriate security measures.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(b).163",
+    "title": "Implementation Specification (Required)",
+    "description": "Amend the plan documents to incorporate provisions to require the plan sponsor to ensure that the adequate separation between the group health plan and plan sponsor required by \u00a7164.504(f)(2)(iii) is supported by reasonable and appropriate security measures.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(b).164",
+    "title": "3. Amend Plan Documents of the Group Health Plan to Address the Security of ePHI Supplied to the Plan Sponsors\u2019 Agents and Subcontractors",
+    "description": "Amend plan documents to incorporate provisions to require the plan sponsor to report any security incident of which it becomes aware to the group health plan.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(b).165",
+    "title": "Implementation Specification (Required)",
+    "description": "Amend plan documents to incorporate provisions to require the plan sponsor to ensure that any agent to whom it provides ePHI agrees to implement reasonable and appropriate security measures to protect the ePHI.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(b).166",
+    "title": "4. Amend Plan Documents of Group Health Plans to Address the Reporting of Security Incidents",
+    "description": "Amend plan documents to incorporate provisions to require the plan sponsor to report any security incident of which it becomes aware to the group health plan.\n\nEstablish a specific policy for security incident reporting.\n\nEstablish a reporting mechanism and a process for the plan sponsor to use in the event of a security incident.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.314(b).167",
+    "title": "Implementation Specification (Required)",
+    "description": "Amend plan documents to incorporate provisions to require the plan sponsor to report any security incident of which it becomes aware to the group health plan.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.316",
+    "title": "Control 164.316",
+    "description": "Policies and Procedures and Documentation Requirements:\nRequires the implementation of reasonable and appropriate policies and procedures to comply with the standards, implementation specifications, and other requirements of the Security Rule; the maintenance of written (may be electronic) documentation and/or records that include the policies, procedures, actions, activities, or assessments required by the Security Rule; and retention, availability, and update requirements related to the documentation.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.316(a)",
+    "title": "Control 164.316(a)",
+    "description": "Policies and Procedures:\nHIPAA Standard: Implement reasonable and appropriate policies and procedures to comply with the standards, implementation specifications, or other requirements of this subpart, taking into account those factors specified in \u00a7 164.306(b)(2)(i), (ii), (iii), and (iv). This standard is not to be construed to permit or excuse an action that violates any other standard, implementation specification, or other requirements of this subpart. A covered entity or business associate may change its policies and procedures at any time, provided that the changes are documented and are implemented in accordance with this subpart.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.316(a).170",
+    "title": "1. Create and Deploy Policies and Procedures",
+    "description": "Implement reasonable and appropriate policies and procedures to comply with the standards, implementation specifications, and other requirements of the HIPAA Security Rule.\n\nConsider the importance of documenting processes and procedures for demonstrating the adequate implementation of recognized security practices.\n\nPeriodically evaluate written policies and procedures to verify that:",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.316(a).171",
+    "title": "2. Update the Documentation of the Policy and Procedures",
+    "description": "Change policies and procedures as is reasonable and appropriate at any time, provided that the changes are documented and implemented in accordance with the requirements of the HIPAA Security Rule.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.316(b)",
+    "title": "Control 164.316(b)",
+    "description": "Documentation:\nHIPAA Standard: (i) Maintain the policies and procedures implemented to comply with this subpart in written (which may be electronic) form; and (ii) if an action, activity or assessment is required by this subpart to be documented, maintain a written (which may be electronic) record of the action, activity, or assessment.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.316(b).173",
+    "title": "1. Draft, Maintain, and Update Required Documentation",
+    "description": "Document decisions concerning the management, operational, and technical controls selected to mitigate identified risks.\n\nWritten documentation may be incorporated into existing manuals, policies, and other documents or be created specifically for the purpose of demonstrating compliance with the HIPAA Security Rule.\n\nConsider the importance of documenting the processes and procedures for demonstrating the adequate implementation of recognized security practices.\n\nUse feedback from risk assessments and contingency plan tests to help determine when to update documentation.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.316(b).174",
+    "title": "2. Retain Documentation for at Least Six Years",
+    "description": "Retain documentation required by paragraph (b)(1) of this section for six years from the date of its creation or the date when it last was in effect, whichever is later.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.316(b).175",
+    "title": "Implementation Specification (Required)",
+    "description": "Retain documentation required by paragraph (b)(1) of this section for six years from the date of its creation or the date when it last was in effect, whichever is later.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.316(b).176",
+    "title": "3. Ensure that Documentation is Available to Those Responsible for Implementation",
+    "description": "Make documentation available to those persons responsible for implementing the procedures to which the documentation pertains.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.316(b).177",
+    "title": "Implementation Specification (Required)",
+    "description": "Make documentation available to those persons responsible for implementing the procedures to which the documentation pertains.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.316(b).178",
+    "title": "4. Update Documentation as Required",
+    "description": "Review documentation periodically and update as needed in response to environmental or operational changes that affect the security of the ePHI.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  },
+  {
+    "control_id": "164.316(b).179",
+    "title": "Implementation Specification (Required)",
+    "description": "Review documentation periodically and update as needed in response to environmental or operational changes that affect the security of the ePHI.",
+    "jurisdiction": "us",
+    "framework": "hipaa",
+    "source_file": "nist-sp-800-66-rev2.yaml"
+  }
+]

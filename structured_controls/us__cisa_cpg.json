@@ -1,0 +1,274 @@
+[
+  {
+    "control_id": "1.A",
+    "title": "Establish Cybersecurity Responsibilities",
+    "description": "Roles, responsibilities, and authorities related to the organization's cybersecurity program are established, communicated, enforced, and aligned within the organization and external partners.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "1.B",
+    "title": "Manage Cybersecurity Oversight",
+    "description": "The organization's cybersecurity risk management strategy, expectations, and policies are established.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "1.C",
+    "title": "Manage Incident Response Plans",
+    "description": "Identify improvements by practicing cybersecurity and incident response plans to maintain and update the organization's cybersecurity program.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "1.D",
+    "title": "Supply Chain Incident Reporting & Vulnerability Disclosure",
+    "description": "Organizations more rapidly learn about and respond to known incidents or breaches across vendors and service providers.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "1.E",
+    "title": "Manage Risks from Managed Service Providers",
+    "description": "The risks posed by a managed service provider (MSP) are identified, recorded, assessed, prioritized, monitored, and updated over the course of the relationship.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "2.A",
+    "title": "Manage Organizational Assets",
+    "description": "A maintained asset inventory to improve cybersecurity resilience by reducing downtime, aiding recovery, bolstering defenses, and improving preparedness.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "2.B",
+    "title": "Mitigate Known Vulnerabilities",
+    "description": "Reduced likelihood of threat actors exploiting known vulnerabilities to breach organizational networks.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "2.C",
+    "title": "Obtain Independent Validation of Cybersecurity Controls",
+    "description": "Validate that implemented security controls are properly configured and working as intended.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "2.D",
+    "title": "Maintain Vulnerability Disclosure/Reporting Process",
+    "description": "Organizations more rapidly learn about vulnerabilities or weaknesses.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "2.E",
+    "title": "Document Network Topology",
+    "description": "More efficiently and effectively respond to incidents and maintain service continuity.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.A",
+    "title": "Changing Default Passwords",
+    "description": "Prevent threat actors from using default passwords to achieve initial access and move laterally in a network.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.B",
+    "title": "Establish Minimum Password Strength",
+    "description": "Organizational passwords are harder for threat actors to guess or crack.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.C",
+    "title": "Create Unique Credentials",
+    "description": "Adversaries are unable to reuse compromised credentials to move laterally across the organization, particularly between IT and OT networks.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.D",
+    "title": "Revoking Credentials for Departing Staff",
+    "description": "Prevent unauthorized access to organizational accounts or resources by former staff.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.E",
+    "title": "Monitor Unsuccessful (Automated) Login Attempts",
+    "description": "Protect organizations from automated, credential-based attacks.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.F",
+    "title": "Implement Multi-factor Authentication",
+    "description": "Add a critical, additional layer of security to protect asset accounts.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.G",
+    "title": "Administrators Maintain Separate User and Privileged Accounts",
+    "description": "Make it harder for threat actors to gain access to administrator or privileged accounts, even if common user accounts are compromised.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.H",
+    "title": "Implement the Principles of Least Privilege",
+    "description": "Minimizes unauthorized access to systems, data, and processes, reduces human error, and prevents malicious actions.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.I",
+    "title": "Implement Logical/Physical Network Segmentation",
+    "description": "Limiting the impact of a potential breach and preventing adversaries from accessing sensitive data, spaces, and/or critical infrastructure.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.J",
+    "title": "Implement Cybersecurity Training",
+    "description": "Organizational users learn and perform more secure behaviors.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.K",
+    "title": "Utilize Strong Encryption",
+    "description": "Encryption is deployed to maintain confidentiality and integrity of sensitive data across the organization's network.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.L",
+    "title": "Enable Email Security",
+    "description": "Reduce risk from common email-based threats, such as spoofing, phishing, and interception.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.M",
+    "title": "Disable Autorun & Macros By Default",
+    "description": "Reduce the risk from embedded macros and similar executable code.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.N",
+    "title": "Establish Change Management Processes",
+    "description": "Policies and procedures exist to manage system changes and configurations.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.O",
+    "title": "Maintain System Backups & Restoration Ability",
+    "description": "Organizations reduce data loss and service disruption risks while efficiently managing, responding to, and recovering from incidents.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.P",
+    "title": "Maintain Hardware & Software Approval Process",
+    "description": "Increase visibility into deployed technology assets and reduce the likelihood of breach by users installing unapproved hardware, firmware, or software.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.Q",
+    "title": "Maintain Log Collection & Storage",
+    "description": "Enhance visibility to detect and respond to cyber incidents while ensuring security logs are protected from unauthorized access and tampering.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.R",
+    "title": "Prohibit Connection of Unauthorized Devices",
+    "description": "Prevent malicious actors from achieving initial access or data exfiltration via unauthorized portable media devices.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "3.S",
+    "title": "Secure Internet Facing Devices",
+    "description": "Unauthorized users cannot gain an initial system foothold by exploiting known weaknesses in internet-facing assets.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "4.A",
+    "title": "Establish Malicious Code Detection",
+    "description": "Enables early threat identification, strengthens system integrity, provides insights for faster remediation, and minimizes downtime.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "4.B",
+    "title": "Identify Adverse Events",
+    "description": "Organizations can identify adverse security events.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "5.A",
+    "title": "Establish Incident Communication Procedures",
+    "description": "Coordinate crisis communication methods between internal and external organization partners and critical suppliers.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "5.B",
+    "title": "Establish Incident Reporting Procedures",
+    "description": "CISA and other organizations are better able to provide assistance or understand the broader scope of a cyber incident.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  },
+  {
+    "control_id": "6.A",
+    "title": "Incident Planning and Preparedness",
+    "description": "Organizations are capable of safely and effectively recovering from a cybersecurity incident.",
+    "jurisdiction": "us",
+    "framework": "cisa_cpg",
+    "source_file": "cisa-cpg-2.0.yaml"
+  }
+]

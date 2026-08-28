@@ -1,0 +1,562 @@
+[
+  {
+    "control_id": "2.1.1",
+    "title": "Ensure centralized root access in AWS Organizations",
+    "description": "Security requirement for Ensure centralized root access in AWS Organizations",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.1.2",
+    "title": "Ensure authorization guardrails for all AWS Organization accounts",
+    "description": "Security requirement for Ensure authorization guardrails for all AWS Organization accounts",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.1.3",
+    "title": "Ensure Organizations management account is not used for workloads",
+    "description": "Security requirement for Ensure Organizations management account is not used for workloads",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.1.4",
+    "title": "Ensure Organizational Units are structured by environment and sensitivity",
+    "description": "Security requirement for Ensure Organizational Units are structured by environment and sensitivity",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.1.5",
+    "title": "Ensure delegated admin manages AWS Organizations policies",
+    "description": "Security requirement for Ensure delegated admin manages AWS Organizations policies",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.1.6",
+    "title": "Ensure delegated admins manage AWS Organizations-integrated services",
+    "description": "Security requirement for Ensure delegated admins manage AWS Organizations-integrated services",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.2",
+    "title": "Maintain current AWS account contact details",
+    "description": "Security requirement for Maintain current AWS account contact details",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.3",
+    "title": "Ensure security contact information is registered",
+    "description": "Security requirement for Ensure security contact information is registered",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.4",
+    "title": "Ensure no 'root' user account access key exists",
+    "description": "Security requirement for Ensure no 'root' user account access key exists",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.5",
+    "title": "Ensure MFA is enabled for the 'root' user account",
+    "description": "Security requirement for Ensure MFA is enabled for the 'root' user account",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.6",
+    "title": "Ensure hardware MFA is enabled for the 'root' user account",
+    "description": "Security requirement for Ensure hardware MFA is enabled for the 'root' user account",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.7",
+    "title": "Eliminate use of the 'root' user for administrative and daily tasks",
+    "description": "Security requirement for Eliminate use of the 'root' user for administrative and daily tasks",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.8",
+    "title": "Ensure IAM password policy requires minimum length of 14 or greater",
+    "description": "Security requirement for Ensure IAM password policy requires minimum length of 14 or greater",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.9",
+    "title": "Ensure IAM password policy prevents password reuse",
+    "description": "Security requirement for Ensure IAM password policy prevents password reuse",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.10",
+    "title": "Ensure multi-factor authentication (MFA) is enabled for all IAM users that have a console password",
+    "description": "Security requirement for Ensure multi-factor authentication (MFA) is enabled for all IAM users that have a console password",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.11",
+    "title": "Ensure credentials unused for 45 days or more are disabled",
+    "description": "Security requirement for Ensure credentials unused for 45 days or more are disabled",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.12",
+    "title": "Ensure access keys are rotated every 90 days or less",
+    "description": "Security requirement for Ensure access keys are rotated every 90 days or less",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.13",
+    "title": "Ensure IAM users receive permissions only through groups",
+    "description": "Security requirement for Ensure IAM users receive permissions only through groups",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.14",
+    "title": "Ensure IAM policies that allow full \"*:*\" administrative privileges are not attached",
+    "description": "Security requirement for Ensure IAM policies that allow full \"*:*\" administrative privileges are not attached",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.15",
+    "title": "Ensure a support role has been created to manage incidents with AWS Support",
+    "description": "Security requirement for Ensure a support role has been created to manage incidents with AWS Support",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.16",
+    "title": "Ensure IAM instance roles are used for AWS resource access from instances",
+    "description": "Security requirement for Ensure IAM instance roles are used for AWS resource access from instances",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.17",
+    "title": "Ensure that all expired SSL/TLS certificates stored in AWS IAM are removed",
+    "description": "Security requirement for Ensure that all expired SSL/TLS certificates stored in AWS IAM are removed",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.18",
+    "title": "Ensure that IAM External Access Analyzer is enabled for all regions",
+    "description": "Security requirement for Ensure that IAM External Access Analyzer is enabled for all regions",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.19",
+    "title": "Ensure IAM users are managed centrally via identity federation or AWS Organizations for multi-account environments",
+    "description": "Security requirement for Ensure IAM users are managed centrally via identity federation or AWS Organizations for multi-account environments",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.20",
+    "title": "Ensure access to AWSCloudShellFullAccess is restricted",
+    "description": "Security requirement for Ensure access to AWSCloudShellFullAccess is restricted",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "2.21",
+    "title": "Ensure AWS resource policies do not allow unrestricted access using \"Principal\": \"*\"",
+    "description": "Security requirement for Ensure AWS resource policies do not allow unrestricted access using \"Principal\": \"*\"",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "3.1.1",
+    "title": "Ensure S3 Bucket Policy is set to deny HTTP requests",
+    "description": "Security requirement for Ensure S3 Bucket Policy is set to deny HTTP requests",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "3.1.2",
+    "title": "Ensure MFA Delete is enabled on S3 buckets",
+    "description": "Security requirement for Ensure MFA Delete is enabled on S3 buckets",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "3.1.3",
+    "title": "Ensure all data in Amazon S3 has been discovered, classified, and secured when necessary",
+    "description": "Security requirement for Ensure all data in Amazon S3 has been discovered, classified, and secured when necessary",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "3.1.4",
+    "title": "Ensure that S3 is configured with 'Block Public Access' enabled",
+    "description": "Security requirement for Ensure that S3 is configured with 'Block Public Access' enabled",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "3.2.1",
+    "title": "Ensure that encryption-at-rest is enabled for RDS instances",
+    "description": "Security requirement for Ensure that encryption-at-rest is enabled for RDS instances",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "3.2.2",
+    "title": "Ensure the Auto Minor Version Upgrade feature is enabled for RDS instances",
+    "description": "Security requirement for Ensure the Auto Minor Version Upgrade feature is enabled for RDS instances",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "3.2.3",
+    "title": "Ensure that RDS instances are not publicly accessible",
+    "description": "Security requirement for Ensure that RDS instances are not publicly accessible",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "3.2.4",
+    "title": "Ensure Multi-AZ deployments are used for enhanced availability in Amazon RDS",
+    "description": "Security requirement for Ensure Multi-AZ deployments are used for enhanced availability in Amazon RDS",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "3.3.1",
+    "title": "Ensure that encryption is enabled for EFS file systems",
+    "description": "Security requirement for Ensure that encryption is enabled for EFS file systems",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "4.1",
+    "title": "Ensure CloudTrail is enabled in all regions",
+    "description": "Security requirement for Ensure CloudTrail is enabled in all regions",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "4.2",
+    "title": "Ensure CloudTrail log file validation is enabled",
+    "description": "Security requirement for Ensure CloudTrail log file validation is enabled",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "4.3",
+    "title": "Ensure AWS Config is enabled in all regions",
+    "description": "Security requirement for Ensure AWS Config is enabled in all regions",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "4.4",
+    "title": "Ensure that server access logging is enabled on the CloudTrail S3 bucket",
+    "description": "Security requirement for Ensure that server access logging is enabled on the CloudTrail S3 bucket",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "4.5",
+    "title": "Ensure CloudTrail logs are encrypted at rest using KMS CMKs",
+    "description": "Security requirement for Ensure CloudTrail logs are encrypted at rest using KMS CMKs",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "4.6",
+    "title": "Ensure rotation for customer-created symmetric CMKs is enabled",
+    "description": "Security requirement for Ensure rotation for customer-created symmetric CMKs is enabled",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "4.7",
+    "title": "Ensure VPC flow logging is enabled in all VPCs",
+    "description": "Security requirement for Ensure VPC flow logging is enabled in all VPCs",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "4.8",
+    "title": "Ensure that object-level logging for write events is enabled for S3 buckets",
+    "description": "Security requirement for Ensure that object-level logging for write events is enabled for S3 buckets",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "4.9",
+    "title": "Ensure that object-level logging for read events is enabled for S3 buckets",
+    "description": "Security requirement for Ensure that object-level logging for read events is enabled for S3 buckets",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "4.10",
+    "title": "Ensure all AWS-managed web front-end services have access logging enabled",
+    "description": "Security requirement for Ensure all AWS-managed web front-end services have access logging enabled",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "5.1",
+    "title": "Ensure unauthorized API calls are monitored",
+    "description": "Security requirement for Ensure unauthorized API calls are monitored",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "5.2",
+    "title": "Ensure management console sign-in without MFA is monitored",
+    "description": "Security requirement for Ensure management console sign-in without MFA is monitored",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "5.3",
+    "title": "Ensure usage of the 'root' account is monitored",
+    "description": "Security requirement for Ensure usage of the 'root' account is monitored",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "5.4",
+    "title": "Ensure IAM policy changes are monitored",
+    "description": "Security requirement for Ensure IAM policy changes are monitored",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "5.5",
+    "title": "Ensure CloudTrail configuration changes are monitored",
+    "description": "Security requirement for Ensure CloudTrail configuration changes are monitored",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "5.6",
+    "title": "Ensure AWS Management Console authentication failures are monitored",
+    "description": "Security requirement for Ensure AWS Management Console authentication failures are monitored",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "5.7",
+    "title": "Ensure disabling or scheduled deletion of customer created CMKs is monitored",
+    "description": "Security requirement for Ensure disabling or scheduled deletion of customer created CMKs is monitored",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "5.8",
+    "title": "Ensure S3 bucket policy changes are monitored",
+    "description": "Security requirement for Ensure S3 bucket policy changes are monitored",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "5.9",
+    "title": "Ensure AWS Config configuration changes are monitored",
+    "description": "Security requirement for Ensure AWS Config configuration changes are monitored",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "5.10",
+    "title": "Ensure security group changes are monitored",
+    "description": "Security requirement for Ensure security group changes are monitored",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "5.11",
+    "title": "Ensure Network Access Control List (NACL) changes are monitored",
+    "description": "Security requirement for Ensure Network Access Control List (NACL) changes are monitored",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "5.12",
+    "title": "Ensure changes to network gateways are monitored",
+    "description": "Security requirement for Ensure changes to network gateways are monitored",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "5.13",
+    "title": "Ensure route table changes are monitored",
+    "description": "Security requirement for Ensure route table changes are monitored",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "5.14",
+    "title": "Ensure VPC changes are monitored",
+    "description": "Security requirement for Ensure VPC changes are monitored",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "5.15",
+    "title": "Ensure AWS Organizations changes are monitored",
+    "description": "Security requirement for Ensure AWS Organizations changes are monitored",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "5.16",
+    "title": "Ensure AWS Security Hub is enabled",
+    "description": "Security requirement for Ensure AWS Security Hub is enabled",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "6.1.1",
+    "title": "Ensure EBS volume encryption is enabled in all regions",
+    "description": "Security requirement for Ensure EBS volume encryption is enabled in all regions",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "6.1.2",
+    "title": "Ensure CIFS access is restricted to trusted networks to prevent unauthorized access",
+    "description": "Security requirement for Ensure CIFS access is restricted to trusted networks to prevent unauthorized access",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "6.2",
+    "title": "Ensure no Network ACLs allow ingress from 0.0.0.0/0 to remote server administration ports",
+    "description": "Security requirement for Ensure no Network ACLs allow ingress from 0.0.0.0/0 to remote server administration ports",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "6.3",
+    "title": "Ensure no security groups allow ingress from 0.0.0.0/0 to remote server administration ports",
+    "description": "Security requirement for Ensure no security groups allow ingress from 0.0.0.0/0 to remote server administration ports",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "6.4",
+    "title": "Ensure no security groups allow ingress from ::/0 to remote server administration ports",
+    "description": "Security requirement for Ensure no security groups allow ingress from ::/0 to remote server administration ports",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "6.5",
+    "title": "Ensure the default security group of every VPC restricts all traffic",
+    "description": "Security requirement for Ensure the default security group of every VPC restricts all traffic",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "6.6",
+    "title": "Ensure routing tables for VPC peering are \"least access\"",
+    "description": "Security requirement for Ensure routing tables for VPC peering are \"least access\"",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "6.7",
+    "title": "Ensure that the EC2 Metadata Service only allows IMDSv2",
+    "description": "Security requirement for Ensure that the EC2 Metadata Service only allows IMDSv2",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  },
+  {
+    "control_id": "6.8",
+    "title": "Ensure VPC Endpoints are used for access to AWS Services",
+    "description": "Security requirement for Ensure VPC Endpoints are used for access to AWS Services",
+    "jurisdiction": "global",
+    "framework": "cis_aws",
+    "source_file": "cis-benchmark-aws-foundations.yaml"
+  }
+]

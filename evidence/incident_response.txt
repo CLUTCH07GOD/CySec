@@ -1,0 +1,4 @@
+Incident response plan reviewed and tested annually via tabletop exercises.
+Security incidents logged in SIEM and escalated within 1 hour of detection.
+Data breach notification procedure documented with 72-hour regulatory reporting target.
+Dedicated incident response team on-call 24/7.

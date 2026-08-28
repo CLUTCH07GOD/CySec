@@ -1,0 +1,434 @@
+[
+  {
+    "source_control": {
+      "id": "Fairness Principle",
+      "framework": "gdpr",
+      "title": "Fairness Principle",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Consent",
+      "framework": "dpdp",
+      "title": "Consent",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.584
+  },
+  {
+    "source_control": {
+      "id": "2",
+      "framework": "gdpr",
+      "title": "Purpose Limitation",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "12",
+      "framework": "dpdp",
+      "title": "Processing of personal data for research, archiving, or statistical purposes",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.637
+  },
+  {
+    "source_control": {
+      "id": "3",
+      "framework": "gdpr",
+      "title": "Data Minimisation",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "17",
+      "framework": "dpdp",
+      "title": "Processing of personal data",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.686
+  },
+  {
+    "source_control": {
+      "id": "12",
+      "framework": "gdpr",
+      "title": "Storage limitation",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Request for erasure of personal data",
+      "framework": "dpdp",
+      "title": "Request for erasure of personal data",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.59
+  },
+  {
+    "source_control": {
+      "id": "6",
+      "framework": "gdpr",
+      "title": "Integrity and confidentiality",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "17",
+      "framework": "dpdp",
+      "title": "Processing of personal data",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.616
+  },
+  {
+    "source_control": {
+      "id": "7",
+      "framework": "gdpr",
+      "title": "Accountability",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Data Fiduciary Responsibility",
+      "framework": "dpdp",
+      "title": "Data Fiduciary Responsibility",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.634
+  },
+  {
+    "source_control": {
+      "id": "13",
+      "framework": "gdpr",
+      "title": "Lawful basis and limits to processing personal data",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "17",
+      "framework": "dpdp",
+      "title": "Processing of personal data",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.602
+  },
+  {
+    "source_control": {
+      "id": "14",
+      "framework": "gdpr",
+      "title": "Protection of vital interest",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "17",
+      "framework": "dpdp",
+      "title": "Processing of personal data",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.59
+  },
+  {
+    "source_control": {
+      "id": "Processing Special Categories of Data",
+      "framework": "gdpr",
+      "title": "Processing Special Categories of Data",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "12",
+      "framework": "dpdp",
+      "title": "Processing of personal data for research, archiving, or statistical purposes",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.581
+  },
+  {
+    "source_control": {
+      "id": "16",
+      "framework": "gdpr",
+      "title": "Processing in the context of employment",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "17",
+      "framework": "dpdp",
+      "title": "Processing of personal data",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.79
+  },
+  {
+    "source_control": {
+      "id": "15",
+      "framework": "gdpr",
+      "title": "Processing of data concerning criminal convictions or offences",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "17",
+      "framework": "dpdp",
+      "title": "Processing of personal data",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.713
+  },
+  {
+    "source_control": {
+      "id": "Individual Rights of Data Subjects",
+      "framework": "gdpr",
+      "title": "Individual Rights of Data Subjects",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Consent",
+      "framework": "dpdp",
+      "title": "Consent",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.566
+  },
+  {
+    "source_control": {
+      "id": "Right to be Informed",
+      "framework": "gdpr",
+      "title": "Right to be Informed",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Notice to Data Principal",
+      "framework": "dpdp",
+      "title": "Notice to Data Principal",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.598
+  },
+  {
+    "source_control": {
+      "id": "18",
+      "framework": "gdpr",
+      "title": "Right to Access Data",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Consent",
+      "framework": "dpdp",
+      "title": "Consent",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.648
+  },
+  {
+    "source_control": {
+      "id": "6",
+      "framework": "gdpr",
+      "title": "Reply Should Include",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "17",
+      "framework": "dpdp",
+      "title": "Processing of personal data",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.605
+  },
+  {
+    "source_control": {
+      "id": "19",
+      "framework": "gdpr",
+      "title": "Right to Rectification",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Request for correction, completion, or update of personal data",
+      "framework": "dpdp",
+      "title": "Request for correction, completion, or update of personal data",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.623
+  },
+  {
+    "source_control": {
+      "id": "4",
+      "framework": "gdpr",
+      "title": "Right to Erasure",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Data Fiduciary Data Erasure",
+      "framework": "dpdp",
+      "title": "Data Fiduciary Data Erasure",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.707
+  },
+  {
+    "source_control": {
+      "id": "5. Right to restrict processing",
+      "framework": "gdpr",
+      "title": "Right to restrict processing",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Consent for Processing",
+      "framework": "dpdp",
+      "title": "Consent for Processing",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.673
+  },
+  {
+    "source_control": {
+      "id": "6",
+      "framework": "gdpr",
+      "title": "Right to Data Portability",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Consent",
+      "framework": "dpdp",
+      "title": "Consent",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.553
+  },
+  {
+    "source_control": {
+      "id": "7",
+      "framework": "gdpr",
+      "title": "Right to Object",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Consent",
+      "framework": "dpdp",
+      "title": "Consent",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.581
+  },
+  {
+    "source_control": {
+      "id": "8.1",
+      "framework": "gdpr",
+      "title": "Right to Not Be Subject to Automated Decision Making",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Consent for Processing",
+      "framework": "dpdp",
+      "title": "Consent for Processing",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.554
+  },
+  {
+    "source_control": {
+      "id": "8.4",
+      "framework": "gdpr",
+      "title": "Consent for Automated Decision-Making",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Consent",
+      "framework": "dpdp",
+      "title": "Consent",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.636
+  },
+  {
+    "source_control": {
+      "id": "23",
+      "framework": "gdpr",
+      "title": "Data security",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Data Fiduciary Data Protection",
+      "framework": "dpdp",
+      "title": "Data Fiduciary Data Protection",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.559
+  },
+  {
+    "source_control": {
+      "id": "28",
+      "framework": "gdpr",
+      "title": "National data protection authorities",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Data Fiduciary Responsibility",
+      "framework": "dpdp",
+      "title": "Data Fiduciary Responsibility",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.568
+  },
+  {
+    "source_control": {
+      "id": "GDPR and Public Interest",
+      "framework": "gdpr",
+      "title": "GDPR and Public Interest",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "12",
+      "framework": "dpdp",
+      "title": "Processing of personal data for research, archiving, or statistical purposes",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.575
+  },
+  {
+    "source_control": {
+      "id": "32",
+      "framework": "gdpr",
+      "title": "Special provisions for public authorities",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "SEC. 1] (g)",
+      "framework": "dpdp",
+      "title": "Taking measures to ensure public health",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.592
+  },
+  {
+    "source_control": {
+      "id": "Inventory of personal data",
+      "framework": "gdpr",
+      "title": "Inventory of personal data",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Sharing of personal data with other Data Fiduciaries",
+      "framework": "dpdp",
+      "title": "Sharing of personal data with other Data Fiduciaries",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.659
+  }
+]

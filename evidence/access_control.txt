@@ -1,0 +1,4 @@
+Organization implements role-based access control across all systems.
+Multi-factor authentication is enforced for all privileged accounts and remote access.
+User access rights are reviewed quarterly and revoked within 24 hours of employee departure.
+Privileged access management system logs all admin actions.

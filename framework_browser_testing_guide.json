@@ -1,0 +1,426 @@
+{
+  "title": "ComplianceMesh Autonomous Web Application Security Testing Guide",
+  "version": "2.0.0",
+  "description": "Production-grade declarative test specification aligned to OWASP WSTG v4.2, OWASP ASVS v5, NIST SP 800-53 Rev 5, and NIST SP 800-63B. Each test step maps directly to a regulatory control ID for automated compliance traceability.",
+  "metadata": {
+    "author": "ComplianceMesh Security Automation Engine",
+    "frameworks_covered": [
+      "OWASP Web Security Testing Guide (WSTG) v4.2",
+      "OWASP Application Security Verification Standard (ASVS) v5.0",
+      "NIST SP 800-53 Rev 5",
+      "NIST SP 800-63B Rev 4",
+      "NIST Cybersecurity Framework (CSF) 2.0"
+    ],
+    "severity_levels": ["CRITICAL", "HIGH", "MEDIUM", "LOW", "INFO"]
+  },
+
+  "test_suites": [
+
+    {
+      "suite_id": "WSTG-INFO",
+      "framework": "OWASP WSTG v4.2",
+      "category": "Information Gathering",
+      "name": "Fingerprinting & Information Leakage Audit",
+      "steps": [
+        {
+          "step_id": "INFO-01",
+          "action": "navigate",
+          "url": "/",
+          "control_id": "WSTG-INFO-02",
+          "severity": "INFO",
+          "description": "Navigate to application root and capture initial response fingerprint (server headers, technology stack disclosure)."
+        },
+        {
+          "step_id": "INFO-02",
+          "action": "inspect_headers",
+          "control_id": "WSTG-INFO-08",
+          "severity": "MEDIUM",
+          "headers_to_check": ["server", "x-powered-by", "x-aspnet-version", "x-generator"],
+          "fail_if_present": true,
+          "description": "Detect technology stack disclosure via Server, X-Powered-By, X-AspNet-Version, or X-Generator headers."
+        },
+        {
+          "step_id": "INFO-03",
+          "action": "check_robots_txt",
+          "control_id": "WSTG-INFO-07",
+          "severity": "LOW",
+          "description": "Check robots.txt for sensitive endpoint disclosure (e.g. /admin, /backup, /api/internal)."
+        },
+        {
+          "step_id": "INFO-04",
+          "action": "check_security_txt",
+          "control_id": "WSTG-INFO-09",
+          "severity": "INFO",
+          "description": "Check for RFC 9116 security.txt at /.well-known/security.txt for responsible disclosure policy."
+        },
+        {
+          "step_id": "INFO-05",
+          "action": "inspect_meta_tags",
+          "control_id": "WSTG-INFO-05",
+          "severity": "LOW",
+          "description": "Audit HTML meta tags for framework/version disclosure or sensitive content in meta name='generator'."
+        }
+      ]
+    },
+
+    {
+      "suite_id": "WSTG-CONF",
+      "framework": "OWASP WSTG v4.2 / NIST SP 800-53",
+      "category": "Configuration & Deployment Management",
+      "name": "Transport Security & HTTP Configuration Audit",
+      "steps": [
+        {
+          "step_id": "CONF-01",
+          "action": "inspect_headers",
+          "control_id": "WSTG-CONF-07",
+          "nist_mapping": "SC-8",
+          "severity": "HIGH",
+          "headers_to_check": ["strict-transport-security"],
+          "description": "Verify HTTP Strict Transport Security (HSTS) header presence and max-age directive to prevent SSL stripping attacks."
+        },
+        {
+          "step_id": "CONF-02",
+          "action": "inspect_headers",
+          "control_id": "WSTG-CONF-07",
+          "severity": "HIGH",
+          "headers_to_check": ["content-security-policy"],
+          "description": "Verify Content Security Policy (CSP) header presence to mitigate XSS and data injection attacks."
+        },
+        {
+          "step_id": "CONF-03",
+          "action": "inspect_headers",
+          "control_id": "WSTG-CONF-07",
+          "severity": "MEDIUM",
+          "headers_to_check": ["x-content-type-options"],
+          "description": "Verify X-Content-Type-Options: nosniff header to prevent MIME type sniffing attacks."
+        },
+        {
+          "step_id": "CONF-04",
+          "action": "inspect_headers",
+          "control_id": "WSTG-CONF-07",
+          "severity": "MEDIUM",
+          "headers_to_check": ["referrer-policy"],
+          "description": "Audit Referrer-Policy header to prevent sensitive URL path leakage to third-party domains."
+        },
+        {
+          "step_id": "CONF-05",
+          "action": "inspect_headers",
+          "control_id": "WSTG-CONF-07",
+          "severity": "MEDIUM",
+          "headers_to_check": ["permissions-policy"],
+          "description": "Verify Permissions-Policy (formerly Feature-Policy) to restrict access to browser APIs (camera, microphone, geolocation)."
+        },
+        {
+          "step_id": "CONF-06",
+          "action": "inspect_cors",
+          "control_id": "WSTG-CONF-07",
+          "severity": "HIGH",
+          "description": "Audit Access-Control-Allow-Origin for wildcard (*) or overly permissive CORS configuration."
+        },
+        {
+          "step_id": "CONF-07",
+          "action": "probe_error_page",
+          "path": "/nonexistent_path_probe_404",
+          "expected_status": 404,
+          "control_id": "WSTG-CONF-08",
+          "severity": "MEDIUM",
+          "description": "Probe custom error page handling. Verify no stack traces, debug info, or framework internals are leaked."
+        },
+        {
+          "step_id": "CONF-08",
+          "action": "probe_error_page",
+          "path": "/%00null_byte_probe",
+          "expected_status": 400,
+          "control_id": "WSTG-CONF-08",
+          "severity": "MEDIUM",
+          "description": "Probe null byte injection handling in URL path to test input sanitization at the server level."
+        }
+      ]
+    },
+
+    {
+      "suite_id": "WSTG-ATHN",
+      "framework": "OWASP WSTG v4.2 / ASVS v5 / NIST SP 800-63B",
+      "category": "Authentication Testing",
+      "name": "Authentication Mechanism & Credential Security Audit",
+      "steps": [
+        {
+          "step_id": "ATHN-01",
+          "action": "navigate",
+          "url": "/",
+          "control_id": "WSTG-ATHN-01",
+          "nist_mapping": "IA-2",
+          "severity": "HIGH",
+          "description": "Navigate to root and observe authentication redirection behavior. Verify secure redirect to login page over HTTPS."
+        },
+        {
+          "step_id": "ATHN-02",
+          "action": "inspect_password_fields",
+          "selector": "input[type='password']",
+          "control_id": "ASVS-V2.1.1",
+          "nist_mapping": "IA-5",
+          "severity": "HIGH",
+          "description": "Verify password input fields use type='password' for masking. Check autocomplete='off' or 'new-password' attributes."
+        },
+        {
+          "step_id": "ATHN-03",
+          "action": "inspect_forms",
+          "selector": "form",
+          "control_id": "WSTG-ATHN-02",
+          "severity": "HIGH",
+          "description": "Audit login/registration forms for secure submission (POST method, HTTPS action URL, CSRF token presence)."
+        },
+        {
+          "step_id": "ATHN-04",
+          "action": "navigate_path",
+          "path": "/api/auth/login",
+          "method": "GET",
+          "control_id": "WSTG-ATHN-03",
+          "severity": "MEDIUM",
+          "description": "Probe authentication API endpoint to verify it rejects unauthenticated GET requests with proper 401/403 status."
+        },
+        {
+          "step_id": "ATHN-05",
+          "action": "navigate_path",
+          "path": "/admin",
+          "control_id": "WSTG-ATHN-04",
+          "nist_mapping": "AC-6",
+          "severity": "CRITICAL",
+          "description": "Attempt direct access to administrative panel without valid session. Expect 401/403 or redirect to login."
+        }
+      ]
+    },
+
+    {
+      "suite_id": "WSTG-SESS",
+      "framework": "OWASP WSTG v4.2 / ASVS v5",
+      "category": "Session Management Testing",
+      "name": "Session Token & Cookie Security Audit",
+      "steps": [
+        {
+          "step_id": "SESS-01",
+          "action": "inspect_cookies",
+          "control_id": "ASVS-V3.4.1",
+          "nist_mapping": "SC-23",
+          "severity": "HIGH",
+          "description": "Audit all cookies for Secure flag (HTTPS-only transmission) to prevent session hijacking over unencrypted connections."
+        },
+        {
+          "step_id": "SESS-02",
+          "action": "inspect_cookies",
+          "control_id": "ASVS-V3.4.2",
+          "severity": "HIGH",
+          "description": "Audit all cookies for HttpOnly flag to prevent client-side JavaScript access and XSS-based session theft."
+        },
+        {
+          "step_id": "SESS-03",
+          "action": "inspect_cookies",
+          "control_id": "ASVS-V3.4.3",
+          "severity": "MEDIUM",
+          "description": "Audit all cookies for SameSite attribute (Strict or Lax) to mitigate CSRF attacks via cross-origin cookie submission."
+        },
+        {
+          "step_id": "SESS-04",
+          "action": "inspect_local_storage",
+          "control_id": "WSTG-CLNT-11",
+          "asvs_mapping": "ASVS-V3.3.1",
+          "severity": "HIGH",
+          "description": "Audit HTML5 LocalStorage for session tokens, JWTs, or authentication credentials stored in plaintext."
+        },
+        {
+          "step_id": "SESS-05",
+          "action": "inspect_session_storage",
+          "control_id": "WSTG-SESS-01",
+          "severity": "MEDIUM",
+          "description": "Audit HTML5 SessionStorage for sensitive authentication or session management data."
+        }
+      ]
+    },
+
+    {
+      "suite_id": "WSTG-ATHZ",
+      "framework": "OWASP WSTG v4.2 / NIST SP 800-53",
+      "category": "Authorization Testing",
+      "name": "Access Control & Privilege Escalation Audit",
+      "steps": [
+        {
+          "step_id": "ATHZ-01",
+          "action": "navigate_path",
+          "path": "/admin",
+          "control_id": "WSTG-ATHZ-02",
+          "nist_mapping": "AC-3",
+          "severity": "CRITICAL",
+          "description": "Attempt horizontal privilege escalation by accessing admin resources without admin-level authorization."
+        },
+        {
+          "step_id": "ATHZ-02",
+          "action": "navigate_path",
+          "path": "/api/users",
+          "control_id": "WSTG-ATHZ-01",
+          "nist_mapping": "AC-6",
+          "severity": "HIGH",
+          "description": "Probe user enumeration API endpoint. Verify proper authorization enforcement returns 401/403 for unauthenticated requests."
+        },
+        {
+          "step_id": "ATHZ-03",
+          "action": "navigate_path",
+          "path": "/.env",
+          "control_id": "WSTG-ATHZ-01",
+          "severity": "CRITICAL",
+          "description": "Probe for exposed environment variable files (.env) containing API keys or database credentials."
+        },
+        {
+          "step_id": "ATHZ-04",
+          "action": "navigate_path",
+          "path": "/api/v1/config",
+          "control_id": "WSTG-ATHZ-03",
+          "severity": "HIGH",
+          "description": "Probe internal configuration API endpoint. Verify it is not publicly accessible without authentication."
+        }
+      ]
+    },
+
+    {
+      "suite_id": "WSTG-INPV",
+      "framework": "OWASP WSTG v4.2 / ASVS v5",
+      "category": "Input Validation Testing",
+      "name": "DOM Injection, XSS & Input Sanitization Audit",
+      "steps": [
+        {
+          "step_id": "INPV-01",
+          "action": "inspect_inputs",
+          "selector": "input[type='text'], input:not([type]), textarea, input[type='search'], input[type='email'], input[type='url']",
+          "control_id": "WSTG-INPV-01",
+          "asvs_mapping": "ASVS-V5.3.3",
+          "severity": "HIGH",
+          "description": "Enumerate all user-facing text input fields for DOM injection surface analysis."
+        },
+        {
+          "step_id": "INPV-02",
+          "action": "inspect_inputs",
+          "selector": "input[type='hidden']",
+          "control_id": "WSTG-INPV-04",
+          "severity": "MEDIUM",
+          "description": "Enumerate hidden form inputs that may contain CSRF tokens, user IDs, or server-side state parameters."
+        },
+        {
+          "step_id": "INPV-03",
+          "action": "inspect_forms",
+          "selector": "form[action*='http:']",
+          "control_id": "WSTG-INPV-01",
+          "severity": "HIGH",
+          "description": "Detect forms submitting over insecure HTTP (non-HTTPS) connections exposing user data in transit."
+        }
+      ]
+    },
+
+    {
+      "suite_id": "WSTG-ERRH",
+      "framework": "OWASP WSTG v4.2",
+      "category": "Error Handling",
+      "name": "Error Response & Stack Trace Leakage Audit",
+      "steps": [
+        {
+          "step_id": "ERRH-01",
+          "action": "probe_error_page",
+          "path": "/this_page_does_not_exist_404_probe",
+          "expected_status": 404,
+          "control_id": "WSTG-ERRH-01",
+          "severity": "MEDIUM",
+          "description": "Verify custom 404 error page does not leak server stack traces, framework versions, or internal file paths."
+        },
+        {
+          "step_id": "ERRH-02",
+          "action": "probe_error_page",
+          "path": "/api/trigger_500_error_probe",
+          "expected_status": 500,
+          "control_id": "WSTG-ERRH-02",
+          "severity": "HIGH",
+          "description": "Probe for unhandled server exception pages. Verify no debug mode stack traces or database connection strings are exposed."
+        },
+        {
+          "step_id": "ERRH-03",
+          "action": "check_console_errors",
+          "control_id": "WSTG-ERRH-01",
+          "severity": "LOW",
+          "description": "Capture browser console errors to identify client-side JavaScript exceptions or failed resource loading."
+        }
+      ]
+    },
+
+    {
+      "suite_id": "WSTG-CLNT",
+      "framework": "OWASP WSTG v4.2 / ASVS v5",
+      "category": "Client-Side Testing",
+      "name": "Client-Side Security & Frame Protection Audit",
+      "steps": [
+        {
+          "step_id": "CLNT-01",
+          "action": "inspect_headers",
+          "control_id": "WSTG-CLNT-08",
+          "asvs_mapping": "ASVS-V14.4.7",
+          "severity": "HIGH",
+          "headers_to_check": ["x-frame-options"],
+          "description": "Verify X-Frame-Options header (DENY or SAMEORIGIN) to prevent clickjacking attacks."
+        },
+        {
+          "step_id": "CLNT-02",
+          "action": "inspect_headers",
+          "control_id": "ASVS-V14.4.1",
+          "severity": "HIGH",
+          "headers_to_check": ["content-security-policy"],
+          "description": "Verify Content-Security-Policy includes script-src, object-src, and base-uri directives to block inline XSS."
+        },
+        {
+          "step_id": "CLNT-03",
+          "action": "inspect_local_storage",
+          "control_id": "WSTG-CLNT-11",
+          "severity": "HIGH",
+          "description": "Final deep audit of HTML5 Web Storage for any unencrypted sensitive data (tokens, PII, passwords)."
+        },
+        {
+          "step_id": "CLNT-04",
+          "action": "inspect_session_storage",
+          "control_id": "WSTG-CLNT-12",
+          "severity": "MEDIUM",
+          "description": "Audit SessionStorage for sensitive transient data that may persist during browser tab lifetime."
+        }
+      ]
+    },
+
+    {
+      "suite_id": "NIST_CSF",
+      "framework": "NIST Cybersecurity Framework 2.0 / SP 800-53 Rev 5",
+      "category": "NIST Compliance Verification",
+      "name": "NIST Access Control & Audit Logging Verification",
+      "steps": [
+        {
+          "step_id": "NIST-01",
+          "action": "navigate_path",
+          "path": "/api/health",
+          "control_id": "PR.AC-1",
+          "nist_53_mapping": "AC-2",
+          "severity": "MEDIUM",
+          "description": "Verify health check endpoint accessibility boundaries. Public health endpoints must not expose internal system state."
+        },
+        {
+          "step_id": "NIST-02",
+          "action": "inspect_headers",
+          "control_id": "PR.DS-2",
+          "nist_53_mapping": "SC-8",
+          "severity": "HIGH",
+          "headers_to_check": ["strict-transport-security"],
+          "description": "NIST SC-8 Transmission Confidentiality: Verify HSTS enforcement for data-in-transit protection."
+        },
+        {
+          "step_id": "NIST-03",
+          "action": "inspect_cookies",
+          "control_id": "PR.AC-7",
+          "nist_53_mapping": "IA-11",
+          "severity": "HIGH",
+          "description": "NIST IA-11 Re-Authentication: Verify session cookies enforce proper expiration and re-authentication boundaries."
+        }
+      ]
+    }
+  ]
+}

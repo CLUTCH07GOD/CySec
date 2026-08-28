@@ -1,0 +1,34 @@
+{
+  "repo_path": "/media/hp/New Volume1/Harinandan/jupyter_projects-20260803T060807Z-1-001/jupyter_projects/tmp_sandboxes/git_audit__udhod3o",
+  "languages": [
+    "node/javascript"
+  ],
+  "framework_guess": [],
+  "has_dockerfile": true,
+  "has_ci": true,
+  "has_env_example": true,
+  "entry_points": [
+    "console/app/controllers/console/account/index.js",
+    "console/app/controllers/console/admin/organizations/index.js",
+    "console/app/controllers/console/admin/organizations/details/index.js",
+    "console/app/controllers/console/settings/index.js",
+    "console/app/controllers/onboard/index.js",
+    "console/app/routes/console/account/index.js",
+    "console/app/routes/console/admin/index.js",
+    "console/app/routes/console/admin/organizations/index.js",
+    "console/app/routes/console/admin/organizations/details/index.js",
+    "console/app/routes/console/settings/index.js",
+    "console/app/routes/onboard/index.js",
+    "console/lib/fleetbase-extensions-generator/index.js",
+    "console/tests/helpers/index.js"
+  ],
+  "manifest_files": [
+    "api/package.json",
+    "api/pnpm-lock.yaml",
+    "console/package.json",
+    "console/pnpm-lock.yaml",
+    "console/lib/fleetbase-extensions-generator/package.json",
+    "scripts/package-lock.json",
+    "scripts/package.json"
+  ]
+}

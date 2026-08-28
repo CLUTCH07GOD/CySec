@@ -1,0 +1,2762 @@
+[
+  {
+    "control_id": "CC1.1.1",
+    "title": "COSO Principle 1 (CC1.1.1)",
+    "description": "[COSO] Sets the Tone at the Top \u2014 The board of directors and management, at all levels, demonstrate through their directives, actions, and behavior the importance of integrity and ethical values to support the functioning of the system of internal control.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.1.2",
+    "title": "COSO Principle 1 (CC1.1.2)",
+    "description": "[COSO] Establishes Standards of Conduct \u2014 The expectations of the board of directors and senior management concerning integrity and ethical values are defined in the entity\u2019s standards of conduct and understood at all levels of the entity and by outsourced service providers and business partners.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.1.3",
+    "title": "COSO Principle 1 (CC1.1.3)",
+    "description": "[COSO] Evaluates Adherence to Standards of Conduct \u2014 Processes are in place to evaluate the performance of individuals and teams against the entity\u2019s expected standards of conduct.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.1.4",
+    "title": "COSO Principle 1 (CC1.1.4)",
+    "description": "[COSO] Addresses Deviations in a Timely Manner \u2014 Deviations from the entity\u2019s expected standards of conduct are identified and remedied in a timely and consistent manner.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.1.5",
+    "title": "COSO Principle 1 (CC1.1.5)",
+    "description": "[TSC] Considers Contractors and Vendor Employees in Demonstrating Its Commitment \u2014 Management and the board of directors consider the use of contractors and vendor employees in its processes for establishing standards of conduct, evaluating adherence to those standards, and addressing deviations in a timely manner.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.2.1",
+    "title": "COSO Principle 2 (CC1.2.1)",
+    "description": "[COSO] Establishes Oversight Responsibilities \u2014 The board of directors identifies and accepts its oversight responsibilities in relation to established requirements and expectations.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.2.2",
+    "title": "COSO Principle 2 (CC1.2.2)",
+    "description": "[COSO] Applies Relevant Expertise \u2014 The board of directors defines, maintains, and periodically evaluates the skills and expertise needed among its members to enable them to ask probing questions of senior management and take commensurate action.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.2.3",
+    "title": "COSO Principle 2 (CC1.2.3)",
+    "description": "[COSO] Operates Independently fn 15 \u2014 The board of directors has sufficient members who are independent from management and objective in evaluations and decision making.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.2.4",
+    "title": "COSO Principle 2 (CC1.2.4)",
+    "description": "[TSC] Supplements Board Expertise \u2014 The board of directors supplements its expertise relevant to security, availability, processing integrity, confidentiality, and privacy, as needed, through the use of a subcommittee or consultants.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.3.1",
+    "title": "COSO Principle 3 (CC1.3.1)",
+    "description": "[COSO] Considers All Structures of the Entity \u2014 Management and the board of directors consider the multiple structures used (including operating units, legal entities, geographic distribution, and outsourced service providers) to support the achievement of objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.3.2",
+    "title": "COSO Principle 3 (CC1.3.2)",
+    "description": "[COSO] Establishes Reporting Lines \u2014 Management designs and evaluates lines of reporting for each entity structure to enable execution of authorities and responsibilities and flow of information to manage the activities of the entity.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.3.3",
+    "title": "COSO Principle 3 (CC1.3.3)",
+    "description": "[COSO] Defines, Assigns, and Limits Authorities and Responsibilities \u2014 Management and the board of directors delegate authority, define responsibilities, and use appropriate processes and technology to assign responsibility and segregate duties as necessary at the various levels of the organization.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.3.4",
+    "title": "COSO Principle 3 (CC1.3.4)",
+    "description": "[TSC] Addresses Specific Requirements When Defining Authorities and Responsibilities \u2014 Management and the board of directors consider requirements relevant to security, availability, processing integrity, confidentiality, and privacy when defining authorities and responsibilities.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.3.5",
+    "title": "COSO Principle 3 (CC1.3.5)",
+    "description": "[TSC] Considers Interactions With External Parties When Establishing Structures, Reporting Lines, Authorities, and Responsibilities \u2014 Management and the board of directors consider the need for the entity to interact with and monitor the activities of external parties when establishing structures, reporting lines, authorities, and responsibilities.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.3.6",
+    "title": "COSO Principle 3 (CC1.3.6)",
+    "description": "[P] Establishes Structures, Reporting Lines, and Authorities to Support Compliance With Legal and Contractual Privacy Requirements \u2014 When establishing structures, reporting lines, and authorities, management considers legal and contractual privacy requirements and objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.4.1",
+    "title": "COSO Principle 4 (CC1.4.1)",
+    "description": "[COSO] Establishes Policies and Practices \u2014 Policies and practices reflect expectations of competence necessary to support the achievement of objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.4.2",
+    "title": "COSO Principle 4 (CC1.4.2)",
+    "description": "[COSO] Evaluates Competence and Addresses Shortcomings \u2014 The board of directors and management evaluate competence across the entity and in outsourced service providers in relation to established policies and practices and act as necessary to address shortcomings.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.4.3",
+    "title": "COSO Principle 4 (CC1.4.3)",
+    "description": "[COSO] Attracts, Develops, and Retains Individuals \u2014 The entity provides the mentoring and training needed to attract, develop, and retain sufficient and competent personnel and outsourced service providers to support the achievement of objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.4.4",
+    "title": "COSO Principle 4 (CC1.4.4)",
+    "description": "[COSO] Plans and Prepares for Succession \u2014 Senior management and the board of directors develop contingency plans for assignments of responsibility important for internal control.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.4.5",
+    "title": "COSO Principle 4 (CC1.4.5)",
+    "description": "[TSC] Considers the Background of Individuals \u2014 The entity considers the background of potential and existing personnel, contractors, and vendor employees when determining whether to employ and retain the individuals.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.4.6",
+    "title": "COSO Principle 4 (CC1.4.6)",
+    "description": "[TSC] Considers the Technical Competency of Individuals \u2014 The entity considers the technical competency of potential and existing personnel, contractors, and vendor employees when determining whether to employ and retain the individuals.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.4.7",
+    "title": "COSO Principle 4 (CC1.4.7)",
+    "description": "[TSC] Provides Training to Maintain Technical Competencies \u2014 The entity provides training programs, including continuing education and training, to ensure skill sets and technical competency of existing personnel, contractors, and vendor employees are developed and maintained.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.5.1",
+    "title": "COSO Principle 5 (CC1.5.1)",
+    "description": "[COSO] Enforces Accountability Through Structures, Authorities, and Responsibilities \u2014 Management and the board of directors establish the mechanisms to communicate and hold individuals accountable for performance of internal control responsibilities across the entity and implement corrective action as necessary.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.5.2",
+    "title": "COSO Principle 5 (CC1.5.2)",
+    "description": "[COSO] Establishes Performance Measures, Incentives, and Rewards \u2014 Management and the board of directors establish performance measures, incentives, and other rewards appropriate for responsibilities at all levels of the entity, reflecting appropriate dimensions of performance and expected standards of conduct, and considering the achievement of both short-term and longer-term objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.5.3",
+    "title": "COSO Principle 5 (CC1.5.3)",
+    "description": "[COSO] Evaluates Performance Measures, Incentives, and Rewards for Ongoing Relevance \u2014 Management and the board of directors align incentives and rewards with the fulfillment of internal control responsibilities in the achievement of objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.5.4",
+    "title": "COSO Principle 5 (CC1.5.4)",
+    "description": "[COSO] Considers Excessive Pressures \u2014 Management and the board of directors evaluate and adjust pressures associated with the achievement of objectives as they assign responsibilities, develop performance measures, and evaluate performance.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.5.5",
+    "title": "COSO Principle 5 (CC1.5.5)",
+    "description": "[COSO] Evaluates Performance and Rewards or Disciplines Individuals \u2014 Management and the board of directors evaluate performance of internal control responsibilities, including adherence to standards of conduct and expected levels of competence, and provide rewards or exercise disciplinary action, as appropriate.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC1.5.6",
+    "title": "COSO Principle 5 (CC1.5.6)",
+    "description": "[P] Takes Disciplinary Actions \u2014 A sanctions process is defined, and applied as needed, when an employee violates the entity\u2019s privacy policies or when an employee\u2019s negligent behavior causes a privacy incident.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.1.1",
+    "title": "COSO Principle 13 (CC2.1.1)",
+    "description": "[COSO] Identifies Information Requirements \u2014 A process is in place to identify the information required and expected to support the functioning of the other components of internal control and the achievement of the entity\u2019s objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.1.2",
+    "title": "COSO Principle 13 (CC2.1.2)",
+    "description": "[COSO] Captures Internal and External Sources of Data \u2014 Information systems capture internal and external sources of data.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.1.3",
+    "title": "COSO Principle 13 (CC2.1.3)",
+    "description": "[COSO] Processes Relevant Data Into Information \u2014 Information systems process and transform relevant data into information.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.1.4",
+    "title": "COSO Principle 13 (CC2.1.4)",
+    "description": "[COSO] Maintains Quality Throughout Processing \u2014 Information systems produce information that is timely, current, accurate, complete, accessible, protected, verifiable, and retained. Information is reviewed to assess its relevance in supporting the internal control components.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.1.5",
+    "title": "COSO Principle 13 (CC2.1.5)",
+    "description": "[TSC] Documents Data Flow \u2014 The entity documents and uses internal and external information and data flows to support the design and operation of controls.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.1.6",
+    "title": "COSO Principle 13 (CC2.1.6)",
+    "description": "[TSC] Manages Assets \u2014 The entity identifies, documents, and maintains records of system components such as infrastructure, software, and other information assets. Information assets include physical endpoint devices and systems, virtual systems, data and data flows, external information systems, and organizational roles.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.1.7",
+    "title": "COSO Principle 13 (CC2.1.7)",
+    "description": "[TSC] Classifies Information \u2014 The entity classifies information by its relevant characteristics (for example, personally identifiable information, confidential customer information, and intellectual property) to support identification of threats to the information and the design and operation of controls.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.1.8",
+    "title": "COSO Principle 13 (CC2.1.8)",
+    "description": "[TSC] Uses Information That Is Complete and Accurate \u2014 The entity uses information and reports that are complete, accurate, current, and valid in the operation of controls.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.1.9",
+    "title": "COSO Principle 13 (CC2.1.9)",
+    "description": "[TSC] Manages the Location of Assets \u2014 The entity identifies, documents, and maintains records of physical location and custody of information assets, particularly for those stored outside the physical security control of the entity (for example, software and data stored on vendor devices or employee mobile phones under a bring-yourown-device policy).",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.2.1",
+    "title": "COSO Principle 14 (CC2.2.1)",
+    "description": "[COSO] Communicates Internal Control Information \u2014 A process is in place to communicate required information to enable all personnel to understand and carry out their internal control responsibilities.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.2.2",
+    "title": "COSO Principle 14 (CC2.2.2)",
+    "description": "[COSO] Communicates With the Board of Directors \u2014 Communication exists between management and the board of directors so that both have information needed to fulfill their roles with respect to the entity\u2019s objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.2.3",
+    "title": "COSO Principle 14 (CC2.2.3)",
+    "description": "[COSO] Provides Separate Communication Lines \u2014 Separate communication channels, such as whistle-blower hotlines, are in place and serve as fail-safe mechanisms to enable anonymous or confidential communication when normal channels are inoperative or ineffective.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.2.4",
+    "title": "COSO Principle 14 (CC2.2.4)",
+    "description": "[COSO] Selects Relevant Method of Communication \u2014 The method of communication considers the timing, audience, and nature of the information.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.2.5",
+    "title": "COSO Principle 14 (CC2.2.5)",
+    "description": "[TSC] Communicates Responsibilities \u2014 Entity personnel with responsibility for designing, developing, implementing, operating, maintaining, or monitoring system controls receive communications about their responsibilities, including changes in their responsibilities, and have the information necessary to carry out those responsibilities.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.2.6",
+    "title": "COSO Principle 14 (CC2.2.6)",
+    "description": "[TSC] Communicates Information on Reporting Failures, Incidents, Concerns, and Other Matters \u2014 Entity personnel are provided with information on how to report systems failures, incidents, concerns, and other complaints.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.2.7",
+    "title": "COSO Principle 14 (CC2.2.7)",
+    "description": "[TSC] Communicates Objectives and Changes to Objectives \u2014 The entity communicates its objectives and changes to those objectives to personnel in a timely manner.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.2.8",
+    "title": "COSO Principle 14 (CC2.2.8)",
+    "description": "[TSC] Communicates Information to Improve Security Knowledge and Awareness \u2014 The entity communicates information to improve security knowledge and awareness and to model approprite security behaviors to personnel through a security awareness training program.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.2.9",
+    "title": "COSO Principle 14 (CC2.2.9)",
+    "description": "[P] Communicates Information to Improve Privacy Knowledge and Awareness \u2014 The entity communicates information to improve privacy knowledge and awareness and to model appropriate behaviors to personnel through a privacy awareness training program.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.2.10",
+    "title": "COSO Principle 14 (CC2.2.10)",
+    "description": "[P] Communicates Incident Reporting Methods \u2014 The entity has communicated to employees and others within the entity the process used to report a suspected privacy incident.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.2.11",
+    "title": "COSO Principle 14 (CC2.2.11)",
+    "description": "[SYSTEM LEVEL] Communicates Information About System Operation and Boundaries \u2014 The entity prepares and communicates information about the design and operation of the system and its boundaries to authorized personnel to enable them to understand their role in the system and the results of system operation.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.2.12",
+    "title": "COSO Principle 14 (CC2.2.12)",
+    "description": "[SYSTEM LEVEL] Communicates System Objectives \u2014 The entity communicates its objectives to personnel to enable them to carry out their responsibilities.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.2.13",
+    "title": "COSO Principle 14 (CC2.2.13)",
+    "description": "[SYSTEM LEVEL] Communicates System Changes \u2014 System changes that affect responsibilities or the achievement of the entity's objectives are communicated in a timely manner.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.3.1",
+    "title": "COSO Principle 15 (CC2.3.1)",
+    "description": "[COSO] Communicates to External Parties \u2014 Processes are in place to communicate relevant and timely information to external parties, including shareholders, partners, owners, regulators, customers, financial analysts, and other external parties.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.3.2",
+    "title": "COSO Principle 15 (CC2.3.2)",
+    "description": "[COSO] Enables Inbound Communications \u2014 Open communication channels allow input from customers, consumers, suppliers, external auditors, regulators, financial analysts, and others, providing management and the board of directors with relevant information.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.3.3",
+    "title": "COSO Principle 15 (CC2.3.3)",
+    "description": "[COSO] Communicates With the Board of Directors \u2014 Relevant information resulting from assessments conducted by external parties is communicated to the board of directors.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.3.4",
+    "title": "COSO Principle 15 (CC2.3.4)",
+    "description": "[COSO] Provides Separate Communication Lines \u2014 Separate communication channels, such as whistle-blower hotlines, are in place and serve as fail-safe mechanisms to enable anonymous or confidential communication when normal channels are inoperative or ineffective.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.3.5",
+    "title": "COSO Principle 15 (CC2.3.5)",
+    "description": "[COSO] Selects Relevant Method of Communication \u2014 The method of communication considers the timing, audience, and nature of the communication and legal, regulatory, and fiduciary requirements and expectations.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.3.6",
+    "title": "COSO Principle 15 (CC2.3.6)",
+    "description": "[C] Communicates Objectives Related to Confidentiality and Changes to Those Objectives \u2014 The entity communicates, to external users, vendors, business partners, and others whose products or services, or both, are part of the system, the entity\u2019s objectives related to confidentiality and the protection of confidential information, as well as changes to those objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.3.7",
+    "title": "COSO Principle 15 (CC2.3.7)",
+    "description": "[P] Communicates Objectives Related to Privacy and Changes to Those Objectives \u2014 The entity communicates, to external users, vendors, business partners, and others whose products or services, or both, are part of the system, the entity\u2019s objectives related to privacy and the protection of personal information, as well as changes to those objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.3.8",
+    "title": "COSO Principle 15 (CC2.3.8)",
+    "description": "[P] Communicates Incident Reporting Methods \u2014 The entity communicates to user entities, third parties, data subjects, and others the process used to report a suspected privacy incident.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.3.9",
+    "title": "COSO Principle 15 (CC2.3.9)",
+    "description": "[SYSTEM LEVEL] Communicates Information About System Operation and Boundaries \u2014 The entity prepares and communicates information about the design and operation of the system and its boundaries to authorized external users to permit users to understand their role in the system and the results of system operation.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.3.10",
+    "title": "COSO Principle 15 (CC2.3.10)",
+    "description": "[SYSTEM LEVEL] Communicates System Objectives \u2014 The entity communicates its system objectives to appropriate external users.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.3.11",
+    "title": "COSO Principle 15 (CC2.3.11)",
+    "description": "[SYSTEM LEVEL] Communicates System Responsibilities \u2014 External users with responsibility for designing, developing, implementing, operating, maintaining, and monitoring system controls receive information about such responsibilities and have the information necessary to carry out such responsibilities.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC2.3.12",
+    "title": "COSO Principle 15 (CC2.3.12)",
+    "description": "[SYSTEM LEVEL] Communicates Information on Reporting System Failures, Incidents, Concerns, and Other Matters \u2014 External users are provided with information on how to report systems failures, incidents, concerns, and other complaints to appropriate entity personnel.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.1.1",
+    "title": "COSO Principle 6 (CC3.1.1)",
+    "description": "[Operations Objectives] Reflects Management's Choices \u2014 Operations objectives reflect management's choices about structure, industry considerations, and performance of the entity.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.1.2",
+    "title": "COSO Principle 6 (CC3.1.2)",
+    "description": "[Operations Objectives] Considers Tolerances for Risk \u2014 Management considers the acceptable levels of variation relative to the achievement of operations objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.1.3",
+    "title": "COSO Principle 6 (CC3.1.3)",
+    "description": "[Operations Objectives] Includes Operations and Financial Performance Goals \u2014 The organization reflects the desired level of operations and financial performance for the entity within operations objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.1.4",
+    "title": "COSO Principle 6 (CC3.1.4)",
+    "description": "[Operations Objectives] Forms a Basis for Committing of Resources \u2014 Management uses operations objectives as a basis for allocating resources needed to attain desired operations and financial performance.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.1.5",
+    "title": "COSO Principle 6 (CC3.1.5)",
+    "description": "[External Financial Reporting Objectives] Complies With Applicable Accounting Standards \u2014 Financial reporting objectives are consistent with accounting principles suitable and available for that entity. The accounting principles selected are appropriate in the circumstances.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.1.6",
+    "title": "COSO Principle 6 (CC3.1.6)",
+    "description": "[External Financial Reporting Objectives] Considers Materiality \u2014 Management considers materiality in financial statement presentation.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.1.7",
+    "title": "COSO Principle 6 (CC3.1.7)",
+    "description": "[External Financial Reporting Objectives] Reflects Entity Activities \u2014 External reporting reflects the underlying transactions and events to show qualitative characteristics and assertions.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.1.8",
+    "title": "COSO Principle 6 (CC3.1.8)",
+    "description": "[External Nonfinancial Reporting Objectives] Complies With Externally Established Frameworks \u2014 Management establishes objectives consistent with laws and regulations or standards and frameworks of recognized external organizations.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.1.9",
+    "title": "COSO Principle 6 (CC3.1.9)",
+    "description": "[External Nonfinancial Reporting Objectives] Considers the Required Level of Precision \u2014 Management reflects the required level of precision and accuracy suitable for user needs and based on criteria established by third parties in nonfinancial reporting.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.1.10",
+    "title": "COSO Principle 6 (CC3.1.10)",
+    "description": "[External Nonfinancial Reporting Objectives] Reflects Entity Activities \u2014 External reporting reflects the underlying transactions and events within a range of acceptable limits.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.1.11",
+    "title": "COSO Principle 6 (CC3.1.11)",
+    "description": "[Internal Reporting Objectives] Reflects Management's Choices \u2014 Internal reporting provides management with accurate and complete information regarding management's choices and information needed in managing the entity.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.1.12",
+    "title": "COSO Principle 6 (CC3.1.12)",
+    "description": "[Internal Reporting Objectives] Considers the Required Level of Precision \u2014 Management reflects the required level of precision and accuracy suitable for user needs in nonfinancial reporting objectives and materiality within financial reporting objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.1.13",
+    "title": "COSO Principle 6 (CC3.1.13)",
+    "description": "[Internal Reporting Objectives] Reflects Entity Activities \u2014 Internal reporting reflects the underlying transactions and events within a range of acceptable limits.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.1.14",
+    "title": "COSO Principle 6 (CC3.1.14)",
+    "description": "[Compliance Objectives] Reflects External Laws and Regulations \u2014 Laws and regulations establish m\u00ednimum standards of conduct, which the entity integrates into compliance objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.1.15",
+    "title": "COSO Principle 6 (CC3.1.15)",
+    "description": "[Compliance Objectives] Considers Tolerances for Risk \u2014 Management considers the acceptable levels of variation relative to the achievement of operations objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.1.16",
+    "title": "COSO Principle 6 (CC3.1.16)",
+    "description": "Establishes Sub-Objectives for Risk Assessment \u2014 Management identifies sub-objectives for use in risk assessment related to security, availability, processing integrity, confidentiality, or privacy to support the achievement of the entity\u2019s objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.2.1",
+    "title": "COSO Principle 7 (CC3.2.1)",
+    "description": "[COSO] Includes Entity, Subsidiary, Division, Operating Unit, and Functional Levels \u2014 The entity identifies and assesses risk at the entity, subsidiary, division, operating unit, and functional levels relevant to the achievement of objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.2.2",
+    "title": "COSO Principle 7 (CC3.2.2)",
+    "description": "[COSO] Analyzes Internal and External Factors \u2014 Risk identification considers both internal and external factors and their impact on the achievement of objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.2.3",
+    "title": "COSO Principle 7 (CC3.2.3)",
+    "description": "[COSO] Involves Appropriate Levels of Management \u2014 The entity puts into place effective risk assessment mechanisms that involve appropriate levels of management.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.2.4",
+    "title": "COSO Principle 7 (CC3.2.4)",
+    "description": "[COSO] Estimates Significance of Risks Identified \u2014 Identified risks are analyzed through a process that includes estimating the potential significance of the risk.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.2.5",
+    "title": "COSO Principle 7 (CC3.2.5)",
+    "description": "[COSO] Determines How to Respond to Risks \u2014 Risk assessment includes considering how the risk should be managed and whether to accept, avoid, reduce, or share the risk. Identifies Threats to Objectives \u2014The entity identifies threats to the achievement of its objectives from intentional (including malicious) and unintentional acts and environmental events.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.2.6",
+    "title": "COSO Principle 7 (CC3.2.6)",
+    "description": "[TSC] Identifies Vulnerability of System Components \u2014 The entity identifies the vulnerabilities of system components, including system processes, infrastructure, software, and other information assets.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.2.7",
+    "title": "COSO Principle 7 (CC3.2.7)",
+    "description": "[TSC] Analyzes Threats and Vulnerabilities From Vendors, Business Partners, and Other Parties \u2014 The entity's risk assessment process includes the analysis of potential threats and vulnerabilities arising from vendors providing goods and services, as well as threats and vulnerabilities arising from business partners, customers, and other third parties with access to the entity's information systems.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.2.8",
+    "title": "COSO Principle 7 (CC3.2.8)",
+    "description": "[TSC] Assesses the Significance of the Risks \u2014 The entity assesses the significance of the identified risks, including (1) determining the criticality of system components, including information assets, in achieving the objectives; (2) assessing the susceptibility of the identified vulnerabilities to the identified threats (3) assessing the likelihood of the identified risks (4) assessing the magnitude of the effect of potential risks to the achievement of the objectives; (5) considering the potential effects of unidentified threats and vulnerabilities on the assessed risks; (6) developing risk mitigation strategies to address the assessed risks; and (7) evaluating the appropriateness of residual risk (including whether to accept, reduce, or share such risks).",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.3.1",
+    "title": "COSO Principle 8 (CC3.3.1)",
+    "description": "[COSO] Considers Various Types of Fraud \u2014 The assessment of fraud considers fraudulentreporting, possible loss of assets, and corruption resulting from the various ways that fraud and misconduct can occur.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.3.2",
+    "title": "COSO Principle 8 (CC3.3.2)",
+    "description": "[COSO] Assesses Incentives and Pressures \u2014 The assessment of fraud risks considers incentives and pressures.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.3.3",
+    "title": "COSO Principle 8 (CC3.3.3)",
+    "description": "[COSO] Assesses Opportunities \u2014 The assessment of fraud risk considers opportunities for unauthorized acquisition, use, or disposal of assets, altering the entity\u2019s reporting records, or committing other inappropriate acts.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.3.4",
+    "title": "COSO Principle 8 (CC3.3.4)",
+    "description": "[COSO] Assesses Attitudes and Rationalizations \u2014 The assessment of fraud risk considers how management and other personnel might engage in or justify inappropriate actions.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.3.5",
+    "title": "COSO Principle 8 (CC3.3.5)",
+    "description": "[TSC] Considers the Risks Related to the Use of IT and Access to Information \u2014 The assessment of fraud risks includes consideration of internal and external threats and vulnerabilities that arise specifically from the use of IT and access to information.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.4.1",
+    "title": "COSO Principle 9 (CC3.4.1)",
+    "description": "[COSO] Assesses Changes in the External Environment \u2014 The risk identification process considers changes to the regulatory, economic, and physical environment in which the entity operates.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.4.2",
+    "title": "COSO Principle 9 (CC3.4.2)",
+    "description": "[COSO] Assesses Changes in the Business Model \u2014 The entity considers the potential impacts of new business lines, dramatically altered compositions of existing business lines, acquired or divested business operations on the system of internal control, rapid growth, changing reliance on foreign geographies, and new technologies.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.4.3",
+    "title": "COSO Principle 9 (CC3.4.3)",
+    "description": "[COSO] Assesses Changes in Leadership \u2014 The entity considers changes in management and respective attitudes and philosophies on the system of internal control.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.4.4",
+    "title": "COSO Principle 9 (CC3.4.4)",
+    "description": "[TSC] Assesses Changes in Systems and Technology \u2014 The risk identification process considers changes arising from changes in the entity\u2019s systems and changes in the technology environment.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.4.5",
+    "title": "COSO Principle 9 (CC3.4.5)",
+    "description": "[TSC] Assesses Changes in Vendor and Business Partner Relationships \u2014 The risk identification process considers changes in vendor and business partner relationships.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC3.4.6",
+    "title": "COSO Principle 9 (CC3.4.6)",
+    "description": "[TSC] Assesses Changes in Threats and Vulnerabilities \u2014 The risk identification process assesses changes in (1) internal and external threats to and vulnerabilities of the components of the entity\u2019s systems and (2) the likelihood and magnitude of the resultant risks to the achievement of the entity\u2019s objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC4.1.1",
+    "title": "COSO Principle 16 (CC4.1.1)",
+    "description": "[COSO] Considers a Mix of Ongoing and Separate Evaluations \u2014 Management includes a balance of ongoing and separate evaluations.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC4.1.2",
+    "title": "COSO Principle 16 (CC4.1.2)",
+    "description": "[COSO] Considers Rate of Change \u2014 Management considers the rate of change in business and business processes when selecting and developing ongoing and separate evaluations.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC4.1.3",
+    "title": "COSO Principle 16 (CC4.1.3)",
+    "description": "[COSO] Establishes Baseline Understanding \u2014 The design and current state of an internal control system are used to establish a baseline for ongoing and separate evaluations.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC4.1.4",
+    "title": "COSO Principle 16 (CC4.1.4)",
+    "description": "[COSO] Uses Knowledgeable Personnel \u2014 Evaluators performing ongoing and separate evaluations have sufficient knowledge to understand what is being evaluated.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC4.1.5",
+    "title": "COSO Principle 16 (CC4.1.5)",
+    "description": "[COSO] Integrates With Business Processes \u2014 Ongoing evaluations are built into the business processes and adjust to changing conditions.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC4.1.6",
+    "title": "COSO Principle 16 (CC4.1.6)",
+    "description": "[COSO] Adjusts Scope and Frequency \u2014 Management varies the scope and frequency of separate evaluations depending on risk.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC4.1.7",
+    "title": "COSO Principle 16 (CC4.1.7)",
+    "description": "[COSO] Objectively Evaluates \u2014 Separate evaluations are performed periodically to provide objective feedback.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC4.1.8",
+    "title": "COSO Principle 16 (CC4.1.8)",
+    "description": "[TSC] Considers Different Types of Ongoing and Separate Evaluations \u2014 Management uses a variety of ongoing and separate risk and control evaluations to determine whether internal controls are present and functioning. Depending on the entity\u2019s objectives, such risk and control evaluations may include first- and second-line monitoring and control testing, internal audit assessments, compliance assessments, resilience assessments, vulnerability scans, security assessment, penetration testing, and third-party assessments.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC4.2.1",
+    "title": "COSO Principle 17 (CC4.2.1)",
+    "description": "[COSO] Assesses Results \u2014 Management and the board of directors, as appropriate, assess results of ongoing and separate evaluations.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC4.2.2",
+    "title": "COSO Principle 17 (CC4.2.2)",
+    "description": "[COSO] Communicates Deficiencies \u2014 Deficiencies are communicated to parties responsable for taking corrective action and to senior management and the board of directors, as appropriate.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC4.2.3",
+    "title": "COSO Principle 17 (CC4.2.3)",
+    "description": "[COSO] Monitors Corrective Action \u2014 Management tracks whether deficiencies are remedied on a timely basis.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC5.1.1",
+    "title": "COSO Principle 10 (CC5.1.1)",
+    "description": "[COSO] Integrates With Risk Assessment \u2014 Control activities help ensure that risk responses that address and mitigate risks are carried out.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC5.1.2",
+    "title": "COSO Principle 10 (CC5.1.2)",
+    "description": "[COSO] Considers Entity-Specific Factors \u2014 Management considers how the environment, complexity, nature, and scope of its operations, as well as the specific characteristics of its organization, affect the selection and development of control activities.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC5.1.3",
+    "title": "COSO Principle 10 (CC5.1.3)",
+    "description": "[COSO] Determines Relevant Business Processes \u2014 Management determines which relevant business processes require control activities.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC5.1.4",
+    "title": "COSO Principle 10 (CC5.1.4)",
+    "description": "[COSO] Evaluates a Mix of Control Activity Types \u2014 Control activities include a range and variety of controls and may include a balance of approaches to mitigate risks, considering both manual and automated controls, and preventive and detective controls.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC5.1.5",
+    "title": "COSO Principle 10 (CC5.1.5)",
+    "description": "[COSO] Considers at What Level Activities Are Applied \u2014 Management considers control activities at various levels in the entity.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC5.1.6",
+    "title": "COSO Principle 10 (CC5.1.6)",
+    "description": "[COSO] Addresses Segregation of Duties \u2014 Management segregates incompatible duties and, where such segregation is not practical, management selects and develops alternative control activities.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC5.2.1",
+    "title": "COSO Principle 11 (CC5.2.1)",
+    "description": "Determines Dependency Between the Use of Technology in Business Processes and Technology General Controls \u2014 Management understands and determines the dependency and linkage between business processes, automated control activities, and technology general controls.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC5.2.2",
+    "title": "COSO Principle 11 (CC5.2.2)",
+    "description": "Establishes Relevant Technology Infrastructure Control Activities \u2014 Management selects and develops control activities over the technology infrastructure, which are designed and implemented to help ensure the completeness, accuracy, and availability of technology processing.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC5.2.3",
+    "title": "COSO Principle 11 (CC5.2.3)",
+    "description": "Establishes Relevant Security Management Process Controls Activities \u2014 Management selects and develops control activities that are designed and implemented to restrict technology access rights to authorized users commensurate with their job responsibilities and to protect the entity\u2019s assets from external threats.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC5.2.4",
+    "title": "COSO Principle 11 (CC5.2.4)",
+    "description": "Establishes Relevant Technology Acquisition, Development, and Maintenance Process Control Activities \u2014 Management selects and develops control activities over the acquisition, development, and maintenance of technology and its infrastructure to achieve management\u2019s objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC5.3.1",
+    "title": "COSO Principle 12 (CC5.3.1)",
+    "description": "[COSO] Establishes Policies and Procedures to Support Deployment of Management\u2019s Directives \u2014 Management establishes control activities that are built into business processes and employees\u2019 day-to-day activities through policies establishing what is expected and relevant procedures specifying actions.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC5.3.2",
+    "title": "COSO Principle 12 (CC5.3.2)",
+    "description": "[COSO] Establishes Responsibility and Accountability for Executing Policies and Procedures \u2014 Management establishes responsibility and accountability for control activities with management (or other designated personnel) of the business unit or function in which the relevant risks reside.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC5.3.3",
+    "title": "COSO Principle 12 (CC5.3.3)",
+    "description": "[COSO] Performs in a Timely Manner \u2014 Responsible personnel perform control activities in a timely manner as defined by the policies and procedures.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC5.3.4",
+    "title": "COSO Principle 12 (CC5.3.4)",
+    "description": "[COSO] Takes Corrective Action \u2014 Responsible personnel investigate and act on matters identified as a result of executing control activities.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC5.3.5",
+    "title": "COSO Principle 12 (CC5.3.5)",
+    "description": "[COSO] Performs Using Competent Personnel \u2014 Competent personnel with sufficient authority perform control activities with diligence and continuing focus.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC5.3.6",
+    "title": "COSO Principle 12 (CC5.3.6)",
+    "description": "[COSO] Reassesses Policies and Procedures \u2014 Management periodically reviews control activities to determine their continued relevance and refreshes them when necessary.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.1",
+    "title": "Logical and Physical Access Controls (CC6.1)",
+    "description": "The entity implements logical access security software, infrastructure, and architectures over protected information assets to protect them from security events to meet the entity's objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.1.1",
+    "title": "Control CC6.1.1",
+    "description": "[TSC] Identifies and Manages the Inventory of Information Assets \u2014 The entity identifies, inventories, classifies, and manages information assets (for example, infrastructure, software, and data).",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.1.2",
+    "title": "Control CC6.1.2",
+    "description": "[TSC] Assesses New Architectures \u2014 The entity identifies new system architectures and assesses their security prior to implementation into the system environment.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.1.3",
+    "title": "Control CC6.1.3",
+    "description": "[TSC] Restricts Logical Access \u2014 The entity restricts logical access to information assets, including infrastructure (for example, server, storage, network elements, APIs, and endpoint devices), software, and data (at rest, during processing, or in transmission) through the use of access control software, rule sets, and standard configuration hardening processes.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.1.4",
+    "title": "Control CC6.1.4",
+    "description": "[TSC] Identifies and Authenticates Users \u2014 The entity identifies and authenticates persons, infrastructure, and software prior to accessing information assets, whether locally or remotely. The entity uses more complex or advanced user authentication techniques such as multifactor authentication when such protections are deemed appropriate based on its risk mitigation strategy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.1.5",
+    "title": "Control CC6.1.5",
+    "description": "[TSC] Considers Network Segmentation \u2014 The entity uses network segmentation, zero trust architectures, and other techniques to isolate unrelated portions of the entity's information technology from each other based on the entity\u2019s risk mitigation strategy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.1.6",
+    "title": "Control CC6.1.6",
+    "description": "[TSC] Manages Points of Access \u2014 Points of access by outside entities and the types of data that flow through the points of access are identified, inventoried, and managed. The types of individuals and systems using each point of access are identified, documented, and managed.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.1.7",
+    "title": "Control CC6.1.7",
+    "description": "[TSC] Restricts Access to Information Assets \u2014 Combinations of data classification, separate data structures, port restrictions, access protocol restrictions, user identification, and digital certificates are used to establish access control rules and configuration standards for information assets.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.1.8",
+    "title": "Control CC6.1.8",
+    "description": "[TSC] Manages Identification and Authentication \u2014 Identification and authentication requirements are established, documented, and managed for individuals and systems accessing entity information, infrastructure, and software.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.1.9",
+    "title": "Control CC6.1.9",
+    "description": "[TSC] Manages Credentials for Infrastructure and Software \u2014 New internal and external infrastructure and software are registered, authorized, and documented prior to being granted access credentials and implemented on the network or access point.Credentials are removed and access is disabled when access is no longer required or the infrastructure and software are no longer in use.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.1.10",
+    "title": "Control CC6.1.10",
+    "description": "[TSC] Uses Encryption to Protect Data \u2014 The entity uses encryption to protect data (at rest, during processing, or in transmission), when such protections are deemed appropriate based on the entity\u2019s risk mitigation strategy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.1.11",
+    "title": "Control CC6.1.11",
+    "description": "[TSC] Protects Cryptographic Keys \u2014 The entity protects cryptographic keys during generation, storage, use, and destruction. Cryptographic modules, algorithms, key lengths, and architectures are appropriate based on the entity\u2019s risk mitigation strategy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.1.12",
+    "title": "Control CC6.1.12",
+    "description": "[C] Restricts Access to and Use of Confidential Information for Identified Purposes \u2014 Logical access to and use of confidential information is restricted to identified purposes.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.1.13",
+    "title": "Control CC6.1.13",
+    "description": "[P] Restricts Access to and the Use of Personal Information \u2014 Logical access to and use of personal information is restricted to authorized personnel who require such access to fulfill the identified purposes to support the achievement of the entity\u2019s objectives\nrelated to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.2",
+    "title": "Logical and Physical Access Controls (CC6.2)",
+    "description": "Prior to issuing system credentials and granting system access, the entity registers and authorizes new internal and external users whose access is administered by the entity. For those users whose access is administered by the entity, user system credentials are removed when user access is no longer authorized.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.2.1",
+    "title": "Control CC6.2.1",
+    "description": "Creates Access Credentials to Protected Information Assets \u2014The entity creates credentials for accessing protected information assets based on an authorization from the system's asset owner or authorized custodian. Authorization is required for the creation of all types of credentials of individuals (for example, employees, contractors, vendors, and business partner personnel), systems, and software.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.2.2",
+    "title": "Control CC6.2.2",
+    "description": "Reviews Validity of Access Credentials \u2014 The entity reviews access credentials on a periodic basis for validity (for example, employees, contractors, vendors, and business partner personnel) and inappropriate system or service accounts.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.2.3",
+    "title": "Control CC6.2.3",
+    "description": "Prevents the Use of Credentials When No Longer Valid \u2014 Processes are in place to disable, destroy, or otherwise prevent the use of access credentials when no longer valid.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.3",
+    "title": "Logical and Physical Access Controls (CC6.3)",
+    "description": "The entity authorizes, modifies, or removes access to data, software, functions, and other protected information assets based on roles, responsibilities, or the system design and changes, giving consideration to the concepts of least privilege and segregation of duties, to meet the entity\u2019s objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.3.1",
+    "title": "Control CC6.3.1",
+    "description": "Creates or Modifies Access to Protected Information Assets \u2014 Processes are in place to create or modify access to protected information assets based on authorization from the asset\u2019s owner.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.3.2",
+    "title": "Control CC6.3.2",
+    "description": "Removes Access to Protected Information Assets \u2014 Processes are in place to remove access to protected information assets when no longer required.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.3.3",
+    "title": "Control CC6.3.3",
+    "description": "Uses Access Control Structures \u2014 The entity uses access control structures, such as role-based access controls, to restrict access to protected information assets, limit privileges, and support segregation of incompatible functions.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.3.4",
+    "title": "Control CC6.3.4",
+    "description": "Reviews Access Roles and Rules \u2014 The appropriateness of access roles and Access rules is reviewed on a periodic basis for unnecessary and inappropriate individuals (for example, employees, contractors, vendors, business partner personnel) and inappropriate system or service accounts. Access roles and rules are modified, as appropriate.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.4",
+    "title": "Logical and Physical Access Controls (CC6.4)",
+    "description": "The entity restricts physical access to facilities and protected information assets (for example, data center facilities, backup media storage, and other sensitive locations) to authorized personnel to meet the entity\u2019s objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.4.1",
+    "title": "Control CC6.4.1",
+    "description": "Creates or Modifies Physical Access \u2014 Processes are in place to create or modify physical access by employees, contractors, vendors, and business partner personnel to facilities such as data centers, office spaces, and work areas, based on appropriate authorization.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.4.2",
+    "title": "Control CC6.4.2",
+    "description": "Removes Physical Access \u2014 Processes are in place to remove physical access to facilities and protected information assets when an employee, contractor, vendor, or business partner no longer requires access.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.4.3",
+    "title": "Control CC6.4.3",
+    "description": "Recovers Physical Devices \u2014 Processes are in place to recover entity devices (for example, badges, laptops, and mobile devices) when an employee, contractor, vendor, or business partner no longer requires access.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.4.4",
+    "title": "Control CC6.4.4",
+    "description": "Reviews Physical Access \u2014 Processes are in place to periodically review physical access to help ensure consistency with job responsibilities.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.5",
+    "title": "Logical and Physical Access Controls (CC6.5)",
+    "description": "The entity discontinues logical and physical protections over physical assets only after the ability to read or recover data and software from those assets has been diminished and is no longer required to meet the entity\u2019s objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.5.1",
+    "title": "Control CC6.5.1",
+    "description": "Removes Data and Software for Disposal \u2014 Procedures are in place to remove, delete, or otherwise render data and software inaccessible from physical assets and other devices owned by the entity, its vendors, and employees when the data and software are no longer required on the asset or the asset will no longer be under the control of the entity.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.6",
+    "title": "Logical and Physical Access Controls (CC6.6)",
+    "description": "The entity implements logical access security measures to protect against threats from sources outside its system boundaries.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.6.1",
+    "title": "Control CC6.6.1",
+    "description": "Restricts Access \u2014 The types of activities that can occur through a communication channel (for example, FTP site, router port) are restricted.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.6.2",
+    "title": "Control CC6.6.2",
+    "description": "Protects Identification and Authentication Credentials \u2014 Identification and authentication credentials are protected during transmission outside its system boundaries.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.6.3",
+    "title": "Control CC6.6.3",
+    "description": "Requires Additional Authentication or Credentials \u2014 Additional authentication information or credentials are required when accessing the system from outside its boundaries.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.6.4",
+    "title": "Control CC6.6.4",
+    "description": "Implements Boundary Protection Systems \u2014 Boundary protection systems (for example, firewalls, demilitarized zones, intrusion detection or prevention systems, and endpoint detection and response systems) are configured, implemented, and maintained to protect external access points.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.7",
+    "title": "Logical and Physical Access Controls (CC6.7)",
+    "description": "The entity restricts the transmission, movement, and removal of information to authorized internal and external users and processes, and protects it during transmission, movement, or removal to meet the entity\u2019s objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.7.1",
+    "title": "Control CC6.7.1",
+    "description": "Restricts the Ability to Perform Transmission \u2014 Data loss prevention processes and technologies are used to restrict ability to authorize and execute transmission, movement, and removal of information.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.7.2",
+    "title": "Control CC6.7.2",
+    "description": "Uses Encryption Technologies or Secure Communication Channels to Protect Data \u2014 Encryption technologies or secured communication channels are used to protect transmission of data and other communications beyond connectivity access points.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.7.3",
+    "title": "Control CC6.7.3",
+    "description": "Protects Removal Media \u2014 Encryption technologies and physical asset protections are used for removable media (such as USB drives and backup tapes), as appropriate.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.7.4",
+    "title": "Control CC6.7.4",
+    "description": "Protects Endpoint Devices \u2014 Processes and controls are in place to protect endpoint devices (such as mobile devices, laptops, desktops, and sensors).",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.8",
+    "title": "Logical and Physical Access Controls (CC6.8)",
+    "description": "The entity implements controls to prevent or detect and act upon the introduction of unauthorized or malicious software to meet the entity\u2019s objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.8.1",
+    "title": "Control CC6.8.1",
+    "description": "Restricts Installation and Modification of Application and Software \u2014 The ability to install and modify applications and software is restricted to authorized individuals. Utility software capable of bypassing normal operating or security procedures is limited to use by authorized individuals and is monitored regularly.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.8.2",
+    "title": "Control CC6.8.2",
+    "description": "Detects Unauthorized Changes to Software and Configuration Parameters \u2014 Processes are in place to detect changes to software and configuration parameters that may be indicative of unauthorized or malicious software.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.8.3",
+    "title": "Control CC6.8.3",
+    "description": "Uses a Defined Change Control Process \u2014 A management-defined change control process is used for the implementation of software.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.8.4",
+    "title": "Control CC6.8.4",
+    "description": "Uses Antivirus and Anti-Malware Software \u2014 Antivirus and anti-malware software on servers and endpoint devices is configured, implemented, and maintained to provide for the interception or detection and remediation of malware.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC6.8.5",
+    "title": "Control CC6.8.5",
+    "description": "Scans Information Assets From Outside the Entity for Malware and Other Unauthorized Software \u2014 Procedures are in place to scan information assets that have been transferred or returned to the entity\u2019s custody for malware and other unauthorized software. Detected malware or other software is removed prior to connection to the entity\u2019s network.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.1",
+    "title": "System Operations (CC7.1)",
+    "description": "To meet its objectives, the entity uses detection and monitoring procedures to identify \n(1) changes to configurations that result in the introduction of new vulnerabilities, and \n(2) susceptibilities to newly discovered vulnerabilities.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.1.1",
+    "title": "Control CC7.1.1",
+    "description": "Uses Defined Configuration Standards \u2014 The entity has defined configuration standards to be used for hardening systems.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.1.2",
+    "title": "Control CC7.1.2",
+    "description": "Monitors Infrastructure and Software \u2014 The entity monitors infrastructure and software for noncompliance with the standards, which could threaten the achievement of the entity's objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.1.3",
+    "title": "Control CC7.1.3",
+    "description": "Implements Change-Detection Mechanisms \u2014 The IT system includes a change-detection mechanism (for example, file integrity monitoring tools) to alert personnel to unauthorized modifications of critical system files, configuration files, or content files.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.1.4",
+    "title": "Control CC7.1.4",
+    "description": "Detects Unknown or Unauthorized Components \u2014 Procedures are in place to detect the introduction of unknown or unauthorized components.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.1.5",
+    "title": "Control CC7.1.5",
+    "description": "Conducts Vulnerability Scans \u2014 The entity conducts infrastructure and software vulnerability scans designed to identify potential vulnerabilities or misconfigurations on a periodic basis and after significant changes are made to the environment. Action is taken to remediate identified deficiencies in a timely manner to support the achievement of the entity\u2019s objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.2",
+    "title": "System Operations (CC7.2)",
+    "description": "The entity monitors system components and the operation of those components for anomalies that are indicative of malicious acts, natural disasters, and errors affecting the entity's ability to meet its objectives; anomalies are analyzed to determine whether they represent security events.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.2.1",
+    "title": "Control CC7.2.1",
+    "description": "Implements Detection Policies, Procedures, and Tools \u2014 Detection policies, procedures, and tools are defined and implemented on infrastructure and software to identify potential intrusions, inappropriate access, and anomalies in the operation of or unusual activity on systems. Procedures may include \n(1) a defined governance process for security event detection and management; \n(2) use of intelligence sources to identify newly discovered threats and vulnerabilities; and \n(3) logging of unusual system activities.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.2.2",
+    "title": "Control CC7.2.2",
+    "description": "Designs Detection Measures \u2014 Detection measures are designed to identify anomalies that could result from actual or attempted \n(1) compromise of physical barriers;\n(2) unauthorized actions of authorized personnel; \n(3) use of compromised identification and authentication credentials; \n(4) unauthorized access from outside the system boundaries; \n(5) compromise of authorized external parties; and \n(6) implementation or connection of unauthorized hardware and software.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.2.3",
+    "title": "Control CC7.2.3",
+    "description": "Implements Filters to Analyze Anomalies \u2014 Management has implemented procedures to filter, summarize, and analyze anomalies to identify security events.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.2.4",
+    "title": "Control CC7.2.4",
+    "description": "Monitors Detection Tools for Effective Operation \u2014 Management has implemented processes to monitor and maintain the effectiveness of detection tools.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.3",
+    "title": "System Operations (CC7.3)",
+    "description": "The entity evaluates security events to determine whether they could or have resulted in a failure of the entity to meet its objectives (security incidents) and, if so, takes actions to prevent or address such failures.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.3.1",
+    "title": "Control CC7.3.1",
+    "description": "Responds to Security Incidents \u2014 Procedures are in place for responding to security incidents and evaluating the effectiveness of those policies and procedures on a periodic basis.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.3.2",
+    "title": "Control CC7.3.2",
+    "description": "Communicates and Reviews Detected Security Events \u2014 Detected security events are communicated to and reviewed by the individuals responsible for the management of the security program, and actions are taken, if necessary.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.3.3",
+    "title": "Control CC7.3.3",
+    "description": "Develops and Implements Procedures to Analyze Security Incidents \u2014 Procedures are in place to analyze security incidents and determine system impact.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.3.4",
+    "title": "Control CC7.3.4",
+    "description": "[C] Assesses the Impact on Confidential Information \u2014 Detected security events are evaluated to determine whether they could or did result in the unauthorized disclosure or use of confidential information.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.3.5",
+    "title": "Control CC7.3.5",
+    "description": "[C] Determines Confidential Information Used or Disclosed \u2014 When an unauthorized use or disclosure of confidential information has occurred, the affected information is identified and actions are taken to help prevent future recurrence and address control failures to support the achievement of entity objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.3.6",
+    "title": "Control CC7.3.6",
+    "description": "[P] Assesses the Impact on Personal Information \u2014 Detected security events are evaluated to determine whether they could or did result in the unauthorized disclosure or use of personal information and whether there has been a failure to comply with aplicable laws or regulations.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.3.7",
+    "title": "Control CC7.3.7",
+    "description": "[P] Determines Personal Information Used or Disclosed \u2014 When an unauthorized use or disclosure of personal information has occurred, the affected information is identified and actions are taken to help prevent future recurrence and address control failures to support the achievement of entity objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.4",
+    "title": "System Operations (CC7.4)",
+    "description": "The entity responds to identified security incidents by executing a defined incident-response program to understand, contain, remediate, and communicate security incidents, as appropriate.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.4.1",
+    "title": "Control CC7.4.1",
+    "description": "Assigns Roles and Responsibilities \u2014 Roles and responsibilities for the design, implementation, maintenance, and execution of the incident-response program are assigned, including the use of external resources when necessary.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.4.2",
+    "title": "Control CC7.4.2",
+    "description": "Contains and Responds to Security Incidents \u2014 Procedures are in place to respond to and contain security incidents that actively threaten entity objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.4.3",
+    "title": "Control CC7.4.3",
+    "description": "Mitigates Ongoing Security Incidents \u2014 Procedures are in place to mitigate the effects of ongoing security incidents.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.4.4",
+    "title": "Control CC7.4.4",
+    "description": "Resolves Security Incidents \u2014 Procedures are in place to resolve security incidents through closure of vulnerabilities, removal of unauthorized access, and other remediation actions.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.4.5",
+    "title": "Control CC7.4.5",
+    "description": "Restores Operations \u2014 Procedures are in place to restore data and business operations to an interim state that permits the achievement of entity objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.4.6",
+    "title": "Control CC7.4.6",
+    "description": "Develops and Implements Communication of Security Incidents \u2014 Protocols for communicating, in a timely manner, information regarding security incidents and actions taken to affected parties are developed and implemented to support the achievement of the entity's objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.4.7",
+    "title": "Control CC7.4.7",
+    "description": "Obtains Understanding of Nature of Incident and Determines Containment Strategy \u2014 An understanding of the nature (for example, the method by which the incident occurred and the affected system resources) and severity of the security incident is obtained to determine the appropriate response and containment strategy, including \n(1) a determination of the appropriate response time frame, and \n(2) the determination and execution of the containment approach.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.4.8",
+    "title": "Control CC7.4.8",
+    "description": "Remediates Identified Vulnerabilities \u2014 Identified vulnerabilities are remediated through the development and execution of remediation activities.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.4.9",
+    "title": "Control CC7.4.9",
+    "description": "Communicates Remediation Activities \u2014 Remediation activities are documented and communicated in accordance with the incident-response program.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.4.10",
+    "title": "Control CC7.4.10",
+    "description": "Evaluates the Effectiveness of Incident Response \u2014 The design of incident-response activities is evaluated for effectiveness on a periodic basis.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.4.11",
+    "title": "Control CC7.4.11",
+    "description": "Periodically Evaluates Incidents \u2014 Periodically, management reviews incidents related to security, availability, processing integrity, confidentiality, and privacy and identifies the need for system changes based on incident patterns and root causes.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.4.12",
+    "title": "Control CC7.4.12",
+    "description": "[P] Applies Breach Response Procedures \u2014 Breach response procedures are defined and applied in the event of a confirmed privacy incident.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.4.13",
+    "title": "Control CC7.4.13",
+    "description": "[P] Communicates Unauthorized Use and Disclosure \u2014 Events that resulted in unauthorized use or disclosure of personal information are communicated to the data subjects, legal and regulatory authorities, and others as required.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.4.14",
+    "title": "Control CC7.4.14",
+    "description": "[P] Application of Sanctions \u2014 The conduct of individuals and organizations operating under the authority of the entity and involved in the unauthorized use or disclosure of personal information is evaluated and, if appropriate, sanctioned in accordance with entity policies and legal and regulatory requirements.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.5",
+    "title": "System Operations (CC7.5)",
+    "description": "The entity identifies, develops, and implements activities to recover from identified security incidents.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.5.1",
+    "title": "Control CC7.5.1",
+    "description": "Restores the Affected Environment \u2014 The activities restore the affected environment to functional operation by rebuilding systems, updating software, installing patches, modifying access controls, and changing configurations, as needed.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.5.2",
+    "title": "Control CC7.5.2",
+    "description": "Communicates Information About the Incident \u2014 Communications about the nature of the incident, recovery actions taken, and activities required for the prevention of future security incidents are made to management and others as appropriate (internal and external).",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.5.3",
+    "title": "Control CC7.5.3",
+    "description": "Determines Root Cause of the Incident \u2014 The root cause of the incident is determined.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.5.4",
+    "title": "Control CC7.5.4",
+    "description": "Implements Changes to Prevent and Detect Recurrences \u2014 Additional architecture or changes to preventive and detective controls are implemented to prevent and detect incident recurrences in a timely manner.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.5.5",
+    "title": "Control CC7.5.5",
+    "description": "Improves Response and Recovery Procedures \u2014 Lessons learned are analyzed and the incident-response plan and recovery procedures are improved.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC7.5.6",
+    "title": "Control CC7.5.6",
+    "description": "Implements Incident-Recovery Plan Testing \u2014 Incident-recovery plan testing is performed on a periodic basis. The testing includes \n(1) development of testing scenarios based on threat likelihood and magnitude; \n(2) consideration of relevant system components from across the entity that can impair availability; \n(3) scenarios that consider the potential for the lack of availability of key personnel; and \n(4) revisi\u00f3n of resilience posture and continuity plans based on test results.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1",
+    "title": "Change Management (CC8.1)",
+    "description": "The entity authorizes, designs, develops or acquires, configures, documents, tests, approves, and implements changes to infrastructure, data, software, and procedures to meet its objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.1",
+    "title": "Control CC8.1.1",
+    "description": "Manages Changes Throughout the System Life Cycle \u2014 A process for managing system changes throughout the life cycle of the system and its components (infrastructure, data, software, and manual and automated procedures) is used to support the achievement of entity objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.2",
+    "title": "Control CC8.1.2",
+    "description": "Authorizes Changes \u2014 A process is in place to authorize system and architecture changes prior to design, development, or acquisition and configuration.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.3",
+    "title": "Control CC8.1.3",
+    "description": "Designs and Develops Changes \u2014 A process is in place to design and develop system changes in a secure manner to support the achievement of entity objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.4",
+    "title": "Control CC8.1.4",
+    "description": "Documents Changes \u2014 A process is in place to document system changes to support ongoing maintenance of the system and to support internal and external users in performing their responsibilities.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.5",
+    "title": "Control CC8.1.5",
+    "description": "Tracks System Changes \u2014 A process is in place to track system changes prior to implementation.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.6",
+    "title": "Control CC8.1.6",
+    "description": "Configures Software \u2014 A process is in place to select, implement, maintain, and monitor configuration parameters used to control the functionality of developed and acquired software.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.7",
+    "title": "Control CC8.1.7",
+    "description": "Tests System Changes \u2014 A process is in place to test internally developed and acquired system changes prior to implementation into the production environment. Examples of testing may include unit, integration, regression, static and Dynamic application source code, quality assurance, or automated testing (whether point in time or continuous).",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.8",
+    "title": "Control CC8.1.8",
+    "description": "Approves System Changes \u2014 A process is in place to approve system changes prior to implementation.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.9",
+    "title": "Control CC8.1.9",
+    "description": "Deploys System Changes \u2014 A process is in place to implement system changes with consideration of segregation of responsibilities (for example, restricting unilateral code development or testing and implementation by a single user) to prevent or detect unauthorized changes.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.10",
+    "title": "Control CC8.1.10",
+    "description": "Identifies and Evaluates System Changes \u2014 Objectives affected by system changes are identified, and the ability of the modified system to support the achievement of the objectives is evaluated throughout the system development life cycle.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.11",
+    "title": "Control CC8.1.11",
+    "description": "Identifies Changes in Infrastructure, Data, Software, and Procedures Required to Remediate Incidents \u2014 Changes in infrastructure, data, software, and procedures required to remediate incidents are identified and the change process is initiated upon identification.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.12",
+    "title": "Control CC8.1.12",
+    "description": "Creates Baseline Configuration of IT Technology \u2014 A baseline configuration of IT and control systems is created and maintained.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.13",
+    "title": "Control CC8.1.13",
+    "description": "Provides for Changes Necessary in Emergency Situations \u2014 A process is in place for authorizing, designing, testing, approving, and implementing changes necessary in emergency situations (that is, changes that need to be implemented in an urgent time frame).",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.14",
+    "title": "Control CC8.1.14",
+    "description": "Manages Patch Changes \u2014 A process is in place to identify, evaluate, test, approve, and implement patches in a timely manner on infrastructure and software.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.15",
+    "title": "Control CC8.1.15",
+    "description": "[A] Considers System Resilience \u2014 The entity considers system resilience when designing its systems and tests resilience during development to help ensure the entity\u2019s ability to respond to, recover from, and resume operations through significant disruptions.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.16",
+    "title": "Control CC8.1.16",
+    "description": "[C] Protects Confidential Information \u2014 The entity protects confidential information during system design, development, testing, implementation, and change processes to support the achievement of the entity\u2019s objectives related to confidentiality.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.17",
+    "title": "Control CC8.1.17",
+    "description": "[P] Protects Personal Information \u2014 The entity protects personal information during system design, development, testing, implementation, and change processes to support the achievement of the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC8.1.18",
+    "title": "Control CC8.1.18",
+    "description": "[P] Privacy by Design \u2014 The entity considers privacy requirements in the design of its systems and processes and limits the collection and processing of personal information to what is necessary for the identified purpose.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.1",
+    "title": "Risk Mitigation (CC9.1)",
+    "description": "The entity identifies, selects, and develops risk mitigation activities for risks arising from potential business disruptions.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.1.1",
+    "title": "Control CC9.1.1",
+    "description": "Considers Mitigation of Risks of Business Disruption \u2014 Risk mitigation activities include the development of planned policies, procedures, communications, and alternative processing solutions to respond to, mitigate, and recover from incidents that disrupt business operations. Those resilience policies and procedures include monitoring processes, information, and communications to support the achievement of the entity's objectives during response, mitigation, and recovery efforts.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.1.2",
+    "title": "Control CC9.1.2",
+    "description": "Considers the Use of Insurance to Mitigate Financial Impact Risks \u2014 The risk management activities consider the use of insurance to offset the financial impact of los events that would otherwise impair the ability of the entity to support the achievement of its objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.2",
+    "title": "Risk Mitigation (CC9.2)",
+    "description": "The entity assesses and manages risks associated with vendors and business partners.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.2.1",
+    "title": "Control CC9.2.1",
+    "description": "Establishes Requirements for Vendor and Business Partner Engagements \u2014 The entity establishes specific requirements for vendor and business partner engagements that include \n(1) scope of services and product specifications, \n(2) roles and responsibilities, \n(3) compliance requirements, and \n(4) service levels.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.2.2",
+    "title": "Control CC9.2.2",
+    "description": "Identifies Vulnerabilities \u2014 The entity evaluates vulnerabilities arising from vendor and business partner relationships, including third-party access to the entity\u2019s IT systems and connections with third-party networks.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.2.3",
+    "title": "Control CC9.2.3",
+    "description": "Assesses Vendor and Business Partner Risks \u2014 The entity inventories, tiers, and assesses, on a periodic basis, threats arising from relationships with vendors and business partners (and those entities\u2019 vendors and business partners) and the vulnerability of the entity's objectives to those threats. Examples of threats arising from relationships with vendors and business partners include those arising from their \n(1) financial failure, \n(2) security vulnerabilities, \n(3) operational disruption, and \n(4) failure to meet business or regulatory requirements.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.2.4",
+    "title": "Control CC9.2.4",
+    "description": "Assigns Responsibility and Accountability for Managing Vendors and Business Partners \u2014 The entity assigns responsibility and accountability for the management of risks and changes to services associated with vendors and business partners.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.2.5",
+    "title": "Control CC9.2.5",
+    "description": "Establishes Communication Protocols for Vendors and Business Partners \u2014 The entity establishes communication and resolution protocols for service or product issues related to vendors and business partners.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.2.6",
+    "title": "Control CC9.2.6",
+    "description": "Establishes Exception Handling Procedures From Vendors and Business Partners \u2014 The entity establishes exception handling procedures for service or product issues related to vendors and business partners.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.2.7",
+    "title": "Control CC9.2.7",
+    "description": "Assesses Vendor and Business Partner Performance \u2014 The entity assesses the performance of vendors and business partners, as frequently as warranted, based on the risk associated with the vendor or business partner.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.2.8",
+    "title": "Control CC9.2.8",
+    "description": "Implements Procedures for Addressing Issues Identified During Vendor and Business Partner Assessments \u2014 The entity implements procedures for addressing issues identified with vendor and business partner relationships.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.2.9",
+    "title": "Control CC9.2.9",
+    "description": "Implements Procedures for Terminating Vendor and Business Partner Relationships \u2014 The entity implements procedures for terminating vendor and business partner relationships based on predefined considerations. Those procedures may include safe return of data and its removal from the vendor or business partner system.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.2.10",
+    "title": "Control CC9.2.10",
+    "description": "[C] Obtains Confidentiality Commitments From Vendors and Business Partners \u2014 The entity obtains confidentiality commitments that are consistent with the entity\u2019s confidentiality commitments and requirements from vendors and business partners who have access to confidential information.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.2.11",
+    "title": "Control CC9.2.11",
+    "description": "[C] Assesses Compliance With Confidentiality Commitments of Vendors and Business Partners \u2014 On a periodic and as-needed basis, the entity assesses compliance by vendors and business partners with the entity\u2019s confidentiality commitments and requirements.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.2.12",
+    "title": "Control CC9.2.12",
+    "description": "[P] Obtains Privacy Commitments From Vendors and Business Partners \u2014 The entity obtains privacy commitments, consistent with the entity\u2019s privacy commitments andrequirements, from vendors and business partners who have access to personal information.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "CC9.2.13",
+    "title": "Control CC9.2.13",
+    "description": "[P] Assesses Compliance With Privacy Commitments of Vendors and Business Partners \u2014 On a periodic and as-needed basis, the entity assesses compliance by vendors and business partners with the entity\u2019s privacy commitments and requirements and takes corrective action as necessary.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.1",
+    "title": "Additional Criteria for Avalability (A1.1)",
+    "description": "The entity maintains, monitors, and evaluates current processing capacity and use of system components (infrastructure, data, and software) to manage capacity demand and to enable the implementation of additional capacity to help meet its objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.1.1",
+    "title": "Control A1.1.1",
+    "description": "Measures Current Usage \u2014 The use of the system components is measured to establish a baseline for capacity management and to use when monitoring and evaluating the risk of impaired availability due to capacity constraints.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.1.2",
+    "title": "Control A1.1.2",
+    "description": "Forecasts Capacity \u2014 The expected average and peak use of system components is forecasted and compared to system capacity and associated tolerances. Forecasting considers system resilience and capacity in the event of the failure of system components that constrain capacity.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.1.3",
+    "title": "Control A1.1.3",
+    "description": "Makes Changes Based on Forecasts \u2014 The system change management process is initiated when forecasted usage exceeds capacity tolerances.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.2",
+    "title": "Additional Criteria for Avalability (A1.2)",
+    "description": "The entity authorizes, designs, develops or acquires, implements, operates, approves, maintains, and monitors environmental protections, software, data backup processes, and recovery infrastructure to meet its objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.2.1",
+    "title": "Control A1.2.1",
+    "description": "Identifies Environmental Threats \u2014 As part of the risk assessment process, management identifies environmental threats that could impair the availability of the system, including threats resulting from adverse weather, failure of environmental control systems, electrical discharge, fire, and water.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.2.2",
+    "title": "Control A1.2.2",
+    "description": "Designs Detection Measures \u2014 Detection measures are implemented to identify anomalies that could result from environmental threat events.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.2.3",
+    "title": "Control A1.2.3",
+    "description": "Implements and Maintains Environmental Protection Mechanisms \u2014 Management implements and maintains environmental protection mechanisms to prevent and mitigate environmental events.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.2.4",
+    "title": "Control A1.2.4",
+    "description": "Implements Alerts to Analyze Anomalies \u2014 Management implements alerts that are communicated to personnel for analysis to identify environmental threat events.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.2.5",
+    "title": "Control A1.2.5",
+    "description": "Responds to Environmental Threat Events \u2014 Procedures are in place for responding to environmental threat events and for evaluating the effectiveness of those policies and procedures on a periodic basis. This includes automatic mitigation systems (for example, uninterruptable power system and generator backup subsystem).",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.2.6",
+    "title": "Control A1.2.6",
+    "description": "Communicates and Reviews Detected Environmental Threat Events \u2014 Detected environmental threat events are communicated to and reviewed by the individuals responsable for the management of the system, and actions are taken, if necessary.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.2.7",
+    "title": "Control A1.2.7",
+    "description": "Determines Data Requiring Backup \u2014 Data is evaluated to determine whether backup is required.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.2.8",
+    "title": "Control A1.2.8",
+    "description": "Performs Data Backup \u2014 Procedures are in place for backing up data, monitoring to detect backup failures, and initiating corrective action when such failures occur.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.2.9",
+    "title": "Control A1.2.9",
+    "description": "Addresses Offsite Storage \u2014 Backup data is stored in a location at a distance from its principal storage location sufficient that the likelihood of a security or environmental threat event affecting both sets of data is reduced to an appropriate level.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.2.10",
+    "title": "Control A1.2.10",
+    "description": "Implements Alternate Processing Infrastructure \u2014 Measures are implemented for migrating processing to alternate infrastructure in the event normal processing infrastructure becomes unavailable. Measures may include geographic separation, redundancy, and failover capabilities for components.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.2.11",
+    "title": "Control A1.2.11",
+    "description": "Considers Data Recoverability \u2014 Management identifies threats to data recoverability (for example, ransomware attacks) that could impair the availability of the system and related data and implements mitigation procedures.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.3",
+    "title": "Additional Criteria for Avalability (A1.3)",
+    "description": "The entity tests recovery plan procedures supporting system recovery to meet its objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.3.1",
+    "title": "Control A1.3.1",
+    "description": "Implements Business Continuity Plan Testing \u2014 Business continuity plan testing is performed on a periodic basis to test the entity\u2019s ability to respond to, recover from, and resume operations through significant disruptions. Testing includes \n(1) development of testing scenarios based on threat likelihood and magnitude; \n(2) consideration of system components from across the entity and vendors that can impair availability; \n(3) scenarios that consider the potential for the lack of availability of key personnel or vendors; and \n(4) revision of continuity plans and systems based on test results.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "A1.3.2",
+    "title": "Control A1.3.2",
+    "description": "Tests Integrity and Completeness of Backup Data \u2014 The integrity and completeness of backup information is tested on a periodic basis.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "C1.1",
+    "title": "Additional Criteria for Confidentiality (C1.1)",
+    "description": "The entity identifies and maintains confidential information to meet the entity\u2019s objectives related to confidentiality.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "C1.1.1",
+    "title": "Control C1.1.1",
+    "description": "Defines and Identifies Confidential information \u2014 Procedures are in place to define, identify, and designate confidential information when it is received or created.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "C1.1.2",
+    "title": "Control C1.1.2",
+    "description": "Retains Confidential Information \u2014 Confidential information is retained for no longer than necessary to fulfill the identified purpose, unless a law or regulation specifically requires otherwise.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "C1.1.3",
+    "title": "Control C1.1.3",
+    "description": "Protects Confidential Information From Destruction \u2014 Policies and procedures are in place to protect confidential information from erasure or destruction during the specified retention period of the information.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "C1.2",
+    "title": "Additional Criteria for Confidentiality (C1.2)",
+    "description": "The entity disposes of confidential information to meet the entity\u2019s objectives related to confidentiality.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "C1.2.1",
+    "title": "Control C1.2.1",
+    "description": "Identifies Confidential Information for Destruction \u2014 Procedures are in place to identify confidential information requiring destruction when the end of the retention period is reached.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "C1.2.2",
+    "title": "Control C1.2.2",
+    "description": "Destroys Confidential Information \u2014 Policies and procedures are in place to automatically or manually erase or otherwise destroy confidential information that has been identified for destruction.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "PP1.1",
+    "title": "Additional Criteria for Processing Integrity  (OVER THE PROVISION OF SERVICES OR THE PRODUCTION, MANUFACTURING, OR DISTRIBUTION OF GOODS) (PP1.1)",
+    "description": "The entity obtains or generates, uses, and communicates relevant, quality information regarding the objectives related to processing, including definitions of data processed and product and service specifications, to support the use of products and services.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "PP1.2",
+    "title": "Additional Criteria for Processing Integrity  (OVER THE PROVISION OF SERVICES OR THE PRODUCTION, MANUFACTURING, OR DISTRIBUTION OF GOODS) (PP1.2)",
+    "description": "The entity implements policies and procedures over system inputs, including controls over completeness and accuracy, to result in products, services, and reporting to meet the entity\u2019s objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "PP1.3",
+    "title": "Additional Criteria for Processing Integrity  (OVER THE PROVISION OF SERVICES OR THE PRODUCTION, MANUFACTURING, OR DISTRIBUTION OF GOODS) (PP1.3)",
+    "description": "The entity implements policies and procedures over system processing to result in products, services, and reporting to meet the entity\u2019s objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "PP1.4",
+    "title": "Additional Criteria for Processing Integrity  (OVER THE PROVISION OF SERVICES OR THE PRODUCTION, MANUFACTURING, OR DISTRIBUTION OF GOODS) (PP1.4)",
+    "description": "The entity implements policies and procedures to make available or deliver output completely, accurately, and timely in accordance with specifications to meet the entity\u2019s objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "PP1.5",
+    "title": "Additional Criteria for Processing Integrity  (OVER THE PROVISION OF SERVICES OR THE PRODUCTION, MANUFACTURING, OR DISTRIBUTION OF GOODS) (PP1.5)",
+    "description": "The entity implements policies and procedures to store inputs, items in processing, and outputs completely, accurately, and timely in accordance with system specifications to meet the entity\u2019s objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P1.0",
+    "title": "Additional Criteria for Privacity (P1.0)",
+    "description": "Privacy Criteria Related to Notice and Communication of Objectives Related to Privacy",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P1.1",
+    "title": "Control P1.1",
+    "description": "The entity provides notice to data subjects about its privacy practices to meet the entity\u2019s objectives related to privacy. The notice is updated and communicated to data subjects in a timely manner for changes to the entity\u2019s privacy practices, including changes in the use of personal information, to meet the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P2.0",
+    "title": "Additional Criteria for Privacity (P2.0)",
+    "description": "Privacy Criteria Related to Choice and Consent",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P2.1",
+    "title": "Control P2.1",
+    "description": "The entity communicates choices available regarding the collection, use, retention, disclosure, and disposal of personal information to the data subjects and the consequences, if any, of each choice. Explicit consent for the collection, use, retention, disclosure, and disposal of personal information is obtained from data subjects or other authorized persons, if required. Such consent is obtained only for the intended purpose of the information to meet the entity\u2019s objectives related to privacy. The entity\u2019s basis for determining implicit consent for the collection, use, retention, disclosure, and disposal of personal information is documented.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P3.0",
+    "title": "Additional Criteria for Privacity (P3.0)",
+    "description": "Privacy Criteria Related to Collection",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P3.1",
+    "title": "Control P3.1",
+    "description": "Personal information is collected consistent with the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P3.2",
+    "title": "Control P3.2",
+    "description": "For information requiring explicit consent, the entity communicates the need for such consent as well as the consequences of a failure to provide consent for the request for personal information and obtains the consent prior to the collection of the information to meet the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P3.2.1",
+    "title": "Control P3.2.1",
+    "description": "Informs Data Subjects of Consequences of Failure to Provide Consent [C] \u2014 Data subjects are informed of the consequences of failing to provide the entity with explicit consent.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P3.2.2",
+    "title": "Control P3.2.2",
+    "description": "Documents Explicit Consent to Retain Information [C] \u2014 Documentation of explicit consent for the collection, use, or disclosure of sensitive personal information is retained to support the achievement of entity objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P4.0",
+    "title": "Additional Criteria for Privacity (P4.0)",
+    "description": "Privacy Criteria Related to Use, Retention, and Disposal",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P4.1",
+    "title": "Control P4.1",
+    "description": "The entity limits the use of personal information to the purposes identified in the entity\u2019s objectives\nrelated to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P4.1.1",
+    "title": "Control P4.1.1",
+    "description": "Uses Personal Information for Intended Purposes [P][C] \u2014 Personal information is used only for the intended purposes for which it was collected and only when implicit or explicit consent has been obtained, unless a law or regulation specifically requires otherwise.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P4.2",
+    "title": "Control P4.2",
+    "description": "The entity retains personal information consistent with the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P4.2.1",
+    "title": "Control P4.2.1",
+    "description": "Retains Personal Information [P][C] \u2014 Personal information is retained for no longer than necessary to fulfill the stated purposes, unless a law or regulation specifically requires otherwise.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P4.2.2",
+    "title": "Control P4.2.2",
+    "description": "Protects Personal Information [P][C] \u2014 Policies and procedures have been implemented to protect personal information from erasure or destruction during the specified retention period of the information.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P4.3",
+    "title": "Control P4.3",
+    "description": "The entity securely disposes of personal information to meet the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P4.3.1",
+    "title": "Control P4.3.1",
+    "description": "Captures, Identifies, and Flags Requests for Deletion [P][C] \u2014 Requests for deletion of personal information are captured and information related to the requests is identified and flagged for destruction to support the achievement of the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P4.3.2",
+    "title": "Control P4.3.2",
+    "description": "Disposes of, Destroys, and Redacts Personal Information [P][C] \u2014 Personal information no longer retained is anonymized, disposed of, or destroyed in a manner that prevents loss, theft, misuse, or unauthorized access.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P4.3.3",
+    "title": "Control P4.3.3",
+    "description": "Destroys Personal Information [P][C] \u2014 Policies and procedures are implemented to erase or otherwise destroy personal information that has been identified for destruction",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P5.0",
+    "title": "Additional Criteria for Privacity (P5.0)",
+    "description": "Privacy Criteria Related to Access",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P5.1",
+    "title": "Control P5.1",
+    "description": "The entity grants identified and authenticated data subjects the ability to access their stored personal information for review and, upon request, provides physical or electronic copies of that information to data subjects to meet the entity\u2019s objectives related to privacy. If access is denied, data subjects are informed of the denial and reason for such denial, as required, to meet the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P5.1.1",
+    "title": "Control P5.1.1",
+    "description": "Responds to Data Controller Requests [P] \u2014 The entity has a process to respond to data subject requests received from data controllers in accordance with service agreements and privacy objectives. Such process may include authentication of the request, permitting access where appropriate, responding within a reasonable time, and notification if the request is denied.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P5.1.2",
+    "title": "Control P5.1.2",
+    "description": "Authenticates Data Subjects\u2019 Identity [P][C] \u2014 The identity of data subjects who request access to their personal information is authenticated before they are given access to that information.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P5.1.3",
+    "title": "Control P5.1.3",
+    "description": "Permits Data Subjects Access to Their Personal Information [P][C] \u2014 Data subjects are able to determine whether the entity maintains personal information about them and, upon request, may obtain access to their personal information.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P5.1.4",
+    "title": "Control P5.1.4",
+    "description": "Provides Understandable Personal Information Within Reasonable Time [P][C] \u2014 Personal information is provided to data subjects in an understandable form, in a reasonable time frame, and at a reasonable cost, if any.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P5.1.5",
+    "title": "Control P5.1.5",
+    "description": "Informs Data Subjects If Access Is Denied [P][C] \u2014 When data subjects are denied access to their personal information, the entity informs them of the denial and the reason for the denial in a timely manner, unless prohibited by law or regulation.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P5.2",
+    "title": "Control P5.2",
+    "description": "The entity corrects, amends, or appends personal information based on information provided by data subjects and communicates such information to third parties, as committed or required, to meet the entity\u2019s objectives related to privacy. If a request for correction is denied, data subjects are informed of the denial and reason for such denial to meet the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P5.2.1",
+    "title": "Control P5.2.1",
+    "description": "Responds to Data Controller Requests [P] \u2014 The entity has a process to respond to data controllers\u2019 update requests, including updates to personal information and denial of requests, in accordance with service agreements to support the achievement of the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P5.2.2",
+    "title": "Control P5.2.2",
+    "description": "Communicates Denial of Access Requests [P][C] \u2014 Data subjects are informed, in writing, of the reason a request for access to their personal information was denied, the source of the entity\u2019s legal right to deny such access, if applicable, and the individual\u2019s right, if any, to challenge such denial, as specifically permitted or required by law or regulation.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P5.2.3",
+    "title": "Control P5.2.3",
+    "description": "Permits Data Subjects to Update or Correct Personal Information [P][C] \u2014 Data subjects are able to update or correct personal information held by the entity. The entity communicates updates, corrections, and deletion requests to third parties that were previously provided with the data subject\u2019s personal information consistent with the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P5.2.4",
+    "title": "Control P5.2.4",
+    "description": "Communicates Denial of Correction Requests [P][C] \u2014 Data subjects are informed, in writing, about the reason a request for correction of personal information was denied and how they may appeal.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.0",
+    "title": "Additional Criteria for Privacity (P6.0)",
+    "description": "Privacy Criteria Related to Disclosure and Notification",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.1",
+    "title": "Control P6.1",
+    "description": "The entity discloses personal information to third parties with the explicit consent of data subjects and such consent is obtained prior to disclosure to meet the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.1.1",
+    "title": "Control P6.1.1",
+    "description": "Communicates Privacy Policies to Third Parties [P][C] \u2014 Privacy policies or other specific instructions or requirements for handling personal information are communicated to third parties to whom personal information is disclosed.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.1.2",
+    "title": "Control P6.1.2",
+    "description": "Discloses Personal Information Only When Appropriate [P][C] \u2014 Personal information is disclosed to third parties only for the purposes for which it was collected or created and only when implicit or explicit consent has been obtained from the data subject, unless a law or regulation specifically requires otherwise.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.1.3",
+    "title": "Control P6.1.3",
+    "description": "Discloses Personal Information Only to Appropriate Third Parties [P][C] \u2014 Personal information is disclosed only to third parties who have agreements with the entity to protect personal information in a manner consistent with the relevant aspects of the entity\u2019s privacy notice or other specific instructions or requirements.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.1.4",
+    "title": "Control P6.1.4",
+    "description": "Discloses Information to Third Parties for New Purposes and Uses [P][C] \u2014 Personal information is disclosed to third parties for new purposes or uses only with the prior implicit or explicit consent of data subjects.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.2",
+    "title": "Control P6.2",
+    "description": "The entity creates and retains a complete, accurate, and timely record of authorized disclosures of personal information to meet the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.2.1",
+    "title": "Control P6.2.1",
+    "description": "Creates and Retains Record of Authorized Disclosures [P][C] \u2014 The entity creates and maintains a record of authorized disclosures of personal information that is complete, accurate, and timely.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.3",
+    "title": "Control P6.3",
+    "description": "The entity creates and retains a complete, accurate, and timely record of detected or reported unauthorized disclosures (including breaches) of personal information to meet the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.3.1",
+    "title": "Control P6.3.1",
+    "description": "Creates and Retains Record of Detected or Reported Unauthorized Disclosures [P] [C] \u2014 The entity creates and maintains a record of detected or reported unauthorized disclosures of personal information that is complete, accurate, and timely.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.4",
+    "title": "Control P6.4",
+    "description": "The entity obtains privacy commitments from vendors and other third parties who have access to personal information to meet the entity\u2019s objectives related to privacy. The entity assesses those parties\u2019 compliance on a periodic and as-needed basis and takes corrective action, if necessary.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.4.1",
+    "title": "Control P6.4.1",
+    "description": "Evaluates Third-Party Compliance With Privacy Commitments [P][C] \u2014 The entity has procedures in place to evaluate whether third parties have effective controls to meet the terms of the agreement, instructions, or requirements.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.4.2",
+    "title": "Control P6.4.2",
+    "description": "Remediates Misuse of Personal Information by a Third Party [P][C] \u2014 The entity takes remedial action in response to misuse of personal information by a third party to whom the entity has transferred such information.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.4.3",
+    "title": "Control P6.4.3",
+    "description": "Obtains Commitments to Report Unauthorized Disclosures [P][C] \u2014 A process exists for obtaining commitments from vendors and other third parties to report to the entity actual or suspected unauthorized disclosures of personal information.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.5",
+    "title": "Control P6.5",
+    "description": "The entity obtains commitments from vendors and other third parties with access to personal information to notify the entity in the event of actual or suspected unauthorized disclosures of personal information. Such notifications are reported to appropriate personnel and acted on in accordance with established incident-response procedures to meet the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.5.1",
+    "title": "Control P6.5.1",
+    "description": "Remediates Misuse of Personal Information by a Third Party [P][C] \u2014 The entity takes remedial action in response to misuse of personal information by a third party to whom the entity has transferred such information.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.5.2",
+    "title": "Control P6.5.2",
+    "description": "Reports Actual or Suspected Unauthorized Disclosures [P][C] \u2014 A process exists for obtaining commitments from vendors and other third parties to report to the entity actual or suspected unauthorized disclosures of personal information.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.6",
+    "title": "Control P6.6",
+    "description": "The entity provides notification of breaches and incidents to affected data subjects, regulators, and others to meet the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.6.1",
+    "title": "Control P6.6.1",
+    "description": "Identifies Reporting Requirements [P][C] \u2014 The entity has a process for determining whether notification of a privacy breach is required, including the method to be used, the timeline, and the identification of recipients of such notifications.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.6.2",
+    "title": "Control P6.6.2",
+    "description": "Provides Notice of Breaches and Incidents [P][C] \u2014 The entity has a process for providing notice of breaches and incidents to affected data subjects, regulators, and others to support the achievement of the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.7",
+    "title": "Control P6.7",
+    "description": "The entity provides data subjects with an accounting of the personal information held and disclosure of the data subjects\u2019 personal information, upon the data subjects\u2019 request, to meet the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.7.1",
+    "title": "Control P6.7.1",
+    "description": "Responds to Data Controller Requests [P] \u2014 The entity has a process to respond to data controller requests for an accounting of personal information held in accordance with service agreements and privacy objectives.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.7.2",
+    "title": "Control P6.7.2",
+    "description": "Identifies Types of Personal Information and Handling Process [P][C] \u2014 The types of personal information and sensitive personal information and the related processes, systems, and third parties involved in the handling of such information are identified.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P6.7.3",
+    "title": "Control P6.7.3",
+    "description": "Captures, Identifies, and Communicates Requests for Information [P][C] \u2014 Requests for an accounting of personal information held and disclosures of the data subjects\u2019 personal information are captured and information related to the requests is identified and communicated to data subjects to support the achievement of the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P7.0",
+    "title": "Additional Criteria for Privacity (P7.0)",
+    "description": "Privacy Criteria Related to Quality",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P7.1",
+    "title": "Control P7.1",
+    "description": "The entity collects and maintains accurate, up-to-date, complete, and relevant personal information to meet the entity\u2019s objectives related to privacy.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P7.1.1",
+    "title": "Control P7.1.1",
+    "description": "Ensures Accuracy and Completeness of Personal Information [P][C] \u2014 Personal information is accurate and complete for the purposes for which it is to be used.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P7.1.2",
+    "title": "Control P7.1.2",
+    "description": "Ensures Relevance of Personal Information [P][C] \u2014 Personal information is relevant to the purposes for which it is to be used.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P8.0",
+    "title": "Additional Criteria for Privacity (P8.0)",
+    "description": "Privacy Criteria Related to Monitoring and Enforcement",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P8.1",
+    "title": "Control P8.1",
+    "description": "The entity implements a process for receiving, addressing, resolving, and communicating the resolution of inquiries, complaints, and disputes from data subjects and others and periodically monitors compliance to meet the entity\u2019s objectives related to privacy. Corrections and other necessary actions related to identified deficiencies are made or taken in a timely manner.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P8.1.1",
+    "title": "Control P8.1.1",
+    "description": "Communicates to Data Subjects or Data Controllers [P][C] \u2014 Data subjects or data controllers are informed about how to contact the entity with inquiries, complaints, and disputes.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P8.1.2",
+    "title": "Control P8.1.2",
+    "description": "Addresses Inquiries, Complaints, and Disputes [P][C] \u2014 A process is in place to address inquiries, complaints, and disputes.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P8.1.3",
+    "title": "Control P8.1.3",
+    "description": "Documents and Communicates Dispute Resolution and Recourse [P][C] \u2014 Each complaint is addressed and the resolution is documented and communicated to the individual.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P8.1.4",
+    "title": "Control P8.1.4",
+    "description": "Documents and Reports Compliance Review Results [P][C] \u2014 Compliance with objectives related to privacy are reviewed and documented and the results of such reviews are reported to management. If problems are identified, remediation plans are developed and implemented.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P8.1.5",
+    "title": "Control P8.1.5",
+    "description": "Documents and Reports Instances of Noncompliance [P][C] \u2014 Instances of noncompliance with objectives related to privacy are documented and reported and, if needed, corrective and disciplinary measures are taken on a timely basis.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  },
+  {
+    "control_id": "P8.1.6",
+    "title": "Control P8.1.6",
+    "description": "Performs Ongoing Monitoring [P][C] \u2014 Ongoing procedures are performed for monitoring the effectiveness of controls over personal information and for taking timely corrective actions when necessary.",
+    "jurisdiction": "us",
+    "framework": "soc2",
+    "source_file": "soc2_2017_with_rev_2022.yaml"
+  }
+]

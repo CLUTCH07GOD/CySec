@@ -1,0 +1,482 @@
+[
+  {
+    "source_control": {
+      "id": "Exemption of entities from obligations",
+      "framework": "nis2",
+      "title": "Exemption of entities from obligations",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "31",
+      "framework": "dpdp",
+      "title": "Exemptions for processing of personal data",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.609
+  },
+  {
+    "source_control": {
+      "id": "14",
+      "framework": "nis2",
+      "title": "Data protection law application",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "2",
+      "framework": "dpdp",
+      "title": "Provisions of this Act shall not apply in respect of processing of personal data",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.692
+  },
+  {
+    "source_control": {
+      "id": "20",
+      "framework": "nis2",
+      "title": "Submit information about essential and important entities and their provision",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "SEC. 1] (h)",
+      "framework": "dpdp",
+      "title": "Taking measures to ensure safety or assistance",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.56
+  },
+  {
+    "source_control": {
+      "id": "Provisions requiring incident notification handling",
+      "framework": "nis2",
+      "title": "Provisions requiring incident notification handling",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "SEC. 1] (h)",
+      "framework": "dpdp",
+      "title": "Taking measures to ensure safety or assistance",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.551
+  },
+  {
+    "source_control": {
+      "id": "Data Protection Compliance",
+      "framework": "nis2",
+      "title": "Data Protection Compliance",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Data Fiduciary Data Protection",
+      "framework": "dpdp",
+      "title": "Data Fiduciary Data Protection",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.57
+  },
+  {
+    "source_control": {
+      "id": "Processing of Personal Data",
+      "framework": "nis2",
+      "title": "Processing of Personal Data",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "17",
+      "framework": "dpdp",
+      "title": "Processing of personal data",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.834
+  },
+  {
+    "source_control": {
+      "id": "Enforcement powers and reporting",
+      "framework": "nis2",
+      "title": "Enforcement powers and reporting",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "SEC. 1] (h)",
+      "framework": "dpdp",
+      "title": "Taking measures to ensure safety or assistance",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.617
+  },
+  {
+    "source_control": {
+      "id": "Supervisory and enforcement measures",
+      "framework": "nis2",
+      "title": "Supervisory and enforcement measures",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "SEC. 1] (h)",
+      "framework": "dpdp",
+      "title": "Taking measures to ensure safety or assistance",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.566
+  },
+  {
+    "source_control": {
+      "id": "Privacy and Data Protection",
+      "framework": "nis2",
+      "title": "Privacy and Data Protection",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Data Fiduciary Data Protection",
+      "framework": "dpdp",
+      "title": "Data Fiduciary Data Protection",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.555
+  },
+  {
+    "source_control": {
+      "id": "26",
+      "framework": "nis2",
+      "title": "OJ C 183, 11.5.2021, p. 3",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Provisions of Chapter II and III",
+      "framework": "dpdp",
+      "title": "Provisions of Chapter II and III",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.593
+  },
+  {
+    "source_control": {
+      "id": "Exemption from obligations",
+      "framework": "nis2",
+      "title": "Exemption from obligations",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "31",
+      "framework": "dpdp",
+      "title": "Exemptions for processing of personal data",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.668
+  },
+  {
+    "source_control": {
+      "id": "9",
+      "framework": "nis2",
+      "title": "Paragraphs 7 and 8 shall not apply",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Insertion of new provisions in section 8",
+      "framework": "dpdp",
+      "title": "Insertion of new provisions in section 8",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.615
+  },
+  {
+    "source_control": {
+      "id": "10",
+      "framework": "nis2",
+      "title": "This Directive does not apply to entities exempted under Regulation (EU) 2022/2554",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Provisions of Chapter II and III",
+      "framework": "dpdp",
+      "title": "Provisions of Chapter II and III",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.561
+  },
+  {
+    "source_control": {
+      "id": "11",
+      "framework": "nis2",
+      "title": "Obligations shall not require the supply of information contrary to national security interests",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "SEC. 1] (d)",
+      "framework": "dpdp",
+      "title": "Fulfilling obligations under laws for the time being in force",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.61
+  },
+  {
+    "source_control": {
+      "id": "Processing of personal data",
+      "framework": "nis2",
+      "title": "Processing of personal data",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "17",
+      "framework": "dpdp",
+      "title": "Processing of personal data",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.69
+  },
+  {
+    "source_control": {
+      "id": "Data protection laws",
+      "framework": "nis2",
+      "title": "Data protection laws",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "2",
+      "framework": "dpdp",
+      "title": "Provisions of this Act shall not apply in respect of processing of personal data",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.64
+  },
+  {
+    "source_control": {
+      "id": "4",
+      "framework": "nis2",
+      "title": "Submit required information to competent authorities",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "SEC. 1] (h)",
+      "framework": "dpdp",
+      "title": "Taking measures to ensure safety or assistance",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.568
+  },
+  {
+    "source_control": {
+      "id": "Public Reporting",
+      "framework": "nis2",
+      "title": "Public Reporting",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "SEC. 1] (g)",
+      "framework": "dpdp",
+      "title": "Taking measures to ensure public health",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.576
+  },
+  {
+    "source_control": {
+      "id": "23",
+      "framework": "nis2",
+      "title": "reporting obligations",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "SEC. 1] (d)",
+      "framework": "dpdp",
+      "title": "Fulfilling obligations under laws for the time being in force",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.616
+  },
+  {
+    "source_control": {
+      "id": "Notification under Paragraph 1",
+      "framework": "nis2",
+      "title": "Notification under Paragraph 1",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Information Notification to Data Principal",
+      "framework": "dpdp",
+      "title": "Information Notification to Data Principal",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.556
+  },
+  {
+    "source_control": {
+      "id": "Implementation Acts for Other Entities",
+      "framework": "nis2",
+      "title": "Implementation Acts for Other Entities",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "proceeding",
+      "framework": "dpdp",
+      "title": "proceeding",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.552
+  },
+  {
+    "source_control": {
+      "id": "Confidentiality of Information",
+      "framework": "nis2",
+      "title": "Confidentiality of Information",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "SEC. 1] (h)",
+      "framework": "dpdp",
+      "title": "Taking measures to ensure safety or assistance",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.602
+  },
+  {
+    "source_control": {
+      "id": "5",
+      "framework": "nis2",
+      "title": "Submission of Information",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "SEC. 1] (h)",
+      "framework": "dpdp",
+      "title": "Taking measures to ensure safety or assistance",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.561
+  },
+  {
+    "source_control": {
+      "id": "Publicly available policies and procedures",
+      "framework": "nis2",
+      "title": "Publicly available policies and procedures",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "SEC. 1] (g)",
+      "framework": "dpdp",
+      "title": "Taking measures to ensure public health",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.597
+  },
+  {
+    "source_control": {
+      "id": "Publicly available policies and procedures for data disclosure",
+      "framework": "nis2",
+      "title": "Publicly available policies and procedures for data disclosure",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "SEC. 1] (g)",
+      "framework": "dpdp",
+      "title": "Taking measures to ensure public health",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.613
+  },
+  {
+    "source_control": {
+      "id": "Requests for information",
+      "framework": "nis2",
+      "title": "Requests for information",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "SEC. 1] (h)",
+      "framework": "dpdp",
+      "title": "Taking measures to ensure safety or assistance",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.571
+  },
+  {
+    "source_control": {
+      "id": "Requests for information",
+      "framework": "nis2",
+      "title": "Requests for information",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "SEC. 1] (h)",
+      "framework": "dpdp",
+      "title": "Taking measures to ensure safety or assistance",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.566
+  },
+  {
+    "source_control": {
+      "id": "Notify supervisory authorities of infringements",
+      "framework": "nis2",
+      "title": "Notify supervisory authorities of infringements",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Notice to Data Principal",
+      "framework": "dpdp",
+      "title": "Notice to Data Principal",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.564
+  },
+  {
+    "source_control": {
+      "id": "Penalties for infringements",
+      "framework": "nis2",
+      "title": "Penalties for infringements",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "Penalties for breaches",
+      "framework": "dpdp",
+      "title": "Penalties for breaches",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.587
+  },
+  {
+    "source_control": {
+      "id": "Delegation of Power",
+      "framework": "nis2",
+      "title": "Delegation of Power",
+      "jurisdiction": "eu"
+    },
+    "target_control": {
+      "id": "26",
+      "framework": "dpdp",
+      "title": "Chairperson shall exercise the following powers",
+      "jurisdiction": "india"
+    },
+    "relationship": "Partially Overlapping",
+    "similarity": 0.556
+  }
+]

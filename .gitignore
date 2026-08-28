@@ -1,0 +1,84 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment & Secrets
+.env
+.env.local
+.env.production
+
+# Data Stores (regenerated at runtime)
+chroma_db/
+chroma_db_controls/
+agents/chroma_db_controls/
+
+# Client Vault (sensitive tenant data)
+client_vault/
+
+# Sandbox & Temp
+tmp_sandboxes/
+torchinductor_hp/
+
+# Logs (runtime generated)
+logs/
+
+# Model Cache
+hf_cache/
+
+# Jupyter Checkpoints
+.ipynb_checkpoints/
+agents/.ipynb_checkpoints/
+
+# Build Artifacts
+*.egg-info/
+dist/
+build/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Pytest
+.pytest_cache/
+
+# Reports (generated output)
+reports/*.md
+reports/*.pdf
+reports/*.docx
+
+# MLOps Registry (generated)
+mlops_adapter_registry/
+
+# Compliance Leads (generated)
+compliance_leads/
+
+# Model weights and checkpoints (hosted on Hugging Face)
+adapters/
+*.safetensors
+*.pt
+*.pth
+*.bin
+checkpoint-*/
+
+# Knowledge Graph cache & binary docs
+graphify-out/cache/
+*.docx
+*.pdf
+
+# Sessions
+saved_sessions/
+

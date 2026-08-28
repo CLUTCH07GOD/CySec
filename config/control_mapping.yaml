@@ -1,0 +1,47 @@
+# Mapping table connecting CWE IDs to Compliance Framework Control IDs
+# Used by Agent 0 Live Verification Lane (agent0_live_verification.py)
+
+cwe_mappings:
+  "209": # Information Exposure Through an Error Message
+    nist_csf: "DE.CM-1"
+    asvs: "V14.3.1"
+    iso27001: "A.8.28"
+    pci_dss: "6.5.5"
+
+  "522": # Insufficiently Protected Credentials
+    nist_800_63b: "800_63B_R4-SEC.120"
+    asvs: "V2.1.1"
+    nist_csf: "PR.AA-01"
+
+  "307": # Improper Restriction of Excessive Authentication Attempts
+    nist_800_63b: "800_63B_R4-SEC.47"
+    asvs: "V2.2.1"
+    pci_dss: "8.1.6"
+
+  "614": # Sensitive Cookie Without 'Secure' Attribute
+    asvs: "V3.4.1"
+    nist_csf: "PR.DS-02"
+    pci_dss: "6.5.10"
+
+  "1004": # Sensitive Cookie Without 'HttpOnly' Flag
+    asvs: "V3.4.2"
+    nist_csf: "PR.DS-02"
+
+  "1275": # Sensitive Cookie Without 'SameSite' Attribute
+    asvs: "V3.4.3"
+    nist_csf: "PR.DS-02"
+
+  "285": # Improper Authorization
+    asvs: "V4.1.1"
+    nist_csf: "PR.AC-01"
+    iso27001: "A.8.2"
+
+  "79": # Cross-Site Scripting (XSS)
+    asvs: "V5.3.1"
+    wstg: "WSTG-INPV-01"
+    pci_dss: "6.5.7"
+
+  "89": # SQL Injection
+    asvs: "V5.3.4"
+    wstg: "WSTG-INPV-05"
+    pci_dss: "6.5.1"

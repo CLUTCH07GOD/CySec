@@ -1,0 +1,4 @@
+Annual risk assessment conducted across all critical systems and assets.
+Risk register maintained and reviewed quarterly by CISO.
+Asset inventory updated monthly covering all hardware and software.
+Third-party vendor risk assessments conducted before onboarding.

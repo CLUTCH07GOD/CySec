@@ -1,0 +1,50 @@
+{
+  "client_id": "test_client_rem",
+  "updated_at": "2026-08-26T11:06:22.652773+00:00",
+  "items": {
+    "eu/gdpr__ART-5": {
+      "item_key": "eu/gdpr__ART-5",
+      "framework": "eu/gdpr",
+      "control_id": "ART-5",
+      "title": "Data Protection",
+      "assessment_status": "Not Compliant",
+      "remediation_state": "in_progress",
+      "owner": "Security Lead",
+      "notes": "Encryption patch in progress",
+      "evidence_strength": "\ud83d\udfe2 HIGH CONFIDENCE",
+      "evidence_similarity": 0.85,
+      "history": [
+        {
+          "timestamp": "2026-08-26T11:06:22.652582+00:00",
+          "assessment_status": "Not Compliant",
+          "remediation_state": "open"
+        },
+        {
+          "timestamp": "2026-08-26T11:06:22.652768+00:00",
+          "remediation_state": "in_progress",
+          "owner": "Security Lead",
+          "notes": "Encryption patch in progress"
+        }
+      ]
+    },
+    "eu/gdpr__ART-32": {
+      "item_key": "eu/gdpr__ART-32",
+      "framework": "eu/gdpr",
+      "control_id": "ART-32",
+      "title": "Security of Processing",
+      "assessment_status": "Partially Compliant",
+      "remediation_state": "open",
+      "owner": "Unassigned",
+      "notes": "",
+      "evidence_strength": "\ud83d\udd34 LOW CONFIDENCE",
+      "evidence_similarity": 0.55,
+      "history": [
+        {
+          "timestamp": "2026-08-26T11:06:22.652589+00:00",
+          "assessment_status": "Partially Compliant",
+          "remediation_state": "open"
+        }
+      ]
+    }
+  }
+}

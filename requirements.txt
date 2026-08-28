@@ -1,0 +1,19 @@
+# Core Dependencies — Pinned Versions (generated from working venv)
+streamlit==1.60.0
+torch==2.13.0
+torchvision==0.28.0
+transformers==5.14.1
+peft==0.20.0
+sentence-transformers==5.6.1
+numpy==2.5.1
+scikit-learn==1.9.0
+matplotlib==3.11.1
+pandas==3.0.5
+chromadb==1.5.9
+pypdf==6.14.2
+langgraph==1.2.10
+neo4j==6.2.0
+trl==1.9.2
+datasets==5.0.1
+python-dotenv==1.2.2
+huggingface-hub>=0.20.0

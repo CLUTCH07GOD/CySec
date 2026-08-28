@@ -1,0 +1,10 @@
+{
+  "admin": {
+    "username": "admin",
+    "password_hash": "42c4f68ba89740956084d1ffffaf7209e73e595c37c51637e9ffb9f5ea705a31",
+    "salt": "1df99e6b98f670ca9380075ec4ba21b7",
+    "role": "admin",
+    "email": "admin@compliance.local",
+    "created_at": "2026-08-17T00:00:00"
+  }
+}

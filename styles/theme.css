@@ -1,0 +1,1088 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap');
+
+/* ==========================================================================
+   DESIGN SYSTEM TOKENS & FIGMA SPECIFICATIONS
+   ========================================================================== */
+:root {
+    --bg-main: #060913;
+    --bg-surface-1: #0d1222;
+    --bg-surface-2: #141b31;
+    --bg-surface-3: #1c2643;
+    
+    --accent-primary: #38bdf8;
+    --accent-secondary: #818cf8;
+    --accent-tertiary: #c084fc;
+    --accent-emerald: #34d399;
+    --accent-rose: #fb7185;
+    --accent-amber: #fbbf24;
+
+    --border-subtle: rgba(255, 255, 255, 0.07);
+    --border-glow: rgba(56, 189, 248, 0.35);
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 25px rgba(56, 189, 248, 0.25);
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+}
+
+/* Base Body & Layout */
+html, body, [class*="css"] {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+}
+
+.stApp {
+    background: radial-gradient(circle at 50% -10%, #1e1b4b 0%, #090d18 45%, #040711 100%);
+    background-size: 180% 180%;
+    background-attachment: fixed;
+    animation: ambientBgGlow 14s ease-in-out infinite alternate;
+}
+
+@keyframes ambientBgGlow {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+.block-container {
+    padding-top: 2.8rem;
+    padding-bottom: 2.5rem;
+    max-width: 1200px;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(6, 9, 19, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.25);
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(56, 189, 248, 0.5);
+}
+
+/* ==========================================================================
+   TOP NAVIGATION & HEADER (Figma Styled)
+   ========================================================================== */
+.top-nav-bar {
+    background: linear-gradient(135deg, rgba(13, 18, 34, 0.85) 0%, rgba(20, 27, 49, 0.75) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glow);
+    border-radius: var(--radius-md);
+    padding: 12px 20px;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-md), var(--shadow-glow);
+    position: relative;
+    overflow: hidden;
+}
+
+.top-nav-bar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc, #34d399, #38bdf8);
+    background-size: 250% 100%;
+    animation: gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 250% 0%; }
+}
+
+.app-header h1 {
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    font-size: 2.3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff 0%, #38bdf8 45%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.025em;
+    filter: drop-shadow(0 2px 10px rgba(56, 189, 248, 0.2));
+}
+
+.app-header p {
+    margin: 0.3rem 0 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   METRIC CARDS (Figma Dynamic Glass Cards)
+   ========================================================================== */
+div[data-testid="stMetric"] {
+    background: linear-gradient(145deg, rgba(13, 18, 34, 0.85) 0%, rgba(28, 38, 67, 0.5) 100%);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: 1.1rem 1.3rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+div[data-testid="stMetric"]::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, #38bdf8, #818cf8);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+div[data-testid="stMetric"]:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, 0.5);
+    box-shadow: 0 15px 35px -10px rgba(56, 189, 248, 0.3);
+}
+
+div[data-testid="stMetric"]:hover::after {
+    opacity: 1;
+}
+
+div[data-testid="stMetricLabel"] {
+    color: var(--text-secondary) !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+div[data-testid="stMetricValue"] {
+    color: #ffffff !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.85rem !important;
+    font-weight: 800 !important;
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+/* ==========================================================================
+   SIDEBAR & VERTICAL NAVIGATION STYLING (Figma Glass System)
+   ========================================================================== */
+section[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #050812 0%, #0d1222 60%, #11172a 100%) !important;
+    border-right: 1px solid rgba(56, 189, 248, 0.18) !important;
+    box-shadow: 12px 0 35px rgba(0, 0, 0, 0.65);
+}
+
+section[data-testid="stSidebar"] [data-testid="stSidebarUserContent"],
+section[data-testid="stSidebar"] .block-container {
+    padding-top: 1.5rem !important;
+    padding-left: 1.1rem !important;
+    padding-right: 1.1rem !important;
+}
+
+section[data-testid="stSidebar"] .element-container {
+    margin-bottom: 0.75rem !important;
+}
+
+section[data-testid="stSidebar"] hr {
+    margin: 1.3rem 0 !important;
+    border: none !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.3) 50%, transparent 100%) !important;
+}
+
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] h4 {
+    font-family: 'Outfit', sans-serif !important;
+    color: #f8fafc !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+    margin-top: 0.6rem !important;
+    margin-bottom: 0.5rem !important;
+    font-size: 1.05rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+/* Sidebar Custom Expanders */
+section[data-testid="stSidebar"] .streamlit-expanderHeader {
+    background: linear-gradient(135deg, rgba(20, 27, 49, 0.85) 0%, rgba(30, 41, 59, 0.75) 100%) !important;
+    border: 1px solid rgba(56, 189, 248, 0.25) !important;
+    border-radius: 12px !important;
+    padding: 0.65rem 0.9rem !important;
+    font-size: 0.88rem !important;
+    color: #f8fafc !important;
+}
+
+section[data-testid="stSidebar"] .streamlit-expanderHeader:hover {
+    border-color: rgba(56, 189, 248, 0.6) !important;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(49, 46, 129, 0.85) 100%) !important;
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.25) !important;
+}
+
+/* Sidebar Radio Buttons Styling */
+section[data-testid="stSidebar"] div[data-testid="stRadio"] > div {
+    background: rgba(13, 18, 34, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 8px 12px;
+    gap: 8px;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stRadio"] label {
+    color: #cbd5e1 !important;
+    font-size: 0.86rem !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    padding: 4px 8px !important;
+    border-radius: 8px !important;
+    transition: all 0.2s ease !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stRadio"] label:hover {
+    color: #38bdf8 !important;
+    background: rgba(56, 189, 248, 0.1) !important;
+}
+
+/* Sidebar Specific Buttons */
+section[data-testid="stSidebar"] div.stButton > button,
+section[data-testid="stSidebar"] div.stDownloadButton > button {
+    border-radius: 12px !important;
+    padding: 0.55rem 0.9rem !important;
+    font-size: 0.86rem !important;
+}
+
+/* ==========================================================================
+   INPUT CONTROLS, SELECTBOXES & RADIOS
+   ========================================================================== */
+div[data-baseweb="select"] > div,
+div[data-baseweb="input"] > div {
+    background: rgba(13, 18, 34, 0.75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: var(--radius-sm) !important;
+    color: var(--text-primary) !important;
+    transition: all 0.25s ease !important;
+}
+
+div[data-baseweb="select"] > div:hover,
+div[data-baseweb="input"] > div:hover {
+    border-color: rgba(56, 189, 248, 0.4) !important;
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.15) !important;
+}
+
+div[data-baseweb="select"]:focus-within > div,
+div[data-baseweb="input"]:focus-within > div {
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 18px rgba(56, 189, 248, 0.3) !important;
+}
+
+/* Custom Expander Styling */
+.streamlit-expanderHeader {
+    background: linear-gradient(135deg, rgba(13, 18, 34, 0.8) 0%, rgba(20, 27, 49, 0.6) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: var(--radius-sm) !important;
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    transition: all 0.25s ease !important;
+}
+
+.streamlit-expanderHeader:hover {
+    border-color: rgba(56, 189, 248, 0.4) !important;
+    background: linear-gradient(135deg, rgba(13, 18, 34, 0.95) 0%, rgba(28, 38, 67, 0.8) 100%) !important;
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.15) !important;
+}
+
+/* ==========================================================================
+   BUTTON DESIGN SYSTEM (Ultra-Modern Glassmorphic 3D & Glowing Pills)
+   ========================================================================== */
+div.stButton > button, div.stDownloadButton > button {
+    border-radius: 14px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.01em !important;
+    padding: 0.6rem 1.2rem !important;
+    background: linear-gradient(135deg, rgba(13, 18, 34, 0.95) 0%, rgba(28, 38, 67, 0.85) 100%) !important;
+    border: 1px solid rgba(56, 189, 248, 0.35) !important;
+    color: var(--text-primary) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+div.stButton > button:hover, div.stDownloadButton > button:hover {
+    transform: translateY(-3px) scale(1.015) !important;
+    border-color: rgba(56, 189, 248, 0.8) !important;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(49, 46, 129, 0.85) 100%) !important;
+    box-shadow: 0 10px 30px -5px rgba(56, 189, 248, 0.45), 0 0 15px rgba(129, 140, 248, 0.3) !important;
+}
+
+div.stButton > button:active, div.stDownloadButton > button:active {
+    transform: translateY(0px) scale(0.98) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Primary Highlight Action Buttons */
+div.stButton > button[kind="primary"], div.stDownloadButton > button[kind="primary"] {
+    background: linear-gradient(135deg, #0284c7 0%, #4f46e5 50%, #7c3aed 100%) !important;
+    border: 1px solid rgba(192, 132, 252, 0.4) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    box-shadow: 0 6px 25px -4px rgba(2, 132, 199, 0.55), 0 0 18px rgba(129, 140, 248, 0.35) !important;
+}
+
+div.stButton > button[kind="primary"]:hover, div.stDownloadButton > button[kind="primary"]:hover {
+    background: linear-gradient(135deg, #0369a1 0%, #4338ca 50%, #6d28d9 100%) !important;
+    border-color: #38bdf8 !important;
+    box-shadow: 0 12px 35px -5px rgba(56, 189, 248, 0.65), 0 0 25px rgba(192, 132, 252, 0.5) !important;
+}
+
+/* ==========================================================================
+   CHAT MESSAGES LAYOUT (Figma Glass Cards)
+   ========================================================================== */
+.stChatMessage {
+    border-radius: 18px !important;
+    padding: 1.15rem 1.45rem !important;
+    margin-bottom: 1.15rem !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    white-space: normal !important;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.stChatMessage code, .stChatMessage pre {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+}
+
+/* Assistant (Chatbot) Message -> Left Aligned */
+div[data-testid="stChatMessage"]:has(div[aria-label="Chat message from assistant"]),
+div[data-testid="stChatMessageAssistant"] {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+    max-width: 98% !important;
+    background: linear-gradient(135deg, rgba(13, 18, 34, 0.88) 0%, rgba(20, 27, 49, 0.78) 100%) !important;
+    border: 1px solid rgba(56, 189, 248, 0.28) !important;
+    border-left: 4px solid #38bdf8 !important;
+    border-radius: 18px 18px 18px 4px !important;
+}
+
+/* User Message -> Right Aligned */
+div[data-testid="stChatMessage"]:has(div[aria-label="Chat message from user"]),
+div[data-testid="stChatMessageUser"] {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    max-width: 95% !important;
+    background: linear-gradient(135deg, rgba(30, 27, 75, 0.9) 0%, rgba(49, 46, 129, 0.8) 100%) !important;
+    border: 1px solid rgba(129, 140, 248, 0.45) !important;
+    border-right: 4px solid #818cf8 !important;
+    border-radius: 18px 18px 4px 18px !important;
+    flex-direction: row-reverse !important;
+}
+
+div[data-testid="stChatMessage"]:has(div[aria-label="Chat message from user"]) [data-testid="stChatMessageContent"],
+div[data-testid="stChatMessageUser"] [data-testid="stChatMessageContent"] {
+    text-align: right !important;
+}
+
+/* Styled Markdown Tables & Evidence Grids */
+.stChatMessage table {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    margin: 1rem 0 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: rgba(8, 12, 24, 0.6) !important;
+}
+
+.stChatMessage th {
+    background: rgba(30, 41, 59, 0.75) !important;
+    color: #38bdf8 !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.05em !important;
+    padding: 10px 14px !important;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2) !important;
+}
+
+.stChatMessage td {
+    padding: 9px 14px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+    font-size: 0.86rem !important;
+    color: #e2e8f0 !important;
+}
+
+.stChatMessage tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.stChatMessage tr:hover td {
+    background: rgba(56, 189, 248, 0.05) !important;
+}
+
+/* ==========================================================================
+   GOOGLE-STYLE TOP-RIGHT CIRCULAR AVATAR & ACCOUNT MODAL
+   ========================================================================== */
+.header-avatar-slot div[data-testid="stPopover"],
+div[data-testid="stHeader"] + div .block-container > div:first-child div[data-testid="column"]:last-child div[data-testid="stPopover"] {
+    display: flex !important;
+    justify-content: flex-end !important;
+    width: auto !important;
+    float: right !important;
+}
+
+.header-avatar-slot div[data-testid="stPopover"] > button,
+div[data-testid="stHeader"] + div .block-container > div:first-child div[data-testid="column"]:last-child div[data-testid="stPopover"] > button {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    max-width: 44px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 1.25rem !important;
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #7c3aed 100%) !important;
+    border: 2px solid #38bdf8 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 15px rgba(56, 189, 248, 0.4) !important;
+    cursor: pointer !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    outline: none !important;
+}
+
+.header-avatar-slot div[data-testid="stPopover"] > button:hover,
+div[data-testid="stHeader"] + div .block-container > div:first-child div[data-testid="column"]:last-child div[data-testid="stPopover"] > button:hover {
+    transform: scale(1.08) !important;
+    box-shadow: 0 6px 22px rgba(56, 189, 248, 0.65) !important;
+    border-color: #ffffff !important;
+}
+
+/* Remove default Streamlit dropdown arrows/chevrons inside circular avatar */
+.header-avatar-slot div[data-testid="stPopover"] button svg,
+div[data-testid="stHeader"] + div .block-container > div:first-child div[data-testid="column"]:last-child div[data-testid="stPopover"] button svg,
+.header-avatar-slot div[data-testid="stPopover"] button [data-testid="stIconChevronDown"],
+div[data-testid="stHeader"] + div .block-container > div:first-child div[data-testid="column"]:last-child div[data-testid="stPopover"] button [data-testid="stIconChevronDown"],
+.header-avatar-slot div[data-testid="stPopover"] button [data-testid="stIconChevronUp"],
+div[data-testid="stHeader"] + div .block-container > div:first-child div[data-testid="column"]:last-child div[data-testid="stPopover"] button [data-testid="stIconChevronUp"] {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.header-avatar-slot div[data-testid="stPopover"] button p,
+div[data-testid="stHeader"] + div .block-container > div:first-child div[data-testid="column"]:last-child div[data-testid="stPopover"] button p {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    font-family: 'Outfit', sans-serif !important;
+    color: #ffffff !important;
+}
+
+/* Google Account Modal Style inside Popover */
+.google-account-modal {
+    text-align: center;
+    padding: 6px 4px 10px;
+}
+
+.google-modal-email {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-bottom: 12px;
+}
+
+.google-modal-avatar {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 2.2rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #1e40af 0%, #4338ca 50%, #6366f1 100%);
+    border: 3px solid #38bdf8;
+    box-shadow: 0 0 24px rgba(56, 189, 248, 0.4);
+}
+
+.google-modal-greeting {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 14px;
+}
+
+.google-pill-btn {
+    border-radius: 20px !important;
+    padding: 6px 18px !important;
+    font-size: 0.88rem !important;
+    font-weight: 600 !important;
+}
+
+.role-badge-admin {
+    background: rgba(192, 132, 252, 0.18);
+    color: #c084fc;
+    border: 1px solid rgba(192, 132, 252, 0.5);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: 0 0 12px rgba(192, 132, 252, 0.3);
+}
+
+.role-badge-registered {
+    background: rgba(56, 189, 248, 0.18);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.5);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+}
+
+.role-badge-guest {
+    background: rgba(148, 163, 184, 0.18);
+    color: #cbd5e1;
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   WELCOME HERO BANNER (Figma Hero Command Center)
+   ========================================================================== */
+.hero-wrapper {
+    text-align: center;
+    padding: 2.4rem 1.8rem 2.0rem;
+    background: linear-gradient(135deg, rgba(13, 18, 34, 0.85) 0%, rgba(20, 27, 49, 0.65) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.8rem;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-md), 0 0 35px rgba(56, 189, 248, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -50px; left: 50%; transform: translateX(-50%);
+    width: 340px; height: 120px;
+    background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+}
+
+.hero-icon {
+    font-size: 3.6rem;
+    margin-bottom: 0.6rem;
+    display: inline-block;
+    filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.6));
+    animation: floatIcon 4s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.hero-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff 0%, #38bdf8 50%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.02rem;
+    max-width: 680px;
+    margin: 0 auto 1.6rem;
+    line-height: 1.55;
+}
+
+/* Quick Action Smart Chips */
+.quick-chips-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.quick-chip {
+    background: rgba(13, 18, 34, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 24px;
+    padding: 7px 16px;
+    font-size: 0.85rem;
+    color: #e2e8f0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.quick-chip:hover {
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(56, 189, 248, 0.25);
+}
+
+.action-card {
+    background: rgba(13, 18, 34, 0.75);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: var(--radius-md);
+    padding: 1.2rem 1.3rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.action-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-primary);
+    background: rgba(20, 27, 49, 0.95);
+    box-shadow: 0 12px 30px -5px rgba(56, 189, 248, 0.3);
+}
+
+.action-card-title {
+    font-weight: 700;
+    color: #f8fafc;
+    font-size: 0.98rem;
+    margin-bottom: 0.35rem;
+}
+
+.action-card-desc {
+    color: var(--text-secondary);
+    font-size: 0.84rem;
+    line-height: 1.45;
+}
+
+/* Bottom Chat Input */
+div[data-testid="stChatInput"] {
+    border-radius: 24px !important;
+    border: 1px solid rgba(56, 189, 248, 0.35) !important;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6) !important;
+    background: rgba(13, 18, 34, 0.9) !important;
+    backdrop-filter: blur(20px) !important;
+}
+
+div[data-testid="stChatInput"]:focus-within {
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.4) !important;
+}
+
+/* Knowledge Base Framework Grid */
+.fw-kb-cat-title {
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    margin-top: 14px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.fw-kb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.fw-card-glass {
+    position: relative;
+    background: linear-gradient(135deg, rgba(13, 18, 34, 0.8) 0%, rgba(20, 27, 49, 0.5) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    backdrop-filter: blur(14px);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fw-card-glass:hover {
+    transform: translateY(-3px);
+    border-color: var(--fw-theme-color, #38bdf8);
+    box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.5), 0 0 15px var(--fw-glow-color, rgba(56, 189, 248, 0.3));
+    background: linear-gradient(135deg, rgba(13, 18, 34, 0.95) 0%, rgba(28, 38, 67, 0.7) 100%);
+}
+
+.fw-card-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.fw-card-icon {
+    font-size: 1.25rem;
+}
+
+.fw-card-code {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #f8fafc;
+}
+
+.fw-card-name {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.35;
+    margin-bottom: 10px;
+}
+
+.fw-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    margin-top: auto;
+    padding-top: 6px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.09);
+}
+
+.fw-status-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--accent-emerald);
+    font-weight: 600;
+    font-size: 0.7rem;
+}
+
+.fw-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--accent-emerald);
+    box-shadow: 0 0 10px var(--accent-emerald);
+    animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+.fw-id-tag {
+    color: var(--text-muted);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7rem;
+}
+
+.adapter-status-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--accent-tertiary);
+    font-weight: 600;
+    font-size: 0.7rem;
+}
+
+.adapter-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--accent-tertiary);
+    box-shadow: 0 0 10px var(--accent-tertiary);
+    animation: pulseDot 2s infinite;
+}
+
+/* ==========================================================================
+   DYNAMIC MICRO-ANIMATIONS & ADVANCED VISUAL EFFECTS
+   ========================================================================== */
+
+/* Floating Shield Animation */
+.hero-icon {
+    font-size: 3.8rem;
+    margin-bottom: 0.8rem;
+    filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.6));
+    animation: floatShield 4s ease-in-out infinite;
+}
+
+@keyframes floatShield {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+        filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.6));
+    }
+    50% {
+        transform: translateY(-10px) rotate(2deg) scale(1.06);
+        filter: drop-shadow(0 0 40px rgba(129, 140, 248, 0.85));
+    }
+}
+
+/* Fade-In & Slide-Up Entrance for Cards & Buttons */
+.hero-wrapper, .action-card, .stChatMessage, div[data-testid="stMetric"] {
+    animation: fadeInUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Shimmer Light Reflection Effect on Primary Action Buttons */
+.stButton > button[kind="primary"], .hero-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.stButton > button[kind="primary"]::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: linear-gradient(
+        60deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.25) 50%,
+        transparent 70%
+    );
+    transform: rotate(30deg) translateX(-100%);
+    animation: shimmerPass 4s infinite ease-in-out;
+}
+
+@keyframes shimmerPass {
+    0% { transform: rotate(30deg) translateX(-150%); }
+    20% { transform: rotate(30deg) translateX(150%); }
+    100% { transform: rotate(30deg) translateX(150%); }
+}
+
+/* Pulsing Neon Glow Effects */
+.hero-title {
+    animation: neonTitlePulse 6s infinite alternate ease-in-out;
+}
+
+@keyframes neonTitlePulse {
+    0% {
+        filter: drop-shadow(0 2px 12px rgba(56, 189, 248, 0.3));
+    }
+    50% {
+        filter: drop-shadow(0 4px 25px rgba(192, 132, 252, 0.55));
+    }
+    100% {
+        filter: drop-shadow(0 2px 18px rgba(52, 211, 153, 0.4));
+    }
+}
+
+/* Glassmorphic Smooth Hover Scales for Workflow Action Cards */
+.action-card {
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.action-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 16px 36px -8px rgba(56, 189, 248, 0.35), 0 0 20px rgba(129, 140, 248, 0.25);
+    border-color: rgba(56, 189, 248, 0.6);
+}
+
+/* ==========================================================================
+   FIXED SIDEBAR WIDTH & RESIZER DISABLE
+   ========================================================================== */
+section[data-testid="stSidebar"] {
+    min-width: 440px !important;
+    max-width: 440px !important;
+    width: 440px !important;
+    flex-shrink: 0 !important;
+    resize: none !important;
+}
+
+div[data-testid="stSidebarResizerRoot"],
+div[data-testid="stSidebarResizer"],
+[data-testid="stSidebarResizer"],
+[data-testid="stSidebarResizerRoot"] {
+    display: none !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS (Mobile, Tablet, Laptop, Desktop)
+   ========================================================================== */
+
+/* Mobile Phones (screen width <= 768px) */
+@media screen and (max-width: 768px) {
+    .block-container {
+        padding-top: 1.0rem !important;
+        padding-left: 0.6rem !important;
+        padding-right: 0.6rem !important;
+    }
+
+    section[data-testid="stSidebar"] {
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+        width: 100vw !important;
+    }
+
+    .app-header h1 {
+        font-size: 1.4rem !important;
+    }
+
+    .app-header p {
+        font-size: 0.82rem !important;
+    }
+
+    .hero-wrapper {
+        padding: 1.2rem 0.8rem !important;
+    }
+
+    .hero-title {
+        font-size: 1.4rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: 0.85rem !important;
+    }
+
+    .fw-kb-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .action-cards-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    div[data-testid="stChatMessage"] {
+        max-width: 100% !important;
+        padding: 0.75rem 0.9rem !important;
+    }
+
+    div[data-testid="stChatInput"] {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+}
+
+/* Tablets & Small Laptops (screen width between 769px and 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .block-container {
+        padding-left: 1.2rem !important;
+        padding-right: 1.2rem !important;
+        max-width: 96% !important;
+    }
+
+    .fw-kb-grid {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)) !important;
+    }
+}
+
+/* Laptop & Desktop (screen width > 1024px) */
+@media screen and (min-width: 1025px) {
+    .block-container {
+        max-width: 1260px !important;
+    }
+}
+
+/* ==========================================================================
+   BOTTOM ACTION BAR & SCOPE CONTROLS (Figma Precision Glass)
+   ========================================================================== */
+div[data-testid="stHorizontalBlock"]:has(button:contains("Scope")),
+div[data-testid="stHorizontalBlock"]:has(button:contains("Docs Audit")),
+div[data-testid="stHorizontalBlock"]:has(button:contains("Live Audit")) {
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+/* Compact Horizontal Segmented Radio Buttons for Response Length */
+div[data-testid="stRadio"] div[role="radiogroup"] {
+    gap: 6px !important;
+    padding: 2px 0 !important;
+}
+
+div[data-testid="stRadio"] div[role="radiogroup"] label {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(148, 163, 184, 0.18) !important;
+    border-radius: 8px !important;
+    padding: 4px 10px !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+div[data-testid="stRadio"] div[role="radiogroup"] label:hover {
+    border-color: var(--accent-primary) !important;
+    background: rgba(56, 189, 248, 0.08) !important;
+}
+
+div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) {
+    background: rgba(56, 189, 248, 0.18) !important;
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.25) !important;
+}
+
+/* Sidebar Clean Spacing */
+section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] {
+    gap: 0.55rem !important;
+}
+
+section[data-testid="stSidebar"] hr {
+    margin: 0.55rem 0 !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+
