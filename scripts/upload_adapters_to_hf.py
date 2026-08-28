@@ -25,7 +25,8 @@ ALLOWED_FILES = {
     "README.md",
     "tokenizer.json",
     "tokenizer_config.json",
-    "chat_template.jinja"
+    "chat_template.jinja",
+    "train.jsonl"
 }
 
 def main():

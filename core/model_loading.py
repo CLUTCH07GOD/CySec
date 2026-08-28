@@ -84,11 +84,15 @@ def load_model_and_tokenizer():
     base_model = AutoModelForCausalLM.from_pretrained(
         BASE_MODEL_NAME,
         torch_dtype=torch.float32 if device == "mps" else "auto",
+        low_cpu_mem_usage=True,
     ).to(device)
     
     model = PeftModel.from_pretrained(base_model, domain_dirs[0], adapter_name=domains[0])
     for domain, path in zip(domains[1:], domain_dirs[1:]):
-        model.load_adapter(path, adapter_name=domain)
+        try:
+            model.load_adapter(path, adapter_name=domain)
+        except Exception as e:
+            print(f"Notice: Failed to load adapter {domain}: {e}")
 
     # Compose SFT + DPO weighted adapters where pairs exist
     for domain in domains:
@@ -112,6 +116,7 @@ def load_model_and_tokenizer():
         model.generation_config.max_length = None
         model.generation_config.max_new_tokens = None
     return model, tokenizer, domains, domain_dirs, device
+
 
 import core.model_registry as model_reg
 
