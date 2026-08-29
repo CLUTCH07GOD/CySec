@@ -289,7 +289,7 @@ def extract_text_from_file(path: str) -> tuple[str, list[dict]]:
 
 def format_profile_markdown_card(profile: dict) -> str:
     """
-    Renders a formatted Markdown Architecture Profile card for UI and audit reports.
+    Renders a clean, professional Markdown Architecture Profile card for UI and audit reports.
     """
     client_name = profile.get("client_id", profile.get("doc_name", "Target Architecture"))
     data_types = profile.get("data_types", [])
@@ -299,16 +299,16 @@ def format_profile_markdown_card(profile: dict) -> str:
 
     dt_str = ", ".join([f"`{d}`" for d in data_types]) if data_types else "`General Business Data`"
     st_str = ", ".join([f"`{s}`" for s in storage_locs]) if storage_locs else "`Standard Cloud / Hybrid`"
-    ctrl_str = "\n".join([f"- 🛡️ {c}" for c in controls]) if controls else "- 🛡️ Baseline Operational Controls"
+    ctrl_str = "\n".join([f"- {c}" for c in controls]) if controls else "- Baseline Operational Controls"
     tp_str = ", ".join([f"`{t}`" for t in third_parties]) if third_parties else "`None / Self-contained`"
 
     card = (
-        f"#### 🏛️ Synthesized Client Architecture Profile: `{client_name}`\n\n"
+        f"#### Synthesized Client Architecture Profile: `{client_name}`\n\n"
         f"| Component Dimension | Extracted Document Evidence & Classification |\n"
         f"| :--- | :--- |\n"
-        f"| 🏷️ **Data Classifications** | {dt_str} |\n"
-        f"| 💾 **Storage & Infrastructure** | {st_str} |\n"
-        f"| 🔗 **Third-Party Integrations** | {tp_str} |\n\n"
+        f"| **Data Classifications** | {dt_str} |\n"
+        f"| **Storage & Infrastructure** | {st_str} |\n"
+        f"| **Third-Party Integrations** | {tp_str} |\n\n"
         f"**Documented Technical Safeguards:**\n"
         f"{ctrl_str}\n"
     )
