@@ -114,7 +114,7 @@ def render_focus_bar(available_fw: list[str], user_role: str = "guest", clean_re
                 fw_intake_opts = sorted(available_fw) if available_fw else ["nist_csf", "nist_sp_800_63b", "owasp_asvs_v5", "iso27001", "pci_dss", "cwe"]
                 mode_a_framework = st.selectbox("Target Regulatory Standard / Framework", options=fw_intake_opts, key="mode_a_popover_fw_selector")
                 
-                client_docs = st.file_uploader("Upload Client Docs / Diagrams / Specs", accept_multiple_files=True, type=["pdf", "txt", "md", "png", "jpg", "jpeg"], key="mode_a_popover_uploader")
+                client_docs = st.file_uploader("Upload Client Docs / Diagrams / Specs", accept_multiple_files=True, type=["pdf", "docx", "txt", "md", "json", "yaml", "yml", "png", "jpg", "jpeg"], key="mode_a_popover_uploader")
                 auto_cleanup = st.checkbox("Auto-cleanup raw uploaded files after report", value=True, key="mode_a_popover_cleanup")
                 
                 if client_docs:
@@ -140,10 +140,22 @@ def render_focus_bar(available_fw: list[str], user_role: str = "guest", clean_re
                             profile = coe.build_multi_doc_client_profile(doc_info_list, combined_doc_name=f"{client_id_input}_multi_doc_profile")
                             profile["client_id"] = client_id_input or "default_client"
                             coe.save_client_profile_to_vault(client_id_input, profile)
+                            profile_card_md = coe.format_profile_markdown_card(profile)
                             
-                            st.success(f"Extracted & Vaulted Combined Profile from {len(client_docs)} files!")
-                            
-                            if run_full_pipeline or run_extract_only:
+                            if run_extract_only:
+                                st.session_state.messages.append({
+                                    "role": "assistant",
+                                    "content": (
+                                        f"### 🏛️ Extracted Client Architecture Profile (Mode A)\n\n"
+                                        f"**Client ID:** `{client_id_input}` | **Source Documents:** `{', '.join([d.name for d in client_docs])}`\n\n"
+                                        f"{profile_card_md}\n\n"
+                                        f"---\n*Profile saved to Client Vault. Select a framework and click **Run Full Pipeline** to execute control assessment.*"
+                                    )
+                                })
+                                st.success(f"Extracted & Vaulted Combined Profile from {len(client_docs)} files!")
+                                st.rerun()
+
+                            elif run_full_pipeline:
                                 with st.spinner("Running Multi-Agent Document Ingestion & Compliance Assessment Pipeline (Mode A)..."):
                                     import agents.agent4_compliance_assessment as _a4
                                     import agents.config as _cfg
@@ -228,6 +240,8 @@ def render_focus_bar(available_fw: list[str], user_role: str = "guest", clean_re
                                         f"against the `{target_fw.upper()}` ({target_jur.upper()}) regulatory framework. "
                                         f"Out of {tot_controls} assessed technical controls, {len(compliant_items)} controls ({pct_compliant:.1f}%) demonstrated verified compliance, "
                                         f"{len(partial_items)} controls exhibited partial coverage, and {len(non_compliant_items)} controls require operational documentation or engineering remediation.\n\n"
+                                        f"---\n\n"
+                                        f"{profile_card_md}\n\n"
                                         f"---\n\n"
                                         f"#### Compliance Breakdown:\n"
                                         f"- **Fully Compliant:** {len(compliant_items)} controls\n"
