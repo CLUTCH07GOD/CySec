@@ -146,7 +146,7 @@ def render_focus_bar(available_fw: list[str], user_role: str = "guest", clean_re
                                 st.session_state.messages.append({
                                     "role": "assistant",
                                     "content": (
-                                        f"### 🏛️ Extracted Client Architecture Profile (Mode A)\n\n"
+                                        f"### Extracted Client Architecture Profile (Mode A)\n\n"
                                         f"**Client ID:** `{client_id_input}` | **Source Documents:** `{', '.join([d.name for d in client_docs])}`\n\n"
                                         f"{profile_card_md}\n\n"
                                         f"---\n*Profile saved to Client Vault. Select a framework and click **Run Full Pipeline** to execute control assessment.*"
@@ -226,7 +226,7 @@ def render_focus_bar(available_fw: list[str], user_role: str = "guest", clean_re
                                     cleanup_msg = ""
                                     if auto_cleanup:
                                         cleaned = coe.cleanup_client_documents(client_id_input)
-                                        cleanup_msg = f"\n\n🔒 *Privacy Note: Auto-cleaned {cleaned} raw uploaded document files.*"
+                                        cleanup_msg = f"\n\n*Privacy Note: Auto-cleaned {cleaned} raw uploaded document files.*"
 
                                     file_list_str = ", ".join([d.name for d in client_docs])
                                     tot_controls = len(compliant_items) + len(partial_items) + len(non_compliant_items)
