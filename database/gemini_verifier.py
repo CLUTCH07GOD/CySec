@@ -231,30 +231,30 @@ def store_corrected_answer_in_rag(query: str, verified_answer: str, jurisdiction
             "source_file": "gemini_api_verifier"
         }
         
-        try:
-            collection = client.get_or_create_collection("controls")
-            collection.upsert(
-                ids=[doc_id],
-                embeddings=embedding,
-                documents=[text_to_embed],
-                metadatas=[metadata]
-            )
-        except Exception as upsert_err:
-            # Dimension mismatch or schema mismatch (e.g. 1536 from Qwen vs 384 from MiniLM). Reset collection.
-            logger.warning("Embedding dimension mismatch in ChromaDB 'controls' collection (%s). Re-creating collection...", upsert_err)
+        for coll_name in ["controls", "standards"]:
             try:
-                client.delete_collection("controls")
-            except Exception:
-                pass
-            collection = client.create_collection("controls")
-            collection.upsert(
-                ids=[doc_id],
-                embeddings=embedding,
-                documents=[text_to_embed],
-                metadatas=[metadata]
-            )
+                collection = client.get_or_create_collection(coll_name)
+                collection.upsert(
+                    ids=[doc_id],
+                    embeddings=embedding,
+                    documents=[text_to_embed],
+                    metadatas=[metadata]
+                )
+            except Exception as upsert_err:
+                logger.warning("Embedding dimension mismatch in ChromaDB '%s' collection (%s). Re-creating collection...", coll_name, upsert_err)
+                try:
+                    client.delete_collection(coll_name)
+                except Exception:
+                    pass
+                collection = client.create_collection(coll_name)
+                collection.upsert(
+                    ids=[doc_id],
+                    embeddings=embedding,
+                    documents=[text_to_embed],
+                    metadatas=[metadata]
+                )
 
-        logger.info("Successfully ingested Gemini verified answer into ChromaDB (ID: %s)", doc_id)
+        logger.info("Successfully ingested verified ground-truth answer into ChromaDB collections (ID: %s)", doc_id)
         return {
             "status": "success",
             "chroma_id": doc_id,
