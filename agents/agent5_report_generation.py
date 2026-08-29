@@ -145,9 +145,10 @@ def build_report(
             lines.append(f"- **Status**: {item['status']}")
             lines.append(f"- **Rationale**: {item['rationale']}")
             if item.get("evidence_source"):
+                sim_score = item.get('evidence_similarity', item.get('similarity_score', 'N/A'))
                 lines.append(
                     f"- **Evidence reviewed**: `{item['evidence_source']}` "
-                    f"(similarity score: {item['evidence_similarity']})"
+                    f"(similarity score: {sim_score})"
                 )
             else:
                 lines.append("- **Evidence reviewed**: None found")
