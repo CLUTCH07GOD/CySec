@@ -17,3 +17,5 @@ trl==1.9.2
 datasets==5.0.1
 python-dotenv==1.2.2
 huggingface-hub>=0.20.0
+reportlab>=4.0.0
+python-docx>=1.1.0
