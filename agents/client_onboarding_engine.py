@@ -169,36 +169,172 @@ def build_client_application_profile(doc_path: str, doc_name: str = None) -> dic
     return profile
 
 
+def extract_text_from_file(path: str) -> tuple[str, list[dict]]:
+    """
+    Extracts text, structured sections, and diagram labels from various file formats:
+    - PDF (.pdf) with page-by-page mapping and diagram OCR
+    - Word (.docx) with heading hierarchy
+    - Markdown (.md) and Plain Text (.txt) with section chunking
+    - JSON (.json) and YAML (.yaml, .yml) configurations
+    - Images (.png, .jpg, .jpeg) via OCR
+    Returns (full_text, list_of_sections) where section = {"source": str, "title": str, "text": str}
+    """
+    ext = path.lower().rsplit(".", 1)[-1] if "." in path else ""
+    name = os.path.basename(path)
+    full_text = ""
+    sections = []
+
+    if ext == "pdf":
+        try:
+            reader = PdfReader(path)
+            for page_idx, page in enumerate(reader.pages):
+                ptxt = (page.extract_text() or "").strip()
+                if ptxt:
+                    full_text += f"\n--- Page {page_idx+1} ---\n" + ptxt
+                    paras = [p.strip() for p in ptxt.split("\n\n") if len(p.strip()) > 30]
+                    if paras:
+                        for p_idx, p in enumerate(paras):
+                            sections.append({
+                                "source": f"{name}:Page_{page_idx+1}#sec{p_idx+1}",
+                                "title": p[:60].replace("\n", " "),
+                                "text": p
+                            })
+                    else:
+                        sections.append({
+                            "source": f"{name}:Page_{page_idx+1}",
+                            "title": f"Page {page_idx+1} Content",
+                            "text": ptxt
+                        })
+        except Exception as exc:
+            full_text = f"PDF read notice: {exc}"
+
+    elif ext == "docx":
+        try:
+            import docx
+            doc = docx.Document(path)
+            curr_heading = "General"
+            curr_text = []
+            for p in doc.paragraphs:
+                p_text = p.text.strip()
+                if not p_text:
+                    continue
+                if p.style.name.startswith("Heading"):
+                    if curr_text:
+                        combined = "\n".join(curr_text)
+                        full_text += f"\n### {curr_heading}\n" + combined
+                        sections.append({
+                            "source": f"{name} [{curr_heading}]",
+                            "title": curr_heading,
+                            "text": combined
+                        })
+                        curr_text = []
+                    curr_heading = p_text
+                else:
+                    curr_text.append(p_text)
+            if curr_text:
+                combined = "\n".join(curr_text)
+                full_text += f"\n### {curr_heading}\n" + combined
+                sections.append({
+                    "source": f"{name} [{curr_heading}]",
+                    "title": curr_heading,
+                    "text": combined
+                })
+        except Exception as exc:
+            full_text = f"DOCX read notice: {exc}"
+
+    elif ext in ["md", "txt", "markdown"]:
+        try:
+            with open(path, "r", encoding="utf-8", errors="ignore") as f:
+                content = f.read()
+            full_text = content
+            sec_matches = re.split(r'\n(?=#{1,4}\s+)', content)
+            for s_idx, sec in enumerate(sec_matches):
+                sec_str = sec.strip()
+                if not sec_str:
+                    continue
+                first_line = sec_str.split("\n", 1)[0].replace("#", "").strip()
+                sections.append({
+                    "source": f"{name} [{first_line[:40]}]",
+                    "title": first_line,
+                    "text": sec_str
+                })
+        except Exception as exc:
+            full_text = f"Text read notice: {exc}"
+
+    elif ext in ["json", "yaml", "yml"]:
+        try:
+            with open(path, "r", encoding="utf-8", errors="ignore") as f:
+                content = f.read()
+            full_text = content
+            sections.append({
+                "source": f"{name} [Structured Manifest]",
+                "title": f"{ext.upper()} Manifest",
+                "text": content[:4000]
+            })
+        except Exception as exc:
+            full_text = f"Manifest read notice: {exc}"
+
+    elif ext in ["png", "jpg", "jpeg"]:
+        diag_labels = extract_embedded_diagram_text(path)
+        if diag_labels:
+            full_text = "\n".join(diag_labels)
+            sections.append({
+                "source": f"{name} [Architecture Diagram OCR]",
+                "title": "Architecture Blueprint",
+                "text": full_text
+            })
+
+    return full_text, sections
+
+
+def format_profile_markdown_card(profile: dict) -> str:
+    """
+    Renders a formatted Markdown Architecture Profile card for UI and audit reports.
+    """
+    client_name = profile.get("client_id", profile.get("doc_name", "Target Architecture"))
+    data_types = profile.get("data_types", [])
+    storage_locs = profile.get("storage_locations", [])
+    controls = profile.get("implemented_controls", [])
+    third_parties = profile.get("third_party_integrations", [])
+
+    dt_str = ", ".join([f"`{d}`" for d in data_types]) if data_types else "`General Business Data`"
+    st_str = ", ".join([f"`{s}`" for s in storage_locs]) if storage_locs else "`Standard Cloud / Hybrid`"
+    ctrl_str = "\n".join([f"- 🛡️ {c}" for c in controls]) if controls else "- 🛡️ Baseline Operational Controls"
+    tp_str = ", ".join([f"`{t}`" for t in third_parties]) if third_parties else "`None / Self-contained`"
+
+    card = (
+        f"#### 🏛️ Synthesized Client Architecture Profile: `{client_name}`\n\n"
+        f"| Component Dimension | Extracted Document Evidence & Classification |\n"
+        f"| :--- | :--- |\n"
+        f"| 🏷️ **Data Classifications** | {dt_str} |\n"
+        f"| 💾 **Storage & Infrastructure** | {st_str} |\n"
+        f"| 🔗 **Third-Party Integrations** | {tp_str} |\n\n"
+        f"**Documented Technical Safeguards:**\n"
+        f"{ctrl_str}\n"
+    )
+    return card
+
+
 def build_multi_doc_client_profile(doc_info_list: list[dict], combined_doc_name: str = "multi_doc_architecture_profile") -> dict:
     """
-    Ingests multiple client architecture documents (.md, .pdf, .txt, .png, .jpg),
+    Ingests multiple client architecture documents (.md, .pdf, .docx, .txt, .png, .jpg, .json, .yaml),
     aggregates extracted text and diagram labels, and constructs a unified Client Profile.
     doc_info_list item format: {"path": str, "name": str}
     """
     all_texts = []
     all_diagram_labels = []
     file_names = []
+    all_sections = []
 
     for item in doc_info_list:
         path = item["path"]
         name = item.get("name", os.path.basename(path))
         file_names.append(name)
         
-        # Text extraction
-        if path.lower().endswith(".pdf"):
-            try:
-                reader = PdfReader(path)
-                txt = "\n".join(page.extract_text() or "" for page in reader.pages)
-            except Exception:
-                txt = ""
-        else:
-            try:
-                with open(path, "r", encoding="utf-8", errors="ignore") as f:
-                    txt = f.read()
-            except Exception:
-                txt = ""
-        
+        # Multi-format text & section extraction
+        txt, secs = extract_text_from_file(path)
         all_texts.append(f"=== DOCUMENT: {name} ===\n{txt}")
+        all_sections.extend(secs)
         
         # Diagram OCR
         d_labels = extract_embedded_diagram_text(path)
@@ -380,34 +516,20 @@ def extract_custom_evidence_from_docs(doc_info_list: list[dict], profile: dict =
     for item in doc_info_list:
         path = item["path"]
         name = item.get("name", os.path.basename(path))
-        if path.lower().endswith(".pdf"):
-            try:
-                reader = PdfReader(path)
-                for page_idx, page in enumerate(reader.pages):
-                    ptxt = page.extract_text() or ""
-                    if ptxt.strip():
-                        for chunk_idx, i in enumerate(range(0, len(ptxt), 1000)):
-                            chunk = ptxt[i:i+1200].strip()
-                            if chunk:
-                                evidence.append({
-                                    "source_file": f"{name}:Page_{page_idx+1}#chunk{chunk_idx+1}",
-                                    "text": chunk
-                                })
-            except Exception:
-                pass
-        else:
-            try:
-                with open(path, "r", encoding="utf-8", errors="ignore") as f:
-                    content = f.read()
-                if content.strip():
-                    for chunk_idx, i in enumerate(range(0, len(content), 1000)):
-                        chunk = content[i:i+1200].strip()
-                        if chunk:
-                            evidence.append({
-                                "source_file": f"{name}#chunk{chunk_idx+1}",
-                                "text": chunk
-                            })
-            except Exception:
-                pass
+        full_text, sections = extract_text_from_file(path)
+        if sections:
+            for s in sections:
+                evidence.append({
+                    "source_file": s["source"],
+                    "text": s["text"][:1500]
+                })
+        elif full_text.strip():
+            for chunk_idx, i in enumerate(range(0, len(full_text), 1000)):
+                chunk = full_text[i:i+1200].strip()
+                if chunk:
+                    evidence.append({
+                        "source_file": f"{name}#chunk{chunk_idx+1}",
+                        "text": chunk
+                    })
 
     return evidence
