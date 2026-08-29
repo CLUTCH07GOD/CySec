@@ -16,9 +16,9 @@ import subprocess
 from urllib.parse import urlparse
 import streamlit as st
 
-def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander: bool = False):
+def render_mode_b_intake(fw_intake_opts: list[str], clean_report_list_fn, wrap_in_expander: bool = False) -> None:
     """Renders the Client Intake: Live Application Access & Sandbox (Mode B) UI block."""
-    def _render_content():
+    def _render_content() -> None:
         st.markdown("### Live Application Access & Sandbox (Mode B)")
         st.caption("Executes untrusted client code / container manifests inside an isolated container sandbox with `--net=none`, strict cgroups & dynamic vulnerability scanning.")
         mode_b_client_id = st.text_input("Mode B Client ID", value="fleetbase_live", key="mode_b_client_id").strip()
