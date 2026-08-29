@@ -202,47 +202,100 @@ def probe_staging_api_endpoint(staging_url: str, auth_token: Optional[str] = Non
 
 
 def get_framework_probe_mapping(framework: str) -> dict:
+    """
+    Dynamically maps runtime probes to the specific controls of the selected framework
+    by querying the structured_controls catalog directly.
+    """
     fw = (framework or "").lower()
+    ctrl_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "structured_controls")
+    fw_clean = fw.replace('/', '__').replace(':', '__')
+    
+    # 1. Try finding exact or partial file match in structured_controls/
+    target_file = None
+    if os.path.exists(ctrl_dir):
+        for fname in os.listdir(ctrl_dir):
+            if not fname.endswith('.json'):
+                continue
+            base = fname.replace('.json', '').lower()
+            if base == fw_clean or fw_clean in base or any(part in base for part in fw_clean.split('__') if len(part) > 2):
+                target_file = os.path.join(ctrl_dir, fname)
+                break
+
+    mapping = {}
+    if target_file and os.path.exists(target_file):
+        try:
+            with open(target_file, 'r', encoding='utf-8') as f:
+                controls = json.load(f)
+            
+            categories = {
+                'access_control': ['access', 'auth', 'identity', 'role', 'privilege', 'user'],
+                'encryption': ['encrypt', 'crypto', 'transit', 'tls', 'ssl', 'protect'],
+                'error_sanitization': ['error', 'log', 'monitor', 'incident', 'audit', 'handling'],
+                'least_privilege': ['least privilege', 'privilege', 'user', 'process', 'execution', 'design'],
+                'network_boundary': ['network', 'boundary', 'egress', 'perimeter', 'port', 'filter']
+            }
+            
+            for cat_key, keywords in categories.items():
+                best_match = None
+                for c in controls:
+                    cid = str(c.get('id', c.get('control_id', ''))).strip()
+                    title = str(c.get('title', c.get('name', ''))).strip()
+                    desc = str(c.get('description', c.get('text', ''))).lower()
+                    text_blob = f'{cid} {title} {desc}'.lower()
+                    if any(kw in text_blob for kw in keywords):
+                        best_match = (cid, title or desc[:60])
+                        break
+                if best_match:
+                    mapping[cat_key] = best_match
+        except Exception:
+            pass
+
+    # Ensure all 5 required probe categories are covered (fall back to curated defaults if needed)
+    defaults = {
+        "access_control": ("AC-2 / PR.AC-1", "Identity Management & Access Control Enforcement"),
+        "encryption": ("SC-8 / PR.DS-1", "Data Protection in Transit (TLS 1.3 / HTTPS)"),
+        "error_sanitization": ("SI-11 / DE.CM-1", "Security Monitoring & Error Stack Trace Sanitization"),
+        "least_privilege": ("AC-6 / PR.IP-1", "Least Privilege Container Process Execution"),
+        "network_boundary": ("SC-7 / PR.PT-1", "Network Boundary Protection & Egress Filtering"),
+    }
     if "gdpr" in fw:
-        return {
+        defaults.update({
             "access_control": ("Recital 36 / Article 32(1)(b)", "Access Control & Authorization Enforcement"),
             "encryption": ("Article 32(1)(a)", "Data Protection & Encryption in Transit"),
             "error_sanitization": ("Article 25", "Data Protection by Design & Error Sanitization"),
             "least_privilege": ("Article 32(2)", "Least Privilege & Unprivileged Container Execution"),
             "network_boundary": ("Article 32(1)(d)", "Network Boundary Protection & Egress Filtering"),
-        }
+        })
     elif "hipaa" in fw:
-        return {
+        defaults.update({
             "access_control": ("§ 164.312(a)(1)", "Access Control & Unique User Identification"),
             "encryption": ("§ 164.312(e)(1)", "Transmission Security & End-to-End Encryption"),
             "error_sanitization": ("§ 164.312(c)(1)", "Integrity & Error Handling Safeguards"),
             "least_privilege": ("§ 164.308(a)(4)", "Information Access Management & Role-Based Access"),
             "network_boundary": ("§ 164.312(e)(2)", "Network Boundary Protection & Transmission Controls"),
-        }
+        })
     elif "iso" in fw or "27001" in fw:
-        return {
+        defaults.update({
             "access_control": ("A.9.1.1", "Access Control Policy & User Authentication"),
             "encryption": ("A.10.1.1", "Policy on the Use of Cryptographic Controls"),
             "error_sanitization": ("A.12.1.2", "Change Management & Error Trace Sanitization"),
             "least_privilege": ("A.9.2.3", "Management of Privileged Access Rights"),
             "network_boundary": ("A.13.1.1", "Network Controls & Segregation"),
-        }
+        })
     elif "soc2" in fw or "soc_2" in fw:
-        return {
+        defaults.update({
             "access_control": ("CC6.1", "Logical Access Security & Identity Verification"),
             "encryption": ("CC6.6", "Boundary Protection & Data Encryption in Transit"),
             "error_sanitization": ("CC7.2", "System Monitoring & Error Stack Concealment"),
             "least_privilege": ("CC6.3", "Least Privilege & Role-Based Access Allocation"),
             "network_boundary": ("CC6.7", "Transmission Security & Perimeter Boundary"),
-        }
-    else:
-        return {
-            "access_control": ("AC-2 / PR.AC-1", "Identity Management & Access Control Enforcement"),
-            "encryption": ("SC-8 / PR.DS-1", "Data Protection in Transit (TLS 1.3 / HTTPS)"),
-            "error_sanitization": ("SI-11 / DE.CM-1", "Security Monitoring & Error Stack Trace Sanitization"),
-            "least_privilege": ("AC-6 / PR.IP-1", "Least Privilege Container Process Execution"),
-            "network_boundary": ("SC-7 / PR.PT-1", "Network Boundary Protection & Egress Filtering"),
-        }
+        })
+
+    for k, v in defaults.items():
+        if k not in mapping:
+            mapping[k] = v
+
+    return mapping
 
 
 def run_live_per_control_compliance_probes(app_path: str, staging_url: Optional[str] = None, framework: str = "nist/sp_800_63b_r4") -> List[Dict[str, Any]]:
