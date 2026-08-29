@@ -105,16 +105,19 @@ def best_matching_evidence(embedder, control_text: str, evidence: list[dict]):
     return real_evidence[best_idx], scores[best_idx]
 
 
-ASSESSMENT_PROMPT = """You are a senior cybersecurity auditor. Evaluate the organizational evidence / code implementation against the control requirement.
+ASSESSMENT_PROMPT = """You are a senior cybersecurity and regulatory auditor. Evaluate the organizational evidence / code implementation against the control requirement.
 
-CRITICAL ANTI-HALLUCINATION INSTRUCTION:
-- Rely strictly on the explicit facts present in the provided Organizational Evidence.
-- Do NOT assume, fabricate, or hallucinate safeguards, capabilities, or external legal regulations (e.g. do NOT mention EU AI Act unless explicitly named in the control text).
-- Match the exact framework standard named in the Control Requirement. Do NOT swap framework names or invent fictional laws (e.g. UK AI Act).
+CRITICAL AUDITOR ASSESSMENT RULES:
+- Rely strictly on the explicit facts present in the provided Organizational Evidence / Code Snippet.
+- Strict Framework Scope: Match the exact framework standard named in the Control Requirement. Do NOT mention other regulations (e.g. do NOT mention EU AI Act or HIPAA unless explicitly named in the control text).
+- Access Control Accuracy: An administrative flag check (`this.isadmin === true`) provides an administrative distinction, NOT a complete Role-Based Access Control (RBAC) architecture with granular role-to-permission mapping.
+- Cryptographic Accuracy: Encryption settings (e.g. AES-256 in app.php) demonstrate configuration/data-at-rest protection. Do NOT claim transport (TLS/HTTPS) protection unless network/certificate evidence is present.
+- Sanitization Scope: Configuration coercion in runtime-config.js validates config keys, not entire application data-flow or legal transparency.
+- Absence of Snippet Evidence: If the snippet does not contain the required control, state clearly: "The provided source code snippet does not demonstrate [specific capability]. Full application verification or operational policies are required."
 - Evaluation Criteria:
-  * Assign 'Compliant' if the evidence/codebase directly satisfies the technical safeguard requirements.
-  * Assign 'Partially Compliant' if the evidence implements core technical safeguards (e.g. password validation, authentication logic, RBAC access controls, session cookie flags, CORS rules, input sanitization, or vulnerability reporting) but requires additional operational documentation or broader policy coverage.
-  * Assign 'Not Compliant' only if the evidence lacks relevant technical safeguards or is completely unrelated.
+  * Assign 'Compliant' if the evidence directly demonstrates the required technical safeguard.
+  * Assign 'Partially Compliant' if a partial mechanism is observed (e.g. admin check without granular roles, or config validation without broader endpoint coverage).
+  * Assign 'Not Compliant' if the evidence lacks the required safeguards or does not demonstrate compliance.
 
 Control Requirement: {control_text}
 
@@ -122,8 +125,8 @@ Organizational Evidence: {evidence_text}
 
 Provide your response in EXACTLY this format:
 Status: <Compliant | Partially Compliant | Not Compliant>
-Explanation: <3-4 detailed sentences providing a grounded auditor explanation evaluating compliance based strictly on provided evidence.>
-Remediation: <1-2 clear, actionable sentences detailing step-by-step guidance for the client to achieve full compliance, or 'None required.' if compliant.>"""
+Explanation: <3-4 detailed, professional sentences providing a grounded auditor explanation evaluating compliance based strictly on provided evidence.>
+Remediation: <1-2 clear, actionable engineering guidance sentences for the client to close the gap, or 'None required.' if compliant.>"""
 
 NO_EVIDENCE_PROMPT = """You are a senior cybersecurity auditor. Evaluate the following security control requirement and provide an in-depth auditor assessment explaining why missing evidence creates a compliance gap.
 
@@ -629,9 +632,9 @@ def assess_compliance(jurisdiction: str, framework: str, evidence_similarity_thr
             "is_mismatch": is_mismatch,
             "mismatch_note": mismatch_note
         }
-        results.append(report_sanitizer.sanitize_control_item(item))
+        results.append(item)
 
-    return results
+    return report_sanitizer.sanitize_assessment_batch(results, framework=f"{jurisdiction}/{framework}")
 
 
 def main():
