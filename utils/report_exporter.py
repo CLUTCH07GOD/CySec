@@ -434,49 +434,73 @@ def extract_audit_findings_matrix(md_content: str, jurisdiction: str = "nist", f
                 current_section_status = 'Not Applicable'
                 current_section_priority = 'Low (P2)'
 
-        if line.startswith('🔹') or (line.startswith('#### ') and ('🔹' in line or '—' in line or '–' in line)) or ((line.startswith('### ') or line.startswith('- **')) and current_section_status is not None and ('—' in line or '–' in line)):
-            raw_heading = re.sub(r'^#{3,4}\s*', '', line).strip()
-            if not any(k in raw_heading.lower() for k in ['credential & secret', 'dependency & cve', 'dynamic control inspection', 'compliance breakdown', 'summary', 'static security']):
+        if line.startswith('🔹') or (line.startswith('#### ') and ('🔹' in line or '—' in line or '–' in line or ':' in line)) or ((line.startswith('### ') or line.startswith('- **') or line.startswith('* **')) and current_section_status is not None and ('—' in line or '–' in line or ':' in line)):
+            raw_heading = re.sub(r'^[#\-\*\s]+', '', line).strip()
+            if not any(k in raw_heading.lower() for k in [
+                'credential & secret', 'dependency & cve', 'dynamic control inspection', 
+                'compliance breakdown', 'summary', 'static security', 'source docs', 
+                'target framework', 'client id', 'timestamp', 'fully compliant controls', 
+                'partially compliant controls', 'not compliant controls', 'gaps / not compliant',
+                'evaluated scope', 'action required', 'executive summary', 'scorecard'
+            ]):
                 cid = extract_canonical_control_id(raw_heading)
+                if cid.lower() in ['fully compliant', 'partially compliant', 'not compliant', 'evaluated scope', 'none', 'n/a']:
+                    i += 1
+                    continue
                 
                 title_part = ''
                 if '—' in raw_heading:
                     title_part = raw_heading.split('—', 1)[1].strip()
                 elif '–' in raw_heading:
                     title_part = raw_heading.split('–', 1)[1].strip()
+                elif '**:' in raw_heading:
+                    title_part = raw_heading.split('**:', 1)[1].strip()
+                elif ':' in raw_heading and not raw_heading.startswith(('http:', 'https:')):
+                    title_part = raw_heading.split(':', 1)[1].strip()
                 elif '-' in raw_heading:
                     title_part = raw_heading.split('-', 1)[1].strip()
                 else:
                     title_part = raw_heading
                 clean_title = strip_all_markdown_and_emojis(title_part)
+                if not clean_title or clean_title.lower() in ['fully compliant', 'partially compliant', 'not compliant', 'none', 'n/a']:
+                    i += 1
+                    continue
 
                 body_lines = []
                 j = i + 1
                 while j < len(lines):
                     nxt = lines[j].strip()
-                    if nxt.startswith('🔹') or nxt.startswith('#### ') or (nxt.startswith('### ') and not nxt.startswith('####')) or nxt.startswith('---') or any(w in nxt.lower() for w in ['fully compliant controls', 'partially compliant controls', 'not compliant controls', 'gaps / not compliant']):
+                    if nxt.startswith('🔹') or nxt.startswith('#### ') or (nxt.startswith('### ') and not nxt.startswith('####')) or nxt.startswith('---') or (nxt.startswith(('- **', '* **')) and (':' in nxt or '—' in nxt)) or any(w in nxt.lower() for w in ['fully compliant controls', 'partially compliant controls', 'not compliant controls', 'gaps / not compliant']):
                         break
                     body_lines.append(nxt)
                     j += 1
                 body_text = '\n'.join(body_lines)
 
-                m_audit = re.findall(r'(?:\*\*Audit Finding:\*\*|Audit Finding:|\*\*Auditor Explanation:\*\*|Auditor Explanation:|\*\*Technical Restrictions:\*\*|Technical Restrictions:|\*\*Control Requirement:\*\*|Control Requirement:)\s*([^\n]+)', body_text)
-                if m_audit:
-                    cleaned_chunks = [strip_all_markdown_and_emojis(chunk) for chunk in m_audit if strip_all_markdown_and_emojis(chunk)]
-                    rationale = ' '.join(cleaned_chunks)
+                m_detail = re.search(r'\*Detail:\*\s*([^\n]+)', body_text, re.IGNORECASE)
+                if m_detail:
+                    rationale = strip_all_markdown_and_emojis(m_detail.group(1))
                 else:
-                    m_rat = re.search(r'-\s*\*\*(?:Rationale|Auditor Explanation|Details):\*\*\s*([^\n]+)', body_text, re.IGNORECASE)
-                    rationale = strip_all_markdown_and_emojis(m_rat.group(1)) if m_rat else f'Evaluated safeguard requirement for {clean_title}.'
-
-                m_rem = re.search(r'(?:\*\*Client Remediation Plan:\*\*|Client Remediation Plan:)\s*([\s\S]+?)(?=(?:\n\s*[-*]\s*\*\*Evidence Source:\*\*|\n\s*[-*]\s*\*\*|\n\s*####|\n\s*🔹|\n\s*###|\Z))', body_text, re.IGNORECASE)
-                if m_rem:
-                    remediation = strip_all_markdown_and_emojis(m_rem.group(1))
-                else:
-                    m_rem2 = re.search(r'(?:\*\*Recommended Remediation:\*\*|Recommended Remediation:|\*\*Remediation:\*\*|Remediation:)\s*([^\n]+)', body_text, re.IGNORECASE)
-                    if m_rem2:
-                        remediation = strip_all_markdown_and_emojis(m_rem2.group(1))
+                    m_audit = re.findall(r'(?:\*\*Audit Finding:\*\*|Audit Finding:|\*\*Auditor Explanation:\*\*|Auditor Explanation:|\*\*Technical Restrictions:\*\*|Technical Restrictions:|\*\*Control Requirement:\*\*|Control Requirement:)\s*([^\n]+)', body_text)
+                    if m_audit:
+                        cleaned_chunks = [strip_all_markdown_and_emojis(chunk) for chunk in m_audit if strip_all_markdown_and_emojis(chunk)]
+                        rationale = ' '.join(cleaned_chunks)
                     else:
-                        remediation = 'Maintain verified baseline.' if current_section_status == 'Fully Compliant' else 'Implement required safeguards to achieve compliance.'
+                        m_rat = re.search(r'-\s*\*\*(?:Rationale|Auditor Explanation|Details):\*\*\s*([^\n]+)', body_text, re.IGNORECASE)
+                        rationale = strip_all_markdown_and_emojis(m_rat.group(1)) if m_rat else f'Evaluated safeguard requirement for {clean_title}.'
+
+                m_rem_detail = re.search(r'\*Remediation:\*\s*([^\n]+)', body_text, re.IGNORECASE)
+                if m_rem_detail:
+                    remediation = strip_all_markdown_and_emojis(m_rem_detail.group(1))
+                else:
+                    m_rem = re.search(r'(?:\*\*Client Remediation Plan:\*\*|Client Remediation Plan:)\s*([\s\S]+?)(?=(?:\n\s*[-*]\s*\*\*Evidence Source:\*\*|\n\s*[-*]\s*\*\*|\n\s*####|\n\s*🔹|\n\s*###|\Z))', body_text, re.IGNORECASE)
+                    if m_rem:
+                        remediation = strip_all_markdown_and_emojis(m_rem.group(1))
+                    else:
+                        m_rem2 = re.search(r'(?:\*\*Recommended Remediation:\*\*|Recommended Remediation:|\*\*Remediation:\*\*|Remediation:)\s*([^\n]+)', body_text, re.IGNORECASE)
+                        if m_rem2:
+                            remediation = strip_all_markdown_and_emojis(m_rem2.group(1))
+                        else:
+                            remediation = 'Maintain verified baseline.' if current_section_status == 'Fully Compliant' else 'Implement required safeguards to achieve compliance.'
 
                 findings.append({
                     'control_id': cid,
@@ -676,18 +700,54 @@ def render_template_docx_bytes(md_content: str, jurisdiction: str = "nist", fram
         )
         tcPr.append(borders)
 
-    p_title = doc.add_paragraph()
-    r_t = p_title.add_run("COMPLIANCE ASSESSMENT REPORT")
-    r_t.font.name = 'Calibri'
-    r_t.font.size = Pt(18)
-    r_t.font.bold = True
-    r_t.font.color.rgb = RGBColor(0x1E, 0x3A, 0x8A)
+    # Top Logo and Header
+    logo_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets", "csrl_logo.png")
+    if not os.path.exists(logo_path):
+        logo_path = os.path.join(PROJECT_ROOT, "assets", "csrl_logo.png")
 
-    p_sub = doc.add_paragraph()
-    r_sub = p_sub.add_run("Standardized Regulatory & Technical Audit Report")
-    r_sub.font.name = 'Calibri'
-    r_sub.font.size = Pt(10)
-    r_sub.font.color.rgb = RGBColor(0x64, 0x74, 0x8B)
+    if os.path.exists(logo_path):
+        try:
+            t_hdr = doc.add_table(rows=1, cols=2)
+            t_hdr.autofit = False
+            t_hdr.columns[0].width = Inches(0.85)
+            t_hdr.columns[1].width = Inches(8.95)
+            cell_logo = t_hdr.rows[0].cells[0]
+            cell_text = t_hdr.rows[0].cells[1]
+            p_l = cell_logo.paragraphs[0]
+            p_l.add_run().add_picture(logo_path, width=Inches(0.75))
+            
+            p_t = cell_text.paragraphs[0]
+            r1 = p_t.add_run("CYBER SECURITY RESEARCH LAB (CSRL)\n")
+            r1.font.name = 'Calibri'
+            r1.font.size = Pt(14)
+            r1.font.bold = True
+            r1.font.color.rgb = RGBColor(0x1E, 0x3A, 0x8A)
+            
+            r2 = p_t.add_run("REGULATORY COMPLIANCE AUDIT REPORT\n")
+            r2.font.name = 'Calibri'
+            r2.font.size = Pt(11)
+            r2.font.bold = True
+            r2.font.color.rgb = RGBColor(0x1E, 0x29, 0x3B)
+            
+            r3 = p_t.add_run("Automated Multi-Agent Verification Benchmark")
+            r3.font.name = 'Calibri'
+            r3.font.size = Pt(9)
+            r3.font.color.rgb = RGBColor(0x64, 0x74, 0x8B)
+            doc.add_paragraph() # spacer
+        except Exception:
+            p_title = doc.add_paragraph()
+            r_t = p_title.add_run("CYBER SECURITY RESEARCH LAB (CSRL)\nCOMPLIANCE ASSESSMENT REPORT")
+            r_t.font.name = 'Calibri'
+            r_t.font.size = Pt(16)
+            r_t.font.bold = True
+            r_t.font.color.rgb = RGBColor(0x1E, 0x3A, 0x8A)
+    else:
+        p_title = doc.add_paragraph()
+        r_t = p_title.add_run("CYBER SECURITY RESEARCH LAB (CSRL)\nCOMPLIANCE ASSESSMENT REPORT")
+        r_t.font.name = 'Calibri'
+        r_t.font.size = Pt(16)
+        r_t.font.bold = True
+        r_t.font.color.rgb = RGBColor(0x1E, 0x3A, 0x8A)
 
     detected_fw = None
     for p_fw in [
@@ -868,13 +928,14 @@ class NumberedCanvas(CanvasBase):
         
         # Header (pages > 1)
         if self._pageNumber > 1:
-            self.drawRightString(11 * 72 - 36, 8.5 * 72 - 25, "ComplianceMesh Regulatory Audit Report | Confidential")
+            self.drawString(36, 8.5 * 72 - 25, "CYBER SECURITY RESEARCH LAB (CSRL)")
+            self.drawRightString(11 * 72 - 36, 8.5 * 72 - 25, "Regulatory Compliance Audit Report | Confidential")
             self.setStrokeColor(colors.HexColor("#CBD5E1"))
             self.setLineWidth(0.5)
             self.line(36, 8.5 * 72 - 28, 11 * 72 - 36, 8.5 * 72 - 28)
             
         # Footer
-        self.drawString(36, 20, "Generated by ComplianceMesh Multi-Agent Audit Pipeline | Confidential")
+        self.drawString(36, 20, "CSRL Cyber Security Research Lab | Multi-Agent Audit Engine | Confidential")
         self.drawRightString(11 * 72 - 36, 20, f"Page {self._pageNumber} of {page_count}")
         self.setStrokeColor(colors.HexColor("#CBD5E1"))
         self.setLineWidth(0.5)
@@ -886,15 +947,16 @@ class NumberedCanvas(CanvasBase):
 def render_pdf_report_bytes(md_content: str, jurisdiction: str = "nist", framework: str = "csf") -> bytes:
     """
     Renders a publication-grade Landscape PDF audit document using ReportLab:
+    - Top Banner: Official CSRL Logo & Laboratory Header
     - Table 1: Client Metadata Card (2 columns)
     - Table 2: Executive Compliance Scorecard (3 columns, no emojis)
-    - Table 3: 6-Column Technical Control Assessment Matrix (Evidence column removed, repeating header across pages)
-    - Table 4: Actionable Remediation Roadmap (3 columns)
+    - Table 3: 5-Column Technical Control Assessment Matrix (repeating header across pages)
+    - Table 4: Domain-Based Engineering Remediation Action Plan
     """
     import io
     from reportlab.lib.pagesizes import letter, landscape
     from reportlab.lib import colors
-    from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+    from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, Image as RLImage
     from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 
     # 1. Metadata Extraction
@@ -941,29 +1003,29 @@ def render_pdf_report_bytes(md_content: str, jurisdiction: str = "nist", framewo
         'ReportTitle',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=18,
-        leading=22,
+        fontSize=15,
+        leading=18,
         textColor=colors.HexColor('#1E3A8A'),
-        spaceAfter=3
+        spaceAfter=2
     )
     sub_style = ParagraphStyle(
         'ReportSub',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=10,
-        leading=13,
+        fontSize=9.5,
+        leading=12,
         textColor=colors.HexColor('#64748B'),
-        spaceAfter=12
+        spaceAfter=8
     )
     h2_style = ParagraphStyle(
         'Heading2',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=12,
-        leading=15,
+        fontSize=11.5,
+        leading=14,
         textColor=colors.HexColor('#1E3A8A'),
         spaceBefore=10,
-        spaceAfter=6
+        spaceAfter=5
     )
     body_style = ParagraphStyle(
         'Body',
@@ -1001,9 +1063,37 @@ def render_pdf_report_bytes(md_content: str, jurisdiction: str = "nist", framewo
 
     elements = []
 
-    # Title Banner
-    elements.append(Paragraph("COMPLIANCE ASSESSMENT REPORT", title_style))
-    elements.append(Paragraph("Standardized Regulatory & Technical Audit Report", sub_style))
+    # 1. Top Logo & Header Banner
+    logo_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets", "csrl_logo.png")
+    if not os.path.exists(logo_path):
+        logo_path = os.path.join(PROJECT_ROOT, "assets", "csrl_logo.png")
+
+    if os.path.exists(logo_path):
+        try:
+            logo_img = RLImage(logo_path, width=48, height=48)
+            brand_text = (
+                "<font size='13' color='#1E3A8A'><b>CYBER SECURITY RESEARCH LAB (CSRL)</b></font><br/>"
+                "<font size='10' color='#1E293B'><b>REGULATORY COMPLIANCE AUDIT REPORT</b></font><br/>"
+                f"<font size='8' color='#64748B'>Automated Multi-Agent Verification Benchmark &bull; {detected_fw.upper()}</font>"
+            )
+            brand_p = Paragraph(brand_text, title_style)
+            t_header = Table([[logo_img, brand_p]], colWidths=[56, 664])
+            t_header.setStyle(TableStyle([
+                ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                ('LEFTPADDING', (0, 0), (-1, -1), 0),
+                ('RIGHTPADDING', (0, 0), (-1, -1), 0),
+                ('TOPPADDING', (0, 0), (-1, -1), 0),
+                ('BOTTOMPADDING', (0, 0), (-1, -1), 4),
+            ]))
+            elements.append(t_header)
+        except Exception:
+            elements.append(Paragraph("CYBER SECURITY RESEARCH LAB (CSRL)", title_style))
+            elements.append(Paragraph("REGULATORY COMPLIANCE AUDIT REPORT", sub_style))
+    else:
+        elements.append(Paragraph("CYBER SECURITY RESEARCH LAB (CSRL)", title_style))
+        elements.append(Paragraph("REGULATORY COMPLIANCE AUDIT REPORT", sub_style))
+
+    elements.append(Spacer(1, 4))
 
     # Table 1: Metadata Card (Width = 720 pt)
     meta_data = [
