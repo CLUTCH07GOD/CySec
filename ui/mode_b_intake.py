@@ -65,8 +65,12 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
             with c_git2:
                 git_auth_token = st.text_input("Personal Access Token (PAT)", type="password", help="Optional for public repositories; required for private repositories", key="mode_b_git_pat")
         else:
-            st.info("🔑 Client provides temporary AWS SecurityAudit IAM Role ARN or GCP Read-Only JSON Key.")
-            st.text_input("AWS SecurityAudit Role ARN", value="arn:aws:iam::123456789012:role/ComplianceAuditReadOnlyRole")
+            st.info("🔑 Client provides temporary Cloud IAM Role ARN or Service Account Key (Read-Only Infra Audit).")
+            c_cloud1, c_cloud2 = st.columns([0.35, 0.65])
+            with c_cloud1:
+                cloud_provider = st.selectbox("Cloud Provider", options=["AWS", "GCP", "Azure"], key="mode_b_cloud_provider")
+            with c_cloud2:
+                cloud_role_arn = st.text_input("IAM Role ARN / Service Account Principal", value="arn:aws:iam::123456789012:role/ComplianceAuditReadOnlyRole", key="mode_b_cloud_role")
 
         if mode_b_files or staging_url_val or git_repo_url or "4." in access_grant_method:
             if st.button("⚡ Run Agent 0 Sandboxed Dynamic Audit", type="primary", width="stretch", key="btn_run_mode_b_audit"):
@@ -76,23 +80,10 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                         with st.spinner("🚀 Agent 0 spinning up ephemeral sandbox & running code/manifest security scans..."):
                             import importlib
                             import agents.agent0_mode_b_sandbox as mode_b
-                            importlib.reload(mode_b)
-                            file_payload = []
-                            if mode_b_files:
-                                for f in mode_b_files:
-                                    file_payload.append({
-                                        "name": f.name,
-                                        "content": f.getvalue()
-                                    })
-
-                            results = mode_b.run_mode_b_pipeline(mode_b_client_id, file_payload)
-                            
-                            # Run Agent 4 Compliance Assessment & Agent 3 Control Mapping
-                            import agents.agent3_control_mapping as _a3
                             import agents.agent4_compliance_assessment as _a4
+                            importlib.reload(mode_b)
                             importlib.reload(_a4)
-                            importlib.reload(_a3)
-                            
+
                             target_jur, target_fw = "nist", "sp_800_63b_r4"
                             if mode_b_framework:
                                 if "/" in mode_b_framework:
@@ -104,6 +95,16 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                                 else:
                                     target_jur, target_fw = "nist", mode_b_framework.replace("nist_", "")
 
+                            file_payload = []
+                            if mode_b_files:
+                                for f in mode_b_files:
+                                    file_payload.append({
+                                        "name": f.name,
+                                        "content": f.getvalue()
+                                    })
+
+                            results = mode_b.run_mode_b_pipeline(mode_b_client_id, file_payload, framework=f"{target_jur}/{target_fw}")
+                            
                             custom_ev = results.get("custom_evidence", [])
                             eph_coll = results.get("ephemeral_collection")
                             comp_results = _a4.assess_compliance(target_jur, target_fw, custom_evidence=custom_ev, ephemeral_collection_name=eph_coll)
@@ -419,6 +420,100 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                                     st.rerun()
                         except Exception as exc:
                             st.error(f"Remote Git Ingestion Audit Error: {exc}")
+
+                elif "4." in access_grant_method:
+                    # Option 4: Temporary Cloud IAM Role / Service Account Key (Read-Only Infra Audit)
+                    try:
+                        with st.spinner(f"🚀 Performing {cloud_provider} Cloud Infrastructure Security Audit via Agent 0..."):
+                            import agents.cloud_infra_scanner as cis
+                            import agents.agent4_compliance_assessment as _a4
+                            import agents.config as config
+                            import chromadb
+
+                            target_jur, target_fw = "nist", "sp_800_63b_r4"
+                            if mode_b_framework:
+                                if "/" in mode_b_framework:
+                                    target_jur, target_fw = mode_b_framework.split("/", 1)
+                                elif "__" in mode_b_framework:
+                                    target_jur, target_fw = mode_b_framework.split("__", 1)
+                                elif "_" in mode_b_framework and not mode_b_framework.startswith("nist_"):
+                                    target_jur, target_fw = mode_b_framework.split("_", 1)
+                                else:
+                                    target_jur, target_fw = "nist", mode_b_framework.replace("nist_", "")
+
+                            cloud_res = cis.audit_cloud_infrastructure(
+                                provider=cloud_provider,
+                                role_arn=cloud_role_arn,
+                                framework=f"{target_jur}/{target_fw}",
+                                client_id=mode_b_client_id
+                            )
+
+                            custom_ev = cloud_res.get("custom_evidence", [])
+                            eph_coll_name = f"ephemeral_cloud_{mode_b_client_id}"
+                            
+                            c_client = chromadb.PersistentClient(path=config.CHROMA_DB_DIR)
+                            try:
+                                c_client.delete_collection(eph_coll_name)
+                            except Exception:
+                                pass
+
+                            if custom_ev:
+                                e_coll = c_client.create_collection(eph_coll_name)
+                                embedder = config.get_embedder()
+                                c_ids = [f"cloud_ev_{idx+1}" for idx in range(len(custom_ev))]
+                                c_docs = [ev["text"][:1500] for ev in custom_ev]
+                                c_metas = [{"source_file": ev["source_file"], "client_id": mode_b_client_id} for ev in custom_ev]
+                                c_embs = embedder.encode(c_docs).tolist()
+                                e_coll.add(ids=c_ids, documents=c_docs, embeddings=c_embs, metadatas=c_metas)
+
+                            comp_results = _a4.assess_compliance(target_jur, target_fw, custom_evidence=custom_ev, ephemeral_collection_name=eph_coll_name)
+
+                            try:
+                                c_client.delete_collection(eph_coll_name)
+                            except Exception:
+                                pass
+
+                            compliant_items = [r for r in comp_results if r.get("status") in ("Compliant", "PASS", "PASSED") or r.get("document_claimed_status") in ("Compliant", "PASS", "PASSED")]
+                            partial_items = [r for r in comp_results if r.get("status") in ("Partially Compliant", "PARTIAL", "PARTIALLY COMPLIANT") or r.get("document_claimed_status") in ("Partially Compliant", "PARTIAL")]
+                            non_compliant_items = [r for r in comp_results if r.get("status") in ("Not Compliant", "NON-COMPLIANT", "FAIL", "FAILED", "No Evidence Found") or r.get("document_claimed_status") in ("Not Compliant", "No Evidence Found")]
+
+                            findings_md = "\n".join([
+                                f"- **[{f.get('status')}] {f.get('check_id')}**: {f.get('title')}\n  *Detail:* {f.get('evidence_summary')}"
+                                for f in cloud_res.get("findings", [])
+                            ])
+
+                            comp_md = clean_report_list_fn(compliant_items, default_ev=f"{cloud_provider} Cloud Infrastructure", show_rationale=False) if compliant_items else "None"
+                            part_md = clean_report_list_fn(partial_items, default_ev=f"{cloud_provider} Cloud Infrastructure", show_rationale=True) if partial_items else "None"
+                            non_comp_md = clean_report_list_fn(non_compliant_items, default_ev=f"{cloud_provider} Cloud Infrastructure", show_rationale=True) if non_compliant_items else "None"
+
+                            tot_controls = len(compliant_items) + len(partial_items) + len(non_compliant_items)
+                            pct_compliant = (len(compliant_items) / tot_controls * 100) if tot_controls else 0.0
+
+                            report_md = (
+                                f"### ☁️ Cloud Infrastructure Regulatory Compliance Audit Report\n\n"
+                                f"**Cloud Provider:** `{cloud_provider}` | **IAM Principal / Role:** `{cloud_role_arn or 'SecurityAudit IAM Role'}`\n"
+                                f"**Scanner Status:** `{cloud_res.get('sdk_status')}`\n"
+                                f"**Target Framework Benchmark:** {target_fw.upper()} ({target_jur.upper()})\n\n"
+                                f"## Executive Summary\n"
+                                f"This cloud infrastructure compliance assessment evaluated the {cloud_provider} cloud environment and security posture of `{mode_b_client_id}` "
+                                f"against the `{target_fw.upper()}` ({target_jur.upper()}) regulatory framework. "
+                                f"Out of {tot_controls} assessed controls, {len(compliant_items)} controls ({pct_compliant:.1f}%) demonstrated verified cloud infrastructure compliance, "
+                                f"{len(partial_items)} controls exhibited partial compliance, and {len(non_compliant_items)} controls require operational remediation.\n\n"
+                                f"#### 🔍 Cloud Security & Configuration Findings:\n{findings_md}\n\n"
+                                f"---\n\n"
+                                f"#### 📊 Compliance Status Matrix ({target_fw.upper()} / {target_jur.upper()}):\n"
+                                f"- ✅ Fully Compliant: {len(compliant_items)}\n"
+                                f"- ⚠️ Partially Compliant: {len(partial_items)}\n"
+                                f"- ❌ Gaps / Not Compliant: {len(non_compliant_items)}\n\n"
+                                f"### ✅ Fully Compliant Controls:\n{comp_md}\n\n"
+                                f"### ⚠️ Partially Compliant Controls:\n{part_md}\n\n"
+                                f"### ❌ Not Compliant Controls:\n{non_comp_md}\n"
+                            )
+                            st.session_state.messages.append({"role": "assistant", "content": report_md})
+                            st.success(f"🎉 {cloud_provider} Cloud Infrastructure Audit Completed!")
+                            st.rerun()
+                    except Exception as exc:
+                        st.error(f"Cloud Infrastructure Audit Error: {exc}")
 
     if wrap_in_expander:
         with st.expander("Client Intake: Live Application Access & Sandbox (Mode B)"):
