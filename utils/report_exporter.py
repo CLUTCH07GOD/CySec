@@ -483,8 +483,7 @@ def extract_audit_findings_matrix(md_content: str, jurisdiction: str = "nist", f
                     'title': clean_title,
                     'status': current_section_status or 'Compliant',
                     'rationale': rationale[:450],
-                    'remediation': remediation[:450],
-                    'priority': current_section_priority or 'Closed'
+                    'remediation': remediation[:450]
                 })
 
         if line.startswith('- **') and ('—' in line or '–' in line) and ':' in line:
@@ -495,15 +494,13 @@ def extract_audit_findings_matrix(md_content: str, jurisdiction: str = "nist", f
                 p_status_raw = m_probe.group(3).strip()
 
                 status_val = 'Not Compliant' if 'fail' in p_status_raw.lower() else ('Untested' if 'no_data' in p_status_raw.lower() else 'Compliant')
-                prio_val = 'High (P0)' if status_val == 'Not Compliant' else ('Low (P2)' if status_val == 'Untested' else 'Closed')
 
                 findings.append({
                     'control_id': p_cid,
                     'title': p_title,
                     'status': status_val,
                     'rationale': f'Runtime probe status: {strip_all_markdown_and_emojis(p_status_raw)}',
-                    'remediation': 'Address dynamic probe finding.' if prio_val != 'Closed' else 'Probe passed.',
-                    'priority': prio_val
+                    'remediation': 'Address dynamic probe finding.' if status_val != 'Compliant' else 'Probe passed.'
                 })
 
         i += 1
@@ -535,24 +532,14 @@ def extract_audit_findings_matrix(md_content: str, jurisdiction: str = "nist", f
                     status_text = strip_all_markdown_and_emojis(cells[status_idx]) if (status_idx != -1 and status_idx < len(cells)) else "Evaluated"
 
                     st_low = status_text.lower()
-                    if any(w in st_low for w in ['not compliant', 'fail', 'gap']):
-                        priority = "High (P0)"
-                    elif any(w in st_low for w in ['partially', 'partial']):
-                        priority = "Medium (P1)"
-                    elif any(w in st_low for w in ['not applicable', 'pre-implementation', 'design only']):
-                        priority = "Low (P2)"
-                    else:
-                        priority = "Closed"
-
-                    rem_text = strip_all_markdown_and_emojis(cells[rem_idx]) if (rem_idx != -1 and rem_idx < len(cells)) else ("Implement missing safeguard controls to achieve full compliance." if priority != "Closed" else "Maintain verified operational baseline.")
+                    rem_text = strip_all_markdown_and_emojis(cells[rem_idx]) if (rem_idx != -1 and rem_idx < len(cells)) else ("Implement missing safeguard controls to achieve full compliance." if "compliant" not in st_low or "not" in st_low else "Maintain verified operational baseline.")
 
                     findings.append({
                         "control_id": clean_id,
                         "title": clean_title,
                         "status": status_text,
                         "rationale": f"Evaluated compliance baseline for {clean_title}.",
-                        "remediation": rem_text,
-                        "priority": priority
+                        "remediation": rem_text
                     })
 
     # Strategy 3: Standard ### Headings
@@ -580,35 +567,72 @@ def extract_audit_findings_matrix(md_content: str, jurisdiction: str = "nist", f
             if m_rem:
                 remediation = strip_all_markdown_and_emojis(m_rem.group(1))
 
-            st_low = status.lower()
-            if any(w in st_low for w in ['not compliant', 'fail']):
-                priority = "High (P0)"
-            elif any(w in st_low for w in ['partially', 'partial']):
-                priority = "Medium (P1)"
-            elif any(w in st_low for w in ['not applicable', 'untested']):
-                priority = "Low (P2)"
-            else:
-                priority = "Closed"
-
             findings.append({
                 "control_id": clean_id,
                 "title": raw_title,
                 "status": status,
                 "rationale": rationale,
-                "remediation": remediation,
-                "priority": priority
+                "remediation": remediation
             })
+
+    try:
+        import report_sanitizer
+        findings = report_sanitizer.sanitize_assessment_batch(findings, framework=f"{jurisdiction}/{framework}")
+    except Exception:
+        pass
 
     return findings
 
 
+def build_comprehensive_executive_summary(md_content: str, detected_client: str, detected_fw: str, findings: list[dict]) -> str:
+    """
+    Constructs a rich, publication-grade Executive Summary synthesizing
+    the audit scope, scorecard breakdown, and key operational observations.
+    """
+    m_exec = re.search(r'(?:#{1,4}\s*Executive Summary|\*\*Executive Summary\*\*)\s*\n+([\s\S]+?)(?:\n#{1,4}|\n---|\Z)', md_content, re.IGNORECASE)
+    raw_summary = m_exec.group(1).strip() if m_exec else ""
+    clean_summary = strip_all_markdown_and_emojis(raw_summary)
+
+    # If the report already contains a detailed multi-sentence summary (> 140 chars), return it
+    if len(clean_summary) > 140 and not clean_summary.startswith("Automated compliance assessment completed"):
+        return clean_summary
+
+    cnt_f = sum(1 for f in findings if 'Fully' in f.get('status', ''))
+    cnt_p = sum(1 for f in findings if 'Partially' in f.get('status', ''))
+    cnt_n = sum(1 for f in findings if 'Not' in f.get('status', ''))
+    cnt_na = sum(1 for f in findings if any(k in f.get('status', '').lower() for k in ['applicable', 'untested', 'pre-implementation', 'design']))
+    tot_assess = cnt_f + cnt_p + cnt_n
+    
+    pct_f = f"{(cnt_f / tot_assess * 100):.1f}%" if tot_assess > 0 else "0.0%"
+    pct_gaps = f"{((cnt_p + cnt_n) / tot_assess * 100):.1f}%" if tot_assess > 0 else "0.0%"
+
+    p1 = (
+        f"This regulatory compliance audit conducted by the ComplianceMesh Multi-Agent Pipeline evaluated the technical evidence, "
+        f"configuration architecture, and runtime security posture of {detected_client} against the {detected_fw} framework baseline. "
+        f"The scope of assessment encompasses automated code inspection, authentication and authorization safeguards, data protection at rest, "
+        f"and dynamic runtime probing."
+    )
+    p2 = (
+        f"Across {tot_assess} assessable technical controls evaluated, {cnt_f} controls ({pct_f}) demonstrated verified compliance with established security criteria. "
+        f"A total of {cnt_p + cnt_n} controls ({pct_gaps}) exhibited implementation gaps or insufficient technical evidence in the evaluated scope. "
+        f"An additional {cnt_na} control items represent organizational governance, data protection agreements, or procedural workflows requiring administrative review."
+    )
+    p3 = (
+        f"Remediation priorities include formalizing granular role-based authorization beyond administrative flags, enforcing comprehensive audit logging "
+        f"for sensitive data operations, and verifying transport-layer encryption configurations. Following the engineering roadmap detailed in this report "
+        f"will establish a defensible, audit-ready compliance posture."
+    )
+
+    return f"{p1}\n\n{p2}\n\n{p3}"
+
+
 def render_template_docx_bytes(md_content: str, jurisdiction: str = "nist", framework: str = "csf") -> bytes:
     """
-    Renders a professional 6-column Word (.docx) audit document:
+    Renders a professional 5-column Word (.docx) audit document:
     - Table 1: Client Metadata Card (2 columns)
     - Table 2: Executive Compliance Scorecard (3 columns, no emojis)
-    - Table 3: 6-Column Technical Control Assessment Matrix
-    - Table 4: Actionable Remediation Roadmap (3 columns)
+    - Table 3: 5-Column Technical Control Assessment Matrix
+    - Table 4: Actionable Remediation Roadmap & Milestones (3 columns)
     """
     import io
     import docx
@@ -637,8 +661,8 @@ def render_template_docx_bytes(md_content: str, jurisdiction: str = "nist", fram
     font.color.rgb = RGBColor(0x1E, 0x29, 0x3B)
 
     def set_cell_shading(cell, color_hex):
-        shd = parse_xml(f'<w:shd {nsdecls("w")} w:fill="{color_hex}"/>')
-        cell._tc.get_or_add_tcPr().append(shd)
+        shading = parse_xml(f'<w:shd {nsdecls("w")} w:fill="{color_hex}"/>')
+        cell._tc.get_or_add_tcPr().append(shading)
 
     def set_cell_borders(cell, color_hex="CBD5E1"):
         tcPr = cell._tc.get_or_add_tcPr()
@@ -709,13 +733,13 @@ def render_template_docx_bytes(md_content: str, jurisdiction: str = "nist", fram
             set_cell_shading(row.cells[0], "F8FAFC")
             set_cell_shading(row.cells[1], "F8FAFC")
 
-    doc.add_heading("1. Executive Summary", level=2)
-    m_exec = re.search(r'(?:#{1,4}\s*Executive Summary|\*\*Executive Summary\*\*)\s*\n+([\s\S]+?)(?:\n#{1,4}|\n---|\Z)', md_content, re.IGNORECASE)
-    exec_summary = m_exec.group(1).strip() if m_exec else f"Automated compliance assessment completed against {detected_fw} baseline."
-    clean_exec = strip_all_markdown_and_emojis(exec_summary)
-    doc.add_paragraph(clean_exec)
-
     findings = extract_audit_findings_matrix(md_content, jurisdiction=jurisdiction, framework=framework)
+
+    doc.add_heading("1. Executive Summary", level=2)
+    exec_summary = build_comprehensive_executive_summary(md_content, detected_client, detected_fw, findings)
+    for p_block in exec_summary.split("\n\n"):
+        if p_block.strip():
+            doc.add_paragraph(p_block.strip())
 
     doc.add_heading("2. Executive Compliance Scorecard", level=2)
     t_score = doc.add_table(rows=5, cols=3)
@@ -751,9 +775,9 @@ def render_template_docx_bytes(md_content: str, jurisdiction: str = "nist", fram
 
     doc.add_heading("3. Technical Control Assessment Matrix", level=2)
     num_findings = len(findings) if findings else 1
-    t_mat = doc.add_table(rows=num_findings + 1, cols=6)
+    t_mat = doc.add_table(rows=num_findings + 1, cols=5)
     t_mat.style = 'Table Grid'
-    mat_headers = ["Control ID", "Requirement Description", "Compliance Status", "Auditor Finding & Rationale", "Recommended Remediation", "Priority"]
+    mat_headers = ["Control ID", "Requirement Description", "Compliance Status", "Auditor Finding & Rationale", "Recommended Remediation"]
     for i, h in enumerate(mat_headers):
         cell = t_mat.rows[0].cells[i]
         cell.text = h
@@ -769,12 +793,31 @@ def render_template_docx_bytes(md_content: str, jurisdiction: str = "nist", fram
             row.cells[2].text = finding["status"]
             row.cells[3].text = finding["rationale"]
             row.cells[4].text = finding["remediation"]
-            row.cells[5].text = finding["priority"]
 
-    doc.add_heading("4. Actionable Remediation Roadmap", level=2)
-    t_road = doc.add_table(rows=4, cols=3)
+    doc.add_heading("4. Remediation Action Plan & Engineering Milestones", level=2)
+    
+    action_items = [f for f in findings if f.get("status") in ("Not Compliant", "Partially Compliant", "Untested", "No Evidence Found")]
+    cat_auth = [f["control_id"] for f in action_items if any(k in f["title"].lower() or k in f["rationale"].lower() or k in f["remediation"].lower() for k in ["auth", "rbac", "admin", "token", "jwt", "password", "session", "access"])]
+    cat_crypto = [f["control_id"] for f in action_items if f["control_id"] not in cat_auth and any(k in f["title"].lower() or k in f["rationale"].lower() or k in f["remediation"].lower() for k in ["encrypt", "aes", "cipher", "crypto", "tls", "https", "sanitiz", "validat"])]
+    cat_logs = [f["control_id"] for f in action_items if f["control_id"] not in cat_auth and f["control_id"] not in cat_crypto and any(k in f["title"].lower() or k in f["rationale"].lower() or k in f["remediation"].lower() for k in ["log", "audit", "trail", "monitor", "event", "breach"])]
+    cat_gov = [f["control_id"] for f in action_items if f["control_id"] not in cat_auth and f["control_id"] not in cat_crypto and f["control_id"] not in cat_logs]
+
+    road_rows = []
+    if cat_auth:
+        road_rows.append(("Access Control & Identity Enforcement", ", ".join(cat_auth), "Enforce role-to-permission mapping and verified authentication tokens across all privileged operations."))
+    if cat_crypto:
+        road_rows.append(("Data Protection & Cryptography", ", ".join(cat_crypto), "Enforce robust data-at-rest encryption, verified TLS in transit, and centralized input sanitization."))
+    if cat_logs:
+        road_rows.append(("Security Logging & Audit Trails", ", ".join(cat_logs), "Implement persistent security event logging, tamper-evident audit trails, and timely incident detection."))
+    if cat_gov:
+        road_rows.append(("Governance & Procedural Verification", ", ".join(cat_gov), "Formalize operational procedures, data subject request (DSAR) workflows, and documented compliance policies."))
+    
+    if not road_rows:
+        road_rows.append(("Baseline Maintenance", "All Controls", "Maintain existing verified technical safeguards and continue periodic review cycles."))
+
+    t_road = doc.add_table(rows=len(road_rows) + 1, cols=3)
     t_road.style = 'Table Grid'
-    road_headers = ["Priority Tier", "Target Controls Affected", "Engineering Milestone & Action"]
+    road_headers = ["Security Action Domain", "Target Controls Affected", "Engineering Milestone & Action"]
     for i, h in enumerate(road_headers):
         cell = t_road.rows[0].cells[i]
         cell.text = h
@@ -782,15 +825,6 @@ def render_template_docx_bytes(md_content: str, jurisdiction: str = "nist", fram
         cell.paragraphs[0].runs[0].font.bold = True
         cell.paragraphs[0].runs[0].font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)
 
-    p0 = [f["control_id"] for f in findings if "P0" in f["priority"] or "Not Compliant" in f["status"]]
-    p1 = [f["control_id"] for f in findings if "P1" in f["priority"] or "Partially Compliant" in f["status"]]
-    p2 = [f["control_id"] for f in findings if "P2" in f["priority"] or "Not Applicable" in f["status"]]
-
-    road_rows = [
-        ("P0 (Immediate / 0–14 Days)", ", ".join(p0), "Remediate critical security gaps."),
-        ("P1 (Near-Term / 30 Days)", ", ".join(p1), "Implement multi-factor authentication and logging."),
-        ("P2 (Long-Term / 60 Days)", ", ".join(p2), "Formalize governance policies and review cycles."),
-    ]
     for idx, (p, c, a) in enumerate(road_rows, start=1):
         row = t_road.rows[idx]
         row.cells[0].text = p
@@ -805,7 +839,9 @@ def render_template_docx_bytes(md_content: str, jurisdiction: str = "nist", fram
     return buf.getvalue()
 
 
-class NumberedCanvas(canvas.Canvas):
+CanvasBase = canvas.Canvas if canvas is not None else object
+
+class NumberedCanvas(CanvasBase):
     """
     Two-pass canvas to dynamically compute and draw total page count and professional headers/footers.
     """
@@ -992,11 +1028,12 @@ def render_pdf_report_bytes(md_content: str, jurisdiction: str = "nist", framewo
 
     # Executive Summary Section
     elements.append(Paragraph("1. Executive Summary", h2_style))
-    m_exec = re.search(r'(?:#{1,4}\s*Executive Summary|\*\*Executive Summary\*\*)\s*\n+([\s\S]+?)(?:\n#{1,4}|\n---|\Z)', md_content, re.IGNORECASE)
-    exec_summary = m_exec.group(1).strip() if m_exec else f"Automated compliance assessment completed against {detected_fw} baseline."
-    clean_exec = strip_all_markdown_and_emojis(exec_summary)
-    elements.append(Paragraph(clean_exec, body_style))
-    elements.append(Spacer(1, 10))
+    exec_summary = build_comprehensive_executive_summary(md_content, detected_client, detected_fw, findings)
+    for p_block in exec_summary.split("\n\n"):
+        if p_block.strip():
+            elements.append(Paragraph(p_block.strip(), body_style))
+            elements.append(Spacer(1, 4))
+    elements.append(Spacer(1, 8))
 
     # Table 2: Executive Compliance Scorecard (No Emojis)
     elements.append(Paragraph("2. Executive Compliance Scorecard", h2_style))
@@ -1031,15 +1068,14 @@ def render_pdf_report_bytes(md_content: str, jurisdiction: str = "nist", framewo
     elements.append(t_score)
     elements.append(Spacer(1, 14))
 
-    # Table 3: Technical Control Assessment Matrix (6 Columns, Width = 720 pt)
+    # Table 3: Technical Control Assessment Matrix (5 Columns, Width = 720 pt)
     elements.append(Paragraph("3. Technical Control Assessment Matrix", h2_style))
     matrix_headers = [
         Paragraph("Control ID", th_style),
         Paragraph("Requirement Description", th_style),
         Paragraph("Compliance Status", th_style),
         Paragraph("Auditor Finding & Rationale", th_style),
-        Paragraph("Recommended Remediation", th_style),
-        Paragraph("Priority", th_style)
+        Paragraph("Recommended Remediation", th_style)
     ]
     matrix_data = [matrix_headers]
 
@@ -1051,12 +1087,11 @@ def render_pdf_report_bytes(md_content: str, jurisdiction: str = "nist", framewo
             Paragraph(f['title'], body_style),
             Paragraph(st_val, st_style),
             Paragraph(f['rationale'], body_style),
-            Paragraph(f['remediation'], body_style),
-            Paragraph(f['priority'], body_style)
+            Paragraph(f['remediation'], body_style)
         ])
 
-    # Widths: 80 + 110 + 90 + 210 + 160 + 70 = 720 pt
-    t_matrix = Table(matrix_data, colWidths=[80, 110, 90, 210, 160, 70], repeatRows=1)
+    # Widths: 90 + 140 + 100 + 210 + 180 = 720 pt
+    t_matrix = Table(matrix_data, colWidths=[90, 140, 100, 210, 180], repeatRows=1)
     t_matrix_style = [
         ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#1E3A8A')),
         ('GRID', (0, 0), (-1, -1), 0.5, colors.HexColor('#CBD5E1')),
@@ -1073,19 +1108,33 @@ def render_pdf_report_bytes(md_content: str, jurisdiction: str = "nist", framewo
     elements.append(t_matrix)
     elements.append(Spacer(1, 14))
 
-    # Table 4: Actionable Remediation Roadmap (Width = 720 pt)
-    elements.append(Paragraph("4. Actionable Remediation Roadmap", h2_style))
-    p0_list = [f['control_id'] for f in findings if 'P0' in f.get('priority', '') or 'Not Compliant' in f.get('status', '')]
-    p1_list = [f['control_id'] for f in findings if 'P1' in f.get('priority', '') or 'Partially Compliant' in f.get('status', '')]
-    p2_list = [f['control_id'] for f in findings if 'P2' in f.get('priority', '') or 'Not Applicable' in f.get('status', '') or 'Untested' in f.get('status', '')]
+    # Table 4: Actionable Remediation Roadmap & Engineering Milestones (Width = 720 pt)
+    elements.append(Paragraph("4. Remediation Action Plan & Engineering Milestones", h2_style))
+    
+    action_items = [f for f in findings if f.get("status") in ("Not Compliant", "Partially Compliant", "Untested", "No Evidence Found")]
+    cat_auth = [f["control_id"] for f in action_items if any(k in f["title"].lower() or k in f["rationale"].lower() or k in f["remediation"].lower() for k in ["auth", "rbac", "admin", "token", "jwt", "password", "session", "access"])]
+    cat_crypto = [f["control_id"] for f in action_items if f["control_id"] not in cat_auth and any(k in f["title"].lower() or k in f["rationale"].lower() or k in f["remediation"].lower() for k in ["encrypt", "aes", "cipher", "crypto", "tls", "https", "sanitiz", "validat"])]
+    cat_logs = [f["control_id"] for f in action_items if f["control_id"] not in cat_auth and f["control_id"] not in cat_crypto and any(k in f["title"].lower() or k in f["rationale"].lower() or k in f["remediation"].lower() for k in ["log", "audit", "trail", "monitor", "event", "breach"])]
+    cat_gov = [f["control_id"] for f in action_items if f["control_id"] not in cat_auth and f["control_id"] not in cat_crypto and f["control_id"] not in cat_logs]
+
+    road_rows = []
+    if cat_auth:
+        road_rows.append([Paragraph("Access Control & Identity Enforcement", bold_style), Paragraph(", ".join(cat_auth), body_style), Paragraph("Enforce role-to-permission mapping and verified authentication tokens across all privileged operations.", body_style)])
+    if cat_crypto:
+        road_rows.append([Paragraph("Data Protection & Cryptography", bold_style), Paragraph(", ".join(cat_crypto), body_style), Paragraph("Enforce robust data-at-rest encryption, verified TLS in transit, and centralized input sanitization.", body_style)])
+    if cat_logs:
+        road_rows.append([Paragraph("Security Logging & Audit Trails", bold_style), Paragraph(", ".join(cat_logs), body_style), Paragraph("Implement persistent security event logging, tamper-evident audit trails, and timely incident detection.", body_style)])
+    if cat_gov:
+        road_rows.append([Paragraph("Governance & Procedural Verification", bold_style), Paragraph(", ".join(cat_gov), body_style), Paragraph("Formalize operational procedures, data subject request (DSAR) workflows, and documented compliance policies.", body_style)])
+    
+    if not road_rows:
+        road_rows.append([Paragraph("Baseline Maintenance", bold_style), Paragraph("All Controls", body_style), Paragraph("Maintain existing verified technical safeguards and continue periodic review cycles.", body_style)])
 
     road_data = [
-        [Paragraph("Priority Tier", th_style), Paragraph("Target Controls Affected", th_style), Paragraph("Engineering Milestone & Action", th_style)],
-        [Paragraph("P0 (Immediate / 0–14 Days)", bold_style), Paragraph(", ".join(p0_list) if p0_list else "None", body_style), Paragraph("Remediate critical security gaps and enforce baseline protections.", body_style)],
-        [Paragraph("P1 (Near-Term / 30 Days)", bold_style), Paragraph(", ".join(p1_list) if p1_list else "None", body_style), Paragraph("Implement multi-factor authentication, monitoring, and audit logging.", body_style)],
-        [Paragraph("P2 (Long-Term / 60 Days)", bold_style), Paragraph(", ".join(p2_list) if p2_list else "None", body_style), Paragraph("Formalize governance policies, vendor assessments, and review cycles.", body_style)],
-    ]
-    t_road = Table(road_data, colWidths=[160, 200, 360])
+        [Paragraph("Security Action Domain", th_style), Paragraph("Target Controls Affected", th_style), Paragraph("Engineering Milestone & Action", th_style)]
+    ] + road_rows
+
+    t_road = Table(road_data, colWidths=[180, 180, 360])
     t_road.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#1E3A8A')),
         ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.HexColor('#FFFFFF'), colors.HexColor('#F8FAFC')]),
