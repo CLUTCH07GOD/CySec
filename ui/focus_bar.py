@@ -143,11 +143,10 @@ def render_focus_bar(available_fw: list[str], user_role: str = "guest", clean_re
                             
                             st.success(f"Extracted & Vaulted Combined Profile from {len(client_docs)} files!")
                             
-                            if run_full_pipeline:
-                                with st.spinner("Running Multi-Agent Ingestion, Mapping & Assessment Pipeline..."):
-                                    import concurrent.futures
-                                    import agents.agent3_control_mapping as _a3
+                            if run_full_pipeline or run_extract_only:
+                                with st.spinner("Running Multi-Agent Document Ingestion & Compliance Assessment Pipeline (Mode A)..."):
                                     import agents.agent4_compliance_assessment as _a4
+                                    import agents.config as _cfg
                                     
                                     target_jur, target_fw = "nist", "sp_800_63b_r4"
                                     if mode_a_framework:
@@ -160,19 +159,57 @@ def render_focus_bar(available_fw: list[str], user_role: str = "guest", clean_re
                                         else:
                                             target_jur, target_fw = "nist", mode_a_framework.replace("nist_", "")
 
-                                    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-                                        future_map = executor.submit(_a3.map_frameworks, f"{target_jur}/{target_fw}", "us/hipaa")
-                                        results = _a4.assess_compliance(target_jur, target_fw)
-                                        mappings = future_map.result()
+                                    # Extract granular evidence chunks from uploaded docs
+                                    custom_evidence = coe.extract_custom_evidence_from_docs(doc_info_list, profile=profile)
+                                    
+                                    # Create ephemeral ChromaDB vector collection for high-speed RAG matching
+                                    client_slug = re.sub(r'[^a-zA-Z0-9_-]', '_', (client_id_input or "default_client").lower())
+                                    ephemeral_coll_name = f"ephemeral_mode_a_{client_slug}"
+                                    try:
+                                        import chromadb
+                                        chroma_client = chromadb.PersistentClient(path=_cfg.CHROMA_DB_DIR)
+                                        try:
+                                            chroma_client.delete_collection(ephemeral_coll_name)
+                                        except Exception:
+                                            pass
+                                        
+                                        coll = chroma_client.create_collection(ephemeral_coll_name)
+                                        if custom_evidence:
+                                            embedder = _cfg.get_embedder()
+                                            texts_to_embed = [e["text"] for e in custom_evidence]
+                                            embs = embedder.encode(texts_to_embed).tolist()
+                                            ids = [f"mode_a_doc_{idx}" for idx in range(len(custom_evidence))]
+                                            metas = [{"source_file": e["source_file"]} for e in custom_evidence]
+                                            coll.add(documents=texts_to_embed, embeddings=embs, metadatas=metas, ids=ids)
+                                    except Exception as chroma_exc:
+                                        print(f"[Mode A Ingestion Note]: {chroma_exc}")
+                                        ephemeral_coll_name = None
+
+                                    # Run Agent 4 compliance assessment with custom evidence
+                                    results = _a4.assess_compliance(
+                                        jurisdiction=target_jur,
+                                        framework=target_fw,
+                                        custom_evidence=custom_evidence,
+                                        ephemeral_collection_name=ephemeral_coll_name
+                                    )
+
+                                    # Cleanup ephemeral collection
+                                    if ephemeral_coll_name:
+                                        try:
+                                            import chromadb
+                                            chroma_client = chromadb.PersistentClient(path=_cfg.CHROMA_DB_DIR)
+                                            chroma_client.delete_collection(ephemeral_coll_name)
+                                        except Exception:
+                                            pass
 
                                     compliant_items = [r for r in results if r.get("status") in ("Compliant", "PASS", "PASSED") or r.get("document_claimed_status") in ("Compliant", "PASS", "PASSED")]
                                     partial_items = [r for r in results if r.get("status") in ("Partially Compliant", "PARTIAL", "PARTIALLY COMPLIANT") or r.get("document_claimed_status") in ("Partially Compliant", "PARTIAL")]
                                     non_compliant_items = [r for r in results if r.get("status") in ("Not Compliant", "NON-COMPLIANT", "FAIL", "FAILED", "No Evidence Found") or r.get("document_claimed_status") in ("Not Compliant", "No Evidence Found")]
                                     
                                     clean_fn = clean_report_list_fn if clean_report_list_fn else lambda items, **kwargs: "\n".join([f"- **{i.get('control_id', i.get('id', 'REQ'))}**: {i.get('title', '')}" for i in items])
-                                    comp_md = clean_fn(compliant_items, default_ev="Vault Profile", show_rationale=False) if compliant_items else "None"
-                                    part_md = clean_fn(partial_items, default_ev="Vault Profile", show_rationale=True) if partial_items else "None"
-                                    non_comp_md = clean_fn(non_compliant_items, default_ev="Vault Profile", show_rationale=True) if non_compliant_items else "None"
+                                    comp_md = clean_fn(compliant_items, default_ev="Uploaded Architecture Document", show_rationale=False) if compliant_items else "None"
+                                    part_md = clean_fn(partial_items, default_ev="Uploaded Architecture Document", show_rationale=True) if partial_items else "None"
+                                    non_comp_md = clean_fn(non_compliant_items, default_ev="Uploaded Architecture Document", show_rationale=True) if non_compliant_items else "None"
 
                                     cleanup_msg = ""
                                     if auto_cleanup:
@@ -180,9 +217,17 @@ def render_focus_bar(available_fw: list[str], user_role: str = "guest", clean_re
                                         cleanup_msg = f"\n\n🔒 *Privacy Note: Auto-cleaned {cleaned} raw uploaded document files.*"
 
                                     file_list_str = ", ".join([d.name for d in client_docs])
+                                    tot_controls = len(compliant_items) + len(partial_items) + len(non_compliant_items)
+                                    pct_compliant = (len(compliant_items) / tot_controls * 100) if tot_controls else 0.0
+
                                     summary_text = (
                                         f"### Architecture Document Compliance Audit Report (Mode A)\n\n"
                                         f"**Client ID:** `{client_id_input}` | **Source Docs ({len(client_docs)}):** `{file_list_str}` | **Benchmark:** {target_fw.upper()} ({target_jur.upper()})\n\n"
+                                        f"## Executive Summary\n"
+                                        f"This architecture document compliance evaluation assessed the submitted documentation for `{client_id_input}` "
+                                        f"against the `{target_fw.upper()}` ({target_jur.upper()}) regulatory framework. "
+                                        f"Out of {tot_controls} assessed technical controls, {len(compliant_items)} controls ({pct_compliant:.1f}%) demonstrated verified compliance, "
+                                        f"{len(partial_items)} controls exhibited partial coverage, and {len(non_compliant_items)} controls require operational documentation or engineering remediation.\n\n"
                                         f"---\n\n"
                                         f"#### Compliance Breakdown:\n"
                                         f"- **Fully Compliant:** {len(compliant_items)} controls\n"
@@ -194,7 +239,7 @@ def render_focus_bar(available_fw: list[str], user_role: str = "guest", clean_re
                                         f"### Partially Compliant Controls:\n{part_md}\n\n"
                                         f"---\n\n"
                                         f"### Not Compliant Controls (Action Required):\n{non_comp_md}\n\n"
-                                        f"---\n*Synthesized by Multi-Agent Pipeline.*{cleanup_msg}"
+                                        f"---\n*Synthesized by ComplianceMesh Multi-Agent Pipeline.*{cleanup_msg}"
                                     )
                                     st.session_state.messages.append({"role": "assistant", "content": summary_text})
                                     st.success("Docs Audit Completed! Report appended to chat.")
