@@ -361,3 +361,53 @@ def cleanup_client_documents(client_id: str) -> int:
             except Exception as exc:
                 print(f"Error removing {fpath}: {exc}")
     return removed_count
+
+
+def extract_custom_evidence_from_docs(doc_info_list: list[dict], profile: dict = None) -> list[dict]:
+    """
+    Extracts granular evidence chunks from client documents and architecture profile.
+    Ready for Ephemeral ChromaDB indexing and Agent 4 compliance assessment.
+    """
+    evidence = []
+    if profile:
+        ev_summary = profile.get("evidence_summary", "")
+        if ev_summary:
+            evidence.append({
+                "source_file": f"Architecture_Profile_{profile.get('doc_name', 'Client')}",
+                "text": ev_summary
+            })
+
+    for item in doc_info_list:
+        path = item["path"]
+        name = item.get("name", os.path.basename(path))
+        if path.lower().endswith(".pdf"):
+            try:
+                reader = PdfReader(path)
+                for page_idx, page in enumerate(reader.pages):
+                    ptxt = page.extract_text() or ""
+                    if ptxt.strip():
+                        for chunk_idx, i in enumerate(range(0, len(ptxt), 1000)):
+                            chunk = ptxt[i:i+1200].strip()
+                            if chunk:
+                                evidence.append({
+                                    "source_file": f"{name}:Page_{page_idx+1}#chunk{chunk_idx+1}",
+                                    "text": chunk
+                                })
+            except Exception:
+                pass
+        else:
+            try:
+                with open(path, "r", encoding="utf-8", errors="ignore") as f:
+                    content = f.read()
+                if content.strip():
+                    for chunk_idx, i in enumerate(range(0, len(content), 1000)):
+                        chunk = content[i:i+1200].strip()
+                        if chunk:
+                            evidence.append({
+                                "source_file": f"{name}#chunk{chunk_idx+1}",
+                                "text": chunk
+                            })
+            except Exception:
+                pass
+
+    return evidence
