@@ -8,8 +8,10 @@ from datetime import datetime
 import json
 import os
 import pandas as pd
-import streamlit as st
-import conversation_memory_manager as cmm
+try:
+    import conversation_memory_manager as cmm
+except ImportError:
+    from database import conversation_memory_manager as cmm
 
 LENGTH_PRESETS = {
     "Short": 512,
