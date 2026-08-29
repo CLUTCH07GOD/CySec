@@ -5,6 +5,8 @@ Handles:
   1. Local Sandbox Container Code Inspection (Dockerfile / Manifest Upload).
   2. Scoped Staging Endpoint URL & Token Probing (Agent Z Orchestrator).
   3. Scope Authorization Gate & Hostname Confirmation.
+  4. Direct GitHub / GitLab Remote Repository Audit.
+  5. Temporary Cloud IAM Role / Service Account Key (Read-Only Infra Audit).
 """
 
 import os
@@ -49,7 +51,7 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
             api_token_val = st.text_input("Read-Only Test API Token / Bearer Key", type="password")
             
             # Scope Authorization Gate UI Elements (ONLY shown when pasting a URL + token)
-            st.markdown("#### 🔒 Target Authorization Gate & Audit Verification")
+            st.markdown("#### Target Authorization Gate & Audit Verification")
             col_auth1, col_auth2 = st.columns(2)
             with col_auth1:
                 operator_id_val = st.text_input("Auditor / Operator Name", value="security_admin", key="mode_b_operator_id")
@@ -58,14 +60,14 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                 
             scope_affirm_checked = st.checkbox("I affirm under organizational policy that I am authorized to test this target URL.", value=False, key="mode_b_scope_affirm")
         elif "3." in access_grant_method:
-            st.info("🐙 Ingest and audit client repositories directly via GitHub / GitLab API connectors.")
+            st.info("Ingest and audit client repositories directly via GitHub / GitLab API connectors.")
             c_git1, c_git2 = st.columns([0.65, 0.35])
             with c_git1:
                 git_repo_url = st.text_input("Repository URL (GitHub / GitLab)", value="https://github.com/org/compliance-target-repo", key="mode_b_git_url")
             with c_git2:
                 git_auth_token = st.text_input("Personal Access Token (PAT)", type="password", help="Optional for public repositories; required for private repositories", key="mode_b_git_pat")
         else:
-            st.info("🔑 Client provides temporary Cloud IAM Role ARN or Service Account Key (Read-Only Infra Audit).")
+            st.info("Client provides temporary Cloud IAM Role ARN or Service Account Key (Read-Only Infra Audit).")
             c_cloud1, c_cloud2 = st.columns([0.35, 0.65])
             with c_cloud1:
                 cloud_provider = st.selectbox("Cloud Provider", options=["AWS", "GCP", "Azure"], key="mode_b_cloud_provider")
@@ -73,11 +75,11 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                 cloud_role_arn = st.text_input("IAM Role ARN / Service Account Principal", value="arn:aws:iam::123456789012:role/ComplianceAuditReadOnlyRole", key="mode_b_cloud_role")
 
         if mode_b_files or staging_url_val or git_repo_url or "4." in access_grant_method:
-            if st.button("⚡ Run Agent 0 Sandboxed Dynamic Audit", type="primary", width="stretch", key="btn_run_mode_b_audit"):
+            if st.button("Run Agent 0 Sandboxed Dynamic Audit", type="primary", width="stretch", key="btn_run_mode_b_audit"):
                 if "1." in access_grant_method:
                     # Option 1: Source Code / Dockerfile / Manifest Upload Sandbox Pipeline
                     try:
-                        with st.spinner("🚀 Agent 0 spinning up ephemeral sandbox & running code/manifest security scans..."):
+                        with st.spinner("Agent 0 spinning up ephemeral sandbox & running code/manifest security scans..."):
                             import importlib
                             import agents.agent0_mode_b_sandbox as mode_b
                             import agents.agent4_compliance_assessment as _a4
@@ -120,8 +122,8 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                             cve_issues = results.get("cve_vulnerabilities", [])
                             live_probes = results.get("live_control_probes", [])
 
-                            sec_md = "\n".join([f"- ⚠️ **[{i['severity']}] {i['type']}** in `{i['file']}`: {i['detail']}" for i in sec_issues]) or "- ✅ No hardcoded credentials detected."
-                            cve_md = "\n".join([f"- 🚨 **[{i['severity']}] {i['type']}** in `{i['file']}`: {i['detail']}" for i in cve_issues]) or "- ✅ No manifest vulnerability CVEs detected."
+                            sec_md = "\n".join([f"- **[{i['severity']}] {i['type']}** in `{i['file']}`: {i['detail']}" for i in sec_issues]) or "- No hardcoded credentials detected."
+                            cve_md = "\n".join([f"- **[{i['severity']}] {i['type']}** in `{i['file']}`: {i['detail']}" for i in cve_issues]) or "- No manifest vulnerability CVEs detected."
                             live_probes_md = "\n".join([
                                 f"- **{p.get('control_id', 'REQ')} — {p.get('control_name', 'Control')}**: [{p.get('status', 'UNTESTED')}]\n  *Test Type:* `{p.get('test_type', 'static')}`\n  *Evidence:* {p.get('evidence', '')}"
                                 for p in live_probes
@@ -138,7 +140,7 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                             pct_compliant = (len(compliant_items) / tot_controls * 100) if tot_controls else 0.0
 
                             report_md = (
-                                f"### 🛡️ Agent 0 — Mode B Sandboxed Code Compliance Audit Report\n\n"
+                                f"### Agent 0 — Mode B Sandboxed Code Compliance Audit Report\n\n"
                                 f"**Client ID:** `{mode_b_client_id}` | **Isolation Sandbox:** `{sandbox_type}`\n"
                                 f"**Network Egress Policy:** `{access_scope}` | **Timestamp:** `{results.get('timestamp', '')}`\n\n"
                                 f"## Executive Summary\n"
@@ -146,25 +148,24 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                                 f"against the `{target_fw.upper()}` ({target_jur.upper()}) regulatory framework. "
                                 f"Out of {tot_controls} assessed technical controls, {len(compliant_items)} controls ({pct_compliant:.1f}%) demonstrated verified technical compliance, "
                                 f"{len(partial_items)} controls exhibited partial implementation, and {len(non_compliant_items)} controls require engineering remediation or operational policy attestation.\n\n"
-                                f"#### 🔑 Credential & Secret Scanning Findings:\n{sec_md}\n\n"
+                                f"#### Credential & Secret Scanning Findings:\n{sec_md}\n\n"
                                 f"---\n\n"
-                                f"#### 🛡️ Dependency & CVE Vulnerability Findings:\n{cve_md}\n\n"
+                                f"#### Dependency & CVE Vulnerability Findings:\n{cve_md}\n\n"
                                 f"---\n\n"
-                                f"#### ⚡ Dynamic Control Inspection Matrix:\n{live_probes_md}\n\n"
+                                f"#### Dynamic Control Inspection Matrix:\n{live_probes_md}\n\n"
                                 f"---\n\n"
-                                f"#### 📊 Compliance Breakdown ({target_fw.upper()} / {target_jur.upper()}):\n"
-                                f"- ✅ Fully Compliant: {len(compliant_items)} controls\n"
-                                f"- ⚠️ Partially Compliant: {len(partial_items)} controls\n"
-                                f"- ❌ Gaps / Not Compliant: {len(non_compliant_items)} controls\n\n"
+                                f"#### Compliance Breakdown ({target_fw.upper()} / {target_jur.upper()}):\n"
+                                f"- Fully Compliant: {len(compliant_items)} controls\n"
+                                f"- Partially Compliant: {len(partial_items)} controls\n"
+                                f"- Gaps / Not Compliant: {len(non_compliant_items)} controls\n\n"
                                 f"---\n\n"
-                                f"### ✅ Fully Compliant Controls:\n{comp_md}\n\n"
+                                f"### Fully Compliant Controls:\n{comp_md}\n\n"
                                 f"---\n\n"
-                                f"### ⚠️ Partially Compliant Controls:\n{part_md}\n\n"
-                                f"---\n\n"
-                                f"### ❌ Not Compliant Controls (Action Required):\n{non_comp_md}\n"
+                                f"### Partially Compliant Controls:\n{part_md}\n\n"
+                                f"### Not Compliant Controls (Action Required):\n{non_comp_md}\n"
                             )
                             st.session_state.messages.append({"role": "assistant", "content": report_md})
-                            st.success("🎉 Code Inspection Sandbox Audit Completed!")
+                            st.success("Code Inspection Sandbox Audit Completed!")
                             st.rerun()
                     except Exception as exc:
                         st.error(f"Mode B Code Inspection Error: {exc}")
@@ -175,12 +176,12 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                     expected_host = urlparse(target_url_to_use).netloc or target_url_to_use
 
                     if not scope_affirm_checked:
-                        st.error("⛔ Scope Authorization Gate Blocked: You must check the authorization affirmation box before executing dynamic verification.")
+                        st.error("Scope Authorization Gate Blocked: You must check the authorization affirmation box before executing dynamic verification.")
                     elif confirm_hostname_typed.lower() != expected_host.lower():
-                        st.error(f"⛔ Scope Authorization Gate Blocked: Typed hostname '{confirm_hostname_typed}' does not match target host '{expected_host}'. Please type '{expected_host}' into the scope confirmation box.")
+                        st.error(f"Scope Authorization Gate Blocked: Typed hostname '{confirm_hostname_typed}' does not match target host '{expected_host}'. Please type '{expected_host}' into the scope confirmation box.")
                     else:
                         try:
-                            with st.spinner("🚀 Spinning up Agent Z Orchestrator & running dynamic live audit..."):
+                            with st.spinner("Spinning up Agent Z Orchestrator & running dynamic live audit..."):
                                 target_jur, target_fw = "nist", "sp_800_63b_r4"
                                 if mode_b_framework:
                                     if "/" in mode_b_framework:
@@ -224,7 +225,7 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                             pct_compliant = (len(compliant_items) / tot_controls * 100) if tot_controls else 0.0
 
                             report_md = (
-                                f"### 🛡️ Agent Z — Mode B Dynamic Application Compliance Audit Report\n\n"
+                                f"### Agent Z — Mode B Dynamic Application Compliance Audit Report\n\n"
                                 f"**Target URL:** `{target_url_to_use}` | **Auditor Operator:** `{operator_id_val}`\n"
                                 f"**Scope Authorization Status:** `VERIFIED & CONFIRMED`\n"
                                 f"**Target Framework Benchmark:** {target_fw.upper()} ({target_jur.upper()})\n\n"
@@ -233,18 +234,18 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                                 f"against the `{target_fw.upper()}` ({target_jur.upper()}) regulatory framework. "
                                 f"Out of {tot_controls} assessed controls, {len(compliant_items)} controls ({pct_compliant:.1f}%) demonstrated verified technical compliance, "
                                 f"{len(partial_items)} controls exhibited partial compliance, and {len(non_compliant_items)} controls require operational remediation.\n\n"
-                                f"#### ⚡ Live Control-by-Control Application Probing Matrix:\n{live_probes_md}\n\n"
+                                f"#### Live Control-by-Control Application Probing Matrix:\n{live_probes_md}\n\n"
                                 f"---\n\n"
-                                f"#### 📊 Compliance Summary ({target_fw.upper()} / {target_jur.upper()}):\n"
-                                f"- ✅ Fully Compliant: {len(compliant_items)}\n"
-                                f"- ⚠️ Partially Compliant: {len(partial_items)}\n"
-                                f"- ❌ Gaps / Not Compliant: {len(non_compliant_items)}\n\n"
-                                f"### ✅ Fully Compliant Controls:\n{comp_md}\n\n"
-                                f"### ⚠️ Partially Compliant Controls:\n{part_md}\n\n"
-                                f"### ❌ Not Compliant Controls:\n{non_comp_md}\n"
+                                f"#### Compliance Summary ({target_fw.upper()} / {target_jur.upper()}):\n"
+                                f"- Fully Compliant: {len(compliant_items)}\n"
+                                f"- Partially Compliant: {len(partial_items)}\n"
+                                f"- Gaps / Not Compliant: {len(non_compliant_items)}\n\n"
+                                f"### Fully Compliant Controls:\n{comp_md}\n\n"
+                                f"### Partially Compliant Controls:\n{part_md}\n\n"
+                                f"### Not Compliant Controls:\n{non_comp_md}\n"
                             )
                             st.session_state.messages.append({"role": "assistant", "content": report_md})
-                            st.success("🎉 Live Staging Endpoint Verification Completed!")
+                            st.success("Live Staging Endpoint Verification Completed!")
                             st.rerun()
                         except Exception as exc:
                             st.error(f"Mode B Live Probing Error: {exc}")
@@ -252,10 +253,10 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                 elif "3." in access_grant_method:
                     # Option 3: Direct GitHub / GitLab Remote Repository Audit
                     if not git_repo_url or "http" not in git_repo_url:
-                        st.error("⛔ Please enter a valid GitHub or GitLab repository URL.")
+                        st.error("Please enter a valid GitHub or GitLab repository URL.")
                     else:
                         try:
-                            with st.spinner(f"🚀 Ingesting remote repository from {git_repo_url} via Agent 1b..."):
+                            with st.spinner(f"Ingesting remote repository from {git_repo_url} via Agent 1b..."):
                                 import tempfile
                                 import importlib
                                 import agents.agent1b_code_ingestion as a1b
@@ -384,9 +385,9 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                                     shutil.rmtree(tmp_dir, ignore_errors=True)
 
                                     findings_md = "\n".join([
-                                        f"- ⚠️ **[{f.get('severity', 'MEDIUM')}] {f.get('finding_id', f.get('cwe_id', 'Finding'))}**: `{f.get('file_path', f.get('file', ''))}`" + (f" (L{f.get('line')})" if f.get('line') else "") + f" — {f.get('description', f.get('message', ''))}"
+                                        f"- **[{f.get('severity', 'MEDIUM')}] {f.get('finding_id', f.get('cwe_id', 'Finding'))}**: `{f.get('file_path', f.get('file', ''))}`" + (f" (L{f.get('line')})" if f.get('line') else "") + f" — {f.get('description', f.get('message', ''))}"
                                         for f in sec_findings[:8]
-                                    ]) or "- ✅ No hardcoded secrets or manifest vulnerabilities identified in initial scan."
+                                    ]) or "- No hardcoded secrets or manifest vulnerabilities identified in initial scan."
 
                                     comp_md = clean_report_list_fn(compliant_items, default_ev="Git Remote Code Intake", show_rationale=False) if compliant_items else "None"
                                     part_md = clean_report_list_fn(partial_items, default_ev="Git Remote Code Intake", show_rationale=True) if partial_items else "None"
@@ -396,7 +397,7 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                                     pct_compliant = (len(compliant_items) / tot_controls * 100) if tot_controls else 0.0
 
                                     report_md = (
-                                        f"### 🐙 Remote Repository Automated Compliance Audit Report\n\n"
+                                        f"### Remote Repository Automated Compliance Audit Report\n\n"
                                         f"**Repository Target:** `{git_repo_url}` | **Languages Detected:** `{', '.join(scan_meta.get('languages', [])) or 'Multi-stack'}`\n"
                                         f"**Has Dockerfile:** `{scan_meta.get('has_dockerfile')}` | **Has CI/CD Pipeline:** `{scan_meta.get('has_ci')}`\n"
                                         f"**Target Framework Benchmark:** {target_fw.upper()} ({target_jur.upper()})\n\n"
@@ -405,18 +406,18 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                                         f"against the `{target_fw.upper()}` ({target_jur.upper()}) regulatory framework. "
                                         f"Out of {tot_controls} assessed controls, {len(compliant_items)} controls ({pct_compliant:.1f}%) demonstrated verified technical compliance, "
                                         f"{len(partial_items)} controls exhibited partial compliance, and {len(non_compliant_items)} controls require engineering remediation.\n\n"
-                                        f"#### 🔍 Static Security & Secret Findings:\n{findings_md}\n\n"
+                                        f"#### Static Security & Secret Findings:\n{findings_md}\n\n"
                                         f"---\n\n"
-                                        f"#### 📊 Compliance Status Matrix ({target_fw.upper()} / {target_jur.upper()}):\n"
-                                        f"- ✅ Fully Compliant: {len(compliant_items)}\n"
-                                        f"- ⚠️ Partially Compliant: {len(partial_items)}\n"
-                                        f"- ❌ Gaps / Not Compliant: {len(non_compliant_items)}\n\n"
-                                        f"### ✅ Fully Compliant Controls:\n{comp_md}\n\n"
-                                        f"### ⚠️ Partially Compliant Controls:\n{part_md}\n\n"
-                                        f"### ❌ Not Compliant Controls:\n{non_comp_md}\n"
+                                        f"#### Compliance Status Matrix ({target_fw.upper()} / {target_jur.upper()}):\n"
+                                        f"- Fully Compliant: {len(compliant_items)}\n"
+                                        f"- Partially Compliant: {len(partial_items)}\n"
+                                        f"- Gaps / Not Compliant: {len(non_compliant_items)}\n\n"
+                                        f"### Fully Compliant Controls:\n{comp_md}\n\n"
+                                        f"### Partially Compliant Controls:\n{part_md}\n\n"
+                                        f"### Not Compliant Controls:\n{non_comp_md}\n"
                                     )
                                     st.session_state.messages.append({"role": "assistant", "content": report_md})
-                                    st.success(f"🎉 Remote Repository Audit for {git_repo_url} Completed!")
+                                    st.success(f"Remote Repository Audit for {git_repo_url} Completed!")
                                     st.rerun()
                         except Exception as exc:
                             st.error(f"Remote Git Ingestion Audit Error: {exc}")
@@ -424,7 +425,7 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                 elif "4." in access_grant_method:
                     # Option 4: Temporary Cloud IAM Role / Service Account Key (Read-Only Infra Audit)
                     try:
-                        with st.spinner(f"🚀 Performing {cloud_provider} Cloud Infrastructure Security Audit via Agent 0..."):
+                        with st.spinner(f"Performing {cloud_provider} Cloud Infrastructure Security Audit via Agent 0..."):
                             import agents.cloud_infra_scanner as cis
                             import agents.agent4_compliance_assessment as _a4
                             import agents.config as config
@@ -490,7 +491,7 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                             pct_compliant = (len(compliant_items) / tot_controls * 100) if tot_controls else 0.0
 
                             report_md = (
-                                f"### ☁️ Cloud Infrastructure Regulatory Compliance Audit Report\n\n"
+                                f"### Cloud Infrastructure Regulatory Compliance Audit Report\n\n"
                                 f"**Cloud Provider:** `{cloud_provider}` | **IAM Principal / Role:** `{cloud_role_arn or 'SecurityAudit IAM Role'}`\n"
                                 f"**Scanner Status:** `{cloud_res.get('sdk_status')}`\n"
                                 f"**Target Framework Benchmark:** {target_fw.upper()} ({target_jur.upper()})\n\n"
@@ -499,18 +500,18 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                                 f"against the `{target_fw.upper()}` ({target_jur.upper()}) regulatory framework. "
                                 f"Out of {tot_controls} assessed controls, {len(compliant_items)} controls ({pct_compliant:.1f}%) demonstrated verified cloud infrastructure compliance, "
                                 f"{len(partial_items)} controls exhibited partial compliance, and {len(non_compliant_items)} controls require operational remediation.\n\n"
-                                f"#### 🔍 Cloud Security & Configuration Findings:\n{findings_md}\n\n"
+                                f"#### Cloud Security & Configuration Findings:\n{findings_md}\n\n"
                                 f"---\n\n"
-                                f"#### 📊 Compliance Status Matrix ({target_fw.upper()} / {target_jur.upper()}):\n"
-                                f"- ✅ Fully Compliant: {len(compliant_items)}\n"
-                                f"- ⚠️ Partially Compliant: {len(partial_items)}\n"
-                                f"- ❌ Gaps / Not Compliant: {len(non_compliant_items)}\n\n"
-                                f"### ✅ Fully Compliant Controls:\n{comp_md}\n\n"
-                                f"### ⚠️ Partially Compliant Controls:\n{part_md}\n\n"
-                                f"### ❌ Not Compliant Controls:\n{non_comp_md}\n"
+                                f"#### Compliance Status Matrix ({target_fw.upper()} / {target_jur.upper()}):\n"
+                                f"- Fully Compliant: {len(compliant_items)}\n"
+                                f"- Partially Compliant: {len(partial_items)}\n"
+                                f"- Gaps / Not Compliant: {len(non_compliant_items)}\n\n"
+                                f"### Fully Compliant Controls:\n{comp_md}\n\n"
+                                f"### Partially Compliant Controls:\n{part_md}\n\n"
+                                f"### Not Compliant Controls:\n{non_comp_md}\n"
                             )
                             st.session_state.messages.append({"role": "assistant", "content": report_md})
-                            st.success(f"🎉 {cloud_provider} Cloud Infrastructure Audit Completed!")
+                            st.success(f"{cloud_provider} Cloud Infrastructure Audit Completed!")
                             st.rerun()
                     except Exception as exc:
                         st.error(f"Cloud Infrastructure Audit Error: {exc}")
