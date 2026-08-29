@@ -133,10 +133,18 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                             sandbox_type = results.get("sandbox_type", "Linux Namespace Sandbox")
                             access_scope = results.get("network_egress_status", "DISABLED (--net=none isolated namespace)")
 
+                            tot_controls = len(compliant_items) + len(partial_items) + len(non_compliant_items)
+                            pct_compliant = (len(compliant_items) / tot_controls * 100) if tot_controls else 0.0
+
                             report_md = (
                                 f"### 🛡️ Agent 0 — Mode B Sandboxed Code Compliance Audit Report\n\n"
                                 f"**Client ID:** `{mode_b_client_id}` | **Isolation Sandbox:** `{sandbox_type}`\n"
                                 f"**Network Egress Policy:** `{access_scope}` | **Timestamp:** `{results.get('timestamp', '')}`\n\n"
+                                f"## Executive Summary\n"
+                                f"This compliance assessment evaluated the technical implementation and codebase architecture of `{mode_b_client_id}` "
+                                f"against the `{target_fw.upper()}` ({target_jur.upper()}) regulatory framework. "
+                                f"Out of {tot_controls} assessed technical controls, {len(compliant_items)} controls ({pct_compliant:.1f}%) demonstrated verified technical compliance, "
+                                f"{len(partial_items)} controls exhibited partial implementation, and {len(non_compliant_items)} controls require engineering remediation or operational policy attestation.\n\n"
                                 f"#### 🔑 Credential & Secret Scanning Findings:\n{sec_md}\n\n"
                                 f"---\n\n"
                                 f"#### 🛡️ Dependency & CVE Vulnerability Findings:\n{cve_md}\n\n"
@@ -211,11 +219,19 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                             part_md = clean_report_list_fn(partial_items, default_ev="Live Sandbox Audit", show_rationale=True) if partial_items else "None"
                             non_comp_md = clean_report_list_fn(non_compliant_items, default_ev="Live Sandbox Audit", show_rationale=True) if non_compliant_items else "None"
 
+                            tot_controls = len(compliant_items) + len(partial_items) + len(non_compliant_items)
+                            pct_compliant = (len(compliant_items) / tot_controls * 100) if tot_controls else 0.0
+
                             report_md = (
                                 f"### 🛡️ Agent Z — Mode B Dynamic Application Compliance Audit Report\n\n"
                                 f"**Target URL:** `{target_url_to_use}` | **Auditor Operator:** `{operator_id_val}`\n"
                                 f"**Scope Authorization Status:** `VERIFIED & CONFIRMED`\n"
                                 f"**Target Framework Benchmark:** {target_fw.upper()} ({target_jur.upper()})\n\n"
+                                f"## Executive Summary\n"
+                                f"This dynamic compliance audit probed the live staging endpoint `{target_url_to_use}` "
+                                f"against the `{target_fw.upper()}` ({target_jur.upper()}) regulatory framework. "
+                                f"Out of {tot_controls} assessed controls, {len(compliant_items)} controls ({pct_compliant:.1f}%) demonstrated verified technical compliance, "
+                                f"{len(partial_items)} controls exhibited partial compliance, and {len(non_compliant_items)} controls require operational remediation.\n\n"
                                 f"#### ⚡ Live Control-by-Control Application Probing Matrix:\n{live_probes_md}\n\n"
                                 f"---\n\n"
                                 f"#### 📊 Compliance Summary ({target_fw.upper()} / {target_jur.upper()}):\n"
@@ -375,11 +391,19 @@ def render_mode_b_intake(fw_intake_opts, clean_report_list_fn, wrap_in_expander:
                                     part_md = clean_report_list_fn(partial_items, default_ev="Git Remote Code Intake", show_rationale=True) if partial_items else "None"
                                     non_comp_md = clean_report_list_fn(non_compliant_items, default_ev="Git Remote Code Intake", show_rationale=True) if non_compliant_items else "None"
 
+                                    tot_controls = len(compliant_items) + len(partial_items) + len(non_compliant_items)
+                                    pct_compliant = (len(compliant_items) / tot_controls * 100) if tot_controls else 0.0
+
                                     report_md = (
                                         f"### 🐙 Remote Repository Automated Compliance Audit Report\n\n"
                                         f"**Repository Target:** `{git_repo_url}` | **Languages Detected:** `{', '.join(scan_meta.get('languages', [])) or 'Multi-stack'}`\n"
                                         f"**Has Dockerfile:** `{scan_meta.get('has_dockerfile')}` | **Has CI/CD Pipeline:** `{scan_meta.get('has_ci')}`\n"
                                         f"**Target Framework Benchmark:** {target_fw.upper()} ({target_jur.upper()})\n\n"
+                                        f"## Executive Summary\n"
+                                        f"This static and architectural compliance audit evaluated the remote repository `{git_repo_url}` "
+                                        f"against the `{target_fw.upper()}` ({target_jur.upper()}) regulatory framework. "
+                                        f"Out of {tot_controls} assessed controls, {len(compliant_items)} controls ({pct_compliant:.1f}%) demonstrated verified technical compliance, "
+                                        f"{len(partial_items)} controls exhibited partial compliance, and {len(non_compliant_items)} controls require engineering remediation.\n\n"
                                         f"#### 🔍 Static Security & Secret Findings:\n{findings_md}\n\n"
                                         f"---\n\n"
                                         f"#### 📊 Compliance Status Matrix ({target_fw.upper()} / {target_jur.upper()}):\n"
