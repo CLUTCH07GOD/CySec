@@ -7,6 +7,7 @@ and multi-framework consolidated audit report generation for Agent 5.
 """
 
 import os
+import re
 import glob
 import json
 from datetime import datetime
@@ -519,13 +520,13 @@ def generate_consolidated_report_markdown(
     )
 
     # Consolidated Gap Analysis with Evidence Strength & Remediation State
-    lines.append("\n---\n## 🛠️ Consolidated Gap Analysis & Remediation Plan")
+    lines.append("\n---\n## 🛠️ Confirmed Findings and Evidence Gaps")
     gaps = [c for c in data["consolidated_controls"] if c["status"] in ("Not Compliant", "Partially Compliant", "No Evidence Found")]
 
     if not gaps:
         lines.append("\nNo gaps identified — all controls across all target frameworks are Compliant.")
     else:
-        lines.append(f"\n{len(gaps)} control gaps require remediation across target frameworks:\n")
+        lines.append(f"\n{len(gaps)} controls require either remediation or additional evidence across target frameworks:\n")
         for item in gaps:
             fw = item.get("source_framework", "").upper()
             cid = item.get("control_id") or "UNKNOWN"
@@ -543,6 +544,7 @@ def generate_consolidated_report_markdown(
                 confidence_indicator = "⚪ NO EVIDENCE FOUND"
 
             rem_state = item.get("remediation_state", "open").upper().replace("_", " ")
+            is_evidence_gap = item.get("status") == "No Evidence Found"
 
             lines.append(f"### [{fw}] {cid} — {title}")
             lines.append(f"- **Verdict Status**: `{item['status']}` | **Remediation Tracking State**: `[{rem_state}]`")
@@ -551,7 +553,8 @@ def generate_consolidated_report_markdown(
             lines.append(f"- **Evidence Reviewed**: `{item.get('evidence_source', 'Vault')}`")
             if with_remediation:
                 remediation = item.get("remediation") or "Develop and publish operational procedures to satisfy control requirement."
-                lines.append(f"- **Recommended Remediation**: {remediation}\n")
+                label = "Evidence Collection Next Step" if is_evidence_gap else "Recommended Remediation"
+                lines.append(f"- **{label}**: {remediation}\n")
 
     lines.append("\n---\n*Consolidated Multi-Framework Audit Report produced by ComplianceMesh Engine*")
     

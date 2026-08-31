@@ -16,6 +16,74 @@ import subprocess
 from urllib.parse import urlparse
 import streamlit as st
 
+def parse_mode_b_framework(raw_str: str) -> tuple[str, str]:
+    """Robustly maps any UI framework identifier string to (jurisdiction, framework)."""
+    if not raw_str:
+        return "nist", "csf"
+    s = raw_str.strip().lower()
+    if "/" in s:
+        p = s.split("/", 1)
+        return p[0].strip(), p[1].strip()
+    if "__" in s:
+        p = s.split("__", 1)
+        return p[0].strip(), p[1].strip()
+    
+    mapping = {
+        "iso27001": ("international", "iso27001"),
+        "iso_27001": ("international", "iso27001"),
+        "iso": ("international", "iso27001"),
+        "gdpr": ("eu", "gdpr"),
+        "nis2": ("eu", "nis2"),
+        "dora": ("eu", "dora"),
+        "ai_act": ("eu", "ai_act"),
+        "dpdp": ("india", "dpdp"),
+        "cert_in": ("india", "cert_in"),
+        "cert-in": ("india", "cert_in"),
+        "csf": ("nist", "csf"),
+        "nist_csf": ("nist", "csf"),
+        "sp_800_63b": ("nist", "sp_800_63b_r4"),
+        "sp_800_63b_r4": ("nist", "sp_800_63b_r4"),
+        "nist_sp_800_63b": ("nist", "sp_800_63b_r4"),
+        "800_63b": ("nist", "sp_800_63b_r4"),
+        "cloud": ("nist", "cloud"),
+        "zero_trust": ("nist", "zero_trust"),
+        "iot": ("nist", "iot"),
+        "hipaa": ("us", "hipaa"),
+        "us_hipaa": ("us", "hipaa"),
+        "pci_dss": ("us", "pci_dss_v4"),
+        "pci_dss_v4": ("us", "pci_dss_v4"),
+        "soc2": ("us", "soc2"),
+        "cisa_cpg": ("us", "cisa_cpg"),
+        "ai_rmf": ("us", "nist_ai_rmf"),
+        "nist_ai_rmf": ("us", "nist_ai_rmf"),
+        "sp_800_53": ("us", "nist_sp_800_53"),
+        "nist_sp_800_53": ("us", "nist_sp_800_53"),
+        "asvs": ("owasp", "asvs_v5"),
+        "asvs_v5": ("owasp", "asvs_v5"),
+        "owasp_asvs": ("owasp", "asvs_v5"),
+        "owasp_asvs_v5": ("owasp", "asvs_v5"),
+        "top10_web": ("owasp", "top10_web"),
+        "llm_top10": ("owasp", "llm_top10"),
+        "masvs": ("owasp", "masvs"),
+        "wstg_v42": ("owasp", "wstg_v42"),
+        "cwe": ("cwe", "cwe_v4"),
+        "cwe_v4": ("cwe", "cwe_v4"),
+        "cwe_top25": ("cwe", "cwe_v4"),
+        "aws_foundations": ("cis", "aws_foundations"),
+        "k8s": ("cis", "k8s"),
+        "atlas": ("mitre", "atlas"),
+        "attack": ("mitre", "attack"),
+    }
+    if s in mapping:
+        return mapping[s]
+    
+    for prefix, jur in [("nist_", "nist"), ("eu_", "eu"), ("india_", "india"), ("us_", "us"), ("owasp_", "owasp"), ("cis_", "cis"), ("mitre_", "mitre"), ("international_", "international")]:
+        if s.startswith(prefix):
+            return jur, s[len(prefix):]
+
+    return "nist", s
+
+
 def render_mode_b_intake(fw_intake_opts: list[str], clean_report_list_fn, wrap_in_expander: bool = False) -> None:
     """Renders the Client Intake: Live Application Access & Sandbox (Mode B) UI block."""
     def _render_content() -> None:
@@ -86,16 +154,7 @@ def render_mode_b_intake(fw_intake_opts: list[str], clean_report_list_fn, wrap_i
                             importlib.reload(mode_b)
                             importlib.reload(_a4)
 
-                            target_jur, target_fw = "nist", "sp_800_63b_r4"
-                            if mode_b_framework:
-                                if "/" in mode_b_framework:
-                                    target_jur, target_fw = mode_b_framework.split("/", 1)
-                                elif "__" in mode_b_framework:
-                                    target_jur, target_fw = mode_b_framework.split("__", 1)
-                                elif "_" in mode_b_framework and not mode_b_framework.startswith("nist_"):
-                                    target_jur, target_fw = mode_b_framework.split("_", 1)
-                                else:
-                                    target_jur, target_fw = "nist", mode_b_framework.replace("nist_", "")
+                            target_jur, target_fw = parse_mode_b_framework(mode_b_framework)
 
                             file_payload = []
                             if mode_b_files:
@@ -142,7 +201,8 @@ def render_mode_b_intake(fw_intake_opts: list[str], clean_report_list_fn, wrap_i
                             report_md = (
                                 f"### Agent 0 — Mode B Sandboxed Code Compliance Audit Report\n\n"
                                 f"**Client ID:** `{mode_b_client_id}` | **Isolation Sandbox:** `{sandbox_type}`\n"
-                                f"**Network Egress Policy:** `{access_scope}` | **Timestamp:** `{results.get('timestamp', '')}`\n\n"
+                                f"**Network Egress Policy:** `{access_scope}` | **Timestamp:** `{results.get('timestamp', '')}`\n"
+                                f"**Target Framework Benchmark:** {target_fw.upper()} ({target_jur.upper()})\n\n"
                                 f"## Executive Summary\n"
                                 f"This compliance assessment evaluated the technical implementation and codebase architecture of `{mode_b_client_id}` "
                                 f"against the `{target_fw.upper()}` ({target_jur.upper()}) regulatory framework. "
@@ -182,16 +242,7 @@ def render_mode_b_intake(fw_intake_opts: list[str], clean_report_list_fn, wrap_i
                     else:
                         try:
                             with st.spinner("Spinning up Agent Z Orchestrator & running dynamic live audit..."):
-                                target_jur, target_fw = "nist", "sp_800_63b_r4"
-                                if mode_b_framework:
-                                    if "/" in mode_b_framework:
-                                        target_jur, target_fw = mode_b_framework.split("/", 1)
-                                    elif "__" in mode_b_framework:
-                                        target_jur, target_fw = mode_b_framework.split("__", 1)
-                                    elif "_" in mode_b_framework and not mode_b_framework.startswith("nist_"):
-                                        target_jur, target_fw = mode_b_framework.split("_", 1)
-                                    else:
-                                        target_jur, target_fw = "nist", mode_b_framework.replace("nist_", "")
+                                target_jur, target_fw = parse_mode_b_framework(mode_b_framework)
 
                                 is_scope_valid = bool(scope_affirm_checked and confirm_hostname_typed.lower() == expected_host.lower())
                                 from agents.agent_z_verification_orchestrator import AgentZOrchestrator
@@ -264,16 +315,7 @@ def render_mode_b_intake(fw_intake_opts: list[str], clean_report_list_fn, wrap_i
                                 importlib.reload(a1b)
                                 importlib.reload(_a4)
 
-                                target_jur, target_fw = "nist", "sp_800_63b_r4"
-                                if mode_b_framework:
-                                    if "/" in mode_b_framework:
-                                        target_jur, target_fw = mode_b_framework.split("/", 1)
-                                    elif "__" in mode_b_framework:
-                                        target_jur, target_fw = mode_b_framework.split("__", 1)
-                                    elif "_" in mode_b_framework and not mode_b_framework.startswith("nist_"):
-                                        target_jur, target_fw = mode_b_framework.split("_", 1)
-                                    else:
-                                        target_jur, target_fw = "nist", mode_b_framework.replace("nist_", "")
+                                target_jur, target_fw = parse_mode_b_framework(mode_b_framework)
 
                                 # Sanitize Git URL if copied directly from browser address bar (/tree/main, /blob/main, etc.)
                                 clean_git_url = git_repo_url.strip().rstrip("/")
@@ -431,16 +473,7 @@ def render_mode_b_intake(fw_intake_opts: list[str], clean_report_list_fn, wrap_i
                             import agents.config as config
                             import chromadb
 
-                            target_jur, target_fw = "nist", "sp_800_63b_r4"
-                            if mode_b_framework:
-                                if "/" in mode_b_framework:
-                                    target_jur, target_fw = mode_b_framework.split("/", 1)
-                                elif "__" in mode_b_framework:
-                                    target_jur, target_fw = mode_b_framework.split("__", 1)
-                                elif "_" in mode_b_framework and not mode_b_framework.startswith("nist_"):
-                                    target_jur, target_fw = mode_b_framework.split("_", 1)
-                                else:
-                                    target_jur, target_fw = "nist", mode_b_framework.replace("nist_", "")
+                            target_jur, target_fw = parse_mode_b_framework(mode_b_framework)
 
                             cloud_res = cis.audit_cloud_infrastructure(
                                 provider=cloud_provider,

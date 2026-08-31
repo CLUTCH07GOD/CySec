@@ -332,33 +332,261 @@ def strip_all_markdown_and_emojis(text: str) -> str:
     return cleaned
 
 
+FRAMEWORK_DISPLAY_NAMES = {
+    # NIST CSF
+    "csf": "NIST Cybersecurity Framework 2.0 (CSF 2.0)",
+    "nist_csf": "NIST Cybersecurity Framework 2.0 (CSF 2.0)",
+    "csf_2_0": "NIST Cybersecurity Framework 2.0 (CSF 2.0)",
+    "csf2": "NIST Cybersecurity Framework 2.0 (CSF 2.0)",
+    
+    # NIST SP 800-63B
+    "sp_800_63b_r4": "NIST SP 800-63B Authentication & Lifecycle (Rev 4)",
+    "sp_800_63b": "NIST SP 800-63B Authentication & Lifecycle (Rev 4)",
+    "nist_800_63b": "NIST SP 800-63B Authentication & Lifecycle (Rev 4)",
+    "nist_sp_800_63b": "NIST SP 800-63B Authentication & Lifecycle (Rev 4)",
+    "nist_sp_800_63b_r4": "NIST SP 800-63B Authentication & Lifecycle (Rev 4)",
+    "800_63b": "NIST SP 800-63B Authentication & Lifecycle (Rev 4)",
+    "800_63b_r4": "NIST SP 800-63B Authentication & Lifecycle (Rev 4)",
+
+    # NIST SP 800-53
+    "nist_sp_800_53": "NIST SP 800-53 Rev 5 Security & Privacy Controls",
+    "us_nist_sp_800_53": "NIST SP 800-53 Rev 5 Security & Privacy Controls",
+    "sp_800_53": "NIST SP 800-53 Rev 5 Security & Privacy Controls",
+    "800_53": "NIST SP 800-53 Rev 5 Security & Privacy Controls",
+    "nist_800_53": "NIST SP 800-53 Rev 5 Security & Privacy Controls",
+
+    # NIST Cloud / Zero Trust / IoT / AI RMF
+    "cloud": "NIST SP 800-145 Cloud Computing Standards",
+    "nist_cloud": "NIST SP 800-145 Cloud Computing Standards",
+    "sp_800_145": "NIST SP 800-145 Cloud Computing Standards",
+    "zero_trust": "NIST SP 800-207 Zero Trust Architecture",
+    "nist_zero_trust": "NIST SP 800-207 Zero Trust Architecture",
+    "sp_800_207": "NIST SP 800-207 Zero Trust Architecture",
+    "iot": "NIST SP 800-213 IoT Device Cybersecurity Guidance",
+    "nist_iot": "NIST SP 800-213 IoT Device Cybersecurity Guidance",
+    "sp_800_213": "NIST SP 800-213 IoT Device Cybersecurity Guidance",
+    "ai_rmf": "NIST AI Risk Management Framework 1.0 (AI RMF)",
+    "nist_ai_rmf": "NIST AI Risk Management Framework 1.0 (AI RMF)",
+    "us_nist_ai_rmf": "NIST AI Risk Management Framework 1.0 (AI RMF)",
+
+    # EU Frameworks
+    "gdpr": "EU General Data Protection Regulation (GDPR)",
+    "eu_gdpr": "EU General Data Protection Regulation (GDPR)",
+    "nis2": "EU NIS2 Directive (2022/2555)",
+    "eu_nis2": "EU NIS2 Directive (2022/2555)",
+    "dora": "Digital Operational Resilience Act (EU DORA)",
+    "eu_dora": "Digital Operational Resilience Act (EU DORA)",
+    "ai_act": "EU Artificial Intelligence Act (EU AI Act)",
+    "eu_ai_act": "EU Artificial Intelligence Act (EU AI Act)",
+
+    # India Frameworks
+    "dpdp": "India Digital Personal Data Protection Act (DPDP 2023)",
+    "india_dpdp": "India Digital Personal Data Protection Act (DPDP 2023)",
+    "cert_in": "India CERT-In Directives (2022/68)",
+    "india_cert_in": "India CERT-In Directives (2022/68)",
+
+    # International
+    "iso27001": "ISO/IEC 27001:2022 ISMS",
+    "iso_27001": "ISO/IEC 27001:2022 ISMS",
+    "international_iso27001": "ISO/IEC 27001:2022 ISMS",
+    "iso": "ISO/IEC 27001:2022 ISMS",
+
+    # US / Industry Standards
+    "hipaa": "US HIPAA Security & Privacy Rule",
+    "us_hipaa": "US HIPAA Security & Privacy Rule",
+    "pci_dss": "PCI-DSS v4.0.1",
+    "pci_dss_v4": "PCI-DSS v4.0.1",
+    "us_pci_dss_v4": "PCI-DSS v4.0.1",
+    "pci": "PCI-DSS v4.0.1",
+    "soc2": "AICPA SOC 2 Type II",
+    "us_soc2": "AICPA SOC 2 Type II",
+    "cisa_cpg": "CISA Cross-Sector Cybersecurity Performance Goals",
+    "us_cisa_cpg": "CISA Cross-Sector Cybersecurity Performance Goals",
+
+    # OWASP
+    "owasp_asvs": "OWASP Application Security Verification Standard (ASVS v5.0)",
+    "asvs": "OWASP Application Security Verification Standard (ASVS v5.0)",
+    "asvs_v5": "OWASP Application Security Verification Standard (ASVS v5.0)",
+    "owasp_asvs_v5": "OWASP Application Security Verification Standard (ASVS v5.0)",
+    "owasp_wstg": "OWASP Web Security Testing Guide (WSTG v4.2)",
+    "wstg_v42": "OWASP Web Security Testing Guide (WSTG v4.2)",
+    "owasp_wstg_v42": "OWASP Web Security Testing Guide (WSTG v4.2)",
+    "top10_web": "OWASP Top 10 Web Application Security Risks",
+    "owasp_top10_web": "OWASP Top 10 Web Application Security Risks",
+    "llm_top10": "OWASP Top 10 for LLM Applications",
+    "owasp_llm_top10": "OWASP Top 10 for LLM Applications",
+    "masvs": "OWASP Mobile Application Security Verification Standard",
+    "owasp_masvs": "OWASP Mobile Application Security Verification Standard",
+
+    # CIS / MITRE / CWE
+    "cwe": "CWE Top 25 Most Dangerous Software Weaknesses",
+    "cwe_v4": "CWE Top 25 Most Dangerous Software Weaknesses",
+    "cwe_top25": "CWE Top 25 Most Dangerous Software Weaknesses",
+    "aws_foundations": "CIS AWS Foundations Benchmark v3.0",
+    "cis_aws_foundations": "CIS AWS Foundations Benchmark v3.0",
+    "k8s": "CIS Kubernetes Benchmark v1.8",
+    "cis_k8s": "CIS Kubernetes Benchmark v1.8",
+    "atlas": "MITRE ATLAS (AI Threat Landscape)",
+    "mitre_atlas": "MITRE ATLAS (AI Threat Landscape)",
+    "attack": "MITRE ATT&CK Enterprise Matrix",
+    "mitre_attack": "MITRE ATT&CK Enterprise Matrix",
+}
+
+
+def resolve_canonical_framework_name(md_content: str = "", jurisdiction: str = None, framework: str = None) -> str:
+    """
+    Accurately resolves the formal framework display name.
+    Prioritizes explicit headers in markdown report content over generic defaults.
+    """
+    def _match_key(candidate: str) -> str | None:
+        if not candidate:
+            return None
+        c_clean = candidate.strip().strip("`").strip("*").strip()
+        # Strip trailing jurisdiction tag in parentheses e.g. "ISO_27001 (INTERNATIONAL)" -> "ISO_27001"
+        c_no_paren = re.sub(r'\s*\([A-Za-z0-9_\-/\. ]+\)\s*$', '', c_clean).strip()
+        norm_key = re.sub(r'[^a-z0-9]', '_', c_no_paren.lower()).strip('_')
+        if norm_key in FRAMEWORK_DISPLAY_NAMES:
+            return FRAMEWORK_DISPLAY_NAMES[norm_key]
+        
+        norm_raw = re.sub(r'[^a-z0-9]', '_', c_clean.lower()).strip('_')
+        if norm_raw in FRAMEWORK_DISPLAY_NAMES:
+            return FRAMEWORK_DISPLAY_NAMES[norm_raw]
+
+        for k, disp in FRAMEWORK_DISPLAY_NAMES.items():
+            if k == norm_key or (len(k) >= 4 and (k in norm_key or norm_key in k)):
+                return disp
+        return None
+
+    # 1. Step 1: Scan md_content for explicit metadata headers
+    if md_content:
+        patterns = [
+            r'(?:^|\n|\|)\s*(?:\*\*|#+)?\s*(?:Target Framework Benchmark|Target Framework|Framework Benchmark|Regulatory Standard\s*/\s*Framework|Regulatory Standard|Target Regulatory Standard|Standard\s*/\s*Framework|Benchmark|Framework|Standard)\s*[:—–-]\s*[\*`]?([^\n`*|]+)[\*`]?',
+            r'(?:^|\n)\s*\|\s*(?:\*\*)?(?:Regulatory Standard\s*/\s*Framework|Regulatory Standard|Framework|Benchmark)(?:\*\*)?\s*\|\s*([^|\n]+)\|',
+            r'(?:^|\n)\s*#+\s*(?:Compliance\s+)?(?:Audit\s+)?Report\s*[—–-]\s*([^\n]+)',
+            r'(?:^|\n)\s*##\s*Framework:\s*([^\n]+)',
+            r'against\s+the\s+[`\*]?([A-Za-z0-9_\-/\. ]+?)[`\*]?\s*(?:\([A-Za-z0-9_\-/\. ]+\)\s*)?regulatory\s+framework',
+            r'####\s*Compliance\s*(?:Summary|Breakdown|Status Matrix)\s*\(([^)]+)\)',
+        ]
+        for p in patterns:
+            m = re.search(p, md_content, re.IGNORECASE)
+            if m:
+                raw_val = m.group(1).strip()
+                if raw_val and len(raw_val) <= 80 and not any(w in raw_val.lower() for w in ["obligation", "like those", "outlined in", "section", "status", "scorecard", "breakdown"]):
+                    disp = _match_key(raw_val)
+                    if disp:
+                        return disp
+                    if "/" in raw_val or "—" in raw_val or "-" in raw_val:
+                        parts = re.split(r'[/—–-]', raw_val)
+                        for part in parts:
+                            d_p = _match_key(part)
+                            if d_p:
+                                return d_p
+                    if len(raw_val) >= 3 and raw_val.lower() not in ("csf", "compliance", "compliance_audit", "auto-detect", "auto-detect (smart route)", "standard"):
+                        return raw_val.strip("`* ").replace("_", " ").upper()
+
+    # 2. Step 2: Check explicit framework argument if provided and non-generic
+    if framework:
+        fw_clean = framework.strip().lower()
+        if fw_clean not in ("", "none", "csf", "compliance", "compliance_audit", "auto-detect", "auto-detect (smart route)", "standard", "unknown"):
+            disp = _match_key(framework)
+            if disp:
+                return disp
+            if jurisdiction:
+                disp_jur = _match_key(f"{jurisdiction}_{framework}")
+                if disp_jur:
+                    return disp_jur
+            return framework.replace("_", " ").upper()
+
+    # 3. Step 3: Check md_content for prominent mentions of specific frameworks
+    if md_content:
+        content_lower = md_content.lower()
+        keyword_map = [
+            ("iso 27001", "ISO/IEC 27001:2022 ISMS"),
+            ("iso27001", "ISO/IEC 27001:2022 ISMS"),
+            ("iso/iec 27001", "ISO/IEC 27001:2022 ISMS"),
+            ("gdpr", "EU General Data Protection Regulation (GDPR)"),
+            ("nis2", "EU NIS2 Directive (2022/2555)"),
+            ("dora", "Digital Operational Resilience Act (EU DORA)"),
+            ("ai act", "EU Artificial Intelligence Act (EU AI Act)"),
+            ("dpdp", "India Digital Personal Data Protection Act (DPDP 2023)"),
+            ("cert-in", "India CERT-In Directives (2022/68)"),
+            ("cert_in", "India CERT-In Directives (2022/68)"),
+            ("hipaa", "US HIPAA Security & Privacy Rule"),
+            ("pci-dss", "PCI-DSS v4.0.1"),
+            ("pci_dss", "PCI-DSS v4.0.1"),
+            ("pci dss", "PCI-DSS v4.0.1"),
+            ("soc 2", "AICPA SOC 2 Type II"),
+            ("soc2", "AICPA SOC 2 Type II"),
+            ("asvs", "OWASP Application Security Verification Standard (ASVS v5.0)"),
+            ("sp 800-63b", "NIST SP 800-63B Authentication & Lifecycle (Rev 4)"),
+            ("sp_800_63b", "NIST SP 800-63B Authentication & Lifecycle (Rev 4)"),
+            ("800-63b", "NIST SP 800-63B Authentication & Lifecycle (Rev 4)"),
+            ("800_63b", "NIST SP 800-63B Authentication & Lifecycle (Rev 4)"),
+            ("sp 800-53", "NIST SP 800-53 Rev 5 Security & Privacy Controls"),
+            ("ai rmf", "NIST AI Risk Management Framework 1.0 (AI RMF)"),
+            ("cisa cpg", "CISA Cross-Sector Cybersecurity Performance Goals"),
+            ("cwe", "CWE Top 25 Most Dangerous Software Weaknesses"),
+            ("aws foundations", "CIS AWS Foundations Benchmark v3.0"),
+            ("kubernetes benchmark", "CIS Kubernetes Benchmark v1.8"),
+        ]
+        for kw, disp in keyword_map:
+            if kw in content_lower:
+                return disp
+
+    # 4. Final fallback
+    if framework and framework.lower() not in ("", "none", "compliance", "compliance_audit", "auto-detect", "auto-detect (smart route)"):
+        disp = _match_key(framework)
+        if disp:
+            return disp
+        return framework.replace("_", " ").upper()
+
+    return "NIST Cybersecurity Framework 2.0 (CSF 2.0)"
+
+
+def is_control_heading(line: str) -> bool:
+    """Returns True if the line represents an actual control item header."""
+    s = line.strip()
+    if s.startswith(("🔹", "🔸", "#### 🔹", "### 🔹", "- 🔹", "* 🔹")):
+        return True
+    if s.startswith("#### `") or s.startswith("### `"):
+        return True
+    if s.startswith("#### ") and any(sep in s for sep in ["—", "–", " - "]):
+        clean = strip_all_markdown_and_emojis(s).lower()
+        if not any(k in clean for k in ["compliance breakdown", "scorecard", "summary", "action required"]):
+            return True
+    return False
+
+
 def extract_canonical_control_id(raw_text: str) -> str:
     """
     STRICT CONTROL ID EXTRACTOR:
     Extracts ONLY the formal statutory or technical control identifier
     (e.g., Recital 91, Article 32, 34.3.a, 6.3.257, PR.AC-1, ID.GV-1, A.8.1, REQ-01, CWE-89).
     """
-    cleaned = strip_all_markdown_and_emojis(raw_text)
+    cleaned = strip_all_markdown_and_emojis(raw_text).strip()
     
     if '—' in cleaned:
         cleaned = cleaned.split('—')[0].strip()
     elif '–' in cleaned:
         cleaned = cleaned.split('–')[0].strip()
-    elif ':' in cleaned and not cleaned.lower().startswith('http'):
+    elif ':' in cleaned and not cleaned.lower().startswith(('http:', 'https:')):
         cleaned = cleaned.split(':')[0].strip()
         
-    cleaned = cleaned.strip(' \t')
+    cleaned = cleaned.strip(' \t`*')
     
     patterns = [
         r'\b(NIST\s+SP\s+800-\d+\s+[A-Z]{2}-\d+)\b',
+        r'\b(SP_800_63B_R4-REQ-\d+)\b',
         r'\b([A-Z]{2,4}\.[A-Z]{2,4}-\d+(?:\.\d+)?)\b',
         r'\b(Recital\s+\d+)\b',
-        r'\b(Article\s+\d+(?:\.\d+)?(?:\([a-z0-9]+\))?)\b',
-        r'\b(Art\.?\s*\d+(?:\.\d+)?(?:\([a-z0-9]+\))?)\b',
+        r'\b(Article\s+[\d\.]+(?:\([a-z0-9]+\))?)\b',
+        r'\b(Art\.?\s*[\d\.]+(?:\([a-z0-9]+\))?)\b',
+        r'\b(Preambule\.?\d*)\b',
+        r'\b(WSTG-[A-Z]+-\d+)\b',
         r'\b([A-Z]\.\d+\.\d+(?:\.\d+)?)\b',
         r'\b(REQ-\d+)\b',
         r'\b(CWE-\d+)\b',
-        r'\b(ASVS-\d+\.\d+(?:\.\d+)?)\b',
+        r'\b(ASVS-[A-Za-z0-9\.\-]+)\b',
         r'\b(\d+\.\d+(?:\.[a-z0-9]+)?(?:\.[a-z0-9]+)?)\b',
         r'\b(GAP-\d+)\b',
         r'\b([A-Z]{2,4}-\d+)\b'
@@ -367,7 +595,7 @@ def extract_canonical_control_id(raw_text: str) -> str:
         m = re.search(p, cleaned, re.IGNORECASE)
         if m:
             return m.group(1).strip()
-    return cleaned[:25]
+    return cleaned[:30]
 
 
 def extract_audit_findings_matrix(md_content: str, jurisdiction: str = "nist", framework: str = "csf") -> list[dict]:
@@ -377,37 +605,10 @@ def extract_audit_findings_matrix(md_content: str, jurisdiction: str = "nist", f
     Handles section-grouped findings, runtime probes, markdown tables, and headings.
     """
     raw_lines = md_content.split('\n')
-    norm_lines = []
-    current_t_row = ""
-    for r_line in raw_lines:
-        s_line = r_line.strip()
-        if not s_line:
-            if current_t_row:
-                norm_lines.append(current_t_row)
-                current_t_row = ""
-            continue
-        if s_line.startswith('|'):
-            if current_t_row:
-                if current_t_row.count('|') >= 3 and current_t_row.endswith('|'):
-                    norm_lines.append(current_t_row)
-                    current_t_row = s_line
-                else:
-                    current_t_row += " " + s_line
-            else:
-                current_t_row = s_line
-        elif current_t_row:
-            current_t_row += " " + s_line
-        else:
-            norm_lines.append(s_line)
-    if current_t_row:
-        norm_lines.append(current_t_row)
-
     findings = []
 
-    # Strategy 1: Section-grouped Headings
+    # Strategy 1: Section-grouped Headings & Bullet items
     current_section_status = None
-    current_section_priority = None
-
     lines = md_content.split('\n')
     i = 0
     while i < len(lines):
@@ -415,110 +616,93 @@ def extract_audit_findings_matrix(md_content: str, jurisdiction: str = "nist", f
         clean_line = line.lstrip('#').strip().lower()
         
         is_section_header = (
-            (line.startswith('#') or clean_line.startswith(('✅', '⚠️', '❌', '⛔')))
+            (line.startswith('#') or clean_line.endswith('controls:') or clean_line.endswith('controls'))
             and not clean_line.startswith(('*', '-', '•', '`', '🔹', '🔸'))
-            and any(k in clean_line for k in ['control', 'matrix', 'finding', 'gap', 'scope'])
+            and any(k in clean_line for k in ['control', 'matrix', 'finding', 'gap', 'scope', 'compliant'])
         )
         
         if is_section_header:
             if any(w in clean_line for w in ['not compliant', 'non-compliant', 'gaps / not compliant', 'gaps']):
                 current_section_status = 'Not Compliant'
-                current_section_priority = 'High (P0)'
             elif any(w in clean_line for w in ['partially compliant', 'partial']):
                 current_section_status = 'Partially Compliant'
-                current_section_priority = 'Medium (P1)'
             elif any(w in clean_line for w in ['fully compliant', 'compliant']) and not any(w in clean_line for w in ['not', 'non', 'gap']):
                 current_section_status = 'Fully Compliant'
-                current_section_priority = 'Closed'
             elif any(w in clean_line for w in ['evaluated scope', 'not applicable', 'pre-implementation']):
                 current_section_status = 'Not Applicable'
-                current_section_priority = 'Low (P2)'
 
-        if line.startswith('🔹') or (line.startswith('#### ') and ('🔹' in line or '—' in line or '–' in line or ':' in line)) or ((line.startswith('### ') or line.startswith('- **') or line.startswith('* **')) and current_section_status is not None and ('—' in line or '–' in line or ':' in line)):
-            raw_heading = re.sub(r'^[#\-\*\s]+', '', line).strip()
-            if not any(k in raw_heading.lower() for k in [
-                'credential & secret', 'dependency & cve', 'dynamic control inspection', 
-                'compliance breakdown', 'summary', 'static security', 'source docs', 
-                'target framework', 'client id', 'timestamp', 'fully compliant controls', 
-                'partially compliant controls', 'not compliant controls', 'gaps / not compliant',
-                'evaluated scope', 'action required', 'executive summary', 'scorecard'
-            ]):
-                cid = extract_canonical_control_id(raw_heading)
-                if cid.lower() in ['fully compliant', 'partially compliant', 'not compliant', 'evaluated scope', 'none', 'n/a']:
-                    i += 1
-                    continue
-                
-                title_part = ''
-                if '—' in raw_heading:
-                    title_part = raw_heading.split('—', 1)[1].strip()
-                elif '–' in raw_heading:
-                    title_part = raw_heading.split('–', 1)[1].strip()
-                elif '**:' in raw_heading:
-                    title_part = raw_heading.split('**:', 1)[1].strip()
-                elif ':' in raw_heading and not raw_heading.startswith(('http:', 'https:')):
-                    title_part = raw_heading.split(':', 1)[1].strip()
-                elif '-' in raw_heading:
-                    title_part = raw_heading.split('-', 1)[1].strip()
+        if is_control_heading(line):
+            raw_heading = re.sub(r'^[#\-\*\s🔹🔸]+', '', line).strip()
+            cid = extract_canonical_control_id(raw_heading)
+            
+            # Extract title
+            title_part = ''
+            if '—' in raw_heading:
+                title_part = raw_heading.split('—', 1)[1].strip()
+            elif '–' in raw_heading:
+                title_part = raw_heading.split('–', 1)[1].strip()
+            elif ':' in raw_heading and not raw_heading.startswith(('http:', 'https:')):
+                title_part = raw_heading.split(':', 1)[1].strip()
+            else:
+                title_part = raw_heading
+            clean_title = strip_all_markdown_and_emojis(title_part)
+            
+            body_lines = []
+            j = i + 1
+            while j < len(lines):
+                nxt = lines[j].strip()
+                if is_control_heading(nxt) or (nxt.startswith(('### ', '## ')) and not nxt.startswith('####')) or nxt.startswith('---') or (nxt.lower().endswith('controls:') and any(k in nxt.lower() for k in ['compliant', 'gaps', 'not compliant'])):
+                    break
+                body_lines.append(nxt)
+                j += 1
+            body_text = '\n'.join(body_lines)
+
+            # A control-level status is authoritative
+            m_status = re.search(r'(?:^|\n)\s*(?:-\s*)?(?:\*\*)?Status(?:\*\*)?:\s*([^\n]+)', body_text, re.IGNORECASE)
+            item_status = strip_all_markdown_and_emojis(m_status.group(1)) if m_status else (current_section_status or 'No Evidence Found')
+
+            # Rationale extraction (supports both sub-bullets and multi-line plain text blocks)
+            rationale_parts = []
+            audit_bullets = re.findall(r'(?:^|\n)\s*(?:[-*]\s*)?(?:\*\*)?(?:Audit Finding|Control Requirement|Potential Risks|Technical Restrictions|Evidence & Scan Details|Auditor Explanation|Rationale|Detail)(?:\*\*)?:\s*([^\n]+)', body_text, re.IGNORECASE)
+            if audit_bullets:
+                rationale_parts.extend([strip_all_markdown_and_emojis(b) for b in audit_bullets if strip_all_markdown_and_emojis(b)])
+            
+            if not rationale_parts:
+                m_exp = re.search(r'(?:^|\n)\s*(?:[-*]\s*)?(?:\*\*)?(?:Auditor Explanation|Rationale|Explanation|Detail)(?:\*\*)?:\s*([\s\S]+?)(?=\n\s*(?:-\s*)?(?:\*\*)?(?:Client Remediation|Remediation|Evidence Source|Status)|\Z)', body_text, re.IGNORECASE)
+                if m_exp:
+                    rationale_parts.append(strip_all_markdown_and_emojis(m_exp.group(1)))
+
+            rationale = ' '.join(rationale_parts) if rationale_parts else f'Evaluated safeguard requirement for {clean_title}.'
+
+            # Remediation extraction
+            m_rem = re.search(r'(?:^|\n)\s*(?:[-*]\s*)?(?:\*\*)?(?:Client Remediation Plan|Recommended Remediation|Remediation|Recommendation)(?:\*\*)?:\s*([\s\S]+?)(?=\n\s*(?:-\s*)?(?:\*\*)?(?:Evidence Source|Status)|\Z)', body_text, re.IGNORECASE)
+            if m_rem:
+                rem_raw = m_rem.group(1).strip()
+                rem_bullets = re.findall(r'\*\s*([^\n]+)', rem_raw)
+                if rem_bullets:
+                    remediation = ' '.join([strip_all_markdown_and_emojis(b) for b in rem_bullets if strip_all_markdown_and_emojis(b)])
                 else:
-                    title_part = raw_heading
-                clean_title = strip_all_markdown_and_emojis(title_part)
-                if not clean_title or clean_title.lower() in ['fully compliant', 'partially compliant', 'not compliant', 'none', 'n/a']:
-                    i += 1
-                    continue
+                    remediation = strip_all_markdown_and_emojis(rem_raw)
+            else:
+                remediation = 'Maintain verified baseline.' if item_status == 'Fully Compliant' else 'Implement required safeguards to achieve compliance.'
 
-                body_lines = []
-                j = i + 1
-                while j < len(lines):
-                    nxt = lines[j].strip()
-                    if nxt.startswith('🔹') or nxt.startswith('#### ') or (nxt.startswith('### ') and not nxt.startswith('####')) or nxt.startswith('---') or (nxt.startswith(('- **', '* **')) and (':' in nxt or '—' in nxt)) or any(w in nxt.lower() for w in ['fully compliant controls', 'partially compliant controls', 'not compliant controls', 'gaps / not compliant']):
-                        break
-                    body_lines.append(nxt)
-                    j += 1
-                body_text = '\n'.join(body_lines)
+            findings.append({
+                'control_id': cid,
+                'title': clean_title,
+                'status': item_status,
+                'rationale': rationale,
+                'remediation': remediation
+            })
+            i = j - 1
 
-                m_detail = re.search(r'\*Detail:\*\s*([^\n]+)', body_text, re.IGNORECASE)
-                if m_detail:
-                    rationale = strip_all_markdown_and_emojis(m_detail.group(1))
-                else:
-                    m_audit = re.findall(r'(?:\*\*Audit Finding:\*\*|Audit Finding:|\*\*Auditor Explanation:\*\*|Auditor Explanation:|\*\*Technical Restrictions:\*\*|Technical Restrictions:|\*\*Control Requirement:\*\*|Control Requirement:)\s*([^\n]+)', body_text)
-                    if m_audit:
-                        cleaned_chunks = [strip_all_markdown_and_emojis(chunk) for chunk in m_audit if strip_all_markdown_and_emojis(chunk)]
-                        rationale = ' '.join(cleaned_chunks)
-                    else:
-                        m_rat = re.search(r'-\s*\*\*(?:Rationale|Auditor Explanation|Details):\*\*\s*([^\n]+)', body_text, re.IGNORECASE)
-                        rationale = strip_all_markdown_and_emojis(m_rat.group(1)) if m_rat else f'Evaluated safeguard requirement for {clean_title}.'
-
-                m_rem_detail = re.search(r'\*Remediation:\*\s*([^\n]+)', body_text, re.IGNORECASE)
-                if m_rem_detail:
-                    remediation = strip_all_markdown_and_emojis(m_rem_detail.group(1))
-                else:
-                    m_rem = re.search(r'(?:\*\*Client Remediation Plan:\*\*|Client Remediation Plan:)\s*([\s\S]+?)(?=(?:\n\s*[-*]\s*\*\*Evidence Source:\*\*|\n\s*[-*]\s*\*\*|\n\s*####|\n\s*🔹|\n\s*###|\Z))', body_text, re.IGNORECASE)
-                    if m_rem:
-                        remediation = strip_all_markdown_and_emojis(m_rem.group(1))
-                    else:
-                        m_rem2 = re.search(r'(?:\*\*Recommended Remediation:\*\*|Recommended Remediation:|\*\*Remediation:\*\*|Remediation:)\s*([^\n]+)', body_text, re.IGNORECASE)
-                        if m_rem2:
-                            remediation = strip_all_markdown_and_emojis(m_rem2.group(1))
-                        else:
-                            remediation = 'Maintain verified baseline.' if current_section_status == 'Fully Compliant' else 'Implement required safeguards to achieve compliance.'
-
-                findings.append({
-                    'control_id': cid,
-                    'title': clean_title,
-                    'status': current_section_status or 'Compliant',
-                    'rationale': rationale[:450],
-                    'remediation': remediation[:450]
-                })
-
-        if line.startswith('- **') and ('—' in line or '–' in line) and ':' in line:
-            m_probe = re.match(r'-\s*\*\*([A-Za-z0-9_\.\-]+)\s*[—–-]\s*([^\*]+)\*\*:\s*([^\n]+)', line)
+        elif line.startswith(('- **', '* **')) and ('—' in line or '–' in line) and ':' in line:
+            m_probe = re.match(r'^[-*]\s*\*\*([A-Za-z0-9_\.\-]+)\s*[—–-]\s*([^\*]+)\*\*:\s*([^\n]+)', line)
             if m_probe:
                 p_cid = extract_canonical_control_id(m_probe.group(1))
                 p_title = strip_all_markdown_and_emojis(m_probe.group(2))
                 p_status_raw = m_probe.group(3).strip()
-
-                status_val = 'Not Compliant' if 'fail' in p_status_raw.lower() else ('Untested' if 'no_data' in p_status_raw.lower() else 'Compliant')
-
+                status_val = 'Not Compliant' if 'fail' in p_status_raw.lower() else ('Untested' if any(w in p_status_raw.lower() for w in ['untested', 'nodata', 'no_data']) else 'Compliant')
+                
                 findings.append({
                     'control_id': p_cid,
                     'title': p_title,
@@ -531,7 +715,7 @@ def extract_audit_findings_matrix(md_content: str, jurisdiction: str = "nist", f
 
     # Strategy 2: Table-based Findings Matrix
     if not findings:
-        table_lines = [l.strip() for l in norm_lines if l.strip().startswith('|') and l.strip().endswith('|')]
+        table_lines = [l.strip() for l in raw_lines if l.strip().startswith('|') and l.strip().endswith('|')]
         if len(table_lines) > 2:
             rows = [t for t in table_lines if not re.match(r'^\|[-:| ]+\|$', t)]
             if len(rows) > 1:
@@ -582,12 +766,12 @@ def extract_audit_findings_matrix(md_content: str, jurisdiction: str = "nist", f
                 status = strip_all_markdown_and_emojis(m_st.group(1))
 
             rationale = "Safeguard controls evaluated against standard baseline."
-            m_exp = re.search(r'-\s*\*\*(?:Rationale|Auditor Explanation|Details|Explanation)\*\*:\s*([^\n]+)', body, re.IGNORECASE)
+            m_exp = re.search(r'-\s*\*\*(?:Rationale|Auditor Explanation|Details|Explanation):\*\*\s*([\s\S]+?)(?=\n\s*-\s*\*\*|\Z)', body, re.IGNORECASE)
             if m_exp:
                 rationale = strip_all_markdown_and_emojis(m_exp.group(1))
 
             remediation = "Maintain verified baseline." if "Compliant" in status and "Not" not in status else "Implement required safeguards."
-            m_rem = re.search(r'-\s*\*\*(?:Recommended remediation|Remediation|Recommendation)\*\*:\s*([^\n]+)', body, re.IGNORECASE)
+            m_rem = re.search(r'-\s*\*\*(?:Recommended remediation|Remediation|Recommendation|Client Remediation Plan):\*\*\s*([\s\S]+?)(?=\n\s*-\s*\*\*|\Z)', body, re.IGNORECASE)
             if m_rem:
                 remediation = strip_all_markdown_and_emojis(m_rem.group(1))
 
@@ -749,30 +933,8 @@ def render_template_docx_bytes(md_content: str, jurisdiction: str = "nist", fram
         r_t.font.bold = True
         r_t.font.color.rgb = RGBColor(0x1E, 0x3A, 0x8A)
 
-    detected_fw = None
-    for p_fw in [
-        r'(?:Target Framework Benchmark|Framework Benchmark|Target Framework)[:\s*]+`?([^|\n`]+)',
-        r'(?:Framework|Standard)[:\s*]+`?([^|\n`]+)'
-    ]:
-        m_f = re.search(p_fw, md_content, re.IGNORECASE)
-        if m_f and m_f.group(1).strip() and not m_f.group(1).strip().lower().startswith(('status', 'matrix', 'summary', 'audit')):
-            detected_fw = strip_all_markdown_and_emojis(m_f.group(1))
-            break
-    if not detected_fw:
-        detected_fw = f"{jurisdiction.upper()}/{framework.upper()}"
-
-    detected_client = None
-    for p_cl in [
-        r'(?:Repository Target|Target Repository)[:\s*]+`?([^|\n`]+)',
-        r'(?:Client ID|Platform|Target Application|System)[:\s*]+`?([^|\n`]+)',
-        r'Client[:\s*]+`?([^|\n`]+)'
-    ]:
-        m_c = re.search(p_cl, md_content, re.IGNORECASE)
-        if m_c and m_c.group(1).strip() and not m_c.group(1).strip().lower().startswith(('remediation', 'plan', 'assessment', 'id:')):
-            detected_client = strip_all_markdown_and_emojis(m_c.group(1))
-            break
-    if not detected_client:
-        detected_client = "Client_Application_v1.0"
+    detected_fw = resolve_canonical_framework_name(md_content, jurisdiction=jurisdiction, framework=framework)
+    detected_client = extract_target_entity_name(md_content, fallback="Client_Application_v1.0")
 
     t_meta = doc.add_table(rows=4, cols=2)
     t_meta.style = 'Table Grid'
@@ -780,7 +942,7 @@ def render_template_docx_bytes(md_content: str, jurisdiction: str = "nist", fram
         ("Client / Target Application", detected_client),
         ("Regulatory Standard / Framework", detected_fw),
         ("Audit Generation Timestamp (UTC)", datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC")),
-        ("Assessor & Verification", "ComplianceMesh Multi-Agent Pipeline | Verified (Nemotron 3 Ultra)"),
+        ("Assessment Method", "Automated evidence assessment | Human review required"),
     ]
     for idx, (k, v) in enumerate(meta_rows):
         row = t_meta.rows[idx]
@@ -856,7 +1018,8 @@ def render_template_docx_bytes(md_content: str, jurisdiction: str = "nist", fram
 
     doc.add_heading("4. Remediation Action Plan & Engineering Milestones", level=2)
     
-    action_items = [f for f in findings if f.get("status") in ("Not Compliant", "Partially Compliant", "Untested", "No Evidence Found")]
+    action_items = [f for f in findings if f.get("status") in ("Not Compliant", "Partially Compliant", "Untested")]
+    evidence_gap_items = [f for f in findings if f.get("status") == "No Evidence Found"]
     cat_auth = [f["control_id"] for f in action_items if any(k in f["title"].lower() or k in f["rationale"].lower() or k in f["remediation"].lower() for k in ["auth", "rbac", "admin", "token", "jwt", "password", "session", "access"])]
     cat_crypto = [f["control_id"] for f in action_items if f["control_id"] not in cat_auth and any(k in f["title"].lower() or k in f["rationale"].lower() or k in f["remediation"].lower() for k in ["encrypt", "aes", "cipher", "crypto", "tls", "https", "sanitiz", "validat"])]
     cat_logs = [f["control_id"] for f in action_items if f["control_id"] not in cat_auth and f["control_id"] not in cat_crypto and any(k in f["title"].lower() or k in f["rationale"].lower() or k in f["remediation"].lower() for k in ["log", "audit", "trail", "monitor", "event", "breach"])]
@@ -871,6 +1034,8 @@ def render_template_docx_bytes(md_content: str, jurisdiction: str = "nist", fram
         road_rows.append(("Security Logging & Audit Trails", ", ".join(cat_logs), "Implement persistent security event logging, tamper-evident audit trails, and timely incident detection."))
     if cat_gov:
         road_rows.append(("Governance & Procedural Verification", ", ".join(cat_gov), "Formalize operational procedures, data subject request (DSAR) workflows, and documented compliance policies."))
+    if evidence_gap_items:
+        road_rows.append(("Evidence Collection & Verification", ", ".join(f["control_id"] for f in evidence_gap_items), "Collect control-specific implementation evidence or authorized test results before making a compliance determination."))
     
     if not road_rows:
         road_rows.append(("Baseline Maintenance", "All Controls", "Maintain existing verified technical safeguards and continue periodic review cycles."))
@@ -960,30 +1125,8 @@ def render_pdf_report_bytes(md_content: str, jurisdiction: str = "nist", framewo
     from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 
     # 1. Metadata Extraction
-    detected_fw = None
-    for p_fw in [
-        r'(?:Target Framework Benchmark|Framework Benchmark|Target Framework)[:\s*]+`?([^|\n`]+)',
-        r'(?:Framework|Standard)[:\s*]+`?([^|\n`]+)'
-    ]:
-        m_f = re.search(p_fw, md_content, re.IGNORECASE)
-        if m_f and m_f.group(1).strip() and not m_f.group(1).strip().lower().startswith(('status', 'matrix', 'summary', 'audit')):
-            detected_fw = strip_all_markdown_and_emojis(m_f.group(1))
-            break
-    if not detected_fw:
-        detected_fw = f"{jurisdiction.upper()}/{framework.upper()}"
-
-    detected_client = None
-    for p_cl in [
-        r'(?:Repository Target|Target Repository)[:\s*]+`?([^|\n`]+)',
-        r'(?:Client ID|Platform|Target Application|System)[:\s*]+`?([^|\n`]+)',
-        r'Client[:\s*]+`?([^|\n`]+)'
-    ]:
-        m_c = re.search(p_cl, md_content, re.IGNORECASE)
-        if m_c and m_c.group(1).strip() and not m_c.group(1).strip().lower().startswith(('remediation', 'plan', 'assessment', 'id:')):
-            detected_client = strip_all_markdown_and_emojis(m_c.group(1))
-            break
-    if not detected_client:
-        detected_client = "Client_Application_v1.0"
+    detected_fw = resolve_canonical_framework_name(md_content, jurisdiction=jurisdiction, framework=framework)
+    detected_client = extract_target_entity_name(md_content, fallback="Client_Application_v1.0")
 
     findings = extract_audit_findings_matrix(md_content, jurisdiction=jurisdiction, framework=framework)
 
@@ -1100,7 +1243,7 @@ def render_pdf_report_bytes(md_content: str, jurisdiction: str = "nist", framewo
         [Paragraph("Client / Target Application", bold_style), Paragraph(detected_client, body_style)],
         [Paragraph("Regulatory Standard / Framework", bold_style), Paragraph(detected_fw, body_style)],
         [Paragraph("Audit Generation Timestamp (UTC)", bold_style), Paragraph(datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC"), body_style)],
-        [Paragraph("Assessor & Verification", bold_style), Paragraph("ComplianceMesh Multi-Agent Pipeline | Verified (Nemotron 3 Ultra)", body_style)],
+        [Paragraph("Assessment Method", bold_style), Paragraph("Automated evidence assessment | Human review required", body_style)],
     ]
     t_meta = Table(meta_data, colWidths=[200, 520])
     t_meta.setStyle(TableStyle([
@@ -1130,7 +1273,8 @@ def render_pdf_report_bytes(md_content: str, jurisdiction: str = "nist", framewo
     cnt_f = sum(1 for f in findings if 'Fully' in f['status'])
     cnt_p = sum(1 for f in findings if 'Partially' in f['status'])
     cnt_n = sum(1 for f in findings if 'Not' in f['status'])
-    cnt_na = sum(1 for f in findings if any(k in f['status'].lower() for k in ['applicable', 'untested', 'pre-implementation', 'design']))
+    cnt_no_evidence = sum(1 for f in findings if "no evidence" in f["status"].lower())
+    cnt_na = sum(1 for f in findings if any(k in f["status"].lower() for k in ["applicable", "untested", "pre-implementation", "design"]))
     tot_assess = cnt_f + cnt_p + cnt_n
     
     pct_f = f"{(cnt_f / tot_assess * 100):.1f}%" if tot_assess > 0 else "0.0%"
@@ -1142,6 +1286,7 @@ def render_pdf_report_bytes(md_content: str, jurisdiction: str = "nist", framewo
         [Paragraph("Fully Compliant", status_styles['Fully Compliant']), Paragraph(str(cnt_f), bold_style), Paragraph(pct_f, body_style)],
         [Paragraph("Partially Compliant", status_styles['Partially Compliant']), Paragraph(str(cnt_p), bold_style), Paragraph(pct_p, body_style)],
         [Paragraph("Not Compliant", status_styles['Not Compliant']), Paragraph(str(cnt_n), bold_style), Paragraph(pct_n, body_style)],
+        [Paragraph("No Evidence Found", status_styles["Not Applicable"]), Paragraph(str(cnt_no_evidence), bold_style), Paragraph("Not a non-compliance verdict", body_style)],
         [Paragraph("Evaluated Scope Items / Not Applicable", status_styles['Not Applicable']), Paragraph(str(cnt_na), bold_style), Paragraph("—", body_style)],
     ]
     t_score = Table(score_data, colWidths=[260, 160, 300])
@@ -1180,8 +1325,8 @@ def render_pdf_report_bytes(md_content: str, jurisdiction: str = "nist", framewo
             Paragraph(f['remediation'], body_style)
         ])
 
-    # Widths: 90 + 140 + 100 + 210 + 180 = 720 pt
-    t_matrix = Table(matrix_data, colWidths=[90, 140, 100, 210, 180], repeatRows=1)
+    # Widths: 80 + 130 + 90 + 230 + 190 = 720 pt
+    t_matrix = Table(matrix_data, colWidths=[80, 130, 90, 230, 190], repeatRows=1)
     t_matrix_style = [
         ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#1E3A8A')),
         ('GRID', (0, 0), (-1, -1), 0.5, colors.HexColor('#CBD5E1')),
@@ -1201,7 +1346,8 @@ def render_pdf_report_bytes(md_content: str, jurisdiction: str = "nist", framewo
     # Table 4: Actionable Remediation Roadmap & Engineering Milestones (Width = 720 pt)
     elements.append(Paragraph("4. Remediation Action Plan & Engineering Milestones", h2_style))
     
-    action_items = [f for f in findings if f.get("status") in ("Not Compliant", "Partially Compliant", "Untested", "No Evidence Found")]
+    action_items = [f for f in findings if f.get("status") in ("Not Compliant", "Partially Compliant", "Untested")]
+    evidence_gap_items = [f for f in findings if f.get("status") == "No Evidence Found"]
     cat_auth = [f["control_id"] for f in action_items if any(k in f["title"].lower() or k in f["rationale"].lower() or k in f["remediation"].lower() for k in ["auth", "rbac", "admin", "token", "jwt", "password", "session", "access"])]
     cat_crypto = [f["control_id"] for f in action_items if f["control_id"] not in cat_auth and any(k in f["title"].lower() or k in f["rationale"].lower() or k in f["remediation"].lower() for k in ["encrypt", "aes", "cipher", "crypto", "tls", "https", "sanitiz", "validat"])]
     cat_logs = [f["control_id"] for f in action_items if f["control_id"] not in cat_auth and f["control_id"] not in cat_crypto and any(k in f["title"].lower() or k in f["rationale"].lower() or k in f["remediation"].lower() for k in ["log", "audit", "trail", "monitor", "event", "breach"])]
@@ -1216,6 +1362,8 @@ def render_pdf_report_bytes(md_content: str, jurisdiction: str = "nist", framewo
         road_rows.append([Paragraph("Security Logging & Audit Trails", bold_style), Paragraph(", ".join(cat_logs), body_style), Paragraph("Implement persistent security event logging, tamper-evident audit trails, and timely incident detection.", body_style)])
     if cat_gov:
         road_rows.append([Paragraph("Governance & Procedural Verification", bold_style), Paragraph(", ".join(cat_gov), body_style), Paragraph("Formalize operational procedures, data subject request (DSAR) workflows, and documented compliance policies.", body_style)])
+    if evidence_gap_items:
+        road_rows.append([Paragraph("Evidence Collection & Verification", bold_style), Paragraph(", ".join(f["control_id"] for f in evidence_gap_items), body_style), Paragraph("Collect control-specific implementation evidence or authorized test results before making a compliance determination.", body_style)])
     
     if not road_rows:
         road_rows.append([Paragraph("Baseline Maintenance", bold_style), Paragraph("All Controls", body_style), Paragraph("Maintain existing verified technical safeguards and continue periodic review cycles.", body_style)])
@@ -1241,8 +1389,9 @@ def render_pdf_report_bytes(md_content: str, jurisdiction: str = "nist", framewo
     # 5. Verification Sign-Off
     elements.append(Paragraph("5. Verification & Auditor Sign-Off", h2_style))
     elements.append(Paragraph(
-        "This compliance audit artifact was synthesized by the ComplianceMesh Multi-Agent Pipeline and verified against statutory ground-truth catalogs. "
-        "All cited findings were extracted from active source code, container configurations, and runtime security probes.",
+        "This automated assessment is limited to the submitted evidence and authorized probe results. "
+        "Only explicit failed probes or directly observable insecure configurations support a Not Compliant finding. "
+        "No Evidence Found and Untested entries are evidence gaps, not compliance verdicts, and require human review.",
         body_style
     ))
 
@@ -1263,25 +1412,39 @@ def export_pdf(md_content: str, jurisdiction: str = "nist", framework: str = "cs
 
 def extract_target_entity_name(md_content: str, fallback: str = "Client_App") -> str:
     """
-    Extracts the clean repository name, zip file name, or organization name from report content.
+    Extracts the clean repository name, zip file name, staging domain, or organization name from report content.
     e.g. 'https://github.com/fleetbase/fleetbase' -> 'fleetbase'
+         'https://staging-api.fleetbase.io' -> 'fleetbase'
+         'Client / Target Application fleetbaselive' -> 'fleetbaselive'
          'my_project.zip' -> 'my_project'
          'Acme Corp' -> 'Acme_Corp'
     """
-    # 1. Search for explicit key-value pairs with colon
-    for pattern in [
-        r'(?:Repository\s+Target|Target\s+Repository|Repository|Repo)\s*:\s*`?([^|\n`]+)',
-        r'(?:Zip\s+File|Uploaded\s+File|Source\s+Archive|Target\s+Archive|Source\s+Code\s+Archive|Archive|Source|Target)\s*:\s*`?([^|\n`]+)',
-        r'(?:Organization|Org\s+Name|Company|Client\s+ID|Platform|Target\s+Application|System|Client)\s*:\s*`?([^|\n`]+)',
-    ]:
+    from urllib.parse import urlparse
+
+    # 1. Search for explicit key-value pairs with colon (handling markdown bolding ** and #)
+    patterns_colon = [
+        r'(?:^|\n|\|)\s*(?:\*\*|#+)?\s*(?:Client\s*/\s*Target\s+Application|Target\s+Application|Target\s+Repository|Repository\s+Target|Target\s+URL|Staging\s+URL|Target\s+Endpoint|Target\s+Host|Client\s+ID|Org\s+Name|Organization|Company|Repository|Platform|System|Client|Host|URL|Repo)\s*(?:\*\*)?\s*:\s*(?:\*\*)?\s*`?([^|\n`*]+)',
+        r'(?:^|\n|\|)\s*(?:\*\*|#+)?\s*(?:Zip\s+File|Uploaded\s+File|Source\s+Archive|Target\s+Archive|Source\s+Code\s+Archive|Archive|Source|Target)\s*(?:\*\*)?\s*:\s*(?:\*\*)?\s*`?([^|\n`*]+)',
+    ]
+    for pattern in patterns_colon:
         m = re.search(pattern, md_content, re.IGNORECASE)
         if m and m.group(1).strip():
             raw_val = m.group(1).strip().strip('*').strip('`').strip()
-            if not raw_val.lower().startswith(('remediation', 'plan', 'assessment', 'id:', 'scan', 'details', 'baseline', 'standard')):
-                if "github.com" in raw_val or ("/" in raw_val and not raw_val.startswith("/")):
+            if not raw_val.lower().startswith(('remediation', 'plan', 'assessment', 'id:', 'scan', 'details', 'baseline', 'standard', 'framework')):
+                if "github.com" in raw_val or "gitlab.com" in raw_val or ("/" in raw_val and not raw_val.startswith("/")):
                     clean_val = raw_val.rstrip("/").split("/")[-1].replace(".git", "")
-                    if clean_val:
+                    if clean_val and clean_val.lower() not in ("github.com", "gitlab.com"):
                         return re.sub(r'[^A-Za-z0-9_\-]', '_', clean_val)
+                if "http" in raw_val:
+                    parsed = urlparse(raw_val)
+                    host = parsed.netloc or parsed.path
+                    host_clean = host.split(":")[0]
+                    if host_clean:
+                        parts = host_clean.split(".")
+                        domain_name = parts[-2] if len(parts) >= 2 and parts[-2] not in ("staging-api", "staging", "api", "app", "dev") else parts[0]
+                        if domain_name in ("staging-api", "staging", "api", "app", "dev") and len(parts) >= 3:
+                            domain_name = parts[-2]
+                        return re.sub(r'[^A-Za-z0-9_\-]', '_', domain_name)
                 if any(ext in raw_val.lower() for ext in ['.zip', '.tar.gz', '.tgz', '.tar']):
                     m_f = re.search(r'([A-Za-z0-9_\-]+)\.(?:zip|tar\.gz|tgz|tar)', raw_val, re.IGNORECASE)
                     if m_f:
@@ -1289,13 +1452,24 @@ def extract_target_entity_name(md_content: str, fallback: str = "Client_App") ->
                 clean_val = re.sub(r'[^A-Za-z0-9_\- ]', '', raw_val).strip().replace(" ", "_")
                 if clean_val and clean_val.lower() not in ["none", "n/a", "unknown"]:
                     return clean_val
-    
-    # 2. Search for any .zip filename in the header lines
+
+    # 2. Search for plain text key-value pairs without colon (e.g. from pasted table text)
+    patterns_plain = [
+        r'(?:Client\s*/\s*Target\s+Application|Target\s+Application|Client\s+ID|Target\s+Repository)\s+([A-Za-z0-9_\-\.]+)',
+    ]
+    for pattern in patterns_plain:
+        m = re.search(pattern, md_content, re.IGNORECASE)
+        if m and m.group(1).strip():
+            raw_val = m.group(1).strip()
+            if raw_val.lower() not in ["regulatory", "standard", "framework", "none", "n/a"]:
+                return re.sub(r'[^A-Za-z0-9_\-]', '_', raw_val)
+
+    # 3. Search for any .zip filename in the header lines
     m_zip = re.search(r'([A-Za-z0-9_\-]+)\.(?:zip|tar\.gz|tgz|tar)', md_content[:2000], re.IGNORECASE)
     if m_zip:
         return m_zip.group(1)
         
-    # 3. Search for any github repo in the header lines
+    # 4. Search for any github repo in the header lines
     m_git = re.search(r'github\.com/[A-Za-z0-9_\-]+/([A-Za-z0-9_\-]+)', md_content[:2000], re.IGNORECASE)
     if m_git:
         return m_git.group(1)

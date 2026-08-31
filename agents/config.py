@@ -7,9 +7,16 @@ import os
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 import warnings
+warnings.filterwarnings("ignore")
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.filterwarnings("ignore", category=UserWarning)
-warnings.filterwarnings("ignore", message=".*max_new_tokens.*")
-warnings.filterwarnings("ignore", message=".*clean_up_tokenization_spaces.*")
+
+import logging
+logging.getLogger("transformers").setLevel(logging.ERROR)
+logging.getLogger("langchain").setLevel(logging.ERROR)
+
+import transformers
+transformers.logging.set_verbosity_error()
 
 import torch
 from sentence_transformers import SentenceTransformer
@@ -99,7 +106,10 @@ _llm_pipeline = None
 def get_langchain_llm(max_new_tokens: int = 300):
     """Wraps the local causal LM in a LangChain HuggingFacePipeline, cached to prevent CUDA OOM."""
     global _llm_pipeline
-    from langchain_community.llms import HuggingFacePipeline
+    try:
+        from langchain_huggingface import HuggingFacePipeline
+    except ImportError:
+        from langchain_community.llms import HuggingFacePipeline
     from transformers import pipeline
     
     if _llm_pipeline is None:

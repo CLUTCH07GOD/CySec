@@ -160,16 +160,7 @@ def render_focus_bar(available_fw: list[str], user_role: str = "guest", clean_re
                                     import agents.agent4_compliance_assessment as _a4
                                     import agents.config as _cfg
                                     
-                                    target_jur, target_fw = "nist", "sp_800_63b_r4"
-                                    if mode_a_framework:
-                                        if "/" in mode_a_framework:
-                                            target_jur, target_fw = mode_a_framework.split("/", 1)
-                                        elif "__" in mode_a_framework:
-                                            target_jur, target_fw = mode_a_framework.split("__", 1)
-                                        elif "_" in mode_a_framework and not mode_a_framework.startswith("nist_"):
-                                            target_jur, target_fw = mode_a_framework.split("_", 1)
-                                        else:
-                                            target_jur, target_fw = "nist", mode_a_framework.replace("nist_", "")
+                                    target_jur, target_fw = mode_b_ui.parse_mode_b_framework(mode_a_framework)
 
                                     # Extract granular evidence chunks from uploaded docs
                                     custom_evidence = coe.extract_custom_evidence_from_docs(doc_info_list, profile=profile)
@@ -234,7 +225,8 @@ def render_focus_bar(available_fw: list[str], user_role: str = "guest", clean_re
 
                                     summary_text = (
                                         f"### Architecture Document Compliance Audit Report (Mode A)\n\n"
-                                        f"**Client ID:** `{client_id_input}` | **Source Docs ({len(client_docs)}):** `{file_list_str}` | **Benchmark:** {target_fw.upper()} ({target_jur.upper()})\n\n"
+                                        f"**Client ID:** `{client_id_input}` | **Source Docs ({len(client_docs)}):** `{file_list_str}`\n"
+                                        f"**Target Framework Benchmark:** {target_fw.upper()} ({target_jur.upper()})\n\n"
                                         f"## Executive Summary\n"
                                         f"This architecture document compliance evaluation assessed the submitted documentation for `{client_id_input}` "
                                         f"against the `{target_fw.upper()}` ({target_jur.upper()}) regulatory framework. "

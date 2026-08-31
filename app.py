@@ -1810,45 +1810,26 @@ for idx, msg in enumerate(st.session_state.messages):
                         st.markdown("##### 📄 Export Compliance Report")
                         ts_str = datetime.now().strftime("%Y%m%d_%H%M%S")
                         
-                        # Intelligently extract framework title from report content
-                        fw_match = re.search(r'(?:Framework|Standard):\s*[\*`]?([A-Za-z0-9_\-/\. ]+?)[\*`]?\n', content_text, re.IGNORECASE)
-                        if fw_match:
-                            fw_raw = fw_match.group(1).strip()
-                        else:
-                            fw_title_match = re.search(r'#+\s*(?:Compliance\s+)?(?:Audit\s+)?Report\s*[—–-]\s*([A-Za-z0-9_\-/\. ]+)', content_text, re.IGNORECASE)
-                            if fw_title_match:
-                                fw_raw = fw_title_match.group(1).strip()
-                            else:
-                                fw_raw = st.session_state.get("active_chat_framework", "Compliance")
-                        
-                        fw_name = fw_raw.replace("/", "_").replace(" ", "_")
-                        if "auto-detect" in fw_name.lower():
-                            fw_name = "Compliance_Audit"
-                        
                         import importlib
                         import utils.report_exporter as report_exporter
                         importlib.reload(report_exporter)
-                        
-                        jur_val = "nist"
-                        fw_val = fw_raw.lower()
-                        if "/" in fw_raw:
-                            parts = fw_raw.split("/")
-                            jur_val = parts[0].strip().lower()
-                            fw_val = parts[1].strip().lower()
-                        elif "__" in fw_raw:
-                            parts = fw_raw.split("__")
-                            jur_val = parts[0].strip().lower()
-                            fw_val = parts[1].strip().lower()
 
+                        # Intelligently extract framework title and target entity from report content
+                        detected_fw_display = report_exporter.resolve_canonical_framework_name(
+                            md_content=content_text,
+                            framework=st.session_state.get("active_chat_framework", "")
+                        )
                         target_entity = report_exporter.extract_target_entity_name(content_text, fallback="Application")
-                        file_prefix = f"The_Audit_Report_of_{target_entity}_{fw_name}_{ts_str}"
+                        fw_slug = re.sub(r'[^A-Za-z0-9_-]', '_', detected_fw_display).strip('_')
+                        if not fw_slug or "auto_detect" in fw_slug.lower():
+                            fw_slug = "Compliance_Audit"
+                        file_prefix = f"The_Audit_Report_of_{target_entity}_{fw_slug}_{ts_str}"
 
                         # 1. PDF Document (.pdf) — Publication Quality
                         try:
                             pdf_data = report_exporter.render_pdf_report_bytes(
                                 md_content=content_text,
-                                jurisdiction=jur_val,
-                                framework=fw_val
+                                framework=detected_fw_display
                             )
                             st.download_button(
                                 "📕 PDF Report (.pdf)",
@@ -1866,8 +1847,7 @@ for idx, msg in enumerate(st.session_state.messages):
                         try:
                             docx_data = report_exporter.render_template_docx_bytes(
                                 md_content=content_text,
-                                jurisdiction=jur_val,
-                                framework=fw_val
+                                framework=detected_fw_display
                             )
                             st.download_button(
                                 "📘 Word Document (.docx)",
@@ -1893,7 +1873,7 @@ for idx, msg in enumerate(st.session_state.messages):
                         # 4. HTML (.html)
                         try:
                             html_data = report_exporter.HTML_TEMPLATE.format(
-                                title=f"The Audit Report of {target_entity} — {fw_raw}",
+                                title=f"The Audit Report of {target_entity} — {detected_fw_display}",
                                 body=report_exporter.markdown_to_html(content_text),
                                 export_date=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                             )
