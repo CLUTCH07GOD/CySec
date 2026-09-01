@@ -296,7 +296,7 @@ The repository houses **21 normalized, versioned control catalogs** in `structur
 
 ## Reporting & Multi-Format Export Engine
 
-Compliance reports are generated using a **Canonical Report Schema** and exported through [`utils/report_exporter.py`](file:///media/hp/New%20Volume1/Harinandan/jupyter_projects-20260803T060807Z-1-001/jupyter_projects/utils/report_exporter.py):
+Compliance reports are generated using a **Canonical Report Schema** and exported through [`utils/report_exporter.py`](utils/report_exporter.py):
 
 ```
                         ┌────────────────────────────────────────┐
@@ -386,8 +386,8 @@ Compliance reports are generated using a **Canonical Report Schema** and exporte
 ### 1. Clone and enter the repository
 
 ```bash
-git clone <your-repository-url>
-cd jupyter_projects
+git clone https://github.com/CSRL-NITK/multimodel_cybersec
+cd multimodel_cybersec
 ```
 
 ### 2. Create and activate a virtual environment
